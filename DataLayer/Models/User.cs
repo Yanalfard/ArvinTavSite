@@ -10,7 +10,7 @@ namespace DataLayer
     public class User
     {
         [Key]
-        public int ID { get; set; }
+        public int ID { get; set; } 
 
         [Display(Name = "شماره تماس")]
         public string PhoneNumber { get; set; }

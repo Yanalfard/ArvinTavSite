@@ -114,6 +114,14 @@
     <Content Include="Content\owlCarousel\owl.carousel.min.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.min.css" />
+    <Content Include="Content\Styles\Admin.css">
+      <DependentUpon>Admin.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\Admin.min.css">
+      <DependentUpon>Admin.css</DependentUpon>
+    </Content>
+    <Content Include="Content\UIkit\styles\uikit-rtl.min.css" />
+    <Content Include="Content\UIkit\styles\uikit.min.css" />
     <Content Include="fonts\fontawesome\css\all.css" />
     <Content Include="fonts\fontawesome\css\all.min.css" />
     <Content Include="fonts\fontawesome\css\brands.css" />
@@ -1698,6 +1706,7 @@
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\ArvinTavLogo.svg" />
+    <Content Include="img\gif\load.gif" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="fonts\fontawesome\less\brands.less" />
     <Content Include="fonts\fontawesome\less\fontawesome.less" />
@@ -1757,6 +1766,15 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\Index.cshtml" />
+    <Content Include="Content\Styles\_colors.scss" />
+    <Content Include="Content\Styles\_controls.scss" />
+    <Content Include="Content\Styles\_global.scss" />
+    <Content Include="Content\Styles\_layout.scss" />
+    <Content Include="Content\Styles\Admin.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -1766,6 +1784,8 @@
     <Content Include="Scripts\owlCarousel\owl.carousel.js" />
     <Content Include="Scripts\owlCarousel\owl.carousel.min.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\UIkit\uikit-icons.min.js" />
+    <Content Include="Scripts\UIkit\uikit.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

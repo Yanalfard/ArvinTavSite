@@ -8,6 +8,7 @@
     <!-- plugins css -->
     <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap.min.css" />
+    <link href="~/Content/UIkit/styles/uikit.min.css" rel="stylesheet" />
     <!--tagsinput-->
     <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap-tagsinput.css">
     <!-- font-icon-->
@@ -16,6 +17,8 @@
     <!-- custom css-->
     <link href="~/Areas/Admin/style.css" rel="stylesheet">
     <link href="~/Areas/Admin/style-rtl.css" rel="stylesheet">
+    @*Sass*@
+    <link href="~/Content/Styles/Admin.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrapper flex-div">
@@ -23,15 +26,10 @@
             <!-- Side Nav START -->
             <div class="side-nav">
                 <div class="side-nav-inner">
-                    <div class="side-nav-logo">
-                        <a href="#">
-                            <div class="logo logo-dark" style="background-image: url('/img/ArvinTavLogo.svg')"></div>
+                    <div class="side-nav-logo ">
+                        <a href="#" class="uk-margin-auto row center">
+                            <img class="logo logo-darkt center" src="~/img/ArvinTavLogo.svg" />
                         </a>
-                        <div class="mobile-toggle side-nav-toggle">
-                            <a href="#">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </div>
                     </div>
                     <ul class="side-nav-menu scrollable">
                         <li class="nav-item active">
@@ -281,5 +279,7 @@
     <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Areas/Admin/script.js"></script>
     <script src="Content/bootstrap/js/bootstrap-tagsinput.js"></script>
+    <script src="~/Scripts/UIkit/uikit.min.js"></script>
+    <script src="~/Scripts/UIkit/uikit-icons.min.js"></script>
 </body>
 </html>

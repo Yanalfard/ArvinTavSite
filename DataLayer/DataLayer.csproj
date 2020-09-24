@@ -54,7 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\DomainService.cs" />
+    <Compile Include="Models\HostingService.cs" />
+    <Compile Include="Models\HostingServiceDetails.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetails.cs" />
+    <Compile Include="Models\PackageService.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\ServiceCategory.cs" />
+    <Compile Include="Models\TicketCategory.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

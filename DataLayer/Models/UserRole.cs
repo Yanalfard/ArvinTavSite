@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataLayer
 {
-    public class Role
+    public class UserRole
     {
         [Key]
         public int ID { get; set; } 
@@ -19,9 +19,9 @@ namespace DataLayer
         public string Name { get; set; }
 
         [Display(Name = "کاربران")]
-        public List<User> users { get; set; }
+        public virtual List<User> users { get; set; }
 
-        public Role()
+        public UserRole()
         {
 
         }

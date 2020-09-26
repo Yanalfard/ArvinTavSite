@@ -1348,9 +1348,9 @@ ul {
 
 .btn-success {
     color: #fff;
-    background-color: #0abb87 !important;
-    border-color: #0abb87 !important;
-   /* margin-bottom: 16px !important;*/
+    background-color: #5cb152;
+    border-color: #5cb152;
+    /* margin-bottom: 16px !important;*/
 }
 
 .table.fixed th {

@@ -1765,11 +1765,6 @@
     <Content Include="fonts\fontsite\Sahel.woff" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\Index.cshtml" />
-    <Content Include="Content\Styles\_colors.scss" />
-    <Content Include="Content\Styles\_controls.scss" />
-    <Content Include="Content\Styles\_global.scss" />
-    <Content Include="Content\Styles\_layout.scss" />
-    <Content Include="Content\Styles\Admin.scss" />
     <Content Include="Areas\Admin\Views\Domain\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Domain\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\Domain\P_Edit.cshtml" />
@@ -1797,6 +1792,11 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\Styles\_colors.scss" />
+    <Content Include="Content\Styles\_controls.scss" />
+    <Content Include="Content\Styles\_global.scss" />
+    <Content Include="Content\Styles\_layout.scss" />
+    <Content Include="Content\Styles\Admin.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

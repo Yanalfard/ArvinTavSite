@@ -1,1 +1,33 @@
 ﻿
+<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        افزودن به لیست
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Title">عنوان</label>
+                <input type="text" class="form-control form-control-sm" id="Suffix" placeholder="عنوان">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="IsActive">فعال باشد</label>
+                <input type="checkbox" id="IsActive" />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Title">قیمت</label>
+                <input type="text" class="form-control form-control-sm" id="Price" placeholder="قیمت">
+            </div>
+        </div>
+
+    </div>
+    <div class="space-half"></div>
+    <div class="modal-footer justify-content-end">
+        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+    </div>
+</form>
+

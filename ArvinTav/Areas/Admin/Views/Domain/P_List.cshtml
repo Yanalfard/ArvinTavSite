@@ -1,1 +1,44 @@
-﻿
+﻿<div id="card-table" class="card-body flex-div">
+    <div class="table-responsive flex">
+        <table class="table fixed">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">پسوند</th>
+                    <th scope="col">وضعیت</th>
+                    <th scope="col">قیمت</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        ir.
+                    </td>
+                    <td>
+                        <small class="text-info">فعال</small>
+                    </td>
+
+                    <td>
+                        10000
+                    </td>
+                    <td>
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="ویرایش">
+                            <a id="EditList" data-toggle="modal" data-target="#modalSave"><i class="btn fas fa-edit mr-2 text-primary"></i></a>
+                        </span>
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="روشن">
+                            <a data-toggle="modal" data-target="#modalSave"><i class="text-success fas fa-toggle-on"></i></a>
+                        </span>
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="خاموش">
+                            <a data-toggle="modal" data-target="#modalSave"><i class="text-danger fas fa-toggle-off"></i></a>
+                        </span>
+                        
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                            <a id="DelFromList" data-toggle="modal" data-target="#modalSave"><i class="btn fas fa-trash mr-2 text-danger"></i></a>
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

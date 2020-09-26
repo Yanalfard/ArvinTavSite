@@ -41,7 +41,7 @@
 
 /*#region Alignment */
 
-.column {
+.my-column {
     display: flex;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
@@ -61,7 +61,7 @@
     align-content: center;
 }
 
-.row {
+.my-row {
     display: flex;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
@@ -120,7 +120,7 @@
     grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
 }
 
-.clipped {
+.my-clipped {
     margin-left: auto;
     margin-right: auto;
     width: 84vw;

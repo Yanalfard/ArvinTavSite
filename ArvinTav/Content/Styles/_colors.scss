@@ -132,3 +132,13 @@ $text-underline-active: #9EE250;
 .mat{
     @include mat();
 }
+/*@mixin icon-glow() {
+    -webkit-filter: drop-shadow( 0px 0px 5px green);
+    filter: drop-shadow( 0px 0px 5px green);
+    @include trans(0.5s);
+}
+@mixin subtle-glow() {
+    -moz-box-shadow: #9EE250 0 6px 16px;
+    -webkit-box-shadow: #9EE250 0 6px 16px;
+    box-shadow: #9EE250 0 6px 16px;
+}*/

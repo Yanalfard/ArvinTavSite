@@ -11,14 +11,14 @@ namespace DataLayer
     {
         [Key]
         public int ID { get; set; }
-        
-        [Display(Name ="جمع سفارش")]
+
+        [Display(Name = "جمع سفارش")]
         public int Price { get; set; }
 
-        [Display(Name ="وضعیت")]
+        [Display(Name = "وضعیت = 1:منتظر پرداخت - 2:پرداخت شده - 3:تکمیل شده - 4:لغو شده")]
         public int Status { get; set; }
 
-        [Display(Name ="کاربر")]
+        [Display(Name = "کاربر")]
         public virtual User User { get; set; }
 
         [Display(Name = "جزئیات")]

@@ -23,7 +23,6 @@ namespace DataLayer
 
         public virtual ServiceCategory ServiceCategory { get; set; }
         
-        public virtual List<Order> Orders { get; set; }
         public DomainService()
         {
 

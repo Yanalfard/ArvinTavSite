@@ -42,6 +42,9 @@ namespace DataLayer
         [Display(Name = "جزئیات")]
         public virtual List<HostingServiceDetails> HostingServiceDetails { get; set; }
 
+        [Display(Name ="دسته بندی")]
+        public virtual ServiceCategory ServiceCategory { get; set; }
+        
         public HostingService()
         {
 

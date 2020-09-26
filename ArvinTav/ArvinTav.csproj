@@ -1705,7 +1705,7 @@
     <Content Include="fonts\fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\ArvinTavLogo.svg" />
+    <Content Include="img\Admin\logo\ArvinTavLogo.svg" />
     <Content Include="img\gif\load.gif" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="fonts\fontawesome\less\brands.less" />
@@ -1763,7 +1763,6 @@
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.woff" />
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.woff2" />
     <Content Include="fonts\fontsite\Sahel.woff" />
-    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\Index.cshtml" />
     <Content Include="Content\Styles\_colors.scss" />
@@ -1771,6 +1770,29 @@
     <Content Include="Content\Styles\_global.scss" />
     <Content Include="Content\Styles\_layout.scss" />
     <Content Include="Content\Styles\Admin.scss" />
+    <Content Include="Areas\Admin\Views\Domain\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Domain\P_Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Domain\P_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Domain\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\Domain\P_List.cshtml" />
+    <Content Include="Areas\Admin\Views\Hosting\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Hosting\P_List.cshtml" />
+    <Content Include="Areas\Admin\Views\Hosting\P_Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Hosting\P_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Hosting\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Package\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Package\P_List.cshtml" />
+    <Content Include="Areas\Admin\Views\Package\P_Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Package\P_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Package\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategory\P_ChildCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategory\P_Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategory\P_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategory\P_Remove.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1792,7 +1814,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DomainController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HostingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PackageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TicketController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UploadController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1824,7 +1853,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Document\" />
+    <Folder Include="Document\img\Category\" />
+    <Folder Include="Document\img\Hosting\" />
+    <Folder Include="Document\img\Package\" />
+    <Folder Include="Document\img\User\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

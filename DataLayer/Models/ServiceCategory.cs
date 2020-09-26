@@ -29,6 +29,8 @@ namespace DataLayer
 
         public virtual List<DomainService> domainServices { get; set; }
 
+        public virtual List<HostingService> HostingServices { get; set; }
+
         public virtual List<PackageService> PackageServices { get; set; }
 
         public ServiceCategory()

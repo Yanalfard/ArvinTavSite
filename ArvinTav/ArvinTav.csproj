@@ -114,12 +114,6 @@
     <Content Include="Content\owlCarousel\owl.carousel.min.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.min.css" />
-    <Content Include="Content\Styles\Admin.css">
-      <DependentUpon>Admin.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\Admin.min.css">
-      <DependentUpon>Admin.css</DependentUpon>
-    </Content>
     <Content Include="Content\UIkit\styles\uikit-rtl.min.css" />
     <Content Include="Content\UIkit\styles\uikit.min.css" />
     <Content Include="fonts\fontawesome\css\all.css" />
@@ -1792,11 +1786,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\Styles\_colors.scss" />
-    <Content Include="Content\Styles\_controls.scss" />
-    <Content Include="Content\Styles\_global.scss" />
-    <Content Include="Content\Styles\_layout.scss" />
-    <Content Include="Content\Styles\Admin.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

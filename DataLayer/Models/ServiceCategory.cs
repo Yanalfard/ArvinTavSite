@@ -13,7 +13,7 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "والد")]
-        public int ParentID { get; set; }
+        public int? ParentID { get; set; }
 
         [Display(Name = "متن")]
         public string Title { get; set; }

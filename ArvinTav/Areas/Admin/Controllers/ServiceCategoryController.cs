@@ -18,26 +18,28 @@ namespace ArvinTav.Areas.Admin.Controllers
         // GET: Admin/ServiceCategory
         public ActionResult Index()
         {
-            return View();
+            return View(serviceCategoryRepository.AllMainServiceCategory(false));
         }
         public ActionResult P_ChildCategory(int ParentID)
         {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ParentID, false));
+        }
+
+        public ActionResult P_Create(int ParentID)
+        {
+            ViewBag.ParentID = ParentID;
             return PartialView();
         }
 
-        public ActionResult P_Create()
+        [ValidateInput(false)]
+        public JsonResult Create(int? ParentID, string Title, bool? IsActive, string Description, string Image)
         {
-            return PartialView();
+            return Json(serviceCategoryRepository.AddServiceCategory(ParentID, Title, IsActive, Description, Image));
         }
 
-        public string Create()
+        public ActionResult P_Edit(int ID)
         {
-            return "true";
-        }
-
-        public ActionResult P_Edit()
-        {
-            return PartialView();
+            return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
         }
 
         public string Edit()
@@ -45,12 +47,12 @@ namespace ArvinTav.Areas.Admin.Controllers
             return "true";
         }
 
-        public ActionResult P_Remove()
+        public ActionResult P_Remove(int ID)
         {
-            return PartialView();
+            return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
         }
 
-        public string Remove()
+        public string Remove(int ID)
         {
             return "true";
         }

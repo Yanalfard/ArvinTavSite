@@ -66,7 +66,9 @@
     <Compile Include="Models\TicketCategory.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
+    <Compile Include="Services\DomainRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
   </ItemGroup>
   <ItemGroup>

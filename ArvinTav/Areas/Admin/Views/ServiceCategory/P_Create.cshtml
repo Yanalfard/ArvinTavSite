@@ -7,6 +7,7 @@
     </button>
 </div>
 <form>
+    <input type="hidden" id="ParentID" value="@ViewBag.ParentID" />
     <div class="modal-body">
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -21,7 +22,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input form-control form-control-sm" id="Image">
+                    <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
                     <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
                 </div>
             </div>
@@ -35,7 +36,7 @@
     </div>
     <div class="space"></div>
     <div class="modal-footer justify-content-end">
-        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>      
+        <a id="AddCategory" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
 
@@ -44,5 +45,66 @@
         $('#my-textarea').ckeditor();
     });
 
+    $("#AddCategory").click(function () {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Image").val() == null || $("#Image").val() == "" || $("#my-textarea").val() == null || $("#my-textarea").val() == "") {
+            $("#AddCategory").html("همه موارد اجباری میباشد");
+            $("#AddCategory").removeClass("btn-success");
+            $("#AddCategory").addClass("btn-danger");
+        } else {
+            $("#AddCategory").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $("#AddCategory").addClass("btn-success");
+            $("#AddCategory").removeClass("btn-danger");
+            var ParentID, Title, IsActive, mytextarea, Image;
+            ParentID = $("#ParentID").val();
+            Title = $("#Title").val();
+            if ($("#IsActive").is(":checked")) {
+                IsActive = true;
+            }
+            if ($("#ActiveSource").is(":not(:checked)")) {
+                IsActive = false;
+            }
+            mytextarea = $("#my-textarea").val();
+            var data = new FormData();
+
+            var files = $("#Image").get(0).files;
+            if (files.length > 0) {
+                data.append("UploadCategoryImageFile", files[0]);
+            }
+            $.ajax({
+                url: "/Admin/Upload/UploadCategoryImage",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    Image = response;
+
+                    $.ajax({
+                        url: "/Admin/ServiceCategory/Create",
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        data: { ParentID: ParentID, Title: Title, IsActive: IsActive, Description: mytextarea, Image: Image },
+                        success: function (result) {
+                            if (result == "true") {
+                                $("#AddCategory").html("ثبت شد");
+                                $("#AddCategory").addClass("btn-success");
+                                $("#AddCategory").removeClass("btn-danger");
+                                window.location.reload();
+                            } else {
+                                alert(result);
+                            }
+                        }
+                    });
+                },
+                error: function (er) {
+                    alert(er);
+                }
+
+            });
+
+        }
+
+    });
 
 </script>

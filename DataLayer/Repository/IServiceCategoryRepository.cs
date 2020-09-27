@@ -14,7 +14,7 @@ namespace DataLayer
 
         ServiceCategory ServiceCategoryById(int ID);
 
-        string AddServiceCategory(int? ParentID, string Title, bool? IsActive, string Description, string Image);
+        string AddServiceCategory(int ParentID, string Title, bool IsActive, string Description, string Image);
 
         string EditServiceCategory(int ID, string Title, bool IsActive, string Description, string Image);
 

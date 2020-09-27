@@ -10,7 +10,7 @@ namespace DataLayer
     public class UserRole
     {
         [Key]
-        public int ID { get; set; } 
+        public int RoleID { get; set; } 
 
         [Display(Name = "متن دسترسی")]
         public string Title { get; set; }

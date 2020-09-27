@@ -10,7 +10,9 @@ namespace DataLayer
     public class User
     {
         [Key]
-        public int ID { get; set; }
+        public int UserID { get; set; }
+
+        public int RoleID { get; set; }
 
         [Display(Name = "شماره تماس")]
         [MinLength(10, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]

@@ -12,6 +12,8 @@ namespace DataLayer
         [Key]
         public int ID { get; set; }
 
+        public int UserID { get; set; }
+
         [Display(Name = "جمع سفارش")]
         public int Price { get; set; }
 

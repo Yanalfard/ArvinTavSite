@@ -55,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
+    <Compile Include="Migrations\202009270936303_initialdb.cs" />
+    <Compile Include="Migrations\202009270936303_initialdb.designer.cs">
+      <DependentUpon>202009270936303_initialdb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DomainService.cs" />
     <Compile Include="Models\HostingService.cs" />
     <Compile Include="Models\HostingServiceDetails.cs" />
@@ -75,7 +80,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009270936303_initialdb.resx">
+      <DependentUpon>202009270936303_initialdb.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

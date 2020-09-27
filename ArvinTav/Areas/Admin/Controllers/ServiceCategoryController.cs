@@ -34,7 +34,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         [ValidateInput(false)]
         public JsonResult Create(int? ParentID, string Title, bool? IsActive, string Description, string Image)
         {
-            return Json(serviceCategoryRepository.AddServiceCategory(ParentID, Title, IsActive, Description, Image));
+            return Json(serviceCategoryRepository.AddServiceCategory(ParentID.Value, Title, IsActive.Value, Description, Image));
         }
 
         public ActionResult P_Edit(int ID)
@@ -42,9 +42,10 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
         }
 
-        public string Edit()
+        [ValidateInput(false)]
+        public JsonResult Edit(int ID,int? ParentID, string Title, bool? IsActive, string Description, string Image)
         {
-            return "true";
+            return Json(serviceCategoryRepository.EditServiceCategory(ID, Title, IsActive.Value, Description, Image));
         }
 
         public ActionResult P_Remove(int ID)

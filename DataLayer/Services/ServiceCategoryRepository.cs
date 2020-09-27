@@ -42,41 +42,7 @@ namespace DataLayer
         {
             return db.ServiceCategories.Find(ID);
         }
-
-        public string AddServiceCategory(int? ParentID, string Title, bool? IsActive, string Description, string Image)
-        {
-            try
-            {
-                ServiceCategory serviceCategory = new ServiceCategory();
-                if (ParentID == 0)
-                {
-                    serviceCategory.ParentID = null;
-                    serviceCategory.Title = Title;
-                    serviceCategory.IsActive = IsActive.Value;
-                    serviceCategory.Image = Image;
-                    serviceCategory.Description = Description;
-                    db.ServiceCategories.Add(serviceCategory);
-                    Save();
-                    return "true";
-                }
-                else
-                {
-                    serviceCategory.ParentID = ParentID.Value;
-                    serviceCategory.Title = Title;
-                    serviceCategory.IsActive = IsActive.Value;
-                    serviceCategory.Image = Image;
-                    serviceCategory.Description = Description;
-                    db.ServiceCategories.Add(serviceCategory);
-                    Save();
-                    return "true";
-                }
-            }
-            catch (Exception ex)
-            {
-                return "Erorr :" + ex.ToString();
-            }
-        }
-
+        
         public string EditServiceCategory(int ID, string Title, bool IsActive, string Description, string Image)
         {
             try
@@ -114,5 +80,38 @@ namespace DataLayer
             db.SaveChanges();
         }
 
+        public string AddServiceCategory(int ParentID, string Title, bool IsActive, string Description, string Image)
+        {
+            try
+            {
+                ServiceCategory serviceCategory = new ServiceCategory();
+                if (ParentID == 0)
+                {
+                    serviceCategory.ParentID = null;
+                    serviceCategory.Title = Title;
+                    serviceCategory.IsActive = IsActive;
+                    serviceCategory.Image = Image;
+                    serviceCategory.Description = Description;
+                    db.ServiceCategories.Add(serviceCategory);
+                    Save();
+                    return "true";
+                }
+                else
+                {
+                    serviceCategory.ParentID = ParentID;
+                    serviceCategory.Title = Title;
+                    serviceCategory.IsActive = IsActive;
+                    serviceCategory.Image = Image;
+                    serviceCategory.Description = Description;
+                    db.ServiceCategories.Add(serviceCategory);
+                    Save();
+                    return "true";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Erorr :" + ex.ToString();
+            }
+        }
     }
 }

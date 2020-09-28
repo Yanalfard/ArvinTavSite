@@ -2,5 +2,9 @@
   {
     "outputFile": "Content/Styles/Admin.css",
     "inputFile": "Content/Styles/Admin.scss"
+  },
+  {
+    "outputFile": "Content/Styles/Controls.css",
+    "inputFile": "Content/Styles/Controls.scss"
   }
 ]

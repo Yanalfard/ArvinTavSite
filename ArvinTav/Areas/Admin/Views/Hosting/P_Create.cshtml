@@ -1,1 +1,217 @@
 ﻿
+<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        افزودن به لیست
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body my-column">
+
+        <div class="form-row mt-2">
+            <div class="form-group col-md-3">
+                <select class="custom-select custom-select-sm mx-sm-1  ">
+                    <option selected>انتخاب دسته بندی</option>
+                    <option value="1">گزینه1</option>
+                    <option value="2">گزینه 2</option>
+                    <option value="3">گزینه 3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select custom-select-sm mx-sm-1 ml-4 ">
+                    <option selected>انتخاب زیر مجموعه</option>
+                    <option value="1">گزینه1</option>
+                    <option value="2">گزینه 2</option>
+                    <option value="3">گزینه 3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select custom-select-sm mx-sm-1 ml-4 ">
+                    <option selected>انتخاب زیر مجموعه</option>
+                    <option value="1">گزینه1</option>
+                    <option value="2">گزینه 2</option>
+                    <option value="3">گزینه 3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select custom-select-sm mx-sm-1 ml-4 ">
+                    <option selected>انتخاب زیر مجموعه</option>
+                    <option value="1">گزینه1</option>
+                    <option value="2">گزینه 2</option>
+                    <option value="3">گزینه 3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select custom-select-sm mx-sm-1 ml-4 ">
+                    <option selected>انتخاب زیر مجموعه</option>
+                    <option value="1">گزینه1</option>
+                    <option value="2">گزینه 2</option>
+                    <option value="3">گزینه 3</option>
+                </select>
+            </div>
+
+        </div>
+        <!---->
+
+        <div class="form-row mt-3">
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="IsActive">فعال باشد</label>
+                <input type="checkbox" id="IsActive" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="FreeSSL">SSL رایگان</label>
+                <input type="checkbox" id="FreeSSL" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="Support">پشتیبانی</label>
+                <input type="checkbox" id="Support" />
+            </div>
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="Space" placeholder="فضا">
+            </div>
+
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="Monthly-Traffic" placeholder="ترافیک ماهانه">
+            </div>
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="Sites-Be-Hosted" placeholder="تعداد">
+            </div>
+
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="threeMonthsCost" placeholder="هزینه 3 ماهه">
+            </div>
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="SixMonthsCost" placeholder="هزینه 6 ماهه">
+            </div>
+            <div class="form-group col-md-4 mt-2">
+
+                <input type="text" class="form-control form-control-sm" id="AnnuallyCost" placeholder="هزینه سالانه">
+            </div>
+
+        </div>
+        <!--second region in the madal-->
+        <hr />
+        <div class="form-row mt-1">
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control form-control-sm" id="title" placeholder="متن">
+            </div>
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control form-control-sm" id="Response" placeholder="پاسخ">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="1" id="lblHardware">سخت افزاری</label>
+                <input type="radio" name="alpha" id="1" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="2" id="lblSoftware">نرم افزاری</label>
+                <input type="radio" name="alpha" id="2" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="3" id="lblMore">بیشتر</label>
+                <input type="radio" name="alpha" id="3" />
+            </div>
+        </div>
+
+        @* Buton *@
+        <a id="TblDataAdder" onclick="AddTblData()"
+           class="btn btn-info btn-sm text-white margin-auto-right mb-2"><i class="fas fa-plus-circle"></i>افزودن جزئیات</a>
+
+        <script>
+            function AddTblData() {
+                const table = document.getElementById('tblMain');
+                const textAlpha = document.getElementById('title');
+                const textBeta = document.getElementById('Response');
+                const checkHardware = document.getElementById('1');
+                const checkSoftware = document.getElementById('2');
+                const checkMore = document.getElementById('3');
+
+                if (textAlpha.value == '' || textAlpha.value == null) {
+                    alert('لطفا موارد خواسته شده را پرکنید')
+                    return;
+                }
+                if (textBeta.value == '' || textBeta.value == null) {
+                    alert('لطفا موارد خواسته شده را پرکنید')
+                    return;
+                }
+
+                let chosenText;
+                if (checkHardware.checked) {
+                    chosenText = document.getElementById('lblHardware').innerHTML;
+                }
+                else if (checkSoftware.checked) {
+                    chosenText = document.getElementById('lblSoftware').innerHTML;
+                }
+                else if (checkMore.checked) {
+                    chosenText = document.getElementById('lblMore').innerHTML;
+                }
+
+                //table.innerHTML = table.innerHTML + '';
+
+                table.innerHTML +=
+                    `
+                                                                                    <tr id="${textAlpha.value}${textBeta.value}">
+                                                                                        <td>
+                                                                                            ${textAlpha.value}
+                                                                                        </td>
+
+                                                                                        <td>
+                                                                                           ${textBeta.value}
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <small class="text-info">${chosenText}</small>
+                                                                                        </td>
+
+                                                                                        <td>
+                                                                                            <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                                                                                                <a onclick="DeleteRow('${textAlpha.value}${textBeta.value}')"><i class="btn fas fa-trash mr-2 text-danger"></i></a>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    `
+
+
+
+            }
+            function DeleteRow(row) {
+                const element = document.getElementById(row);
+                element.parentElement.removeChild(element);
+            }
+        </script>
+
+        <div class="table-responsive flex">
+            <table class="table fixed">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">متن</th>
+                        <th scope="col">متن</th>
+                        <th scope="col">گزینه مورد نظر</th>
+                        <th scope="col">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="tblMain">
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+    <div class="space-half"></div>
+    <div class="modal-footer justify-content-end">
+        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+    </div>
+</form>
+
+

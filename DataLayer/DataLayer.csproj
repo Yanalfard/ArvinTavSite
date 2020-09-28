@@ -70,6 +70,7 @@
     <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\TicketCategory.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />

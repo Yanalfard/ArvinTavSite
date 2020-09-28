@@ -10,15 +10,17 @@ namespace DataLayer
     {
         IEnumerable<ServiceCategory> AllMainServiceCategory(bool View);
 
-        IEnumerable<ServiceCategory> AllChildCategory(int ParentID, bool View);
+        ChildCategoryViewModel AllChildCategory(int ParentID, bool View);
 
         ServiceCategory ServiceCategoryById(int ID);
 
-        string AddServiceCategory(int ParentID, string Title, bool IsActive, string Description, string Image);
+        string AddServiceCategory(int ParentID, string Title,int IsActive, string Description, string Image);
 
-        string EditServiceCategory(int ID, string Title, bool IsActive, string Description, string Image);
+        string EditServiceCategory(int ID, string Title, int IsActive, string Description, string Image);
 
         string RemoveServiceCategory(int ID);
+
+        string IsActive(int ID);
 
         void Save();
     }

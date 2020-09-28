@@ -28,13 +28,21 @@ namespace ArvinTav.Areas.Admin.Controllers
         public ActionResult P_Create(int ParentID)
         {
             ViewBag.ParentID = ParentID;
+            if (ParentID != 0)
+            {
+                ViewBag.ParentTitle = serviceCategoryRepository.ServiceCategoryById(ParentID).Title;
+            }
+            else
+            {
+                ViewBag.ParentTitle = "اصلی";
+            }
             return PartialView();
         }
 
         [ValidateInput(false)]
-        public JsonResult Create(int? ParentID, string Title, bool? IsActive, string Description, string Image)
+        public JsonResult Create(int ParentID, string Title, int IsActive, string Description, string Image)
         {
-            return Json(serviceCategoryRepository.AddServiceCategory(ParentID.Value, Title, IsActive.Value, Description, Image));
+            return Json(serviceCategoryRepository.AddServiceCategory(ParentID, Title, IsActive, Description, Image));
         }
 
         public ActionResult P_Edit(int ID)
@@ -43,9 +51,17 @@ namespace ArvinTav.Areas.Admin.Controllers
         }
 
         [ValidateInput(false)]
-        public JsonResult Edit(int ID,int? ParentID, string Title, bool? IsActive, string Description, string Image)
+        public JsonResult Edit(int? ID, int? ParentID, string Title, int IsActive, string Description, string Image)
         {
-            return Json(serviceCategoryRepository.EditServiceCategory(ID, Title, IsActive.Value, Description, Image));
+            if (Image != null || Image != "")
+            {
+                string fullPathImage = Request.MapPath("/Document/img/Category/" + serviceCategoryRepository.ServiceCategoryById(ID.Value).Image);
+                if (System.IO.File.Exists(fullPathImage))
+                {
+                    System.IO.File.Delete(fullPathImage);
+                }
+            }
+            return Json(serviceCategoryRepository.EditServiceCategory(ID.Value, Title, IsActive, Description, Image));
         }
 
         public ActionResult P_Remove(int ID)
@@ -53,9 +69,22 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
         }
 
+        public ActionResult IsActive(int ID)
+        {
+            serviceCategoryRepository.IsActive(ID);
+            return RedirectToAction("Index");
+        }
+
         public string Remove(int ID)
         {
-            return "true";
+            string fullPathImage = Request.MapPath("/Document/img/Category/" + serviceCategoryRepository.ServiceCategoryById(ID).Image);
+
+            if (System.IO.File.Exists(fullPathImage))
+            {
+                System.IO.File.Delete(fullPathImage);
+            }
+
+            return serviceCategoryRepository.RemoveServiceCategory(ID);
         }
     }
 }

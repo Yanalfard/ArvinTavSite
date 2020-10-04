@@ -1,3 +1,360 @@
 ﻿@import '_colors.scss';
 @import '_global.scss';
+@import '_layout.scss';
 
+/*#header-region */
+#LayoutHeader {
+    position: fixed !important;
+    height: 100px;
+    z-index: 1000;
+    padding-top: 0px;
+    margin-top: -14px;
+    margin-right: 40px;
+    padding-right: 50px !important;
+    overflow: hidden !important;
+
+    .uk-navbar-nav {
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: #2a2929;
+        }
+    }
+
+    .uk-navbar-right {
+        float: right;
+    }
+
+    ul {
+        float: right;
+        width: 100vw - 3vw;
+    }
+
+    li {
+        /* padding: 8px !important;*/
+        margin-right: 30px;
+        overflow: hidden !important;
+    }
+
+    .LogoPic {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+    }
+
+    * {
+        background: transparent;
+    }
+
+    background: transparent;
+
+    .navBar {
+        font-size: 18px !important;
+    }
+}
+.uk-offcanvas-bar{
+    display:none;
+}
+/*#region This will be toggled on scroll */
+.layout-header-scrolled {
+    background: #ffffff !important;
+    height: 70px;
+    overflow: hidden !important;
+
+    a {
+        color: #2a2929 !important;
+    }
+
+    a:hover {
+        color: #0DA574 !important;
+    }
+
+    button {
+    }
+}
+/*#endregion */
+/*#mobile header-region */
+@media only screen and (max-device-width : 692px) {
+    #LayoutHeader {
+        .navBar {
+            display: none;
+        }
+    }
+
+    .LogoPic {
+        width: 50px;
+        height: 40px;
+    }
+
+    .hamburger-button {
+        display: flex !important;
+    }
+
+    #menu {
+        display: block;
+
+        ul {
+            // background:red;
+            list-style-type: none !important;
+            padding: 10px;
+        }
+
+        li {
+            color: #555 !important;
+            padding: 10px;
+            border-bottom: 1px solid #a9a9a9;
+            margin-right: 10px;
+            margin-top: 10px;
+
+            a {
+                font-size: 14px !important;
+                color: #4d4d4d;
+            }
+
+            a:hover {
+                color: #808080 !important;
+            }
+        }
+    }
+    .uk-offcanvas-bar {
+        display: block;
+    }
+    .layout-header-scrolled {
+        overflow: hidden !important;
+    }
+}
+
+@media only screen and (max-width : 692px) {
+    #LayoutHeader {
+        .navBar {
+            display: none;
+        }
+}
+
+    .LogoPic {
+        width: 50px;
+        height: 40px;
+    }
+    
+    .hamburger-button {
+        display: flex !important;
+    }
+
+    #menu {
+        display: block;
+
+        ul {
+            // background:red;
+            list-style-type: none !important;
+            padding: 10px;
+        }
+
+        li {
+            color: #555 !important;
+            padding: 10px;
+            border-bottom: 1px solid #a9a9a9;
+            margin-right: 10px;
+            margin-top: 10px;
+
+            a {
+                font-size: 14px !important;
+                color: #4d4d4d;
+            }
+
+            a:hover {
+                color: #808080 !important;
+            }
+        }
+    }
+
+    .uk-offcanvas-bar {
+        display: block;
+    }
+
+    .layout-header-scrolled {
+        background: transparent !important;
+        height: 70px;
+        opacity: 0.8;
+        overflow: hidden !important;
+    }
+}
+
+
+.hamburger-button {
+    display: none;
+    position: fixed;
+    padding: 10px !important;
+    right: 18px;
+    top: 18px;
+    color: white !important;
+    margin: auto;
+    -moz-border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    border-radius: 50% !important;
+    background: #808080 !important;
+    @include shadow-more();
+}
+/*#endregion */
+/*#endregion */
+
+/*#footer-region */
+footer {
+    background-image: url('../../img/Home/footer-background-011.jpg');
+    padding: 20px;
+
+    .footerContent {
+        padding-right: 50px !important;
+    }
+
+    div {
+        div {
+            label {
+                color: white !important;
+                padding: 2px;
+            }
+        }
+    }
+
+    h4 {
+        color: #0DA574;
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; //number of lines to show
+        -webkit-box-orient: vertical
+    }
+
+    a {
+        color: white;
+        padding: 2px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        font-size: larger;
+        color: white;
+    }
+
+    .emailBar {
+        input {
+            height: 35px;
+            width: 170px;
+            margin-left: 0px !important;
+        }
+
+        margin-left: 200px;
+
+        .subscribe {
+            background: #0DA574;
+            color: white;
+            height: 39px !important;
+            margin-right: -4px !important;
+            width: 80px !important;
+            border: none;
+        }
+
+        .subscribe:hover {
+            background: transparent !important;
+        }
+
+        .subscribe:active {
+            border: none;
+        }
+    }
+
+    .contactIcon {
+        color: #a9a9a9;
+        opacity: 0.5;
+    }
+}
+
+@media only screen and (max-device-width : 1130px) {
+    footer {
+        background-image: none !important;
+        background-color: #333F4D !important;
+
+        img {
+            height: 12vw;
+            width: 15vw;
+        }
+
+        .footerContent {
+            @include column();
+            @include center();
+
+
+            .emailBar {
+                input {
+                    height: 35px;
+                    width: 130px;
+                }
+
+                margin-left: 0 !important;
+            }
+        }
+    }
+}
+@media only screen and (max-width : 1130px) {
+    footer {
+        background-image: none !important;
+        background-color: #333F4D !important;
+
+        img {
+            height: 12vw;
+            width: 15vw;
+        }
+
+        .footerContent {
+            @include column();
+            @include center();
+            @include my-clipped();
+
+
+            .emailBar {
+                input {
+                    height: 35px;
+                    width: 130px;
+                }
+
+                margin-left: 0 !important;
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#button-style-region */
+button.ServiceButton {
+    width: 10vw;
+    padding: 8px;
+    background: #5cb152;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius:8px;
+}
+button.ServiceButton:hover {
+    opacity:0.9;
+}
+/*#grid-background-style-region */
+.GridBackground {
+    background-image: url('../../img/Home/gridbackground.png');
+    // background: #e9fbe8;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.overflow-visible{
+    overflow:visible!important;
+    *{
+        overflow:visible!important;
+    }
+}

@@ -20,6 +20,7 @@
 
     <link href="~/Content/Styles/Admin.min.css" rel="stylesheet" />
     <link href="~/Content/Styles/Controls.min.css" rel="stylesheet" />
+    <link href="~/Tools/Chart/Chart.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -47,7 +48,7 @@
                                 <span class="title">داشبورد</span>
                             </a>
                         </li>
-                        
+
 
 
                         <li class="nav-item dropdown">
@@ -95,13 +96,29 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item active">
                             <a href="/Admin/Order">
                                 <span class="icon-holder">
                                     <i class="fas fa-shopping-cart"></i>
                                 </span>
                                 <span class="title">سفارشات</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/Admin/Ticket">
+                                <span class="icon-holder">
+                                    <i class="fas fa-headset"></i>
+                                </span>
+                                <span class="title">مرکز پاسخگویی</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/Admin/Project">
+                                <span class="icon-holder">
+                                    <i class="fas fa-project-diagram"></i>
+                                </span>
+                                <span class="title">پروژه ها</span>
                             </a>
                         </li>
                         <li class="nav-item active">
@@ -112,12 +129,50 @@
                                 <span class="title">کاربران</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a href="/Admin/Ticket">
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
-                                    <i class="fas fa-headset"></i>
+                                    <i class="fas fa-user-tie"></i>
                                 </span>
-                                <span class="title">مرکز پاسخگویی</span>
+                                <span class="title">نمایندگی فروش</span>
+                                <span class="arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item active">
+                                    <a href="/Admin/Marketer">
+                                        <span class="icon-holder">
+                                            <i class="fas fa-briefcase"></i>
+                                        </span>
+                                        <span class="title">نمایندگی شما</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="/Admin/Marketer/CraateReport">
+                                        <span class="icon-holder">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                        <span class="title">افزودن گزارش</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/Admin/Project">
+                                <span class="icon-holder">
+                                    <i class="fas fa-user-shield"></i>
+                                </span>
+                                <span class="title">مدیریت</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/Admin/HomeSetting">
+                                <span class="icon-holder">
+                                    <i class="fas fa-cog"></i>
+                                </span>
+                                <span class="title">تنظیمات خانه</span>
                             </a>
                         </li>
                     </ul>
@@ -265,5 +320,6 @@
 <script src="~/Tools/ckeditor/adapters/jquery.js"></script>
 <script src="~/Scripts/UIkit/uikit.min.js"></script>
 <script src="~/Scripts/UIkit/uikit-icons.min.js"></script>
+<script src="~/Tools/Chart/Chart.js"></script>
 
 @RenderSection("Scripts", false)

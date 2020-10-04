@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DataLayer.ServiceCategory>
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
         افزودن به لیست
@@ -9,23 +9,18 @@
 </div>
 <form>
     <div class="modal-body">
-        <div class="form-row mt-2 p-0">
-            <div class="form-group col-md-3">
-                <select class="custom-select custom-select-sm mx-sm-1">
-                    <option selected>انتخاب دسته بندی</option>
-                    <option value="1">گزینه1</option>
-                    <option value="2">گزینه 2</option>
-                    <option value="3">گزینه 3</option>
-                </select>
+        <div>
+            <select id="MainCategorySelect">
+                <option selected value="0">انتخاب دسته</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.ID">@item.Title</option>
+                }
+            </select>
+            <div id="ChildCategory">
+
             </div>
-            <div class="form-group col-md-3">
-                <select class="custom-select custom-select-sm mx-sm-1">
-                    <option selected>انتخاب زیر مجموعه</option>
-                    <option value="1">گزینه1</option>
-                    <option value="2">گزینه 2</option>
-                    <option value="3">گزینه 3</option>
-                </select>
-            </div>
+            <input type="hidden" id="Category" />
         </div>
         <div class="form-row">
             <div class="form-group col-md-7">
@@ -38,14 +33,72 @@
             </div>
             <div class="form-group col-md-7">
                 <label for="Price">قیمت</label>
-                <input type="text" class="form-control form-control-sm" id="Price" placeholder="قیمت">
+                <input type="text" name="currency-field" id="Price" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="قیمت">
             </div>
         </div>
 
     </div>
     <div class="space-half"></div>
     <div class="modal-footer justify-content-end">
-        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a id="AddDomain" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
+<script src="~/Tools/Auto_Formatting_Currency.js"></script>
+<script>
+    $("#MainCategorySelect").change(function () {
+        if ($("#MainCategorySelect option:selected").val() == 0) { } else {
+            $.get("/Admin/Domain/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
+                $("#ChildCategory").html(result);
+                $("#Category").val($("#MainCategorySelect option:selected").val());
+            });
+        }
+    });
+
+    $("#AddDomain").click(function () {
+        if ($("#Category").val() == null || $("#Category").val() == "") {
+            $("#AddDomain").removeClass("btn-success");
+            $("#AddDomain").addClass("btn-danger");
+            $("#AddDomain").html("دسته بندی را وارد کنید");
+        } else {
+            $("#AddDomain").addClass("btn-success");
+            $("#AddDomain").removeClass("btn-danger");
+            $("#AddDomain").html("<i class='fas fa-plus-circle'></i>افزودن");
+
+            if ($("#Suffix").val() == null || $("#Suffix").val() == "" || $("#Price").val() == null || $("#Price").val() == "") {
+                $("#AddDomain").removeClass("btn-success");
+                $("#AddDomain").addClass("btn-danger");
+                $("#AddDomain").html("تمامی موارد اجباری است");
+            } else {
+                $("#AddDomain").addClass("btn-success");
+                $("#AddDomain").removeClass("btn-danger");
+                $("#AddDomain").html("<i class='fas fa-plus-circle'></i>افزودن");
+                $(".loding").removeClass("d-none");
+                var Category = $("#Category").val();
+                var Suffix = $("#Suffix").val();
+                if ($("#IsActive").is(":checked")) {
+                    var IsActive = "1";
+                } else {
+                    var IsActive = "0";
+                }
+                var IsActive = IsActive;
+                var Price = $("#Price").val();
+                $.post("/Admin/Domain/Create?Category=" + Category + "&Suffix=" + Suffix + "&IsActive=" + IsActive + "&Price=" + Price, function (result) {
+                    if (result == "true") {
+                        window.location.reload();
+                    }
+                    else if (result == "repetitive") {
+                        $("#AddDomain").removeClass("btn-success");
+                        $("#AddDomain").addClass("btn-danger");
+                        $("#AddDomain").html("دامنه تکراری میباشد");
+                    }
+                    else {
+                        alert(result);
+                    }
+                });
+            }
+        }
+    });
+
+</script>
 

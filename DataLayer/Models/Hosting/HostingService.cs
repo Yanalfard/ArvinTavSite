@@ -31,16 +31,18 @@ namespace DataLayer
         public bool Support { get; set; }
 
         [Display(Name ="هزینه سه ماهه")]
-        public int threeMonthsCost { get; set; }
+        public string threeMonthsCost { get; set; }
 
         [Display(Name ="هزینه شش ماهه")]
-        public int SixMonthsCost { get; set; }
+        public string SixMonthsCost { get; set; }
 
         [Display(Name = "هزینه سالانه")]
-        public int AnnuallyCost { get; set; }
+        public string AnnuallyCost { get; set; }
 
         [Display(Name = "جزئیات")]
         public virtual List<HostingServiceDetails> HostingServiceDetails { get; set; }
+
+        public virtual List<OrderDetails> OrderDetails { get; set; }
 
         [Display(Name ="دسته بندی")]
         public virtual ServiceCategory ServiceCategory { get; set; }

@@ -47,6 +47,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public ActionResult P_Edit(int ID)
         {
+            ViewBag.ParentID = serviceCategoryRepository.ServiceCategoryById(ID).ParentID;
             return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
         }
 

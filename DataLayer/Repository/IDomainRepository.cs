@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-   public interface IDomainRepository
+    public interface IDomainRepository
     {
         IEnumerable<DomainService> AllDomain(bool View);
 
+        string AddDomianService(int Category, string Suffix, int IsActive, string Price);
+
         DomainService DomainByID(int ID);
+
+        string EditDomainService(int ID, int Category, string Suffix, int IsActive, string Price);
 
         string RemoveDomain(int ID);
 

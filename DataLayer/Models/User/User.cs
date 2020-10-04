@@ -49,6 +49,8 @@ namespace DataLayer
 
         public virtual List<Order> Orders { get; set; }
 
+       public virtual List<Project> Projects { get; set; }
+
         public User()
         {
 

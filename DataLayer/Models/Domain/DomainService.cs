@@ -16,12 +16,14 @@ namespace DataLayer
         public string Suffix { get; set; }
 
         [Display(Name ="قیمت")]
-        public int Price { get; set; }
+        public string Price { get; set; }
 
         [Display(Name ="فعال بودن")]
         public bool IsActive { get; set; }
 
         public virtual ServiceCategory ServiceCategory { get; set; }
+
+        public virtual List<OrderDetails> OrderDetails { get; set; }
         
         public DomainService()
         {

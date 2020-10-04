@@ -9,10 +9,12 @@ namespace DataLayer
 {
     public class ArvinContext : DbContext
     {
-        public DbSet<DomainService> DomainServices { get; set; }
+        public DbSet<ServiceCategory> ServiceCategories { get; set; }
 
         public DbSet<HostingService> HostingServices { get; set; }
 
+        public DbSet<DomainService> DomainServices { get; set; }
+        
         public DbSet<HostingServiceDetails> HostingServiceDetails { get; set; }
 
         public DbSet<Order> Orders { get; set; }
@@ -21,10 +23,14 @@ namespace DataLayer
 
         public DbSet<PackageService> PackageServices { get; set; }
 
-        public DbSet<ServiceCategory> ServiceCategories { get; set; }
-
+        public DbSet<Project> projects { get; set; }
+        
         public DbSet<TicketCategory> TicketCategories { get; set; }
 
+        public DbSet<Ticket> tickets { get; set; }
+
+        public DbSet<InnerTicket> innerTickets { get; set; }
+        
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }

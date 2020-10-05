@@ -76,17 +76,17 @@
       <DependentUpon>202010040931145_AddDateTimeOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Domain\DomainService.cs" />
+    <Compile Include="Models\DomainService.cs" />
     <Compile Include="Models\Hosting\HostingService.cs" />
     <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderDetails.cs" />
-    <Compile Include="Models\Package\PackageService.cs" />
-    <Compile Include="Models\Project\Project.cs" />
+    <Compile Include="Models\PackageService.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Ticket\Ticket.cs" />
     <Compile Include="Models\User\UserRole.cs" />
-    <Compile Include="Models\Category\ServiceCategory.cs" />
+    <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\Ticket\TicketCategory.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
@@ -96,10 +96,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IHostingRepository.cs" />
+    <Compile Include="Repository\IOrderRepository.cs" />
+    <Compile Include="Repository\IPackageRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
+    <Compile Include="Repository\ITicketRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Services\DomainRepository.cs" />
     <Compile Include="Services\HostingRepository.cs" />
+    <Compile Include="Services\OrderRepository.cs" />
+    <Compile Include="Services\PackageRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
+    <Compile Include="Services\TicketRepository.cs" />
+    <Compile Include="Services\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

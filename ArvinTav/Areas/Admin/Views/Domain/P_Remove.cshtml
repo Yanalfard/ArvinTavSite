@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.DomainService
+<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">حذف از لیست</h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -6,15 +7,32 @@
 </div>
 <div class="space"></div>
 
-<h6 class="center">آیا میخواهید گزینه انتخابی حذف شود؟</h6>
+<h6 class="center">آیا میخواهید دامنه @Model.Suffix حذف شود؟</h6>
 <div class="space"></div>
 <div class="modal-footer justify-content-end">
-    <button id="ConfirmDelete" type="button" class="btn btn-sm btn-danger">
+    <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+    <button onclick="ConfirmDelete(@Model.ID)" type="button" class="btn btn-sm btn-danger">
         بله
     </button>
     <button id="CancelDelete" type="button" class="btn btn-sm btn-info">خیر</button>
 
 </div>
+
+<script>
+
+    function ConfirmDelete(ID) {
+        $(".loding").removeClass("d-none");
+        $.get("/Admin/Domain/Remove?ID=" + ID, function (result) {
+            if (result == "true") {
+                window.location.reload();
+            } else {
+                alert(result);
+            }
+        });
+    }
+
+
+</script>
 
 
 

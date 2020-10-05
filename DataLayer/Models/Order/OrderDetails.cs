@@ -24,6 +24,12 @@ namespace DataLayer
         [Display(Name = "سفارش")]
         public virtual Order Order { get; set; }
 
+        public virtual HostingService HostingService { get; set; }
+
+        public virtual DomainService DomainService { get; set; }
+
+        public virtual PackageService PackageService { get; set; }
+
         public OrderDetails()
         {
 

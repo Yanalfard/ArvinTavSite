@@ -3,6 +3,215 @@
     ViewBag.Title = "داشبورد";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="row flex-div">
+    <div class="col-md-12 flex pb-3 pt-3">
+        <div class="col-md-12 mb-2">
+            <div class="card shadow-full border-0">
+                <div class="card-body user-card-bg">
 
-<h2>داشبورد</h2>
+                </div>
+                <div class="card-body user-content">
+                    <div class="row">
+                        <a href="/Admin/User?PageId=1&Result=&Degree=5" class="col-md-3 text-dark">
+                            <div class="user-box alert alert-success p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="user-title mb-3">
+                                    <span class="icon-pic-success">مشتریان</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.User</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Admin/User?PageId=1&Result=&Degree=<4" class="col-md-3">
+                            <div class="user-box alert alert-success px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">کامندان</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Personnel</span>
+                                </div>
 
+                            </div>
+                        </a>
+                        <div class="col-md-6">
+                            <canvas id="myChart" width="400" height="110"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-2">
+            <div class="card shadow-full border-0">
+                <div class="card-body user-card-bg">
+
+                </div>
+                <div class="card-body user-content">
+                    <div class="row">
+                        <a href="/Admin/Hosting" class="col-md-3">
+                            <div class="user-box alert alert-info p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="user-title mb-3">
+                                    <span class="icon-pic-success">هاست ها</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Host</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Admin/Domain" class="col-md-3">
+
+                            <div class="user-box alert alert-info px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-globe-americas"></i>
+
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">دامنه ها</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Domain</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        <a href="/Admin/Package" class="col-md-3">
+
+                            <div class="user-box alert alert-info px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">بسته های نرم افزاری</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Package</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        <a href="/Admin/Order" class="col-md-3">
+
+                            <div class="user-box alert alert-info px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">سفارشات</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Order</span>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-2">
+            <div class="card shadow-full border-0">
+                <div class="card-body user-card-bg">
+
+                </div>
+                <div class="card-body user-content">
+                    <div class="row">
+                        <a href="/Admin/Ticket" class="col-md-4">
+                            <div class="user-box alert alert-primary p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="user-title mb-3">
+                                    <span class="icon-pic-success">کل تیکت ها</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Ticket</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/Admin/Ticket?PageId=1&PhoneNumber=&Status=4" class="col-md-4">
+                            <div class="user-box alert alert-success px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">تیکت های تکمیل شده</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.TicketEnded</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        <a href="/Admin/Ticket?PageId=1&PhoneNumber=&Status=3" class="col-md-4">
+                            <div class="user-box alert alert-danger px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-clipboard"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">تیکت های تکمیل نشده</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.TicketNotSeen</span>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['99/1', '99/2', '99/3', '99/4', '99/5', '99/6', '99/7', '99/8', '99/9', '99/10', '99/11', '99/12'],
+                datasets: [{
+                    label: 'روند سیستم',
+                    data: [12, 19, 11, 18, 19, 25, 60, 47, 44, 56, 44, 21],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+}

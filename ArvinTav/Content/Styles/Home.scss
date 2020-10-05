@@ -2,13 +2,13 @@
 @import '_colors.scss';
 @import '_global.scss';
 
-/*body {
+body {
     padding: 0;
     margin: 0;
     text-align: right;
 
 }
-*/
+
 
 /** {
     font-family: 'B Zar' !important;
@@ -285,3 +285,17 @@
         }
     }
     /*end slider style***********************/
+
+.AboutArvin {
+    background:#f8ffe5;
+    padding:20px;
+    p {
+        color: black;
+        -webkit-line-clamp:20!important; //number of lines to show
+    }
+
+    img {
+        width: 120px;
+        height: 100px;
+    }
+}

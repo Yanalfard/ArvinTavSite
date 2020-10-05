@@ -1840,6 +1840,7 @@
     <Content Include="Scripts\UIkit\uikit.min.js" />
     <Content Include="Scripts\UIScripts\Global.js" />
     <Content Include="Test.html" />
+    <Content Include="Tools\Auto_Formatting_Currency.js" />
     <Content Include="Tools\ckeditor\adapters\jquery.js" />
     <Content Include="Tools\ckeditor\build-config.js" />
     <Content Include="Tools\ckeditor\CHANGES.html" />

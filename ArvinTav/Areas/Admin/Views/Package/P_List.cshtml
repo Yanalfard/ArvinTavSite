@@ -1,1 +1,57 @@
 ﻿
+<div id="card-table" class="card-body flex-div">
+    <div class="table-responsive flex">
+        <table class="table fixed">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">متن</th>
+                    <th scope="col">فضا</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        jjgjg
+                    </td>
+
+                    <td>
+                       ghg
+                    </td>
+                    <td>
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="ویرایش">
+                            <a onclick="EditPackage()" data-toggle="modal" data-target="#modalSave"><i class="btn fas fa-edit mr-2 text-primary"></i></a>
+                        </span>
+                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                            <a onclick="DeletePackage()" data-toggle="modal" data-target="#modalSave"><i class="btn fas fa-trash mr-2 text-danger"></i></a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/Tools/Auto_Formatting_Currency.js"></script>
+<script>
+    
+
+    function EditPackage() {
+        $.get("/Admin/Package/P_Edit", function (result) {
+            $(".modal-dialog").removeClass("modal-lg");
+            $(".modal-dialog").removeClass("modal-md");
+            $(".modal-dialog").addClass("modal-xl");
+            $(".modal-content").html(result);
+        });
+    }
+
+    function DeletePackage() {
+        $.get("/Admin/Package/P_Remove", function (result) {
+            $(".modal-dialog").removeClass("modal-xl");
+            $(".modal-dialog").removeClass("modal-lg");
+            $(".modal-dialog").addClass("modal-md");
+            $(".modal-content").html(result);
+        });
+    }
+</script>
+
+

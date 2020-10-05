@@ -4,5 +4,111 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>بسته های نرم افزاری</h2>
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+                <div class="row justify-content-end">
+                    <div class="col-md-10 col-12">
+                        <div class="card-form row">
+                            <div class="form-input col-md-2">
+                                <div class="form-inline">
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="نام" value="@ViewBag.Result">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-toolbar col-6">
+                                <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                                <small class="text-danger erorr d-none">لطفا عنوان را وارد کنید.</small>
+                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-6">
+                        <a id="AddList" class="btn btn-success btn-sm text-white float-left" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+                    </div>
+                </div>
+            </div>
+            @Html.Action("P_List")
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSave" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <img src="~/img/gif/load.gif" class="loding justify-content-center" />
+            @*JS Dynamic*@
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+
+@section Scripts{
+
+    <script>
+
+        $("#AddList").click(function () {
+            $.get("/Admin/Package/P_Create", function (result) {
+                $(".modal-content").html(null);
+                $(".modal-dialog").removeClass("modal-lg");
+                $(".modal-dialog").removeClass("modal-md");
+                $(".modal-dialog").addClass("modal-xl");
+                $(".modal-content").html(result);
+            });
+        });
+
+
+
+
+        function BtnSearch() {
+            var Result = $("#ResultSearch").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+
+
+            if ($(".table fixed").html() == null || $(".table fixed").html() == "") {
+                $(".loding").removeClass("d-none");
+                $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                    window.location.href = "/Admin/Package?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
+                });
+            } else {
+                if (Result == null || Result == "") {
+                    $(".erorr").removeClass("d-none");
+                } else {
+                    $(".loding").removeClass("d-none");
+                    $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                        window.location.href = "/Admin/Package?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
+                    });
+                }
+            }
+
+        }
+
+        $("#pageNumber").change(function () {
+            var Result = $("#Search").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/Package?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
+            });
+        });
+
+
+        $("#InPageCount").change(function () {
+            var Result = $("#Search").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/Package?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
+            });
+        });
+    </script>
+
+}
+
+
 

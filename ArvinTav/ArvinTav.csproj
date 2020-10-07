@@ -1813,6 +1813,7 @@
     <Content Include="Areas\Admin\Views\Project\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Project\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_ChildCategoryInCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\P_Details.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

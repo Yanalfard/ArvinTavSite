@@ -4,5 +4,152 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>سفارشات</h2>
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+                <div class="row justify-content-end">
+                    <div class=" col-12">
+                        <div class="card-form row">
+                            <div class="form-input col-md-6">
+                                <div class="form-inline">
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="کدسفارش">
+                                    </div>
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن">
+                                    </div>
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <select id="DegreeSearch" class="form-control form-control-sm">
 
+                                            <option value="0" selected="">وضعیت</option>
+                                            <option value="1">منتظر پرداخت</option>
+                                            <option value="2">پرداخت شده</option>
+                                            <option value="3">تکمیل شده</option>
+                                            <option value="4">لغو شده</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-toolbar col-6">
+                                <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--list region-->
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex">
+                    <table class="table fixed">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">کد سفارش</th>
+                                <th scope="col">نام مشتری</th>
+                                <th scope="col">شماره تلفن</th>
+                                <th scope="col">زمان</th>
+                                <th scope="col">جزییات</th>
+                                <th scope="col">وضعیت</th>
+                                <th scope="col">عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    486546
+                                </td>
+                                <td>
+                                    اصغر فرهادی
+                                </td>
+                                <td>
+                                    09148795165
+                                </td>
+                                <td>
+                                    زمان سفارش
+                                </td>
+                                <td>
+                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="جزئیات">
+                                        <a id="Details" data-toggle="modal" data-target="#modalSave"><i class="btn fas fa-info-circle mr-2 text-primary"></i></a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <h1 class="badge badge-info">پرداخت شده</h1>
+                                </td>
+                                <td>
+                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تایید">
+                                        <a><i class="btn fas fa-check-circle mr-2 text-success"></i></a>
+                                    </span>
+                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="انصراف">
+                                        <a><i class="btn fas fa-window-close mr-2 text-danger"></i></a>
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--end list region-->
+            <div class="card-footer bg-white">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+
+                        <li class="page-item d-none">
+                            <a class="page-link" onclick="Page(0)">قبلی</a>
+                        </li>
+
+                        <li class="page-item">
+                            <select id="pageNumber" class="custom-select custom-select-sm">
+                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
+                            </select>
+                        </li>
+
+
+                        <li class="page-item d-none">
+                            <a class="page-link" onclick="Page(2)">بعدی</a>
+                        </li>
+                        <li>
+                            <select id="InPageCount" class="custom-select custom-select-sm">
+                                <option value="0" selected="">18 در هر صفحه</option>
+                                <option value="20">20 در هر صفحه</option>
+                                <option value="30">30 در هر صفحه</option>
+                                <option value="40">40 در هر صفحه</option>
+
+
+
+                            </select>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSave" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <img src="~/img/gif/load.gif" class="loding justify-content-center" />
+            @*JS Dynamic*@
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+@section Scripts{
+
+    <script>
+        $("#Details").click(function () {
+            $.get("/Admin/Order/P_Details", function (result) {
+                $(".modal-dialog").removeClass("modal-xl");
+                $(".modal-dialog").removeClass("modal-md");
+                $(".modal-dialog").addClass("modal-lg");
+                $(".modal-content").html(result);
+            });
+        });
+    </script>
+
+}

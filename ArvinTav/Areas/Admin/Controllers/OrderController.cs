@@ -13,5 +13,10 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult P_Details(int? ID)
+        {
+            return PartialView();
+        }
     }
 }

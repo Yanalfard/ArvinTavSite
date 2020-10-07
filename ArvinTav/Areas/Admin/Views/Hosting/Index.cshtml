@@ -134,27 +134,24 @@
 @section Scripts{
 
     <script>
-
+        
         $("#AddList").click(function () {
+            $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Hosting/P_Create", function (result) {
-                $(".modal-content").html(null);
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");
                 $(".modal-content").html(result);
             });
         });
-
-
-
-
+        
         function BtnSearch() {
             var Result = $("#ResultSearch").val();
             var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
 
 
-            if ($(".table fixed").html() == null || $(".table fixed").html() == "") {
+            if ($(".table tbody").html() == null || $(".table fixed").html() == "") {
                 $(".loding").removeClass("d-none");
                 $.get("/Admin/Hosting/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
                     window.location.href = "/Admin/Hosting?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;

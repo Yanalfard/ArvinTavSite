@@ -21,6 +21,9 @@ namespace DataLayer
         [Display(Name ="فعال بودن")]
         public bool IsActive { get; set; }
 
+        [Display(Name = "تعداد سفارش")]
+        public int? OrderCount { get; set; }
+
         public virtual ServiceCategory ServiceCategory { get; set; }
 
         public virtual List<OrderDetails> OrderDetails { get; set; }

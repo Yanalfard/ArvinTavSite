@@ -75,6 +75,18 @@
     <Compile Include="Migrations\202010040931145_AddDateTimeOrder.designer.cs">
       <DependentUpon>202010040931145_AddDateTimeOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010051353320_pckgepriceconvertinttostring.cs" />
+    <Compile Include="Migrations\202010051353320_pckgepriceconvertinttostring.designer.cs">
+      <DependentUpon>202010051353320_pckgepriceconvertinttostring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061200336_createorderscount.cs" />
+    <Compile Include="Migrations\202010061200336_createorderscount.designer.cs">
+      <DependentUpon>202010061200336_createorderscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061203007_initialnulabledordercount.cs" />
+    <Compile Include="Migrations\202010061203007_initialnulabledordercount.designer.cs">
+      <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DomainService.cs" />
     <Compile Include="Models\Hosting\HostingService.cs" />
@@ -93,6 +105,7 @@
     <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
+    <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IHostingRepository.cs" />
@@ -128,6 +141,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010040931145_AddDateTimeOrder.resx">
       <DependentUpon>202010040931145_AddDateTimeOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051353320_pckgepriceconvertinttostring.resx">
+      <DependentUpon>202010051353320_pckgepriceconvertinttostring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061200336_createorderscount.resx">
+      <DependentUpon>202010061200336_createorderscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061203007_initialnulabledordercount.resx">
+      <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

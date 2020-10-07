@@ -22,7 +22,10 @@ namespace DataLayer
         public string Image { get; set; }
 
         [Display(Name = "قیمت")]
-        public int Price { get; set; }
+        public string Price { get; set; }
+
+        [Display(Name = "تعداد سفارش")]
+        public int? OrderCount { get; set; }
 
         public virtual ServiceCategory ServiceCategory { get; set; }
 

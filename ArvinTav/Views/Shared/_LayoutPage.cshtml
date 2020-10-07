@@ -31,7 +31,7 @@
         <img class="LogoPic uk-padding-small uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
         <ul class="navBar uk-navbar-nav uk-padding-small uk-margin-larg-right uk-text-bold" dir="rtl">
             <li class="HomePage">
-            <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
+                <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
             <li>
                 <a href="#">خدمات</a><div class="uk-navbar-dropdown">
                 </div>
@@ -88,9 +88,71 @@
     @RenderBody()
 
     <!--footer region-->
-    <footer class="my-column uk-margin-large-top uk-padding">
-        <div class="footerContent my-row uk-margin-large-top uk-margin-large-bottom" dir="rtl">
 
+    <footer class="my-column uk-margin-large-top uk-padding">
+        <div class="footerContent my-row uk-padding" dir="rtl">
+            <content class="LogoFooter my-column uk-padding">
+                <img class="center" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+                <label class="center">ایده پرداز آروین تاو</label>
+                <label class="center" dir="ltr">&copy; 2020 arvintav</label>
+            </content>
+            <content class="SupportFooter my-column uk-padding ">
+                <h6>پشتیبانی</h6>
+                <a>پشتیبانی فنی</a>
+                <a>پشتیبانی فروش</a>
+            </content>
+            <content class="SupportFooter my-column uk-padding  ">
+                <h6>پشتیبانی</h6>
+                <a>پشتیبانی فنی</a>
+                <a>پشتیبانی فروش</a>
+            </content>
+            <content class="SupportFooter my-column uk-padding  ">
+                <h6>پشتیبانی</h6>
+                <a>پشتیبانی فنی</a>
+                <a>پشتیبانی فروش</a>
+            </content>
+
+        </div>
+        <hr />
+        <div class="Address my-column " dir="rtl">
+            <div class="my-row uk-padding-small">
+                <img src="~/img/Home/svg/Location.svg" />
+                <label>
+                    چایکنار-بعد از پل منصور به سمت آبرسان-ساختمان عمارت صبا-طبقه همکف غربی
+                </label>
+            </div>
+            <div class="my-row">
+                <div class="my-row uk-padding-small">
+                    <img src="~/img/Home/svg/Phone.svg" />
+                    <label dir="ltr">
+                        +98 - 041 - 33371059 - 33373556
+                    </label>
+                </div>
+                <div class="my-row uk-padding-small">
+                    <img src="~/img/Home/svg/CellPhone.svg" />
+                    <label dir="ltr">
+                        +980914 501 6607
+                    </label>
+                </div>
+                <div class="my-row uk-padding-small">
+                    <img src="~/img/Home/svg/Mail.svg" />
+                    <label dir="ltr">
+                        info@arvintavco.com
+                    </label>
+                </div>
+                <div class="LoginFooter my-row center uk-padding uk-padding-remove-right ">
+                    <input type="text" placeholder="ورود به سایت" />
+                    <button type="submit">ورود</button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+    <!--<footer class="my-column uk-margin-large-top uk-padding">
+        <div class="footerContent my-row uk-margin-large-top uk-margin-large-bottom" dir="rtl">
             <div class="my-column uk-padding uk-margin-right">
                 <img class="center" src="~/img/Admin/logo/ArvinTavLogo.svg" />
                 <label class="center">ایده پرداز آروین تاو</label>
@@ -115,22 +177,20 @@
                 <div class="emailBar">
                     <input class="EmailAddress" type="email" placeholder=" آدرس ایمیل" />
                     <input class="subscribe" type="submit" />
-                </div>
-                @*<a href="" uk-icon="icon: instagram"></a>*@
-                <div class="contactIcons my-row uk-margin-large-right uk-margin-small-top">
-                    <a class="contactIcon" href="#"><i class="fab fa-instagram fa-2x uk-padding-small"></i></a>
-                    <a class="contactIcon" href="#"><i class="fas fa-phone fa-2x uk-padding-small"></i></a>
-                    <a class="contactIcon" href="#"><i class="fab fa-facebook fa-2x uk-padding-small"></i></a>
-                </div>
-
-                @*<i class="btn fas fa-network-wired text-success">mehdi</i>
-                    <i class="btn fas fa-edit mr-2 text-primary"></i>*@
-            </div>
-
+                </div>-->
+    @*<a href="" uk-icon="icon: instagram"></a>*@
+    <!--<div class="contactIcons my-row uk-margin-large-right uk-margin-small-top">
+        <a class="contactIcon" href="#"><i class="fab fa-instagram fa-2x uk-padding-small"></i></a>
+        <a class="contactIcon" href="#"><i class="fas fa-phone fa-2x uk-padding-small"></i></a>
+        <a class="contactIcon" href="#"><i class="fab fa-facebook fa-2x uk-padding-small"></i></a>
+    </div>-->
+    @*<i class="btn fas fa-network-wired text-success">mehdi</i>
+        <i class="btn fas fa-edit mr-2 text-primary"></i>*@
+    <!--</div>
 
 
         </div>
-    </footer>
+    </footer>-->
     <!-- end region -->
 
 </body>

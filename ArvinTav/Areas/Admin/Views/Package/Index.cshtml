@@ -31,6 +31,89 @@
                 </div>
             </div>
             @Html.Action("P_List")
+            <div class="card-footer bg-white">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+
+                        @if (ViewBag.PageId == 1)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+
+                        }
+
+                        <li class="page-item">
+                            <select id="pageNumber" class="custom-select custom-select-sm">
+                                @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+                                {
+                                    <option class="page-item" value="@i" @(((int)ViewBag.pageId == i) ? "selected" : "" )>صفحه @i از @((int)ViewBag.PageCount + 1)</option>
+                                }
+                            </select>
+                        </li>
+
+
+                        @if ((int)ViewBag.PageId > (int)ViewBag.PageCount)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+                        }
+                        else
+
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+
+                        }
+                        <li>
+                            <select id="InPageCount" class="custom-select custom-select-sm">
+                                @if (ViewBag.InPageCount == 0)
+                                {
+                                    <option value="0" selected>18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+
+                                @if (ViewBag.InPageCount == 20)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20" selected>20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 30)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30" selected>30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 40)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40" selected>40 در هر صفحه</option>
+                                }
+
+
+                            </select>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
@@ -52,6 +135,7 @@
     <script>
 
         $("#AddList").click(function () {
+            $(".modal-content").html("<img src='~/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Package/P_Create", function (result) {
                 $(".modal-content").html(null);
                 $(".modal-dialog").removeClass("modal-lg");
@@ -60,17 +144,14 @@
                 $(".modal-content").html(result);
             });
         });
-
-
-
-
+        
         function BtnSearch() {
             var Result = $("#ResultSearch").val();
             var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
 
 
-            if ($(".table fixed").html() == null || $(".table fixed").html() == "") {
+            if ($(".table tbody").html() == null || $(".table fixed").html() == "") {
                 $(".loding").removeClass("d-none");
                 $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
                     window.location.href = "/Admin/Package?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
@@ -89,7 +170,7 @@
         }
 
         $("#pageNumber").change(function () {
-            var Result = $("#Search").val();
+            var Result = $("#ResultSearch").val();
             var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
             $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
@@ -99,7 +180,7 @@
 
 
         $("#InPageCount").change(function () {
-            var Result = $("#Search").val();
+            var Result = $("#ResultSearch").val();
             var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
             $.get("/Admin/Package/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {

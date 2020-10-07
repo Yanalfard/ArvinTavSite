@@ -45,6 +45,7 @@
 
 <script>
     function HostDetails(ID) {
+        $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
         $.get("/Admin/Hosting/P_HostingDetails?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").removeClass("modal-md");
@@ -54,6 +55,7 @@
     }
 
     function EditHosting(ID) {
+        $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
         $.get("/Admin/Hosting/P_Edit?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").removeClass("modal-md");
@@ -63,6 +65,7 @@
     }
 
     function DeleteHosting(ID) {
+        $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
         $.get("/Admin/Hosting/P_Remove?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").removeClass("modal-lg");

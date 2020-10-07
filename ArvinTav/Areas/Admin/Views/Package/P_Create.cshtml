@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@model IEnumerable<DataLayer.ServiceCategory>
+<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
         افزودن بسته نرم افزاری جدید
     </h6>
@@ -8,6 +9,20 @@
 </div>
 <form>
     <div class="modal-body">
+        <div class="mb-3">
+            <select id="MainCategorySelect">
+                <option selected value="0">انتخاب دسته</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.ID">@item.Title</option>
+                }
+            </select>
+            <div id="ChildCategory">
+
+            </div>
+            <input type="hidden" id="Category" />
+        </div>
+
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن">
@@ -31,13 +46,70 @@
         </div>
     </div>
     <div class="modal-footer justify-content-end">
-        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a id="AddPackageService" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
 <script src="~/Tools/Auto_Formatting_Currency.js"></script>
 <script>
     $(function () {
         $('#my-textarea').ckeditor();
+    });
+
+    $("#MainCategorySelect").change(function () {
+        if ($("#MainCategorySelect option:selected").val() == 0) { } else {
+            $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
+                $("#ChildCategory").html(result);
+                $("#Category").val($("#MainCategorySelect option:selected").val());
+            });
+        }
+    });
+
+    $("#AddPackageService").click(function () {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Price").val() == null || $("#my-textarea").val() == null || $("#my-textarea").val() == "" || $("#Price").val() == "" || $("#Image").val() == null || $("#Image").val() == "" || $("#Category").val() == null || $("#Category").val() == "") {
+            $("#AddPackageService").removeClass('btn-success');
+            $("#AddPackageService").addClass('btn-danger');
+            $("#AddPackageService").html("تمامی موارد اجباری است");
+        } else {
+            $("#AddPackageService").addClass('btn-success');
+            $("#AddPackageService").removeClass('btn-danger');
+            $("#AddPackageService").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $(".loding").removeClass("d-none");
+            var data = new FormData();
+            var files = $("#Image").get(0).files;
+            if (files.length > 0) {
+                data.append("UploadPackageImageFile", files[0]);
+            }
+            $.ajax({
+                url: "/Admin/Upload/UploadPackageImage",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    var Category = $("#Category").val();;
+                    var Title = $("#Title").val();
+                    var Price = $("#Price").val();
+                    var Image = response;
+                    var mytextarea = $("#my-textarea").val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/Admin/Package/Create',
+                        data: { Category: Category, Title: Title, Price: Price, Image: Image, Description: mytextarea },
+                        success: function (result) {
+                            if (result == "true") {
+                                window.location.reload();
+                            } else {
+                                alert(result);
+                            }
+                        },
+                        dataType: "json",
+                        traditional: true
+                    });
+                }
+            });
+        }
     });
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-   
+
     public class OrderRepository : IOrderRepository
     {
         private ArvinContext db;
@@ -18,6 +18,11 @@ namespace DataLayer
         public IEnumerable<Order> AllOrders()
         {
             return db.Orders;
+        }
+
+        public Order OrderById(int ID)
+        {
+            return db.Orders.Find(ID);
         }
     }
 }

@@ -177,11 +177,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
         }
 
-        public ActionResult P_ChildCategoryInCreate(int ParentID)
-        {
-            return PartialView(serviceCategoryRepository.AllChildCategory(ParentID, true));
-        }
-
         public int Create(int Category, string Title, int FreeSSL, int Support, string Space, string MonthlyTraffic, string SitesBeHosted, string threeMonthsCost, string SixMonthsCost, string AnnuallyCost)
         {
             return hostingRepository.Create(Category, Title, FreeSSL, Support, Space, MonthlyTraffic, SitesBeHosted, threeMonthsCost, SixMonthsCost, AnnuallyCost);

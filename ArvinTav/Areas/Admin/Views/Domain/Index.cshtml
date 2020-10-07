@@ -44,6 +44,7 @@
                             </div>
                             <div class="form-toolbar col-6">
                                 <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                                <small class="text-danger erorr d-none">لطفا عنوان را وارد کنید.</small>
                                 <img id="SearchLoad" src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                             </div>
                         </div>
@@ -155,11 +156,10 @@
 
 @section Scripts{
 
-
-
     <script>
 
         $("#AddList").click(function () {
+            $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Domain/P_Create", function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
@@ -169,6 +169,7 @@
         });
 
         function EditList(ID) {
+            $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Domain/P_Edit?ID=" + ID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
@@ -178,6 +179,7 @@
         }
 
         function DelFromList(ID) {
+            $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Domain/P_Remove?ID=" + ID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-lg");
@@ -197,15 +199,6 @@
             });
         }
 
-        $("#EditList").click(function () {
-            $.get("/Admin/Domain/P_Edit", function (result) {
-                $(".modal-dialog").removeClass("modal-xl");
-                $(".modal-dialog").removeClass("modal-md");
-                $(".modal-dialog").addClass("modal-lg");
-                $(".modal-content").html(result);
-            });
-        });
-
         function BtnSearch() {
             var Result = $("#Search").val();
             var PageId = $("#pageNumber option:selected").val();
@@ -215,6 +208,7 @@
             $.get("/Admin/Domain/P_List?PageId=" + PageId + "&Result=" + Result + "&IsActive=" + IsActive + "&InPageCount=" + InPageCount, function (result) {
                 window.location.href = "/Admin/Domain?PageId=" + PageId + "&Result=" + Result + "&IsActive=" + IsActive + "&InPageCount=" + InPageCount;
             });
+
         }
 
         $("#pageNumber").change(function () {

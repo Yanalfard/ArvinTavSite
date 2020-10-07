@@ -9,5 +9,7 @@ namespace DataLayer
     public interface IOrderRepository
     {
         IEnumerable<Order> AllOrders();
+
+        Order OrderById(int ID);
     }
 }

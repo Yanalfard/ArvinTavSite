@@ -11,5 +11,13 @@ namespace DataLayer
         IEnumerable<PackageService> AllPackageServices();
 
         PackageService PackageServiceById(int ID);
+
+        string Create(int Category, string Title, string Price, string Image, string Description);
+
+        string Edit(int ID, int Category, string Title, string Price, string Image, string Description);
+
+        string Remove(int ID);
+
+        void Save();
     }
 }

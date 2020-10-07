@@ -558,12 +558,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
         }
-
-        public ActionResult P_ChildCategoryInCreate(int ParentID)
-        {
-            return PartialView(serviceCategoryRepository.AllChildCategory(ParentID, true));
-        }
-
+        
         [HttpPost]
         public string Create(int Category, string Suffix, int IsActive,string Price)
         {

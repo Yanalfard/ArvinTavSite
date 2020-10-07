@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.PackageEditViewModel
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
         ویرایش بسته نرم افزاری
@@ -9,30 +9,48 @@
 </div>
 <form>
     <div class="modal-body">
+        <div class="mb-3">
+            <select id="MainCategorySelect">
+                <option selected value="0">انتخاب دسته</option>
+                @foreach (var item in Model.AllMainServiceCatgory)
+                {
+                    <option value="@item.ID">@item.Title</option>
+                }
+            </select>
+            <div id="ChildCategory">
+
+            </div>
+            <input type="hidden" id="Category" value="@Model.PackageService.ServiceCategory.ID" />
+            <text class="text-success">دسته بندی : @Model.PackageService.ServiceCategory.Title</text>
+        </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن">
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن" value="@Model.PackageService.Title">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="currency-field" id="Price" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="قیمت">
+                <input type="text" name="currency-field" id="Price" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="قیمت" value="@Model.PackageService.Price">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="Image">تصویر</label>
-                <div class="custom-file">
+
+                <div class="custom-file border border-success">
                     <input type="file" class="custom-file-input form-control form-control-sm" id="Image">
-                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
+                    <label class="custom-file-label" for="Image" data-browse="انتخاب">@Model.PackageService.Image</label>
+
                 </div>
+
             </div>
         </div>
-        <textarea id="my-textarea" name="Mytext"></textarea>
+        <textarea id="my-textarea" name="Mytext">@Model.PackageService.Description</textarea>
         <div class="form-row">
 
         </div>
     </div>
     <div class="modal-footer justify-content-end">
-        <a id="AddKindCategory" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-edit"></i>ویرایش</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a onclick="EditPackageService(@Model.PackageService.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
 <script src="~/Tools/Auto_Formatting_Currency.js"></script>
@@ -40,5 +58,84 @@
     $(function () {
         $('#my-textarea').ckeditor();
     });
+
+
+    $("#MainCategorySelect").change(function () {
+        if ($("#MainCategorySelect option:selected").val() == 0) { } else {
+            $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
+                $("#ChildCategory").html(result);
+                $("#Category").val($("#MainCategorySelect option:selected").val());
+            });
+        }
+    });
+
+    function EditPackageService(ID) {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Price").val() == null || $("#my-textarea").val() == null || $("#my-textarea").val() == "" || $("#Price").val() == "" || $("#Category").val() == null || $("#Category").val() == "") {
+            $("#AddPackageService").removeClass('btn-success');
+            $("#AddPackageService").addClass('btn-danger');
+            $("#AddPackageService").html("تمامی موارد اجباری است");
+        } else {
+            $("#AddPackageService").addClass('btn-success');
+            $("#AddPackageService").removeClass('btn-danger');
+            $("#AddPackageService").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $(".loding").removeClass("d-none");
+
+            if ($("#Image").val() == null || $("#Image").val() == "") {
+                var Category = $("#Category").val();
+                var Title = $("#Title").val();
+                var Price = $("#Price").val();
+                var mytextarea = $("#my-textarea").val();
+                $.ajax({
+                    type: "POST",
+                    url: '/Admin/Package/Edit',
+                    data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: null, Description: mytextarea },
+                    success: function (result) {
+                        if (result == "true") {
+                            window.location.reload();
+                        } else {
+                            alert(result);
+                        }
+                    },
+                    dataType: "json",
+                    traditional: true
+                });
+            } else {
+                var data = new FormData();
+                var files = $("#Image").get(0).files;
+                if (files.length > 0) {
+                    data.append("UploadPackageImageFile", files[0]);
+                }
+                $.ajax({
+                    url: "/Admin/Upload/UploadPackageImage",
+                    type: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: data,
+                    success: function (response) {
+                        var Category = $("#Category").val();;
+                        var Title = $("#Title").val();
+                        var Price = $("#Price").val();
+                        var Image = response;
+                        var mytextarea = $("#my-textarea").val();
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/Admin/Package/Edit',
+                            data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: Image, Description: mytextarea },
+                            success: function (result) {
+                                if (result == "true") {
+                                    window.location.reload();
+                                } else {
+                                    alert(result);
+                                }
+                            },
+                            dataType: "json",
+                            traditional: true
+                        });
+                    }
+                });
+            }
+        }
+    }
 
 </script>

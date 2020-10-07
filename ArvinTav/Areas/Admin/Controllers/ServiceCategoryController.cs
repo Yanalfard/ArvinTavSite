@@ -16,13 +16,47 @@ namespace ArvinTav.Areas.Admin.Controllers
             serviceCategoryRepository = new ServiceCategoryRepository(db);
         }
         // GET: Admin/ServiceCategory
-        public ActionResult Index()
+        public ActionResult Index(int PageId = 1, int InPageCount = 0)
         {
-            return View(serviceCategoryRepository.AllMainServiceCategory(false));
+            if (InPageCount == 0)
+            {
+                int count = serviceCategoryRepository.AllMainServiceCategory(false).Count();
+
+                var skip = (PageId - 1) * 18;
+
+                ViewBag.pageid = PageId;
+
+                ViewBag.PageCount = count / 18;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return PartialView(serviceCategoryRepository.AllMainServiceCategory(false).OrderBy(v => v.ID).Skip(skip).Take(18).ToList());
+            }
+            else
+            {
+
+                int count = serviceCategoryRepository.AllMainServiceCategory(false).Count();
+
+                var skip = (PageId - 1) * InPageCount;
+
+                ViewBag.pageid = PageId;
+
+                ViewBag.PageCount = count / InPageCount;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return PartialView(serviceCategoryRepository.AllMainServiceCategory(false).OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+            }
         }
+
         public ActionResult P_ChildCategory(int ParentID)
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ParentID, false));
+        }
+
+        public ActionResult P_ChildCategoryInCreate(int ParentID)
+        {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ParentID, true));
         }
 
         public ActionResult P_Create(int ParentID)

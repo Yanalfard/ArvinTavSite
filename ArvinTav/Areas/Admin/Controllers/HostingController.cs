@@ -210,5 +210,16 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return PartialView(hostingRepository.AllHostingDetails(ID));
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                hostingRepository.Dispose();
+                serviceCategoryRepository.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

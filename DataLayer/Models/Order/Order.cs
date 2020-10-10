@@ -11,23 +11,25 @@ namespace DataLayer
     {
         [Key]
         public int ID { get; set; }
-        
+
         [Display(Name = "جمع سفارش")]
         public int Price { get; set; }
 
         [Display(Name = "وضعیت = 1:منتظر پرداخت - 2:پرداخت شده - 3:تکمیل شده - 4:لغو شده")]
         public int Status { get; set; }
 
-        [Display(Name ="زمان")]
-        public DateTime dateTime { get; set; }
+        [Display(Name = "توضیحات سفارش")]
+        [MaxLength(600, ErrorMessage = "توضیحات کوتاه تری وارد کنید")]
+        public string Description { get; set; }
+
+        [Display(Name = "زمان ثبت")]
+        public DateTime DateTime { get; set; }
 
         [Display(Name = "کاربر")]
         public virtual User User { get; set; }
-        
+
         [Display(Name = "جزئیات")]
         public virtual List<OrderDetails> OrderDetails { get; set; }
-
-        
 
         public Order()
         {

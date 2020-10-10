@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IServiceCategoryRepository
+    public interface IServiceCategoryRepository:IDisposable
     {
         IEnumerable<ServiceCategory> AllMainServiceCategory(bool View);
 

@@ -87,10 +87,37 @@
     <Compile Include="Migrations\202010061203007_initialnulabledordercount.designer.cs">
       <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010071407587_editusertblandeditordertbl.cs" />
+    <Compile Include="Migrations\202010071407587_editusertblandeditordertbl.designer.cs">
+      <DependentUpon>202010071407587_editusertblandeditordertbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010072102180_CreateProduct.cs" />
+    <Compile Include="Migrations\202010072102180_CreateProduct.designer.cs">
+      <DependentUpon>202010072102180_CreateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010072125498_EditProduct.cs" />
+    <Compile Include="Migrations\202010072125498_EditProduct.designer.cs">
+      <DependentUpon>202010072125498_EditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010072129018_editproduct2.cs" />
+    <Compile Include="Migrations\202010072129018_editproduct2.designer.cs">
+      <DependentUpon>202010072129018_editproduct2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010072156151_CreateHostingDetail.cs" />
+    <Compile Include="Migrations\202010072156151_CreateHostingDetail.designer.cs">
+      <DependentUpon>202010072156151_CreateHostingDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010081210403_editorder3.cs" />
+    <Compile Include="Migrations\202010081210403_editorder3.designer.cs">
+      <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DomainService.cs" />
+    <Compile Include="Models\Domain\DomainService.cs" />
+    <Compile Include="Models\Domain\DomainServiceOrder.cs" />
+    <Compile Include="Models\Hosting\HostingOrder.cs" />
     <Compile Include="Models\Hosting\HostingService.cs" />
     <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderDetails.cs" />
@@ -105,6 +132,7 @@
     <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
+    <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
@@ -150,6 +178,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061203007_initialnulabledordercount.resx">
       <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010071407587_editusertblandeditordertbl.resx">
+      <DependentUpon>202010071407587_editusertblandeditordertbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010072102180_CreateProduct.resx">
+      <DependentUpon>202010072102180_CreateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010072125498_EditProduct.resx">
+      <DependentUpon>202010072125498_EditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010072129018_editproduct2.resx">
+      <DependentUpon>202010072129018_editproduct2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010072156151_CreateHostingDetail.resx">
+      <DependentUpon>202010072156151_CreateHostingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010081210403_editorder3.resx">
+      <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

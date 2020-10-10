@@ -18,7 +18,7 @@ namespace DataLayer
         {
             if (View == false)
             {
-                return db.ServiceCategories.Where(c=>c.ParentID==null);
+                return db.ServiceCategories.Where(c => c.ParentID == null);
             }
             else
             {
@@ -39,7 +39,7 @@ namespace DataLayer
             else
             {
                 childCategoryViewModel.ParentID = ParentID;
-                childCategoryViewModel.ChildCategories = db.ServiceCategories.Where(c => c.ParentID == ParentID && c.IsActive==true);
+                childCategoryViewModel.ChildCategories = db.ServiceCategories.Where(c => c.ParentID == ParentID && c.IsActive == true);
                 return childCategoryViewModel;
             }
         }
@@ -148,7 +148,7 @@ namespace DataLayer
                 db.PackageServices.RemoveRange(db.PackageServices.Where(p => p.ServiceCategory.ID == ID));
                 db.HostingServices.RemoveRange(db.HostingServices.Where(p => p.ServiceCategory.ID == ID));
                 db.DomainServices.RemoveRange(db.DomainServices.Where(p => p.ServiceCategory.ID == ID));
-                db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c=>c.ParentID==ID));
+                db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c => c.ParentID == ID));
                 db.ServiceCategories.Remove(ServiceCategoryById(ID));
                 Save();
                 return "true";
@@ -181,6 +181,11 @@ namespace DataLayer
                 return "true";
             }
 
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }

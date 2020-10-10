@@ -30,7 +30,7 @@ namespace DataLayer
         public virtual ServiceCategory ServiceCategory { get; set; }
 
         public virtual List<OrderDetails> OrderDetails { get; set; }
-
+        
         public PackageService()
         {
 

@@ -1786,7 +1786,6 @@
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.ttf" />
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.woff" />
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.woff2" />
-    <Content Include="fonts\fontsite\Sahel.woff" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Domain\Index.cshtml" />
@@ -1830,6 +1829,7 @@
     <Content Include="img\Home\svg\Location.svg" />
     <Content Include="img\Home\svg\Mail.svg" />
     <Content Include="img\Home\svg\Phone.svg" />
+    <Content Include="fonts\fontsite\Sahel.woff" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

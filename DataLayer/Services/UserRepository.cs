@@ -18,5 +18,10 @@ namespace DataLayer
         {
             return db.Users;
         }
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
     }
 }

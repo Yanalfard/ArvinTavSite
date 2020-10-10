@@ -64,13 +64,20 @@ namespace DataLayer
             hostingService.SixMonthsCost = SixMonthsCost;
             hostingService.AnnuallyCost = AnnuallyCost;
             db.HostingServices.Add(hostingService);
+            Product product = new Product();
+            product.SideID = 1;
+            product.ServiceCategory = hostingService.ServiceCategory;
+            product.DomainService = null;
+            product.HostingService = hostingService;
+            product.PackageService = null;
+            db.products.Add(product);
             Save();
             return hostingService.ID;
         }
 
         public string CreateHostingServiceDetails(List<HostingServiceDetailsViewModel> Details)
         {
-            
+
             if (AllHostingDetails(Details.FirstOrDefault().HostingID).Count() > 0)
             {
                 db.HostingServiceDetails.RemoveRange(AllHostingDetails(Details.FirstOrDefault().HostingID));
@@ -146,6 +153,11 @@ namespace DataLayer
             hostingService.AnnuallyCost = AnnuallyCost;
             Save();
             return ID;
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }

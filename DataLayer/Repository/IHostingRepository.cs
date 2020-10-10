@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IHostingRepository
+    public interface IHostingRepository:IDisposable
     {
         IEnumerable<HostingService> AllhostingServices();
 

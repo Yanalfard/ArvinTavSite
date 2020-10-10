@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IPackageRepository
+    public interface IPackageRepository:IDisposable
     {
         IEnumerable<PackageService> AllPackageServices();
 

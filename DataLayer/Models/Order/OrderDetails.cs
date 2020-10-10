@@ -11,24 +11,21 @@ namespace DataLayer
     {
         [Key]
         public int ID { get; set; }
-
-        [Display(Name = "متن")]
-        public string Title { get; set; }
         
-        [Display(Name ="نام دسته بندی")]
-        public string CategoryName { get; set; }
-
         [Display(Name = "قیمت")]
         public int Price { get; set; }
 
+        [Display(Name = " سمت : 1:میزبانی 2:بسته نرم افزاری 3:دامنه")]
+        public int SideID { get; set; }
+
         [Display(Name = "سفارش")]
         public virtual Order Order { get; set; }
-
-        public virtual HostingService HostingService { get; set; }
-
-        public virtual DomainService DomainService { get; set; }
+        
+        public virtual HostingOrder HostingOrder { get; set; }
 
         public virtual PackageService PackageService { get; set; }
+
+        public virtual DomainServiceOrder DomainServiceOrder { get; set; }
 
         public OrderDetails()
         {

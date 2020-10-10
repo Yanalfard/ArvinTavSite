@@ -227,5 +227,16 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
             return packageRepository.Remove(ID);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                packageRepository.Dispose();
+                serviceCategoryRepository.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

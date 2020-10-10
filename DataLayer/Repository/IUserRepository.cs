@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IUserRepository
+    public interface IUserRepository:IDisposable
     {
         IEnumerable<User> AllUser();
     }

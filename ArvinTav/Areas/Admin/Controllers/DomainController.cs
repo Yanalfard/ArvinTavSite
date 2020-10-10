@@ -595,5 +595,18 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return domainRepository.RemoveDomain(ID);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                domainRepository.Dispose();
+                serviceCategoryRepository.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+
     }
 }

@@ -18,5 +18,10 @@ namespace DataLayer
         {
             return db.tickets;
         }
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
     }
 }

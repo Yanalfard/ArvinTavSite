@@ -121,5 +121,15 @@ namespace ArvinTav.Areas.Admin.Controllers
 
             return serviceCategoryRepository.RemoveServiceCategory(ID);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                serviceCategoryRepository.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

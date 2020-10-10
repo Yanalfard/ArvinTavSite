@@ -53,6 +53,13 @@ namespace DataLayer
                     }
                     domainService.Price = Price;
                     db.DomainServices.Add(domainService);
+                    Product product = new Product();
+                    product.SideID = 2;
+                    product.ServiceCategory = domainService.ServiceCategory;
+                    product.DomainService = domainService;
+                    product.HostingService = null;
+                    product.PackageService = null;
+                    db.products.Add(product);
                     Save();
                     return "true";
                 }
@@ -139,5 +146,9 @@ namespace DataLayer
             db.SaveChanges();
         }
 
+        public void Dispose()
+        {
+            db.Dispose();
+        }
     }
 }

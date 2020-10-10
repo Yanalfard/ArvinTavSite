@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface ITicketRepository:IDisposable
+    public class OrderDetailViewModel
     {
-        IEnumerable<Ticket> AllTicket();
+       public Order Order { get; set; }
+
+       public IEnumerable<OrderDetails> OrderDetails { get; set; }
     }
 }

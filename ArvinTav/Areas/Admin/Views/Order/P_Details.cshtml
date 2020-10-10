@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.OrderDetailViewModel
 <div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
         جزئیات سفارش
@@ -14,26 +14,41 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>کد سفارش:</label>
-                    <span>486546</span>
+                    <span>@Model.Order.ID</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>نام مشتری:</label>
-                    <span>اصغر فرهادی</span>
+                    <span>@Model.Order.User.FullName</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>شماره مشتری:</label>
-                    <span>09148795165</span>
+                    <span>@Model.Order.User.PhoneNumber</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>زمان:</label>
-                    <span>زمان سفارش</span>
+                    <span>@Model.Order.DateTime.ToShamsi()</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>وضعیت:</label>
-                    <span class="text-primary">پرداخت شده</span>
+                    @if (Model.Order.Status == 1)
+                    {
+                        <span class="text-primary">منتظر پرداخت</span>
+                    }
+                    else if (Model.Order.Status == 2)
+                    {
+                        <span class="text-info">پرداخت شده</span>
+                    }
+                    else if (Model.Order.Status == 3)
+                    {
+                        <span class="text-success">تکمیل شده</span>
+                    }
+                    else if (Model.Order.Status == 4)
+                    {
+                        <span class="text-muted">لغو شده</span>
+                    }
                 </div>
             </div>
-            <div class="form-control" rows="4">توضیحات اضافی</div>
+            <div class="form-control" rows="4">@Model.Order.Description</div>
             &nbsp;
             <div class="table-responsive flex">
                 <table class="table fixed">
@@ -44,37 +59,53 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                هاست لینوکس
-                            </td>
-                            <td>
-                                20000
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                دامنه
-                            </td>
-                            <td>
-                                10000
-                            </td>
-                        </tr>
-
+                        @foreach (var item in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.SideID == 1)
+                                    {
+                                        if (item.HostingOrder.ExpirationHostSide == 1)
+                                        {
+                                            @:هاست @item.HostingOrder.HostingService.Title بمدت سه ماه با دامنه @item.HostingOrder.DomainName.@item.HostingOrder.DomainService.Suffix
+                                        }
+                                        else if (item.HostingOrder.ExpirationHostSide == 2)
+                                        {
+                                            @:هاست @item.HostingOrder.HostingService.Title بمدت شش ماه با دامنه @item.HostingOrder.DomainName.@item.HostingOrder.DomainService.Suffix
+                                        }
+                                        else if (item.HostingOrder.ExpirationHostSide == 3)
+                                        {
+                                            @:هاست @item.HostingOrder.HostingService.Title بمدت یکسال با دامنه @item.HostingOrder.DomainName.@item.HostingOrder.DomainService.Suffix
+                                        }
+                                    }
+                                    else if (item.SideID == 2)
+                                    {
+                                        @:بسته نرم افزاری @item.PackageService.Title در دسته @item.PackageService.ServiceCategory
+                                    }
+                                    else if (item.SideID==3)
+                                    {
+                                        @:دامنه @item.DomainServiceOrder.DomainName.@item.DomainServiceOrder.DomainService.Suffix
+                                    }
+                                </td>
+                                <td>
+                                    @item.Price
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
     </div>
     <div class="modal-footer">
         <div class="form-row ml-xl-4 ml-4 ">
-            
-                <label class="uk-text-bold">قیمت کل:</label>
-                <span class="text-success uk-text-bold">30000</span>
-            
-         </div>
+
+            <label class="uk-text-bold">قیمت کل:</label>
+            <span class="text-success uk-text-bold">@Model.Order.Price</span>
+
         </div>
+    </div>
 </form>
 
 

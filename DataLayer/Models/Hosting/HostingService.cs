@@ -50,6 +50,8 @@ namespace DataLayer
         [Display(Name = "دسته بندی")]
         public virtual ServiceCategory ServiceCategory { get; set; }
 
+        public virtual List<HostingOrder> HostingOrders { get; set; }
+
         public HostingService()
         {
 

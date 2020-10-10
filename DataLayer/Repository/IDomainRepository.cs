@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IDomainRepository
+    public interface IDomainRepository:IDisposable
     {
         IEnumerable<DomainService> AllDomain(bool View);
 

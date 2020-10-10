@@ -135,7 +135,7 @@
     <script>
 
         $("#AddList").click(function () {
-            $(".modal-content").html("<img src='~/img/gif/load.gif' class='loding justify-content-center' />");
+            $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Package/P_Create", function (result) {
                 $(".modal-content").html(null);
                 $(".modal-dialog").removeClass("modal-lg");

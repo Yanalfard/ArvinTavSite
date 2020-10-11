@@ -13,5 +13,20 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult P_InnerTicket(int? ID)
+        {
+            return PartialView();
+        }
+
+        //InnerTicket
+        public ActionResult InnerTicket(int? ID)
+        {
+            return View();
+        }
+
+        public ActionResult P_Info(int? ID)
+        {
+            return PartialView();
+        }
     }
 }

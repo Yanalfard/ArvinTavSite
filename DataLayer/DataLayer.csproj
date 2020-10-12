@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202010081210403_editorder3.designer.cs">
       <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010120911145_initialticket.cs" />
+    <Compile Include="Migrations\202010120911145_initialticket.designer.cs">
+      <DependentUpon>202010120911145_initialticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
     <Compile Include="Models\Domain\DomainServiceOrder.cs" />
@@ -132,8 +136,10 @@
     <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
+    <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IHostingRepository.cs" />
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010081210403_editorder3.resx">
       <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010120911145_initialticket.resx">
+      <DependentUpon>202010120911145_initialticket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

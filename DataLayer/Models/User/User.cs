@@ -30,8 +30,8 @@ namespace DataLayer
         [MinLength(2, ErrorMessage = "نام با کارکتر های بیشتری وارد کنید")]
         public string Brand { get; set; }
 
-        [Display(Name ="ایمیل")]
-        [DataType(DataType.EmailAddress,ErrorMessage ="ایمیل معتبر وارد کنید")]
+        [Display(Name = "ایمیل")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "ایمیل معتبر وارد کنید")]
         public string Email { get; set; }
 
         [Display(Name = "تصویر")]
@@ -67,6 +67,10 @@ namespace DataLayer
         public virtual List<Order> Orders { get; set; }
 
         public virtual List<HostingOrder> HostingOrders { get; set; }
+
+        public List<Ticket> tickets { get; set; }
+
+        public List<InnerTicket> innerTickets { get; set; }
 
         public User()
         {

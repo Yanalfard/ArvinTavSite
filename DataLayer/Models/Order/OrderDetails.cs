@@ -11,7 +11,7 @@ namespace DataLayer
     {
         [Key]
         public int ID { get; set; }
-        
+
         [Display(Name = "قیمت")]
         public int Price { get; set; }
 
@@ -20,12 +20,15 @@ namespace DataLayer
 
         [Display(Name = "سفارش")]
         public virtual Order Order { get; set; }
-        
+
         public virtual HostingOrder HostingOrder { get; set; }
 
         public virtual PackageService PackageService { get; set; }
 
         public virtual DomainServiceOrder DomainServiceOrder { get; set; }
+
+        [Display(Name = "تیکت ها")]
+        public virtual List<Ticket> Tickets { get; set; }
 
         public OrderDetails()
         {

@@ -59,8 +59,9 @@
         font-size: 18px !important;
     }
 }
-.uk-offcanvas-bar{
-    display:none;
+
+.uk-offcanvas-bar {
+    display: none;
 }
 /*#region This will be toggled on scroll */
 .layout-header-scrolled {
@@ -124,9 +125,11 @@
             }
         }
     }
+
     .uk-offcanvas-bar {
         display: block;
     }
+
     .layout-header-scrolled {
         overflow: hidden !important;
     }
@@ -137,13 +140,13 @@
         .navBar {
             display: none;
         }
-}
+    }
 
     .LogoPic {
         width: 50px;
         height: 40px;
     }
-    
+
     .hamburger-button {
         display: flex !important;
     }
@@ -194,9 +197,8 @@
     padding: 10px !important;
     right: 18px;
     top: 18px;
-    color: white ;
+    color: white;
     margin: auto;
-
 }
 /*#endregion */
 /*#endregion */
@@ -207,7 +209,65 @@ footer {
     padding: 20px;
 
     .footerContent {
-        padding-right: 50px !important;
+        display: flex;
+        // padding-right: 50px !important;
+        .LogoFooter {
+            flex: 1;
+            background: white;
+        }
+
+        .SupportFooter {
+            flex: 1;
+        }
+    }
+
+    .footerEnd {
+        display: flex;
+
+        .Address {
+            flex: 1;
+
+            img {
+                width: 22px;
+                height: 22px;
+            }
+
+            label {
+                color: white !important;
+                font-size: 14px;
+                margin-right: 8px;
+            }
+        }
+
+        .footerContact {
+            flex: 1;
+        }
+
+        .LoginFooter {
+            /*            width: 10px !important;
+            height: 170px !important;*/
+            input {
+                width: 200px !important;
+                height: 40px !important;
+            }
+
+            button {
+                width: 80px !important;
+                height: 45px !important;
+                background: #5cb152 !important;
+                color: white;
+                border: none;
+            }
+
+            button:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .contactIcon {
+            color: #a9a9a9;
+            opacity: 0.5;
+        }
     }
 
     div {
@@ -219,18 +279,10 @@ footer {
         }
     }
 
-    h4 {
-        color: #0DA574;
-        font-size: 22px;
+    h6 {
+        color: #5cb152;
+        font-size: 18px;
         font-weight: 400;
-    }
-
-    p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; //number of lines to show
-        -webkit-box-orient: vertical
     }
 
     a {
@@ -240,97 +292,86 @@ footer {
 
     a:hover {
         text-decoration: none;
-        font-size: larger;
-        color: white;
+        /*font-size: larger;*/
+        color: #808080;
     }
 
-    .emailBar {
-        input {
-            height: 35px;
-            width: 170px;
-            margin-left: 0px !important;
-        }
-
-        margin-left: 200px;
-
-        .subscribe {
-            background: #0DA574;
-            color: white;
-            height: 39px !important;
-            margin-right: -4px !important;
-            width: 80px !important;
-            border: none;
-        }
-
-        .subscribe:hover {
-            background: transparent !important;
-        }
-
-        .subscribe:active {
-            border: none;
-        }
-    }
-
-    .contactIcon {
-        color: #a9a9a9;
-        opacity: 0.5;
+    hr {
+        border: 1px solid #a9a9a9;
+        opacity: 0.1;
+        border-radius: 5px;
     }
 }
+/*#end footer region */
+/*mobile footer style*/
 
 @media only screen and (max-device-width : 1130px) {
     footer {
         background-image: none !important;
         background-color: #333F4D !important;
 
-        img {
-            height: 12vw;
-            width: 15vw;
-        }
-
         .footerContent {
             @include column();
             @include center();
 
-
-            .emailBar {
-                input {
-                    height: 35px;
-                    width: 130px;
-                }
-
-                margin-left: 0 !important;
+            .LogoFooter {
+                width: 100%;
             }
         }
     }
 }
+
+@media only screen and (max-device-width : 767px) {
+    footer {
+        .footerEnd {
+            @include column();
+            @include center();
+
+            .Address {
+                margin: auto !important;
+            }
+
+            .footerContact {
+                margin: auto !important;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width : 1130px) {
     footer {
         background-image: none !important;
         background-color: #333F4D !important;
 
-        img {
-            height: 12vw;
-            width: 15vw;
-        }
-
         .footerContent {
             @include column();
             @include center();
-            @include my-clipped();
 
-
-            .emailBar {
-                input {
-                    height: 35px;
-                    width: 130px;
-                }
-
-                margin-left: 0 !important;
+            .LogoFooter {
+                width: 100%;
             }
         }
     }
 }
-/*#endregion */
+
+@media only screen and (max-width : 767px) {
+    footer {
+        .footerEnd {
+            @include column();
+            @include center();
+
+            .Address {
+                margin: auto !important;
+            }
+
+            .footerContact {
+                margin: auto !important;
+            }
+        }
+    }
+}
+
+/*#end mobile footer region */
 
 /*#button-style-region */
 button.ServiceButton {
@@ -340,10 +381,11 @@ button.ServiceButton {
     color: white;
     font-size: 20px;
     border: none;
-    border-radius:8px;
+    border-radius: 8px;
 }
+
 button.ServiceButton:hover {
-    opacity:0.9;
+    opacity: 0.9;
 }
 /*#grid-background-style-region */
 .GridBackground {
@@ -353,9 +395,10 @@ button.ServiceButton:hover {
     overflow: hidden;
 }
 
-.overflow-visible{
-    overflow:visible!important;
-    *{
-        overflow:visible!important;
+.overflow-visible {
+    overflow: visible !important;
+
+    * {
+        overflow: visible !important;
     }
 }

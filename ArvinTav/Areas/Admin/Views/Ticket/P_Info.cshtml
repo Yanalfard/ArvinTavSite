@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.Ticket
+<div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
         اطلاعات تیکت
     </h6>
@@ -13,39 +14,70 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>کد تیکت:</label>
-                    <span>56415</span>
+                    <span>@Model.ID</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>موضوع:</label>
-                    <span>مشکل فنی</span>
+                    <span>@Model.Subject</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>نام کاربر:</label>
-                    <span>رضا نامدار</span>
+                    <span>@Model.User.FullName</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>شماره تلفن:</label>
-                    <span>09145684952</span>
+                    <span>@Model.User.PhoneNumber</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>سرویس:</label>
-                    <span>طراحی وبسایت</span>
+                    <span>
+                        @if (Model.OrderDetails.SideID == 1)
+                        {
+                            @:هاست @Model.OrderDetails.HostingOrder.HostingService.Title
+                        }
+                        else if (Model.OrderDetails.SideID == 2)
+                        {
+                            @:دامنه @Model.OrderDetails.DomainServiceOrder.DomainName.@Model.OrderDetails.DomainServiceOrder.DomainService.Suffix
+                        }
+                        else if (Model.OrderDetails.SideID == 3)
+                        {
+                            @:بسته نرم افزاری @Model.OrderDetails.PackageService.Title
+                        }
+                    </span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>بخش مربوطه:</label>
-                    <span>بخش فنی</span>
+                    <span>@Model.TicketCategory.Title</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>تاریخ و زمان ثبت تیکت:</label>
-                    <span>نه مهر </span>
+                    <span>@Model.dateTime.ToShamsi()</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>وضعیت:</label>
-                    <span class="text-primary">منتظر پرداخت</span>
+                    @if (Model.Status == 1)
+                    {
+                        <span class="text-warning">باز نشده</span>
+                    }
+                    else if (Model.Status == 2)
+                    {
+                        <span class="text-danger">(در حال بررسی)</span>
+                    }
+                    else if (Model.Status == 3)
+                    {
+                        <span class="text-success">تکمیل شده</span>
+                    }
                 </div>
                 <div class="form-group col-md-4">
                     <label>زمان تکمیل تیکت:</label>
-                    <span>12مهر</span>
+                    @if (Model.Status == 3)
+                    {
+                        <span class="text-success">تکمیل شده در تاریخ : </span>@Model.EndTicketTime.ToShamsi()
+                    }
+                    else
+                    {
+                        @:<span class="text-danger">تکمیل نشده</span>
+                    }
                 </div>
             </div>
            

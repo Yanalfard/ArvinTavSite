@@ -15,17 +15,24 @@ namespace DataLayer
         [Display(Name = "موضوع")]
         public string Subject { get; set; }
 
-        [Display(Name = "وضعیت: 1:بازنشده 2:خوانده شده 3:تکمیل نشده 4:تکمیل شده")]
+        [Display(Name = "وضعیت: 1:بازنشده 2:در حال بررسی 3:تکمیل شده")]
         public int Status { get; set; }
 
         [Display(Name = "زمان")]
         public DateTime dateTime { get; set; }
 
-        [Display(Name ="زمان تکمیل تیکت")]
+        [Display(Name = "زمان تکمیل تیکت")]
         public DateTime EndTicketTime { get; set; }
+
+        public virtual TicketCategory TicketCategory { get; set; }
+
+        public virtual OrderDetails OrderDetails { get; set; }
 
         [Display(Name = "کاربر")]
         public virtual User User { get; set; }
+
+        [Display(Name ="پشتیبان")]
+        public virtual User Supporter { get; set; }
 
         [Display(Name = "داخل تیکت")]
         public virtual List<InnerTicket> InnerTickets { get; set; }

@@ -15,14 +15,20 @@ namespace DataLayer
         [Display(Name = "متن")]
         public string Text { get; set; }
 
+        [Display(Name = "فایل")]
+        public string File { get; set; }
+
         [Display(Name = "والد")]
         public int? ParentID { get; set; }
 
-        [Display(Name ="زمان")]
+        [Display(Name = "زمان")]
         public DateTime dateTime { get; set; }
 
         [Display(Name = "مربوط به تیکت")]
         public virtual Ticket Ticket { get; set; }
+
+        [Display(Name ="کاربر")]
+        public virtual User User { get; set; }
 
         public InnerTicket()
         {

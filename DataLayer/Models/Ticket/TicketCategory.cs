@@ -17,7 +17,8 @@ namespace DataLayer
 
         [Display(Name = "فعال بودن")]
         public bool IsActive { get; set; }
-        
+
+        public virtual List<Ticket> tickets { get; set; }
         public TicketCategory()
         {
 

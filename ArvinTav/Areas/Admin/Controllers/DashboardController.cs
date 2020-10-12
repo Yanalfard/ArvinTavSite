@@ -38,9 +38,9 @@ namespace ArvinTav.Areas.Admin.Controllers
             ViewBag.Domain = domainRepository.AllDomain(false).Count();
             ViewBag.Package = packageRepository.AllPackageServices().Count();
             ViewBag.Order = orderRepository.AllOrders().Count();
-            ViewBag.Ticket = ticketRepository.AllTicket().Count();
-            ViewBag.TicketEnded = ticketRepository.AllTicket().Where(t => t.Status == 4).Count();
-            ViewBag.TicketNotSeen = ticketRepository.AllTicket().Where(t => t.Status == 1).Count();
+            ViewBag.Ticket = ticketRepository.AllTicketInView().tickets.Count();
+            ViewBag.TicketEnded = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == 4).Count();
+            ViewBag.TicketNotSeen = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == 1).Count();
             return View();
         }
     }

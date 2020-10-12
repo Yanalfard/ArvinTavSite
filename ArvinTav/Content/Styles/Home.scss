@@ -6,7 +6,6 @@ body {
     padding: 0;
     margin: 0;
     text-align: right;
-
 }
 
 
@@ -19,16 +18,19 @@ body {
     width: 100% !important;
     height: 600px;
 }
+
 @media only screen and (max-device-width: 600px) {
     .cover {
         height: 200px;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .cover {
-        height:200px;
+        height: 200px;
     }
 }
+
 * {
     overflow-x: hidden;
 }
@@ -82,6 +84,7 @@ body {
         width: 20vw;
     }
 }
+
 @media only screen and (max-device-width: 600px) {
     .Services {
 
@@ -105,12 +108,14 @@ body {
             /*height: 10px;
             width: 20vw;*/
         }
-        button{
-            padding:5px !important;
-            font-size:8px!important;
+
+        button {
+            padding: 5px !important;
+            font-size: 8px !important;
         }
     }
 }
+
 @media only screen and (max-width: 600px) {
     .Services {
 
@@ -143,25 +148,27 @@ body {
 }
 /*#endregion */
 /*#host-region */
-    .grid {
-        @include grid-gap(280px, 1.1em);
-        padding: 20px 2vw;
+.grid {
+    @include grid-gap(280px, 1.1em);
+    padding: 20px 2vw;
 
 
-        .mat {
-            width: 280px;
-            border-radius: 30px;
-        }
-
-
-        a {
-            color: #0DA574;
-        }
+    .mat {
+        width: 280px;
+        border-radius: 30px;
     }
+
+
+    a {
+        color: #0DA574;
+    }
+}
+
 @media only screen and (max-device-width: 1024px) {
-    .GridBackground{
-        padding:10px !important;
+    .GridBackground {
+        padding: 10px !important;
     }
+
     .grid {
         @include grid-gap(230px, 1em);
         padding: 20px 2vw;
@@ -172,6 +179,7 @@ body {
         }
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .GridBackground {
         padding: 10px !important;
@@ -192,35 +200,37 @@ body {
 .Packages {
     @include row();
 }
-    .packageOffer {
-        width: 300px;
-        background-image: url('../../img/Home/packagebackground.png');
 
-        button:hover {
-            background: transparent !important;
-            color: black;
-        }
+.packageOffer {
+    width: 300px;
+    background-image: url('../../img/Home/packagebackground.png');
+
+    button:hover {
+        background: transparent !important;
+        color: black;
     }
+}
 
-    .topPackage {
+.topPackage {
+    color: white;
+    width: 300px;
+    height: 500px;
+    background-image: url('../../img/Home/top-package.jpg');
+
+    h3 {
         color: white;
-        width: 300px;
-        height: 500px;
-        background-image: url('../../img/Home/top-package.jpg');
-
-        h3 {
-            color: white;
-        }
-
-        button {
-            background: white !important;
-            color: #5cb152 !important;
-        }
-
-        button:hover {
-            background: transparent !important;
-        }
     }
+
+    button {
+        background: white !important;
+        color: #5cb152 !important;
+    }
+
+    button:hover {
+        background: transparent !important;
+    }
+}
+
 @media only screen and (max-device-width: 650px) {
     .Packages {
         @include column();
@@ -233,7 +243,8 @@ body {
             width: 230px;
         }
     }
-    }
+}
+
 @media only screen and (min-device-width : 651px) and (max-device-width :800px) {
     .Packages {
         @include column();
@@ -247,51 +258,53 @@ body {
         }
     }
 }
-@media only screen and (min-device-width : 651px) and (max-device-width : 1320px) {
-    
-        .packageOffer {
-            width: 230px;
-        }
 
-        .topPackage {
-            width: 230px;
-        }
+@media only screen and (min-device-width : 651px) and (max-device-width : 1320px) {
+
+    .packageOffer {
+        width: 230px;
+    }
+
+    .topPackage {
+        width: 230px;
+    }
 }
 /*#endregion */
-    /*slider style*********************/
-    .projectsSlider {
-        //background: red !important;
-        .mat {
-            width: 400px;
-            padding: 30px;
+/*slider style*********************/
+.projectsSlider {
+    //background: red !important;
+    .mat {
+        width: 400px;
+        padding: 30px;
 
-            h4 {
-                color: #5cb152;
-            }
+        h4 {
+            color: #5cb152;
+        }
 
-            p {
-                color: black;
-                overflow: hidden;
-                text-align: justify;
-                -ms-text-justify: kashida;
-                text-justify: kashida;
-            }
+        p {
+            color: black;
+            overflow: hidden;
+            text-align: justify;
+            -ms-text-justify: kashida;
+            text-justify: kashida;
+        }
 
-            button {
-                width: 100px !important;
-                height: 40px !important;
-                padding: 1px !important;
-            }
+        button {
+            width: 100px !important;
+            height: 40px !important;
+            padding: 1px !important;
         }
     }
-    /*end slider style***********************/
+}
+/*end slider style***********************/
 
 .AboutArvin {
-    background:#f8ffe5;
-    padding:20px;
+    background: #f8ffe5;
+    padding: 20px;
+
     p {
         color: black;
-        -webkit-line-clamp:20!important; //number of lines to show
+        -webkit-line-clamp: 20 !important; //number of lines to show
     }
 
     img {

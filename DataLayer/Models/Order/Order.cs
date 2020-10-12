@@ -30,7 +30,7 @@ namespace DataLayer
 
         [Display(Name = "جزئیات")]
         public virtual List<OrderDetails> OrderDetails { get; set; }
-
+        
         public Order()
         {
 

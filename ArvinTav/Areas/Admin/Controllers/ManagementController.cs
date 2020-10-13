@@ -18,8 +18,20 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return PartialView();
         }
+        public ActionResult P_SpiderCreated()
+        {
+            return PartialView();
+        }
+        public ActionResult P_SpiderEdit()
+        {
+            return PartialView();
+        }
 
         public ActionResult P_MarketerReport()
+        {
+            return PartialView();
+        }
+        public ActionResult P_MarketerReportInfo()
         {
             return PartialView();
         }
@@ -40,6 +52,10 @@ namespace ArvinTav.Areas.Admin.Controllers
         }
 
         public ActionResult P_Massage()
+        {
+            return PartialView();
+        }
+        public ActionResult P_MassageInfo()
         {
             return PartialView();
         }

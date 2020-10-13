@@ -1823,6 +1823,10 @@
     <Content Include="Areas\Admin\Views\Management\P_OrderExplorer.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_TicketExplorer.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_Massage.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_SpiderCreated.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_SpiderEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_MarketerReportInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_MassageInfo.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

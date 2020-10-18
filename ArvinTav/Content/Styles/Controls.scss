@@ -8,13 +8,18 @@
     height: 100px;
     z-index: 1000;
     padding-top: 0px;
-    margin-top: -14px;
-    margin-right: 40px;
-    padding-right: 50px !important;
+    // margin-top: -14px;
+    margin-bottom: 14px;
+    //margin-right: 40px;
+    //padding-right: 50px !important;
     overflow: hidden !important;
 
     .HomePage {
         color: #48A839 !important;
+        border-bottom: 2px solid white;
+        padding-bottom: 0 !important;
+        margin-bottom: 8px !important;
+        border-radius: 2px;
     }
 
     .uk-navbar-nav {
@@ -32,12 +37,12 @@
         float: right;
     }
 
-    ul {
+    .navBar {
         float: right;
         width: 100vw - 3vw;
     }
 
-    li {
+    .menuComponent {
         /* padding: 8px !important;*/
         margin-right: 30px;
         overflow: hidden !important;
@@ -59,346 +64,352 @@
         font-size: 18px !important;
     }
 }
-
-.uk-offcanvas-bar {
-    display: none;
+.uk-navbar-dropdown {
+    background: white !important;
+    /*position:fixed;
+    display:flex;*/
+    color:#4d4d4d !important;
 }
-/*#region This will be toggled on scroll */
-.layout-header-scrolled {
-    background: #ffffff !important;
-    height: 70px;
-    overflow: hidden !important;
-
-
-    a {
-        color: #2a2929 !important;
-    }
-
-    a:hover {
-        color: #48A839 !important;
-    }
-
-    button {
-    }
-}
-/*#endregion */
-/*#mobile header-region */
-@media only screen and (max-device-width : 692px) {
-    #LayoutHeader {
-        .navBar {
-            display: none;
-        }
-    }
-
-    .LogoPic {
-        width: 50px;
-        height: 40px;
-    }
-
-    .hamburger-button {
-        display: flex !important;
-    }
-
-    #menu {
-        display: block;
-
-        ul {
-            // background:red;
-            list-style-type: none !important;
-            padding: 10px;
-        }
-
-        li {
-            color: #555 !important;
-            padding: 10px;
-            border-bottom: 1px solid #a9a9a9;
-            margin-right: 10px;
-            margin-top: 10px;
-
-            a {
-                font-size: 14px !important;
-                color: #4d4d4d;
-            }
-
-            a:hover {
-                color: #808080 !important;
-            }
-        }
-    }
-
     .uk-offcanvas-bar {
-        display: block;
+        display: none;
     }
-
+    /*#region This will be toggled on scroll */
     .layout-header-scrolled {
-        overflow: hidden !important;
-    }
-}
-
-@media only screen and (max-width : 692px) {
-    #LayoutHeader {
-        .navBar {
-            display: none;
-        }
-    }
-
-    .LogoPic {
-        width: 50px;
-        height: 40px;
-    }
-
-    .hamburger-button {
-        display: flex !important;
-    }
-
-    #menu {
-        display: block;
-
-        ul {
-            // background:red;
-            list-style-type: none !important;
-            padding: 10px;
-        }
-
-        li {
-            color: #555 !important;
-            padding: 10px;
-            border-bottom: 1px solid #a9a9a9;
-            margin-right: 10px;
-            margin-top: 10px;
-
-            a {
-                font-size: 14px !important;
-                color: #4d4d4d;
-            }
-
-            a:hover {
-                color: #808080 !important;
-            }
-        }
-    }
-
-    .uk-offcanvas-bar {
-        display: block;
-    }
-
-    .layout-header-scrolled {
-        background: transparent !important;
+        background: #ffffff !important;
         height: 70px;
-        opacity: 0.8;
         overflow: hidden !important;
-    }
-}
 
 
-.hamburger-button {
-    display: none;
-    position: fixed;
-    padding: 10px !important;
-    right: 18px;
-    top: 18px;
-    color: white;
-    margin: auto;
-}
-/*#endregion */
-/*#endregion */
-
-/*#footer-region */
-footer {
-    background-image: url('../../img/Home/footer-background-011.jpg');
-    padding: 20px;
-
-    .footerContent {
-        display: flex;
-        // padding-right: 50px !important;
-        .LogoFooter {
-            flex: 1;
-            background: white;
+        a {
+            color: #2a2929 !important;
         }
 
-        .SupportFooter {
-            flex: 1;
+        a:hover {
+            color: #48A839 !important;
+        }
+
+        .HomePage {
+            border-bottom: 2px solid #2a2929 !important;
         }
     }
-
-    .footerEnd {
-        display: flex;
-
-        .Address {
-            flex: 1;
-
-            img {
-                width: 22px;
-                height: 22px;
-            }
-
-            label {
-                color: white !important;
-                font-size: 14px;
-                margin-right: 8px;
+    /*#endregion */
+    /*#mobile header-region */
+    @media only screen and (max-device-width : 692px) {
+        #LayoutHeader {
+            .navBar {
+                display: none;
             }
         }
 
-        .footerContact {
-            flex: 1;
+        .LogoPicMobile {
+            width: 60px !important;
+            height: 60px !important;
+            margin-left:auto !important;
+            margin-right:22px;
         }
 
-        .LoginFooter {
-            /*            width: 10px !important;
-            height: 170px !important;*/
-            input {
-                width: 200px !important;
-                height: 40px !important;
+        .hamburger-button {
+            display: flex !important;
+        }
+
+        #menu {
+            display: block;
+
+            ul {
+                // background:red;
+                list-style-type: none !important;
+                padding: 10px;
             }
 
-            button {
-                width: 80px !important;
-                height: 45px !important;
-                background: #5cb152 !important;
-                color: white;
-                border: none;
-            }
+            li {
+                color: #555 !important;
+                padding: 10px;
+                border-bottom: 1px solid #a9a9a9;
+                margin-right: 10px;
+                margin-top: 10px;
 
-            button:hover {
-                opacity: 0.7;
+                a {
+                    font-size: 14px !important;
+                    color: #4d4d4d;
+                }
+
+                a:hover {
+                    color: #808080 !important;
+                }
             }
         }
 
-        .contactIcon {
-            color: #a9a9a9;
-            opacity: 0.5;
+        .uk-offcanvas-bar {
+            display: block;
+            background: #ffffff !important;
+        }
+
+        .layout-header-scrolled {
+            overflow: hidden !important;
         }
     }
 
-    div {
-        div {
-            label {
-                color: white !important;
-                padding: 2px;
+    @media only screen and (max-width : 692px) {
+        #LayoutHeader {
+            .navBar {
+                display: none;
             }
+        }
+
+        .LogoPic {
+            width: 50px;
+            height: 40px;
+        }
+
+        .hamburger-button {
+            display: flex !important;
+        }
+
+        #menu {
+            display: block;
+
+            ul {
+                // background:red;
+                list-style-type: none !important;
+                padding: 10px;
+            }
+
+            li {
+                color: #555 !important;
+                padding: 10px;
+                border-bottom: 1px solid #a9a9a9;
+                margin-right: 10px;
+                margin-top: 10px;
+
+                a {
+                    font-size: 14px !important;
+                    color: #4d4d4d;
+                }
+
+                a:hover {
+                    color: #808080 !important;
+                }
+            }
+        }
+
+        .uk-offcanvas-bar {
+            display: block;
+            background: #ffffff !important;
+        }
+
+        .layout-header-scrolled {
+            background: transparent !important;
+            height: 70px;
+            opacity: 0.8;
+            overflow: hidden !important;
         }
     }
 
-    h6 {
-        color: #5cb152;
-        font-size: 18px;
-        font-weight: 400;
-    }
 
-    a {
+    .hamburger-button {
+        display: none;
+        position: fixed;
+        padding: 10px !important;
+        right: 18px;
+        top: 18px;
         color: white;
-        padding: 2px;
+        margin: auto;
     }
-
-    a:hover {
-        text-decoration: none;
-        /*font-size: larger;*/
-        color: #808080;
-    }
-
-    hr {
-        border: 1px solid #a9a9a9;
-        opacity: 0.1;
-        border-radius: 5px;
-    }
-}
-/*#end footer region */
-/*mobile footer style*/
-
-@media only screen and (max-device-width : 1130px) {
+    /*#endregion */
+    /*#endregion */
+    /*#footer-region */
     footer {
-        background-image: none !important;
-        background-color: #333F4D !important;
+        background-image: url('../../img/Home/footer-background-011.jpg');
+        padding: 20px;
 
         .footerContent {
-            @include column();
-            @include center();
-
+            display: flex;
+            // padding-right: 50px !important;
             .LogoFooter {
-                width: 100%;
+                flex: 1;
+                background: white;
+            }
+
+            .SupportFooter {
+                flex: 1;
             }
         }
-    }
-}
 
-@media only screen and (max-device-width : 767px) {
-    footer {
         .footerEnd {
-            @include column();
-            @include center();
+            display: flex;
 
             .Address {
-                margin: auto !important;
+                flex: 1;
+
+                img {
+                    width: 22px;
+                    height: 22px;
+                }
+
+                label {
+                    color: white !important;
+                    font-size: 14px;
+                    margin-right: 8px;
+                }
             }
 
             .footerContact {
-                margin: auto !important;
+                flex: 1;
+            }
+
+            .LoginFooter {
+                /*            width: 10px !important;
+            height: 170px !important;*/
+                input {
+                    width: 200px !important;
+                    height: 40px !important;
+                }
+
+                button {
+                    width: 80px !important;
+                    height: 45px !important;
+                    background: #5cb152 !important;
+                    color: white;
+                    border: none;
+                }
+
+                button:hover {
+                    opacity: 0.7;
+                }
+            }
+
+            .contactIcon {
+                color: #a9a9a9;
+                opacity: 0.5;
+            }
+        }
+
+        div {
+            div {
+                label {
+                    color: white !important;
+                    padding: 2px;
+                }
+            }
+        }
+
+        h6 {
+            color: #5cb152;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        a {
+            color: white;
+            padding: 2px;
+        }
+
+        a:hover {
+            text-decoration: none;
+            /*font-size: larger;*/
+            color: #808080;
+        }
+
+        hr {
+            border: 1px solid #a9a9a9;
+            opacity: 0.1;
+            border-radius: 5px;
+        }
+    }
+    /*#end footer region */
+    /*mobile footer style*/
+    @media only screen and (max-device-width : 767px) {
+        footer {
+            background-image: none !important;
+            background-color: #333F4D !important;
+
+            .footerContent {
+                @include column();
+                @include center();
+
+                .LogoFooter {
+                    width: 100%;
+                }
             }
         }
     }
-}
 
-@media only screen and (max-width : 1130px) {
-    footer {
-        background-image: none !important;
-        background-color: #333F4D !important;
+    @media only screen and (max-device-width : 767px) {
+        footer {
+            .footerEnd {
+                @include column();
+                @include center();
 
-        .footerContent {
-            @include column();
-            @include center();
+                .Address {
+                    margin: auto !important;
+                }
 
-            .LogoFooter {
-                width: 100%;
+                .footerContact {
+                    margin: auto !important;
+                }
             }
         }
     }
-}
 
-@media only screen and (max-width : 767px) {
-    footer {
-        .footerEnd {
-            @include column();
-            @include center();
+    @media only screen and (max-width : 767px) {
+        footer {
+            background-image: none !important;
+            background-color: #333F4D !important;
 
-            .Address {
-                margin: auto !important;
-            }
+            .footerContent {
+                @include column();
+                @include center();
 
-            .footerContact {
-                margin: auto !important;
+                .LogoFooter {
+                    width: 100%;
+                }
             }
         }
     }
-}
 
-/*#end mobile footer region */
+    @media only screen and (max-width : 767px) {
+        footer {
+            .footerEnd {
+                @include column();
+                @include center();
 
-/*#button-style-region */
-button.ServiceButton {
-    width: 10vw;
-    padding: 8px;
-    background: #5cb152;
-    color: white;
-    font-size: 20px;
-    border: none;
-    border-radius: 8px;
-}
+                .Address {
+                    margin: auto !important;
+                }
 
-button.ServiceButton:hover {
-    opacity: 0.9;
-}
-/*#grid-background-style-region */
-.GridBackground {
-    background-image: url('../../img/Home/gridbackground.png');
-    // background: #e9fbe8;
-    padding: 50px;
-    overflow: hidden;
-}
+                .footerContact {
+                    margin: auto !important;
+                }
+            }
+        }
+    }
+    /*#end mobile footer region */
+    /*#button-style-region */
+    button.ServiceButton {
+        width: 10vw;
+        padding: 8px;
+        background: #5cb152;
+        color: white;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+    }
 
-.overflow-visible {
-    overflow: visible !important;
+    button.ServiceButton:hover {
+        opacity: 0.9;
+    }
+    /*#grid-background-style-region */
+    .GridBackground {
+        background-image: url('../../img/Home/gridbackground.png');
+        // background: #e9fbe8;
+        padding: 50px;
+        overflow: hidden;
+    }
 
-    * {
+    .overflow-visible {
         overflow: visible !important;
+
+        * {
+            overflow: visible !important;
+        }
     }
-}

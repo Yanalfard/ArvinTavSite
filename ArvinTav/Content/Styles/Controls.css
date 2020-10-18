@@ -248,23 +248,25 @@
   height: 100px;
   z-index: 1000;
   padding-top: 0px;
-  margin-top: -14px;
-  margin-right: 40px;
-  padding-right: 50px !important;
+  margin-bottom: 14px;
   overflow: hidden !important;
   background: transparent; }
   #LayoutHeader .HomePage {
-    color: #48A839 !important; }
+    color: #48A839 !important;
+    border-bottom: 2px solid white;
+    padding-bottom: 0 !important;
+    margin-bottom: 8px !important;
+    border-radius: 2px; }
   #LayoutHeader .uk-navbar-nav a {
     color: white; }
   #LayoutHeader .uk-navbar-nav a:hover {
     color: #2a2929; }
   #LayoutHeader .uk-navbar-right {
     float: right; }
-  #LayoutHeader ul {
+  #LayoutHeader .navBar {
     float: right;
     width: 97vw; }
-  #LayoutHeader li {
+  #LayoutHeader .menuComponent {
     /* padding: 8px !important;*/
     margin-right: 30px;
     overflow: hidden !important; }
@@ -276,6 +278,12 @@
     background: transparent; }
   #LayoutHeader .navBar {
     font-size: 18px !important; }
+
+.uk-navbar-dropdown {
+  background: white !important;
+  /*position:fixed;
+    display:flex;*/
+  color: #4d4d4d !important; }
 
 .uk-offcanvas-bar {
   display: none; }
@@ -289,15 +297,19 @@
     color: #2a2929 !important; }
   .layout-header-scrolled a:hover {
     color: #48A839 !important; }
+  .layout-header-scrolled .HomePage {
+    border-bottom: 2px solid #2a2929 !important; }
 
 /*#endregion */
 /*#mobile header-region */
 @media only screen and (max-device-width: 692px) {
   #LayoutHeader .navBar {
     display: none; }
-  .LogoPic {
-    width: 50px;
-    height: 40px; }
+  .LogoPicMobile {
+    width: 60px !important;
+    height: 60px !important;
+    margin-left: auto !important;
+    margin-right: 22px; }
   .hamburger-button {
     display: flex !important; }
   #menu {
@@ -317,7 +329,8 @@
       #menu li a:hover {
         color: #808080 !important; }
   .uk-offcanvas-bar {
-    display: block; }
+    display: block;
+    background: #ffffff !important; }
   .layout-header-scrolled {
     overflow: hidden !important; } }
 
@@ -346,7 +359,8 @@
       #menu li a:hover {
         color: #808080 !important; }
   .uk-offcanvas-bar {
-    display: block; }
+    display: block;
+    background: #ffffff !important; }
   .layout-header-scrolled {
     background: transparent !important;
     height: 70px;
@@ -369,55 +383,67 @@ footer {
   background-image: url("../../img/Home/footer-background-011.jpg");
   padding: 20px; }
   footer .footerContent {
-    padding-right: 50px !important; }
+    display: flex; }
+    footer .footerContent .LogoFooter {
+      flex: 1;
+      background: white; }
+    footer .footerContent .SupportFooter {
+      flex: 1; }
+  footer .footerEnd {
+    display: flex; }
+    footer .footerEnd .Address {
+      flex: 1; }
+      footer .footerEnd .Address img {
+        width: 22px;
+        height: 22px; }
+      footer .footerEnd .Address label {
+        color: white !important;
+        font-size: 14px;
+        margin-right: 8px; }
+    footer .footerEnd .footerContact {
+      flex: 1; }
+    footer .footerEnd .LoginFooter {
+      /*            width: 10px !important;
+            height: 170px !important;*/ }
+      footer .footerEnd .LoginFooter input {
+        width: 200px !important;
+        height: 40px !important; }
+      footer .footerEnd .LoginFooter button {
+        width: 80px !important;
+        height: 45px !important;
+        background: #5cb152 !important;
+        color: white;
+        border: none; }
+      footer .footerEnd .LoginFooter button:hover {
+        opacity: 0.7; }
+    footer .footerEnd .contactIcon {
+      color: #a9a9a9;
+      opacity: 0.5; }
   footer div div label {
     color: white !important;
     padding: 2px; }
-  footer h4 {
-    color: #0DA574;
-    font-size: 22px;
+  footer h6 {
+    color: #5cb152;
+    font-size: 18px;
     font-weight: 400; }
-  footer p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; }
   footer a {
     color: white;
     padding: 2px; }
   footer a:hover {
     text-decoration: none;
-    font-size: larger;
-    color: white; }
-  footer .emailBar {
-    margin-left: 200px; }
-    footer .emailBar input {
-      height: 35px;
-      width: 170px;
-      margin-left: 0px !important; }
-    footer .emailBar .subscribe {
-      background: #0DA574;
-      color: white;
-      height: 39px !important;
-      margin-right: -4px !important;
-      width: 80px !important;
-      border: none; }
-    footer .emailBar .subscribe:hover {
-      background: transparent !important; }
-    footer .emailBar .subscribe:active {
-      border: none; }
-  footer .contactIcon {
-    color: #a9a9a9;
-    opacity: 0.5; }
+    /*font-size: larger;*/
+    color: #808080; }
+  footer hr {
+    border: 1px solid #a9a9a9;
+    opacity: 0.1;
+    border-radius: 5px; }
 
-@media only screen and (max-device-width: 1130px) {
+/*#end footer region */
+/*mobile footer style*/
+@media only screen and (max-device-width: 767px) {
   footer {
     background-image: none !important;
     background-color: #333F4D !important; }
-    footer img {
-      height: 12vw;
-      width: 15vw; }
     footer .footerContent {
       display: flex;
       -ms-flex-direction: column;
@@ -430,19 +456,31 @@ footer {
       align-content: center;
       align-self: center;
       margin: 0 auto; }
-      footer .footerContent .emailBar {
-        margin-left: 0 !important; }
-        footer .footerContent .emailBar input {
-          height: 35px;
-          width: 130px; } }
+      footer .footerContent .LogoFooter {
+        width: 100%; } }
 
-@media only screen and (max-width: 1130px) {
+@media only screen and (max-device-width: 767px) {
+  footer .footerEnd {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    margin: 0 auto; }
+    footer .footerEnd .Address {
+      margin: auto !important; }
+    footer .footerEnd .footerContact {
+      margin: auto !important; } }
+
+@media only screen and (max-width: 767px) {
   footer {
     background-image: none !important;
     background-color: #333F4D !important; }
-    footer img {
-      height: 12vw;
-      width: 15vw; }
     footer .footerContent {
       display: flex;
       -ms-flex-direction: column;
@@ -454,17 +492,29 @@ footer {
       text-align: center;
       align-content: center;
       align-self: center;
-      margin: 0 auto;
-      margin-left: auto;
-      margin-right: auto;
-      width: 84vw; }
-      footer .footerContent .emailBar {
-        margin-left: 0 !important; }
-        footer .footerContent .emailBar input {
-          height: 35px;
-          width: 130px; } }
+      margin: 0 auto; }
+      footer .footerContent .LogoFooter {
+        width: 100%; } }
 
-/*#endregion */
+@media only screen and (max-width: 767px) {
+  footer .footerEnd {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    margin: 0 auto; }
+    footer .footerEnd .Address {
+      margin: auto !important; }
+    footer .footerEnd .footerContact {
+      margin: auto !important; } }
+
+/*#end mobile footer region */
 /*#button-style-region */
 button.ServiceButton {
   width: 10vw;

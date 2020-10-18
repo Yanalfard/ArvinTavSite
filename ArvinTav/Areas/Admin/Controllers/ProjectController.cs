@@ -13,7 +13,12 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult P_List()
+        {
+            return PartialView();
+        }
+
         public ActionResult P_Create()
         {
             return PartialView();
@@ -25,7 +30,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             return "true";
         }
 
-        public ActionResult P_Edit(int ID)
+        public ActionResult P_Edit(int? ID)
         {
             return PartialView();
         }
@@ -36,7 +41,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             return "true";
         }
 
-        public ActionResult P_Remove(int ID)
+        public ActionResult P_Remove(int? ID)
         {
             return PartialView();
         }

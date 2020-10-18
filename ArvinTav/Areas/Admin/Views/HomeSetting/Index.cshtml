@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "تنظیمات خانه";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white row text-center">
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>اسلایدر</a>
+                </div>
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>...</a>
+                </div>
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>...</a>
+                </div>
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>...</a>
+                </div>
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>...</a>
+                </div>
+                <div id="Slider" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                    <a>...</a>
+                </div>
+            </div>
+            <div id="card-table" class="card-body flex-div">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSave" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <img src="~/img/gif/load.gif" class="loding justify-content-center" />
+            @*JS Dynamic*@
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+@section Scripts{
+    <script>
+            $("#Slider").click(function () {
+                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                $.get("/Admin/HomeSetting/P_Slider", function (result) {
+                    $("#card-table").html(result);
+                });
+            });
+
+        </script>
+
+}
+
+

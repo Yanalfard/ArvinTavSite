@@ -29,22 +29,32 @@
     <!--header region-->
     <header id="LayoutHeader" class="my-row">
         <img class="LogoPic uk-padding-small uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
-        <ul class="navBar uk-navbar-nav uk-padding-small uk-margin-larg-right uk-text-bold" dir="rtl">
-            <li class="HomePage">
+        <ul class="navBar uk-navbar-nav uk-padding-small uk-text-bold " dir="rtl">
+            <li class="menuComponent HomePage">
                 <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
-            <li>
-                <a href="#">خدمات</a><div class="uk-navbar-dropdown">
+            <li class="menuComponent">
+                <a href="#"  >خدمات</a>
+                <div class="uk-navbar-dropdown" dir="rtl">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="#">زیر منو 1</a></li>
+                        <li><a href="#">زیر منو </a></li>
+                        <li class="uk-nav-header">زیر منو </li>
+                        <li><a href="#">زیر منو </a></li>
+                        <li><a href="#">زیر منو</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">زیر منو </a></li>
+                    </ul>
                 </div>
             </li>
-            <li>
+            <li class="menuComponent">
                 <a href="#">ویژگی ها</a>
 
             </li>
-            <li>
+            <li class="menuComponent">
                 <a href="#">برنامه ها</a>
 
             </li>
-            <li>
+            <li class="menuComponent">
                 <a href="#">ارتباط با ما</a>
 
             </li>
@@ -57,11 +67,23 @@
         <div id="menu" uk-offcanvas="overlay: true; flip: true" dir="rtl">
             <div class="uk-offcanvas-bar">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <ul class="uk-text-bold" dir="rtl">
+                <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+                <ul class="uk-text-bold uk-margin-remove-top" dir="rtl">
                     <li class="uk-active">
                         <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
                     <li>
                         <a href="#">خدمات</a>
+                        <div class="uk-navbar-dropdown" dir="rtl">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">زیر منو 1</a></li>
+                                <li><a href="#">زیر منو </a></li>
+                                <li class="uk-nav-header">زیر منو </li>
+                                <li><a href="#">زیر منو </a></li>
+                                <li><a href="#">زیر منو</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <li><a href="#">زیر منو </a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="#">ویژگی ها</a>
@@ -125,7 +147,7 @@
                 <div class="my-row ">
                     <img src="~/img/Home/svg/Phone.svg" />
                     <label dir="ltr">
-                         041 - 33371059 - 33373556
+                        041 - 33371059 - 33373556
                     </label>
                 </div>
                 <div class="my-row ">
@@ -180,5 +202,6 @@
         }
 
     });
+
 
 </script>

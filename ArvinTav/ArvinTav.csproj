@@ -1827,6 +1827,13 @@
     <Content Include="Areas\Admin\Views\Management\P_SpiderEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_MarketerReportInfo.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_MassageInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\Project\P_List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\P_List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\P_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Marketer\CraateReport.cshtml" />
+    <Content Include="Areas\Admin\Views\Marketer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeSetting\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeSetting\P_Slider.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -2985,8 +2992,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DomainController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeSettingController.cs" />
     <Compile Include="Areas\Admin\Controllers\HostingController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarketerController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PackageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />

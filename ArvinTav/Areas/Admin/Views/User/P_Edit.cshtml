@@ -1,0 +1,49 @@
+﻿<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        ویرایش کاربر
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control form-control-sm" id="FullName" placeholder="نام کاربر">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control form-control-sm" id="PhoneNumber" placeholder="شماره تلفن" disabled>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control form-control-sm" id="Brand" placeholder="نام تجاری">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control form-control-sm" id="Email" placeholder="ایمیل">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
+                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <select id="UserRole" class="form-control form-control-sm">
+                    <option value="0">نقش</option>
+                    <option value="1">کاربر عادی</option>
+                    <option value="2">مدیر</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-end">
+        <a class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+    </div>
+</form>
+
+
+

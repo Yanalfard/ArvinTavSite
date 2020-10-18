@@ -6,18 +6,46 @@
 
 
 <!--cover photo region -->
-<div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200" style="background-image: url('https://picsum.photos/600/300');">
+<div class="headSlider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
 
-    @* <h1 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">Headline</h1>*@
+    <ul class="uk-slideshow-items">
+        <li>
+            <img src="https://picsum.photos/600/300" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center">
+                <h2 uk-slideshow-parallax="x: 100,-100">طراحی سایت</h2>
+                <p  uk-slideshow-parallax="x: 200,-200" dir="rtl">طراحان سایت هنگام طراحی قالب سایت معمولا با این موضوع رو برو هستند که محتوای اصلی صفحات آماده نیست. در نتیجه طرح کلی دید درس.</p>
+                <button class="ServiceButton">ورود</button>
+            </div>
+        </li>
+        <li>
+            <img src="https://picsum.photos/600/300" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center">
+                <h2 uk-slideshow-parallax="x: 100,-100">طراحی سایت</h2>
+                <p uk-slideshow-parallax="x: 200,-200" dir="rtl">طراحان سایت هنگام طراحی قالب سایت معمولا با این موضوع رو برو هستند که محتوای اصلی صفحات آماده نیست. در نتیجه طرح کلی دید درس.</p>
+                <button class="ServiceButton">ورود</button>
+            </div>
+        </li>
+        <li>
+            <img src="https://picsum.photos/600/300" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center">
+                <h2 uk-slideshow-parallax="x: 100,-100">طراحی سایت</h2>
+                <p uk-slideshow-parallax="x: 200,-200" dir="rtl">طراحان سایت هنگام طراحی قالب سایت معمولا با این موضوع رو برو هستند که محتوای اصلی صفحات آماده نیست. در نتیجه طرح کلی دید درس.</p>
+                <button class="ServiceButton">ورود</button>
+            </div>
+        </li>
+    </ul>
+
+    <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
 </div>
 <!--end region -->
+
+
 <!--sponsors region -->
 <div class="sponsor uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-    <ul class="uk-slider-items uk-child-width-1-6 uk-child-width-1-3@m uk-grid  center overflow-visible">
-        <li>
-            <a>اسپانسر 10</a>
-        </li>
+    <ul class="uk-slider-items uk-child-width-1-4 uk-child-width-1-6\*m uk-grid  center overflow-visible">
+
         <li>
             <a>اسپانسر 9</a>
         </li>
@@ -58,15 +86,17 @@
     <content class="Services my-row uk-padding">
         <div class="my-column my-clipped" dir="rtl">
             <h2>طراحی سایت</h2>
+            <img class="center MobileSize " src="~/img/Home/web-developer-master-tn.svg" />
             <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
             <button class="ServiceButton">بیشتر</button>
         </div>
-        <img src="~/img/Home/web-developer-master-tn.svg" />
+        <img class="DesktopSize" src="~/img/Home/web-developer-master-tn.svg" />
     </content>
     <content class="Services my-row uk-padding">
-        <img src="~/img/Home/web-developer-master-tn.svg" />
+        <img class="DesktopSize" src="~/img/Home/web-developer-master-tn.svg" />
         <div class="my-column my-clipped" dir="rtl">
             <h2>طراحی سایت</h2>
+            <img class="center MobileSize " src="~/img/Home/web-developer-master-tn.svg" />
             <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
             <button class="ServiceButton">بیشتر</button>
         </div>
@@ -74,15 +104,17 @@
     <content class="Services my-row uk-padding">
         <div class="my-column my-clipped" dir="rtl">
             <h2>طراحی سایت</h2>
+            <img class="center MobileSize " src="~/img/Home/web-developer-master-tn.svg" />
             <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
             <button class="ServiceButton">بیشتر</button>
         </div>
-        <img src="~/img/Home/web-developer-master-tn.svg" />
+        <img class="DesktopSize" src="~/img/Home/web-developer-master-tn.svg" />
     </content>
     <content class="Services my-row uk-padding">
-        <img src="~/img/Home/web-developer-master-tn.svg" />
+        <img class="DesktopSize" src="~/img/Home/web-developer-master-tn.svg" />
         <div class="my-column my-clipped" dir="rtl">
             <h2>طراحی سایت</h2>
+            <img class="center MobileSize " src="~/img/Home/web-developer-master-tn.svg" />
             <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
             <button class="ServiceButton">بیشتر</button>
         </div>
@@ -95,7 +127,7 @@
 <div class="projectsSlider uk-position-relative uk-visible-toggle uk-light overflow-visible" tabindex="-1" uk-slider="sets: true">
 
     <ul class="uk-slider-items uk-grid overflow-visible">
-        <li class="uk-width-1-3">
+        <li>
             <div class="uk-panel mat center my-column my-clipped" dir="rtl">
                 <h4>پارکینگ تاو</h4>
                 <p>توضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاو</p>
@@ -104,7 +136,7 @@
                 <button class="center ServiceButton">بیشتر</button>
             </div>
         </li>
-        <li class="uk-width-1-3">
+        <li>
             <div class="uk-panel mat center my-column my-clipped" dir="rtl">
                 <h4>پارکینگ تاو</h4>
                 <p>توضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاو</p>
@@ -113,7 +145,7 @@
                 <button class="center ServiceButton">بیشتر</button>
             </div>
         </li>
-        <li class="uk-width-1-3">
+        <li>
             <div class="uk-panel mat center my-column my-clipped" dir="rtl">
                 <h4>پارکینگ تاو</h4>
                 <p>توضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاو</p>
@@ -122,7 +154,7 @@
                 <button class="center ServiceButton">بیشتر</button>
             </div>
         </li>
-        <li class="uk-width-1-3">
+        <li>
             <div class="uk-panel mat center my-column my-clipped" dir="rtl">
                 <h4>پارکینگ تاو</h4>
                 <p>توضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاو</p>
@@ -131,7 +163,7 @@
                 <button class="center ServiceButton">بیشتر</button>
             </div>
         </li>
-        <li class="uk-width-1-3">
+        <li>
             <div class="uk-panel mat center my-column my-clipped" dir="rtl">
                 <h4>پارکینگ تاو</h4>
                 <p>توضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاوتوضیحات پارکینگ تاو</p>
@@ -252,36 +284,7 @@
 <div class="space"></div>
 <div class="space"></div>
 <div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
-<div class="space"></div>
+
 
 <script src="~/Scripts/UIkit/uikit.min.js"></script>
 <script src="~/Scripts/UIkit/uikit-icons.min.js"></script>

@@ -6,20 +6,23 @@ using System.Web.Mvc;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class MarketerController : Controller
     {
-        // GET: Admin/User
+        // GET: Admin/Marketer
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult P_List()
+
+        public ActionResult CraateReport()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult P_Edit()
+
+        [HttpPost]
+        public string CraateReport(string Title)
         {
-            return View();
+            return "";
         }
     }
 }

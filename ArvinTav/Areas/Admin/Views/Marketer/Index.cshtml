@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "کاربران";
+    ViewBag.Title = "نمایندگی فروش";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -9,34 +9,35 @@
         <div class="card flex-div border-0 main-shadow">
             <div class="card-header bg-white">
                 <div class="row justify-content-end">
-                    <div class=" col-12">
-                        <div class="card-form row">
-                            <div class="form-input col-md-6 col-6">
-                                <div class="form-inline">
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <input class="form-control form-control-sm" type="text" id="Brand" placeholder="نام تجاری">
-                                    </div>
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <input id="PhoneNumberSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن">
-                                    </div>
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <select id="DegreeSearch" class="form-control form-control-sm">
-                                            <option value="0">نقش</option>
-                                            <option value="1">کاربر عادی</option>
-                                            <option value="2">مدیر</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-toolbar col-6">
-                                <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
-                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-                            </div>
-                        </div>
+                    <div class="col-12">
+                        <a id="AddList" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن گزارش</a>
                     </div>
                 </div>
             </div>
-            @Html.Action("P_List")
+
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex">
+                    <table class="table fixed">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">عنوان</th>
+                                <th scope="col">وضعیت</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                </td>
+                                <td class="text-success">
+                                    تأیید شده
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="card-footer bg-white">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
@@ -84,8 +85,8 @@
 
 @section Scripts{
     <script>
-        $("#EditList").click(function () {
-            $.get("/Admin/User/P_Edit", function (result) {
+        $("#AddList").click(function () {
+            $.get("/Admin/Marketer/CraateReport", function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");

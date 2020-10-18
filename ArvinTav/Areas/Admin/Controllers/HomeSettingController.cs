@@ -6,20 +6,16 @@ using System.Web.Mvc;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class HomeSettingController : Controller
     {
-        // GET: Admin/User
+        // GET: Admin/HomeSetting
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult P_List()
+        public ActionResult P_Slider()
         {
-            return View();
-        }
-        public ActionResult P_Edit()
-        {
-            return View();
+            return PartialView();
         }
     }
 }

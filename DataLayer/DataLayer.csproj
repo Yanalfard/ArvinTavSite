@@ -55,65 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202009270936303_initialdb.cs" />
-    <Compile Include="Migrations\202009270936303_initialdb.designer.cs">
-      <DependentUpon>202009270936303_initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\202010161326039_initialtest.cs" />
+    <Compile Include="Migrations\202010161326039_initialtest.designer.cs">
+      <DependentUpon>202010161326039_initialtest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010021800375_editpriceinputinttostring.cs" />
-    <Compile Include="Migrations\202010021800375_editpriceinputinttostring.designer.cs">
-      <DependentUpon>202010021800375_editpriceinputinttostring.cs</DependentUpon>
+    <Compile Include="Migrations\202010161327444_initialtest2.cs" />
+    <Compile Include="Migrations\202010161327444_initialtest2.designer.cs">
+      <DependentUpon>202010161327444_initialtest2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010030741309_edit_DomainPriceintconverttostring.cs" />
-    <Compile Include="Migrations\202010030741309_edit_DomainPriceintconverttostring.designer.cs">
-      <DependentUpon>202010030741309_edit_DomainPriceintconverttostring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010032155032_Initial_Ticket_Project_Table.cs" />
-    <Compile Include="Migrations\202010032155032_Initial_Ticket_Project_Table.designer.cs">
-      <DependentUpon>202010032155032_Initial_Ticket_Project_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010040931145_AddDateTimeOrder.cs" />
-    <Compile Include="Migrations\202010040931145_AddDateTimeOrder.designer.cs">
-      <DependentUpon>202010040931145_AddDateTimeOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010051353320_pckgepriceconvertinttostring.cs" />
-    <Compile Include="Migrations\202010051353320_pckgepriceconvertinttostring.designer.cs">
-      <DependentUpon>202010051353320_pckgepriceconvertinttostring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010061200336_createorderscount.cs" />
-    <Compile Include="Migrations\202010061200336_createorderscount.designer.cs">
-      <DependentUpon>202010061200336_createorderscount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010061203007_initialnulabledordercount.cs" />
-    <Compile Include="Migrations\202010061203007_initialnulabledordercount.designer.cs">
-      <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010071407587_editusertblandeditordertbl.cs" />
-    <Compile Include="Migrations\202010071407587_editusertblandeditordertbl.designer.cs">
-      <DependentUpon>202010071407587_editusertblandeditordertbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010072102180_CreateProduct.cs" />
-    <Compile Include="Migrations\202010072102180_CreateProduct.designer.cs">
-      <DependentUpon>202010072102180_CreateProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010072125498_EditProduct.cs" />
-    <Compile Include="Migrations\202010072125498_EditProduct.designer.cs">
-      <DependentUpon>202010072125498_EditProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010072129018_editproduct2.cs" />
-    <Compile Include="Migrations\202010072129018_editproduct2.designer.cs">
-      <DependentUpon>202010072129018_editproduct2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010072156151_CreateHostingDetail.cs" />
-    <Compile Include="Migrations\202010072156151_CreateHostingDetail.designer.cs">
-      <DependentUpon>202010072156151_CreateHostingDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010081210403_editorder3.cs" />
-    <Compile Include="Migrations\202010081210403_editorder3.designer.cs">
-      <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010120911145_initialticket.cs" />
-    <Compile Include="Migrations\202010120911145_initialticket.designer.cs">
-      <DependentUpon>202010120911145_initialticket.cs</DependentUpon>
+    <Compile Include="Migrations\202010171759347_editseotagengine.cs" />
+    <Compile Include="Migrations\202010171759347_editseotagengine.designer.cs">
+      <DependentUpon>202010171759347_editseotagengine.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
@@ -121,7 +73,10 @@
     <Compile Include="Models\Hosting\HostingOrder.cs" />
     <Compile Include="Models\Hosting\HostingService.cs" />
     <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
+    <Compile Include="Models\MarketerReport.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\SeoTage.cs" />
+    <Compile Include="Models\Spider.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderDetails.cs" />
@@ -146,6 +101,7 @@
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPackageRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
+    <Compile Include="Repository\ISpiderRepository.cs" />
     <Compile Include="Repository\ITicketRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Services\DomainRepository.cs" />
@@ -153,6 +109,7 @@
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\PackageRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
+    <Compile Include="Services\SpiderRepository.cs" />
     <Compile Include="Services\TicketRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
   </ItemGroup>
@@ -161,51 +118,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009270936303_initialdb.resx">
-      <DependentUpon>202009270936303_initialdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010161326039_initialtest.resx">
+      <DependentUpon>202010161326039_initialtest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010021800375_editpriceinputinttostring.resx">
-      <DependentUpon>202010021800375_editpriceinputinttostring.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010161327444_initialtest2.resx">
+      <DependentUpon>202010161327444_initialtest2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010030741309_edit_DomainPriceintconverttostring.resx">
-      <DependentUpon>202010030741309_edit_DomainPriceintconverttostring.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010171759347_editseotagengine.resx">
+      <DependentUpon>202010171759347_editseotagengine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010032155032_Initial_Ticket_Project_Table.resx">
-      <DependentUpon>202010032155032_Initial_Ticket_Project_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010040931145_AddDateTimeOrder.resx">
-      <DependentUpon>202010040931145_AddDateTimeOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010051353320_pckgepriceconvertinttostring.resx">
-      <DependentUpon>202010051353320_pckgepriceconvertinttostring.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010061200336_createorderscount.resx">
-      <DependentUpon>202010061200336_createorderscount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010061203007_initialnulabledordercount.resx">
-      <DependentUpon>202010061203007_initialnulabledordercount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010071407587_editusertblandeditordertbl.resx">
-      <DependentUpon>202010071407587_editusertblandeditordertbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010072102180_CreateProduct.resx">
-      <DependentUpon>202010072102180_CreateProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010072125498_EditProduct.resx">
-      <DependentUpon>202010072125498_EditProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010072129018_editproduct2.resx">
-      <DependentUpon>202010072129018_editproduct2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010072156151_CreateHostingDetail.resx">
-      <DependentUpon>202010072156151_CreateHostingDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010081210403_editorder3.resx">
-      <DependentUpon>202010081210403_editorder3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010120911145_initialticket.resx">
-      <DependentUpon>202010120911145_initialticket.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Seo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

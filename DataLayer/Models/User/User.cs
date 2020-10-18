@@ -72,6 +72,8 @@ namespace DataLayer
 
         public List<InnerTicket> innerTickets { get; set; }
 
+        public List<MarketerReport> marketerReports { get; set; }
+
         public User()
         {
 

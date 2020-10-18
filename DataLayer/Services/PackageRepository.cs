@@ -48,7 +48,7 @@ namespace DataLayer
                 return "Erorr :" + ex.Message;
             }
         }
-        
+
         public string Edit(int ID, int Category, string Title, string Price, string Image, string Description)
         {
             try
@@ -80,9 +80,22 @@ namespace DataLayer
         {
             try
             {
-                db.PackageServices.Remove(PackageServiceById(ID));
-                Save();
-                return "true";
+                IEnumerable<OrderDetails> orderDetails = db.OrderDetails.Where(od => od.SideID == 3 && od.PackageService.ID == ID);
+
+                if (orderDetails.Count() == 0)
+                {
+                    db.PackageServices.Remove(PackageServiceById(ID));
+                    Save();
+                    return "true";
+                }
+                else
+                {
+                    db.OrderDetails.RemoveRange(orderDetails);
+                    db.PackageServices.Remove(PackageServiceById(ID));
+                    Save();
+                    return "true";
+                }
+
             }
             catch (Exception ex)
             {

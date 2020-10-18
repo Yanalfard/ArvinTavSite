@@ -113,11 +113,48 @@ namespace DataLayer
             {
                 HostingService hostingService = HostingServiceById(ID);
                 IEnumerable<HostingServiceDetails> hostingServiceDetails = db.HostingServiceDetails.Where(hd => hd.HostingService.ID == ID);
-                db.HostingServiceDetails.RemoveRange(hostingServiceDetails);
-                db.HostingServices.Remove(hostingService);
-                Save();
-                return "true";
+                IEnumerable<HostingOrder> hostingOrders = db.hostingOrders.Where(ho => ho.HostingService.ID == ID);
+                Product product = db.products.Where(p => p.SideID == 1 && p.HostingService.ID == ID).Single();
+                if (hostingOrders.Count() == 0)
+                {
+                    if (hostingServiceDetails.Count() == 0)
+                    {
+                        db.products.Remove(product);
+                        db.HostingServices.Remove(hostingService);
+                        Save();
+                        return "true";
+                    }
+                    else
+                    {
+                        db.HostingServiceDetails.RemoveRange(hostingServiceDetails);
+                        db.products.Remove(product);
+                        db.HostingServices.Remove(hostingService);
+                        Save();
+                        return "true";
+                    }
+                }
+                else
+                {
+                    if (hostingServiceDetails.Count() == 0)
+                    {
+                        db.hostingOrders.RemoveRange(hostingOrders);
+                        db.products.Remove(product);
+                        db.HostingServices.Remove(hostingService);
+                        Save();
+                        return "true";
+                    }
+                    else
+                    {
+                        db.HostingServiceDetails.RemoveRange(hostingServiceDetails);
+                        db.hostingOrders.RemoveRange(hostingOrders);
+                        db.products.Remove(product);
+                        db.HostingServices.Remove(hostingService);
+                        Save();
+                        return "true";
+                    }
+                }
             }
+
             catch (Exception ex)
             {
                 return "Erorr :" + ex.Message;

@@ -134,7 +134,7 @@
 @section Scripts{
 
     <script>
-        
+
         $("#AddList").click(function () {
             $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Hosting/P_Create", function (result) {
@@ -144,29 +144,15 @@
                 $(".modal-content").html(result);
             });
         });
-        
+
         function BtnSearch() {
             var Result = $("#ResultSearch").val();
             var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
-
-
-            if ($(".table tbody").html() == null || $(".table fixed").html() == "") {
-                $(".loding").removeClass("d-none");
-                $.get("/Admin/Hosting/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
-                    window.location.href = "/Admin/Hosting?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
-                });
-            } else {
-                if (Result == null || Result == "") {
-                    $(".erorr").removeClass("d-none");
-                } else {
-                    $(".loding").removeClass("d-none");
-                    $.get("/Admin/Hosting/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
-                        window.location.href = "/Admin/Hosting?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
-                    });
-                }
-            }
-
+            $(".loding").removeClass("d-none");
+            $.get("/Admin/Hosting/P_List?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/Hosting?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount;
+            });
         }
 
         $("#pageNumber").change(function () {

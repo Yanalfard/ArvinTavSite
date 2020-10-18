@@ -7,24 +7,23 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class Project
+    public class Spider
     {
         [Key]
         public int ID { get; set; }
 
-        [Display(Name = "متن")]
+        [Display(Name = "نام")]
         public string Title { get; set; }
+
+        [Display(Name = "متن")]
+        public string Description { get; set; }
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
+        
+        public virtual List<SeoTage> SeoTages { get; set; }
 
-        [Display(Name = "لینک")]
-        public string Link { get; set; }
-
-        [Display(Name = "وضعیت: 1:در حال ساخت  2:تکمیل شده")]
-        public int Status { get; set; }
-
-        public Project()
+        public Spider()
         {
 
         }

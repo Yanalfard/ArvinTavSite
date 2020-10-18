@@ -105,11 +105,29 @@ namespace DataLayer
 
         public string RemoveDomain(int ID)
         {
+            
             try
             {
-                db.DomainServices.Remove(DomainByID(ID));
-                Save();
-                return "true";
+                IEnumerable<DomainServiceOrder> domainServiceOrders = db.domainServiceOrders.Where(dso => dso.DomainService.ID == ID);
+                Product product = db.products.Where(p => p.SideID == 2 && p.DomainService.ID == ID).Single();
+
+                if (domainServiceOrders.Count() == 0)
+                {
+                    db.products.Remove(product);
+                    db.DomainServices.Remove(DomainByID(ID));
+                    Save();
+                    return "true";
+                }
+                else
+                {
+                    db.domainServiceOrders.RemoveRange(domainServiceOrders);
+                    db.products.Remove(product);
+                    db.DomainServices.Remove(DomainByID(ID));
+                    Save();
+                    return "true";
+                }
+
+                
             }
             catch (Exception ex)
             {

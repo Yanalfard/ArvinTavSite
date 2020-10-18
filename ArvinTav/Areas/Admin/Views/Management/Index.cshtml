@@ -1,37 +1,48 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+                /**/
+
+                ViewBag.Title = "مدیریت";
+                Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row flex-div">
     <div class="col-md-12 flex-div pb-3 pt-3">
         <div class="card flex-div border-0 main-shadow">
             <div class="card-header bg-white row text-center">
-                <div id="SpiderPaper" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered">
+                <div id="SpiderPaper" class="col-4 pt-3 pt-sm-2 pb-2 col-md-2 table-bordered Panel bg-info text-white">
                     <a>اسپایدر</a>
                 </div>
-                <div id="MarketerReportPaper" class="col-4 col-md-2 pt-2 pb-2  table-bordered">
+                <div id="MarketerReportPaper" class="col-4 col-md-2 pt-2 pb-2  table-bordered Panel">
                     <a>گزارش نمایندگی ها</a>
                 </div>
-                <div id="RevenuesPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2  table-bordered">
+                <div id="RevenuesPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2  table-bordered Panel">
                     <a>درآمدها</a>
                 </div>
-                <div id="OrderPaper" class="col-4 col-md-2 pt-2 pb-2  table-bordered">
+                <div id="OrderPaper" class="col-4 col-md-2 pt-2 pb-2  table-bordered Panel">
                     <a>پیگیری سفارشات</a>
                 </div>
-                <div id="TicketPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered">
+                <div id="TicketPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered Panel">
                     <a> تیکت ها</a>
                 </div>
-                <div id="MassagePaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered">
+                <div id="MassagePaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered Panel">
                     <a>پیغام ها</a>
+                </div>
+                <div id="SupportPartPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered Panel">
+                    <a>بخش پشتیبانی</a>
+                </div>
+                <div id="PartnersPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered Panel">
+                    <a>همکاران</a>
+                </div>
+                <div id="CustomersPaper" class="col-4 col-md-2 pt-3 pt-sm-2 pb-2 table-bordered Panel">
+                    <a>مشتریان</a>
                 </div>
             </div>
 
             <div id="card-table" class="card-body flex-div">
                 @Html.Action("P_Spider")
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -49,9 +60,14 @@
 
 @section Scripts{
     <script>
+
         $("#SpiderPaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_Spider", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#SpiderPaper").addClass("bg-info");
+                $("#SpiderPaper").addClass("text-white");
                 $("#card-table").html(result);
             });
         });
@@ -59,6 +75,11 @@
         $("#MarketerReportPaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_MarketerReport", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#MarketerReportPaper").addClass("bg-info");
+                $("#MarketerReportPaper").addClass("text-white");
+                $("#MarketerReportPaper").addClass("bg-info,text-white");
                 $("#card-table").html(result);
             });
         });
@@ -66,13 +87,22 @@
         $("#RevenuesPaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_Revenues", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#RevenuesPaper").addClass("bg-info");
+                $("#RevenuesPaper").addClass("text-white");
                 $("#card-table").html(result);
+
             });
         });
 
         $("#OrderPaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_OrderExplorer", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#OrderPaper").addClass("bg-info");
+                $("#OrderPaper").addClass("text-white");
                 $("#card-table").html(result);
             });
         });
@@ -80,6 +110,10 @@
         $("#TicketPaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_TicketExplorer", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#TicketPaper").addClass("bg-info");
+                $("#TicketPaper").addClass("text-white");
                 $("#card-table").html(result);
             });
         });
@@ -87,10 +121,48 @@
         $("#MassagePaper").click(function () {
             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
             $.get("/Admin/Management/P_Massage", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#MassagePaper").addClass("bg-info");
+                $("#MassagePaper").addClass("text-white");
                 $("#card-table").html(result);
             });
         });
 
+        $("#SupportPartPaper").click(function () {
+            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+            $.get("/Admin/Management/P_SupportPart", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#SupportPartPaper").addClass("bg-info");
+                $("#SupportPartPaper").addClass("text-white");
+                $("#card-table").html(result);
+            });
+        });
+
+        $("#PartnersPaper").click(function () {
+            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+            $.get("/Admin/Management/P_Partners", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#PartnersPaper").addClass("bg-info");
+                $("#PartnersPaper").addClass("text-white");
+                $("#card-table").html(result);
+            });
+        });
+
+        $("#CustomersPaper").click(function () {
+            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+            $.get("/Admin/Management/P_Customers", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#CustomersPaper").addClass("bg-info");
+                $("#CustomersPaper").addClass("text-white");
+                $("#card-table").html(result);
+            });
+        });
     </script>
-    
-    }
+
+
+
+}

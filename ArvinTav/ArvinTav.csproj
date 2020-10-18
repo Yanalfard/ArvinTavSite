@@ -102,6 +102,7 @@
     <Content Include="Areas\Admin\Views\Hosting\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Hosting\P_List.cshtml" />
     <Content Include="Areas\Admin\Views\Hosting\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\favicon.ico" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
@@ -138,6 +139,7 @@
       <DependentUpon>Home.css</DependentUpon>
     </Content>
     <Content Include="Content\UIkit\styles\uikit.min.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome\css\all.css" />
     <Content Include="fonts\fontawesome\css\all.min.css" />
     <Content Include="fonts\fontawesome\css\brands.css" />
@@ -1823,10 +1825,14 @@
     <Content Include="Areas\Admin\Views\Management\P_OrderExplorer.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_TicketExplorer.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_Massage.cshtml" />
-    <Content Include="Areas\Admin\Views\Management\P_SpiderCreated.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_SpiderCreate.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_SpiderEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_MarketerReportInfo.cshtml" />
     <Content Include="Areas\Admin\Views\Management\P_MassageInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_SupportPart.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_Partners.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_Customers.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\P_SpiderRemove.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -3049,6 +3055,7 @@
     <Folder Include="Document\File\TicketFile\" />
     <Folder Include="Document\img\Category\" />
     <Folder Include="Document\img\Package\" />
+    <Folder Include="Document\img\Spider\" />
     <Folder Include="Document\img\User\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -3061,6 +3068,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

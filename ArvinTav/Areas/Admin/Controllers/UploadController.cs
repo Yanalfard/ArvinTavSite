@@ -93,5 +93,33 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
             return Json(_imgname);
         }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult UploadSliderImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["UploadSpiderImage"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+                    var _ext = Path.GetExtension(pic.FileName);
+
+                    _imgname = Guid.NewGuid().ToString();
+                    var _comPath = Server.MapPath("/Document/img/Spider/") + _imgname + _ext;
+                    _imgname = _imgname + _ext;
+
+                    ViewBag.Msg = _comPath;
+                    var path = _comPath;
+
+                    // Saving Image in Original Mode
+                    pic.SaveAs(path);
+
+                }
+            }
+            return Json(_imgname);
+        }
     }
 }

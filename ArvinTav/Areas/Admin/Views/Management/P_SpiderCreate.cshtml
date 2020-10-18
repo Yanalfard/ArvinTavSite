@@ -1,0 +1,112 @@
+﻿<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        افزودن اسپایدر
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Title">عنوان</label>
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="عنوان">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input form-control form-control-sm" id="Image">
+                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" value="" data-role="tagsinput" id="tags" class="form-control" placeholder="کلمات کلیدی">
+            </div>
+        </div>
+
+        <textarea id="my-textarea" name="Mytext"></textarea>
+    </div>
+    <div class="space"></div>
+    <div class="modal-footer justify-content-end">
+        <a id="BtnAddSpider" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
+    </div>
+</form>
+<script src="~/Content/bootstrap/js/bootstrap-tagsinput.js"></script>
+<script>
+    $(function () {
+        $('#my-textarea').ckeditor();
+    });
+    
+
+    $("#BtnAddSpider").click(function () {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Image").val() == null || $("#Image").val() == "" || $("#my-textarea").val() == null || $("#my-textarea").val() == "") {
+            $("#BtnAddSpider").removeClass('btn-success');
+            $("#BtnAddSpider").addClass('btn-danger');
+            $("#BtnAddSpider").html("همه موارد اجباری میباشد");
+        } else {
+            $("#BtnAddSpider").addClass('btn-success');
+            $("#BtnAddSpider").removeClass('btn-danger');
+            $("#BtnAddSpider").html("<i class='fas fa-plus-circle'></i>افزودن");
+            var data = new FormData();
+            var files = $("#Image").get(0).files;
+            if (files.length > 0) {
+                data.append("UploadSpiderImage", files[0]);
+            }
+            $.ajax({
+                url: "/Admin/Upload/UploadSliderImage",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    //Data
+                    var tags = [];
+
+                    //Data
+
+                    for (var i = 0; i < $(".tag").length; i++) {
+                        tags.push($(".tag")[i].innerText);
+                    }
+                    
+                    var Title = $("#Title").val();
+                    var Description = $("#my-textarea").val();
+                    var Image = response;
+                    $.ajax({
+                        type: "POST",
+                        url: '/Admin/Management/SpiderCreate',
+                        data: { Title: Title, Description: Description, Image: Image, SeoTages: tags },
+                        success: function (result) {
+                            if (result == "true") {
+                                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                                $.get("/Admin/Management/P_Spider", function (result) {
+                                    $(".Panel").removeClass("bg-info");
+                                    $(".Panel").removeClass("text-white");
+                                    $("#SpiderPaper").addClass("bg-info");
+                                    $("#SpiderPaper").addClass("text-white");
+                                    $("#card-table").html(result);
+                                    alert("مطلب با موفقیت ثبت شد.");
+                                    $("#modalSave").css('display', 'none');
+                                    $("#modalSave").removeClass('show');
+                                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                                });
+                            } else {
+                                alert(result);
+                            }
+                        },
+                        dataType: "json",
+                        traditional: true
+                    });
+
+
+                }
+            });
+            
+        }
+    });
+
+
+</script>

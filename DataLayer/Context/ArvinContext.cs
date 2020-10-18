@@ -17,6 +17,8 @@ namespace DataLayer
 
         public DbSet<DomainService> DomainServices { get; set; }
 
+        public DbSet<DomainServiceOrder> domainServiceOrders { get; set; }
+
         public DbSet<HostingServiceDetails> HostingServiceDetails { get; set; }
 
         public DbSet<Product> products { get; set; }
@@ -35,9 +37,15 @@ namespace DataLayer
 
         public DbSet<InnerTicket> innerTickets { get; set; }
 
+        public DbSet<Spider> spiders { get; set; }
+
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }
+
+        public DbSet<MarketerReport> marketerReports { get; set; }
+
+        public DbSet<SeoTage> seoTages { get; set; }
 
 
     }

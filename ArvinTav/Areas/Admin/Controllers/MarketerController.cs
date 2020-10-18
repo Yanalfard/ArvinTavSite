@@ -11,13 +11,13 @@ namespace ArvinTav.Areas.Admin.Controllers
         // GET: Admin/Marketer
         public ActionResult Index()
         {
-            return View();
+            return View(); 
         }
 
         public ActionResult CraateReport()
         {
             return PartialView();
-        }
+        } 
 
         [HttpPost]
         public string CraateReport(string Title)

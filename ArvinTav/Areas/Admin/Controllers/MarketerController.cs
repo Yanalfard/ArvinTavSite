@@ -17,7 +17,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         public ActionResult CraateReport()
         {
             return PartialView();
-        }
+        } 
 
         [HttpPost]
         public string CraateReport(string Title)

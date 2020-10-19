@@ -172,12 +172,6 @@
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
-    <Content Include="Content\Styles\Controls.css">
-      <DependentUpon>Controls.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\Controls.min.css">
-      <DependentUpon>Controls.css</DependentUpon>
-    </Content>
     <Content Include="Content\Styles\Home.css">
       <DependentUpon>Home.scss</DependentUpon>
     </Content>
@@ -1847,7 +1841,6 @@
     </None>
     <Content Include="Content\Styles\Admin.scss" />
     <Content Include="Content\Styles\_colors.scss" />
-    <Content Include="Content\Styles\Controls.scss" />
     <Content Include="Content\Styles\_global.scss" />
     <Content Include="Content\Styles\_layout.scss" />
     <Content Include="Content\Styles\Home.scss" />
@@ -1858,6 +1851,7 @@
     <Content Include="img\Home\svg\Mail.svg" />
     <Content Include="img\Home\svg\Phone.svg" />
     <Content Include="fonts\fontsite\Sahel.woff" />
+    <Content Include="Content\Styles\Controls.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3047,10 +3041,10 @@
     <Content Include="Tools\ckeditor\_samples\adobeair\run.bat" />
     <Content Include="Tools\ckeditor\_samples\adobeair\run.sh" />
     <Content Include="Tools\ckeditor\_samples\assets\output_for_flash.fla" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

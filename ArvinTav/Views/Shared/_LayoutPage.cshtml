@@ -27,22 +27,34 @@
 </head>
 <body>
     <!--header region-->
-    <header id="LayoutHeader" class="my-row">
+    <header id="LayoutHeader" class="my-row" >
         <img class="LogoPic uk-padding-small uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
-        <ul class="navBar uk-navbar-nav uk-padding-small uk-text-bold " dir="rtl">
+        <ul class="navBar uk-navbar-nav uk-padding-small uk-text-bold " style="overflow:visible!important" dir="rtl">
             <li class="menuComponent HomePage">
                 <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
             <li class="menuComponent">
-                <a href="#"  >خدمات</a>
-                <div class="uk-navbar-dropdown" dir="rtl">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">زیر منو 1</a></li>
-                        <li><a href="#">زیر منو </a></li>
-                        <li class="uk-nav-header">زیر منو </li>
-                        <li><a href="#">زیر منو </a></li>
-                        <li><a href="#">زیر منو</a></li>
+                @*<a href="#"  >خدمات</a>
+                    <div class="uk-navbar-dropdown" dir="rtl">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">زیر منو 1</a></li>
+                            <li><a href="#">زیر منو </a></li>
+                            <li class="uk-nav-header">زیر منو </li>
+                            <li><a href="#">زیر منو </a></li>
+                            <li><a href="#">زیر منو</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">زیر منو </a></li>
+                        </ul>
+                    </div>*@
+                <a >خدمات</a>
+                <div uk-dropdown="pos: bottom-justify " >
+                    <ul class="uk-nav uk-dropdown-nav" >
+                        <li class="uk-active"><a href="#">گزینه </a></li>
+                        <li><a href="#">گزینه </a></li>
+                        <li class="uk-nav-header">گزینه </li>
+                        <li><a href="#">گزینه </a></li>
+                        <li><a href="#">گزینه </a></li>
                         <li class="uk-nav-divider"></li>
-                        <li><a href="#">زیر منو </a></li>
+                        <li><a href="#">گزینه </a></li>
                     </ul>
                 </div>
             </li>
@@ -72,16 +84,16 @@
                     <li class="uk-active">
                         <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
                     <li>
-                        <a href="#">خدمات</a>
-                        <div class="uk-navbar-dropdown" dir="rtl">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><a href="#">زیر منو 1</a></li>
-                                <li><a href="#">زیر منو </a></li>
-                                <li class="uk-nav-header">زیر منو </li>
-                                <li><a href="#">زیر منو </a></li>
-                                <li><a href="#">زیر منو</a></li>
+                        <a>خدمات</a>
+                        <div uk-dropdown="pos: bottom-justify">
+                            <ul class="uk-nav uk-dropdown-nav uk-padding-remove">
+                                <li class="uk-active"><a href="#">گزینه </a></li>
+                                <li><a href="#">گزینه </a></li>
+                                <li class="uk-nav-header">گزینه </li>
+                                <li><a href="#">گزینه </a></li>
+                                <li><a href="#">گزینه </a></li>
                                 <li class="uk-nav-divider"></li>
-                                <li><a href="#">زیر منو </a></li>
+                                <li><a href="#">گزینه </a></li>
                             </ul>
                         </div>
                     </li>

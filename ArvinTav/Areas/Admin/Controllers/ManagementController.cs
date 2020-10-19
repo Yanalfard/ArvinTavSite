@@ -10,11 +10,13 @@ namespace ArvinTav.Areas.Admin.Controllers
     public class ManagementController : Controller
     {
         private ISpiderRepository spiderRepository;
+        private IMarketerRepository marketerRepository;
         private ArvinContext db = new ArvinContext();
 
         public ManagementController()
         {
             spiderRepository = new SpiderRepository(db);
+            marketerRepository = new MarketerRepository(db);
         }
 
         // GET: Admin/Management
@@ -159,19 +161,282 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع نمایندگی ها>
         /// ///////////////////////////////////Marketer
 
-        public ActionResult P_MarketerReport()
+        public ActionResult P_MarketerReport(int PageId = 1, string PhoneNumber = "", int Status = 0, int InPageCount = 0)
         {
+            if (PhoneNumber == "")
+            {
+                if (Status == 0)
+                {
+                    if (InPageCount == 0)
+                    {
+                        int count = marketerRepository.AllMarketerReports().Count();
+
+                        var skip = (PageId - 1) * 18;
+
+                        ViewBag.pageid = PageId;
+
+                        ViewBag.PhoneNumber = "";
+
+                        ViewBag.Status = Status;
+
+                        ViewBag.PageCount = count / 18;
+
+                        ViewBag.InPageCount = InPageCount;
+
+                        return PartialView(marketerRepository.AllMarketerReports().OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                    }
+                    else
+                    {
+
+                        int count = marketerRepository.AllMarketerReports().Count();
+
+                        var skip = (PageId - 1) * InPageCount;
+
+                        ViewBag.pageid = PageId;
+
+                        ViewBag.PhoneNumber = "";
+
+                        ViewBag.Status = Status;
+
+                        ViewBag.PageCount = count / InPageCount;
+
+                        ViewBag.InPageCount = InPageCount;
+
+                        return PartialView(marketerRepository.AllMarketerReports().OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                    }
+                }
+                else
+                {
+                    if (Status == 1)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                    else if (Status == 2)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (Status == 0)
+                {
+                    if (InPageCount == 0)
+                    {
+                        int count = marketerRepository.AllMarketerReports().Where(mr => mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                        var skip = (PageId - 1) * 18;
+
+                        ViewBag.pageid = PageId;
+
+                        ViewBag.PhoneNumber = PhoneNumber;
+
+                        ViewBag.Status = Status;
+
+                        ViewBag.PageCount = count / 18;
+
+                        ViewBag.InPageCount = InPageCount;
+
+                        return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                    }
+                    else
+                    {
+
+                        int count = marketerRepository.AllMarketerReports().Where(mr => mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                        var skip = (PageId - 1) * InPageCount;
+
+                        ViewBag.pageid = PageId;
+
+                        ViewBag.PhoneNumber = PhoneNumber;
+
+                        ViewBag.Status = Status;
+
+                        ViewBag.PageCount = count / InPageCount;
+
+                        ViewBag.InPageCount = InPageCount;
+
+                        return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                    }
+                }
+                else
+                {
+                    if (Status == 1)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                    else if (Status == 2)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                }
+            }
             return PartialView();
+
         }
 
+        public string ConfirmReport(int ID)
+        {
+            return marketerRepository.ChangeStatus(ID);
+        }
+
+        public ActionResult P_MarketerReportInfo(int ID)
+        {
+            return PartialView(marketerRepository.MarketerReportById(ID));
+        }
+
+        public string RemoveMarketerReport(int ID)
+        {
+            return marketerRepository.RemoveReport(ID);
+        }
 
         /// <پایان نمایندگی ها>
         /// ///////////////////////////////////Marketer
 
-        public ActionResult P_MarketerReportInfo()
-        {
-            return PartialView();
-        }
 
         public ActionResult P_Revenues()
         {

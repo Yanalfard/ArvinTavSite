@@ -55,17 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202010161326039_initialtest.cs" />
-    <Compile Include="Migrations\202010161326039_initialtest.designer.cs">
-      <DependentUpon>202010161326039_initialtest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010161327444_initialtest2.cs" />
-    <Compile Include="Migrations\202010161327444_initialtest2.designer.cs">
-      <DependentUpon>202010161327444_initialtest2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010171759347_editseotagengine.cs" />
-    <Compile Include="Migrations\202010171759347_editseotagengine.designer.cs">
-      <DependentUpon>202010171759347_editseotagengine.cs</DependentUpon>
+    <Compile Include="Migrations\202010190651024_initialdb.cs" />
+    <Compile Include="Migrations\202010190651024_initialdb.designer.cs">
+      <DependentUpon>202010190651024_initialdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
@@ -98,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IHostingRepository.cs" />
+    <Compile Include="Repository\IMarketerRepository.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPackageRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
@@ -106,6 +99,7 @@
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Services\DomainRepository.cs" />
     <Compile Include="Services\HostingRepository.cs" />
+    <Compile Include="Services\MarketerRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\PackageRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
@@ -118,18 +112,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010161326039_initialtest.resx">
-      <DependentUpon>202010161326039_initialtest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010161327444_initialtest2.resx">
-      <DependentUpon>202010161327444_initialtest2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010171759347_editseotagengine.resx">
-      <DependentUpon>202010171759347_editseotagengine.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Models\Seo\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Seo\" />
+    <EmbeddedResource Include="Migrations\202010190651024_initialdb.resx">
+      <DependentUpon>202010190651024_initialdb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

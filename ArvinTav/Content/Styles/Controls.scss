@@ -12,7 +12,7 @@
     margin-bottom: 14px;
     //margin-right: 40px;
     //padding-right: 50px !important;
-    overflow: hidden !important;
+    overflow: visible !important;
 
     .HomePage {
         color: #48A839 !important;
@@ -64,15 +64,16 @@
         font-size: 18px !important;
     }
 }
-.uk-navbar-dropdown {
+.uk-dropdown {
     background: white !important;
-    /*position:fixed;
-    display:flex;*/
-    color:#4d4d4d !important;
-}
-    .uk-offcanvas-bar {
-        display: none;
+
+    a {
+        color: #2a2929 !important;
     }
+}
+.uk-offcanvas-bar {
+    display: none;
+}
     /*#region This will be toggled on scroll */
     .layout-header-scrolled {
         background: #ffffff !important;

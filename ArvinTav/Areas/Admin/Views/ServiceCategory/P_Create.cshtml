@@ -1,7 +1,14 @@
 ﻿<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-      افزودن زیر مجموعه برای @ViewBag.ParentTitle
-        
+      @if (ViewBag.ParentID == 0)
+      {
+          @:افزودن دسته بندی اصلی
+      }
+      else
+      {
+          @:افزودن زیر مجموعه برای @ViewBag.ParentTitle
+      }
+
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>

@@ -66,10 +66,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             {
                 ViewBag.ParentTitle = serviceCategoryRepository.ServiceCategoryById(ParentID).Title;
             }
-            else
-            {
-                ViewBag.ParentTitle = "اصلی";
-            }
             return PartialView();
         }
 

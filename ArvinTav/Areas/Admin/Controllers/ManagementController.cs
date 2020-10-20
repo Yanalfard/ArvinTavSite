@@ -466,13 +466,49 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return PartialView();
         }
+        public ActionResult P_SupportCreated()
+        {
+            return PartialView();
+        }
+        public ActionResult P_SupportEdit()
+        {
+            return PartialView();
+        }
+        public ActionResult P_SupportRemove()
+        {
+            return PartialView();
+        }
 
         public ActionResult P_Partners()
         {
             return PartialView();
         }
+        public ActionResult P_PartnersCreated()
+        {
+            return PartialView();
+        }
+        public ActionResult P_PartnersEdit()
+        {
+            return PartialView();
+        }
+        public ActionResult P_PartnersRemove()
+        {
+            return PartialView();
+        }
 
         public ActionResult P_Customers()
+        {
+            return PartialView();
+        }
+        public ActionResult P_CustomersCreated()
+        {
+            return PartialView();
+        }
+        public ActionResult P_CustomersEdit()
+        {
+            return PartialView();
+        }
+        public ActionResult P_CustomersRemove()
         {
             return PartialView();
         }

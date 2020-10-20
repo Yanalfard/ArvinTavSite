@@ -45,6 +45,10 @@ namespace DataLayer
 
         public DbSet<MarketerReport> marketerReports { get; set; }
 
+        public DbSet<Partner> partners { get; set; }
+
+        public DbSet<Customer> customers { get; set; }
+
         public DbSet<SeoTage> seoTages { get; set; }
 
 

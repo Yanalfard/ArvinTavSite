@@ -55,9 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202010190651024_initialdb.cs" />
-    <Compile Include="Migrations\202010190651024_initialdb.designer.cs">
-      <DependentUpon>202010190651024_initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\202010190908302_initialdb.cs" />
+    <Compile Include="Migrations\202010190908302_initialdb.designer.cs">
+      <DependentUpon>202010190908302_initialdb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010190948115_editcustomertbl.cs" />
+    <Compile Include="Migrations\202010190948115_editcustomertbl.designer.cs">
+      <DependentUpon>202010190948115_editcustomertbl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
@@ -66,7 +70,9 @@
     <Compile Include="Models\Hosting\HostingService.cs" />
     <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
     <Compile Include="Models\MarketerReport.cs" />
+    <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\SeoTage.cs" />
     <Compile Include="Models\Spider.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
@@ -115,8 +121,11 @@
     <Folder Include="Models\Seo\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010190651024_initialdb.resx">
-      <DependentUpon>202010190651024_initialdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010190908302_initialdb.resx">
+      <DependentUpon>202010190908302_initialdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010190948115_editcustomertbl.resx">
+      <DependentUpon>202010190948115_editcustomertbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

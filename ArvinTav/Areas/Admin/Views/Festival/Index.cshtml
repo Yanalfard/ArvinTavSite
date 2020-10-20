@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "پروژه ها";
+    ViewBag.Title = "جشنواره";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -9,12 +9,21 @@
         <div class="card flex-div border-0 main-shadow">
             <div class="card-header bg-white">
                 <div class="row justify-content-end">
-                    <div class="col-md-10 col-8">
+                    <div class="col-md-10 col-12">
                         <div class="card-form row">
-                            <div class="form-input col-md-3 col-6">
+                            <div class="form-input col-md-4">
                                 <div class="form-inline">
-                                    <div class="form-group mx-sm-2">
-                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="عنوان">
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="پسوند">
+                                    </div>
+                                    <div class="form-group mx-sm-1 mb-2">
+                                        <select id="DegreeSearch" class="form-control form-control-sm">
+
+                                            <option value="0" selected="">همه</option>
+                                            <option value="1">فعال</option>
+                                            <option value="2">غیرفعال</option>
+
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -23,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-4">
+                    <div class="col-md-2 col-6">
                         <a id="AddList" class="btn btn-success btn-sm text-white float-left" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
                     </div>
                 </div>
@@ -78,16 +87,15 @@
     <script>
 
         $("#AddList").click(function () {
-            $.get("/Admin/Project/P_Create", function (result) {
+            $.get("/Admin/Festival/P_Create", function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");
                 $(".modal-content").html(result);
             });
         });
-
-        $("#DelFromList").click(function () {
-            $.get("/Admin/Project/P_Remove", function (result) {
+        $("#DelList").click(function () {
+            $.get("/Admin/Festival/P_Remove", function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-lg");
                 $(".modal-dialog").addClass("modal-md");
@@ -95,16 +103,17 @@
             });
         });
         $("#EditList").click(function () {
-            $.get("/Admin/Project/P_Edit", function (result) {
+            $.get("/Admin/Festival/P_Edit", function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");
                 $(".modal-content").html(result);
             });
         });
-
     </script>
 
 }
+
+
 
 

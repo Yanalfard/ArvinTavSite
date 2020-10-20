@@ -84,6 +84,7 @@
     <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />

@@ -1,6 +1,7 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.UserEditInAdminViewModel
+<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-        ویرایش کاربر
+        ویرایش کاربر @Model.user.FullName
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -10,40 +11,54 @@
     <div class="modal-body">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="FullName" placeholder="نام کاربر">
+                <input type="text" class="form-control form-control-sm" id="FullName" placeholder="نام کاربر" value="@Model.user.FullName">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="PhoneNumber" placeholder="شماره تلفن" disabled>
+                <input type="text" class="form-control form-control-sm" id="PhoneNumber" placeholder="شماره تلفن" disabled value="@Model.user.PhoneNumber">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="Brand" placeholder="نام تجاری">
+                <input type="text" class="form-control form-control-sm" id="Brand" placeholder="نام تجاری" value="@Model.user.Brand">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="Email" placeholder="ایمیل">
+                <input type="email" class="form-control form-control-sm" id="Email" placeholder="ایمیل" value="@Model.user.Email">
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
-                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
-                </div>
-            </div>
             <div class="form-group col-md-6">
                 <select id="UserRole" class="form-control form-control-sm">
                     <option value="0">نقش</option>
-                    <option value="1">کاربر عادی</option>
-                    <option value="2">مدیر</option>
+                    @foreach (var item in Model.userRoles)
+                    {
+                        <option value="@item.RoleID" @(((int)item.RoleID == Model.user.UserRole.RoleID) ? "selected" : "")>@item.Title</option>
+                    }
                 </select>
             </div>
         </div>
     </div>
     <div class="modal-footer justify-content-end">
-        <a class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a onclick="BtnEdit(@Model.user.UserID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
+
+<script>
+    function BtnEdit(ID) {
+        var FullName = $("#FullName").val();
+        var Brand = $("#Brand").val();
+        var Email = $("#Email").val();
+        var UserRole = $("#UserRole option:selected").val();
+        $(".loding").removeClass("d-none");
+        $.post("/Admin/User/Edit?ID=" + ID + "&FullName=" + FullName + "&Brand=" + Brand + "&Email=" + Email + "&UserRole=" + UserRole, function (result) {
+            if (result == "true") {
+                window.location.reload();
+            } else {
+                alert(result);
+            }
+        });
+    }
+</script>
 
 
 

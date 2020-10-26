@@ -51,6 +51,12 @@ namespace DataLayer
 
         public DbSet<SeoTage> seoTages { get; set; }
 
+        public DbSet<Massage> massages { get; set; }
+
+        public DbSet<Slider> sliders { get; set; }
+
+        public DbSet<Discount> discounts { get; set; }
+
 
     }
 }

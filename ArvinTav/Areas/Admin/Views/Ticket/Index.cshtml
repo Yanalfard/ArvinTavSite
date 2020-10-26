@@ -65,6 +65,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if (Model.tickets.Count() == 0)
+                            {
+                                <tr>
+                                    <td>یافت نشد</td>
+                                </tr>
+                            }
                             @foreach (var item in Model.tickets)
                             {
                                 <tr>

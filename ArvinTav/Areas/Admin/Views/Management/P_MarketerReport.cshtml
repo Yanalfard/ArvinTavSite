@@ -9,17 +9,33 @@
                             <div class="form-input col-md-5">
                                 <div class="form-inline">
                                     <div class="form-group mx-sm-1 mb-2">
-                                        <input id="PhoneNumberSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن">
+                                        <input id="PhoneNumberSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن" value="@ViewBag.PhoneNumber">
                                     </div>
                                     <div class="form-group mx-sm-1 mb-2">
                                         <select id="DegreeSearch" class="form-control form-control-sm">
-                                            <option value="0" selected="">وضعیت</option>
-                                            <option value="1">تایید شده</option>
-                                            <option value="2">تایید نشده</option>
+                                            @if (ViewBag.Status == 0)
+                                            {
+                                                <option value="0" selected>وضعیت</option>
+                                                <option value="1">تایید شده</option>
+                                                <option value="2">تایید نشده</option>
+                                            }
+                                            else if (ViewBag.Status == 1)
+                                            {
+                                                <option value="0">وضعیت</option>
+                                                <option value="1" selected>تایید شده</option>
+                                                <option value="2">تایید نشده</option>
+                                            }
+                                            else if (ViewBag.Status == 2)
+                                            {
+                                                <option value="0">وضعیت</option>
+                                                <option value="1">تایید شده</option>
+                                                <option value="2" selected>تایید نشده</option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="form-group mx-sm-1 mb-2">
                                         <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                                        <img id="SearchLoad" src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                                     </div>
                                 </div>
                             </div>
@@ -193,35 +209,38 @@
 
     function BtnSearch() {
         var Result = $("#Search").val();
+        var Status = $("#DegreeSearch option:selected").val();
         var PageId = 1;
         var InPageCount = $("#InPageCount option:selected").val();
         $("#SearchLoad").removeClass("d-none");
-        $.get("/Admin/Management/P_Spider?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
-            $("#card-table").html(result);
+        $.get("/Admin/Management/P_MarketerReport?PageId=" + PageId + "&PhoneNumber=" + Result + "&Status=" + Status + "&InPageCount=" + InPageCount, function (result) {
             $("#SearchLoad").addClass("d-none");
+            $("#card-table").html(result);
         });
 
     }
 
     $("#pageNumber").change(function () {
         var Result = $("#Search").val();
+        var Status = $("#DegreeSearch option:selected").val();
         var PageId = $("#pageNumber option:selected").val();
         var InPageCount = $("#InPageCount option:selected").val();
         $("#SearchLoad").removeClass("d-none");
-        $.get("/Admin/Management/P_Spider?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
-            $("#card-table").html(result);
+        $.get("/Admin/Management/P_MarketerReport?PageId=" + PageId + "&PhoneNumber=" + Result + "&Status=" + Status + "&InPageCount=" + InPageCount, function (result) {
             $("#SearchLoad").addClass("d-none");
+            $("#card-table").html(result);
         });
     });
 
     $("#InPageCount").change(function () {
         var Result = $("#Search").val();
-        var PageId = $("#pageNumber option:selected").val();
+        var Status = $("#DegreeSearch option:selected").val();
+        var PageId = 1;
         var InPageCount = $("#InPageCount option:selected").val();
         $("#SearchLoad").removeClass("d-none");
-        $.get("/Admin/Management/P_Spider?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
-            $("#card-table").html(result);
+        $.get("/Admin/Management/P_MarketerReport?PageId=" + PageId + "&PhoneNumber=" + Result + "&Status=" + Status + "&InPageCount=" + InPageCount, function (result) {
             $("#SearchLoad").addClass("d-none");
+            $("#card-table").html(result);
         });
     });
 

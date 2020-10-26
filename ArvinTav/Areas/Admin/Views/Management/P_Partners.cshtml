@@ -1,4 +1,5 @@
-﻿<div class="row flex-div">
+﻿@model IEnumerable<DataLayer.Partner>
+<div class="row flex-div">
     <div class="col-md-12 flex-div pr-0 pl-0">
         <div class="card flex-div border-0 main-shadow">
             <div class="card-header bg-white">
@@ -8,12 +9,13 @@
                             <div class="form-input col-md-3 col-6">
                                 <div class="form-inline">
                                     <div class="form-group mx-sm-2">
-                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="">
+                                        <input id="Search" class="form-control form-control-sm" type="text" placeholder="نام همکار" value="@ViewBag.Result">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-toolbar col-6">
                                 <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                                <img id="SearchLoad" src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                             </div>
                         </div>
                     </div>
@@ -32,17 +34,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>همکار1</td>
-                                <td>
-                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="ویرایش">
-                                        <a id="EditList" data-toggle="modal" data-target="#modalSave"><i class="fas fa-edit text-primary"></i></a>
-                                    </span>
-                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
-                                        <a id="DelList" data-toggle="modal" data-target="#modalSave"><i class="fas fa-trash text-danger"></i></a>
-                                    </span>
-                                </td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>
+                                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="ویرایش">
+                                            <a onclick="EditList(@item.ID)" data-toggle="modal" data-target="#modalSave"><i class="fas fa-edit text-primary"></i></a>
+                                        </span>
+                                        <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                                            <a onclick="DelList(@item.ID)" data-toggle="modal" data-target="#modalSave"><i class="fas fa-trash text-danger"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -51,27 +56,78 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(0)">قبلی</a>
-                        </li>
+                        @if (ViewBag.PageId == 1)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+
+                        }
 
                         <li class="page-item">
                             <select id="pageNumber" class="custom-select custom-select-sm">
-                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
+                                @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+                                {
+                                    <option class="page-item" value="@i" @(((int)ViewBag.pageId == i) ? "selected" : "")>صفحه @i از @((int)ViewBag.PageCount + 1)</option>
+                                }
                             </select>
                         </li>
 
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(2)">بعدی</a>
-                        </li>
+                        @if ((int)ViewBag.PageId > (int)ViewBag.PageCount)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+                        }
+                        else
+
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+
+                        }
                         <li>
                             <select id="InPageCount" class="custom-select custom-select-sm">
-                                <option value="0" selected="">18 در هر صفحه</option>
-                                <option value="20">20 در هر صفحه</option>
-                                <option value="30">30 در هر صفحه</option>
-                                <option value="40">40 در هر صفحه</option>
+                                @if (ViewBag.InPageCount == 0)
+                                {
+                                    <option value="0" selected>18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
 
+                                }
+
+                                @if (ViewBag.InPageCount == 20)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20" selected>20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 30)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30" selected>30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 40)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40" selected>40 در هر صفحه</option>
+                                }
 
 
                             </select>
@@ -85,6 +141,41 @@
 
 
 <script>
+
+
+    function BtnSearch() {
+        var Result = $("#Search").val();
+        var PageId = 1;
+        var InPageCount = $("#InPageCount option:selected").val();
+        $("#SearchLoad").removeClass("d-none");
+        $.get("/Admin/Management/P_Partners?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+            $("#card-table").html(result);
+            $("#SearchLoad").addClass("d-none");
+        });
+    }
+
+    $("#pageNumber").change(function () {
+        var Result = $("#Search").val();
+        var PageId = $("#pageNumber option:selected").val();
+        var InPageCount = $("#InPageCount option:selected").val();
+        $("#SearchLoad").removeClass("d-none");
+        $.get("/Admin/Management/P_Partners?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+            $("#card-table").html(result);
+            $("#SearchLoad").addClass("d-none");
+        });
+    });
+
+    $("#InPageCount").change(function () {
+        var Result = $("#Search").val();
+        var PageId = $("#pageNumber option:selected").val();
+        var InPageCount = $("#InPageCount option:selected").val();
+        $("#SearchLoad").removeClass("d-none");
+        $.get("/Admin/Management/P_Partners?PageId=" + PageId + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+            $("#card-table").html(result);
+            $("#SearchLoad").addClass("d-none");
+        });
+    });
+
     $("#AddList").click(function () {
         $.get("/Admin/Management/P_PartnersCreated", function (result) {
             $(".modal-dialog").removeClass("modal-md");
@@ -93,22 +184,22 @@
             $(".modal-content").html(result);
         });
     });
-    $("#EditList").click(function () {
-        $.get("/Admin/Management/P_PartnersEdit", function (result) {
+    function EditList(ID) {
+        $.get("/Admin/Management/P_PartnersEdit?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-md");
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").addClass("modal-lg");
             $(".modal-content").html(result);
         });
-    });
+    }
 
-    $("#DelList").click(function () {
-        $.get("/Admin/Management/P_PartnersRemove", function (result) {
+    function DelList(ID) {
+        $.get("/Admin/Management/P_PartnersRemove?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-lg");
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").addClass("modal-md");
             $(".modal-content").html(result);
         });
-    });
+    }
 </script>
 

@@ -55,25 +55,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202010190908302_initialdb.cs" />
-    <Compile Include="Migrations\202010190908302_initialdb.designer.cs">
-      <DependentUpon>202010190908302_initialdb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010190948115_editcustomertbl.cs" />
-    <Compile Include="Migrations\202010190948115_editcustomertbl.designer.cs">
-      <DependentUpon>202010190948115_editcustomertbl.cs</DependentUpon>
+    <Compile Include="Migrations\202010261238073_initialdb.cs" />
+    <Compile Include="Migrations\202010261238073_initialdb.designer.cs">
+      <DependentUpon>202010261238073_initialdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
     <Compile Include="Models\Domain\DomainServiceOrder.cs" />
     <Compile Include="Models\Hosting\HostingOrder.cs" />
     <Compile Include="Models\Hosting\HostingService.cs" />
     <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
     <Compile Include="Models\MarketerReport.cs" />
+    <Compile Include="Models\Massage.cs" />
     <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\SeoTage.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Spider.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Order\Order.cs" />
@@ -92,25 +91,45 @@
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\Statistic\RevenuesViewModel.cs" />
+    <Compile Include="Models\ViewModel\Statistic\StatisticViewModel.cs" />
+    <Compile Include="Models\ViewModel\Statistic\TicketExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IFestivalRepository.cs" />
+    <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Repository\IDomainRepository.cs" />
     <Compile Include="Repository\IHostingRepository.cs" />
     <Compile Include="Repository\IMarketerRepository.cs" />
+    <Compile Include="Repository\IMassageRepository.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPackageRepository.cs" />
+    <Compile Include="Repository\IPartnerRepository.cs" />
+    <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
+    <Compile Include="Repository\ISliderRepository.cs" />
     <Compile Include="Repository\ISpiderRepository.cs" />
+    <Compile Include="Repository\IStatisticRepository.cs" />
     <Compile Include="Repository\ITicketRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\DomainRepository.cs" />
+    <Compile Include="Services\FestivalRepository.cs" />
     <Compile Include="Services\HostingRepository.cs" />
     <Compile Include="Services\MarketerRepository.cs" />
+    <Compile Include="Services\MassageRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\PackageRepository.cs" />
+    <Compile Include="Services\PartnerRepository.cs" />
+    <Compile Include="Services\ProjectRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
+    <Compile Include="Services\SliderRepository.cs" />
     <Compile Include="Services\SpiderRepository.cs" />
+    <Compile Include="Services\StatisticRepository.cs" />
     <Compile Include="Services\TicketRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
   </ItemGroup>
@@ -119,14 +138,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Seo\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010190908302_initialdb.resx">
-      <DependentUpon>202010190908302_initialdb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010190948115_editcustomertbl.resx">
-      <DependentUpon>202010190948115_editcustomertbl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010261238073_initialdb.resx">
+      <DependentUpon>202010261238073_initialdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

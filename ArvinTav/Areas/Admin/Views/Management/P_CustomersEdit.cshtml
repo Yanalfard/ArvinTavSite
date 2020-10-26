@@ -1,7 +1,7 @@
-﻿
+﻿@model DataLayer.Customer
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-        ویرایش مشتری
+      ویرایش مشتری @Model.Title
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -11,26 +11,98 @@
     <div class="modal-body">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن مشتری">
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن مشتری" value="@Model.Title">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="PhoneNumber" placeholder="شماره تلفن">
+                <input type="text" class="form-control form-control-sm" id="PhoneNumber" placeholder="شماره تلفن" value="@Model.PhoneNumber">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input form-control form-control-sm" id="Logo">
-                    <label class="custom-file-label" for="Logo" data-browse="انتخاب">انتخاب فایل</label>
+                    <label class="custom-file-label" for="Logo" data-browse="انتخاب">@Model.Logo</label>
                 </div>
             </div>
         </div>
 
     </div>
     <div class="modal-footer justify-content-end">
-        <a class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <a  id="BtnCustomerEdit" onclick="BtnCustomerEdit(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
+
+<script>
+    function BtnCustomerEdit(ID) {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#PhoneNumber").val() == null || $("#PhoneNumber").val() == "") {
+            $("#BtnCustomerEdit").removeClass('btn-success');
+            $("#BtnCustomerEdit").addClass('btn-danger');
+            $("#BtnCustomerEdit").html("تمامی موارد اجباری است");
+        } else {
+            $("#BtnCustomerEdit").addClass('btn-success');
+            $("#BtnCustomerEdit").removeClass('btn-danger');
+            $("#BtnCustomerEdit").html("<i class='fas fa-edit'></i>ویرایش");
+
+            var Title = $("#Title").val();
+            var PhoneNumber = $("#PhoneNumber").val();
+
+            if ($("#Logo").val() == null || $("#Logo").val() == "") {
+                $.get("/Admin/Management/EditCustomer?ID=" + ID + "&Title=" + Title + "&PhoneNumber=" + PhoneNumber + "&Logo=", function (result) {
+                    if (result == "true") {
+                        $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                        $.get("/Admin/Management/P_Customers", function (result) {
+                            $(".Panel").removeClass("bg-info");
+                            $(".Panel").removeClass("text-white");
+                            $("#PartnersPaper").addClass("bg-info");
+                            $("#PartnersPaper").addClass("text-white");
+                            $("#card-table").html(result);
+                            alert(" مشتری با موفقیت ویرایش شد");
+                            $("#modalSave").css('display', 'none');
+                            $("#modalSave").removeClass('show');
+                            document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                        });
+                    } else {
+                        alert(result);
+                    }
+                });
+            } else {
+                var data = new FormData();
+                var files = $("#Logo").get(0).files;
+                if (files.length > 0) {
+                    data.append("UploadPartnerImageFile", files[0]);
+                }
+                $.ajax({
+                    url: "/Admin/Upload/UploadPartnerLogo",
+                    type: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: data,
+                    success: function (response) {
+                        var Logo = response;
+                        $.get("/Admin/Management/EditPartner?ID=" + ID + "&Title=" + Title + "&PhoneNumber=" + PhoneNumber + "&Logo=" + Logo, function (result) {
+                            if (result == "true") {
+                                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                                $.get("/Admin/Management/P_Partners", function (result) {
+                                    $(".Panel").removeClass("bg-info");
+                                    $(".Panel").removeClass("text-white");
+                                    $("#PartnersPaper").addClass("bg-info");
+                                    $("#PartnersPaper").addClass("text-white");
+                                    $("#card-table").html(result);
+                                    alert(" همکار با موفقیت ثبت شد");
+                                    $("#modalSave").css('display', 'none');
+                                    $("#modalSave").removeClass('show');
+                                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                                });
+                            } else {
+                                alert(result);
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }
+</script>
 

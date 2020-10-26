@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.TicketCategory
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
         ویرایش پشتیبانی
@@ -11,16 +11,54 @@
     <div class="modal-body">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن">
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن" value="@Model.Title">
             </div>
             <div class="form-group col-md-6">
                 <label for="IsActive">فعال باشد</label>
-                <input type="checkbox" id="IsActive" />
+                @if (Model.IsActive == true)
+                {
+                    <input type="checkbox" checked id="IsActive" />
+                }
+                else if (Model.IsActive == false)
+                {
+                    <input type="checkbox" id="IsActive" />
+                }
             </div>
         </div>
 
     </div>
     <div class="modal-footer justify-content-end">
-        <a class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <a onclick="EditTicketCategory(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
+
+<script>
+    function EditTicketCategory(ID) {
+        var Title = $("#Title").val();
+        if ($("#IsActive").prop("checked") == true) {
+            var IsActive = 1;
+        }
+        if ($("#IsActive").prop("checked") == false) {
+            var IsActive = 0;
+        }
+        $.post("/Admin/Management/SupportEdit?ID=" + ID + "&Title=" + Title + "&IsActive=" + IsActive, function (result) {
+            if (result == "true") {
+                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                $.get("/Admin/Management/P_SupportPart", function (result) {
+                    $(".Panel").removeClass("bg-info");
+                    $(".Panel").removeClass("text-white");
+                    $("#SupportPartPaper").addClass("bg-info");
+                    $("#SupportPartPaper").addClass("text-white");
+                    $("#card-table").html(result);
+                    alert("پشتیبانی با موفقیت ویرایش شد.");
+                    $("#modalSave").css('display', 'none');
+                    $("#modalSave").removeClass('show');
+                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                });
+            } else {
+                alert(result);
+            }
+
+        });
+    }
+</script>

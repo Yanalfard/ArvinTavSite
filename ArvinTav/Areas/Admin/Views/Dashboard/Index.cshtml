@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.StatisticViewModel
 @{
     ViewBag.Title = "داشبورد";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -21,7 +21,7 @@
                                     <span class="icon-pic-success">مشتریان</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.User</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllUserCount</span>
                                 </div>
                             </div>
                         </a>
@@ -34,7 +34,7 @@
                                     <span class="icon-pic-primary">کارمندان</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Personnel</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllPersonnelCount</span>
                                 </div>
 
                             </div>
@@ -62,7 +62,7 @@
                                     <span class="icon-pic-success">هاست ها</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Host</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllHostingCount</span>
                                 </div>
                             </div>
                         </a>
@@ -77,7 +77,7 @@
                                     <span class="icon-pic-primary">دامنه ها</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Domain</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllDomainCount</span>
                                 </div>
 
                             </div>
@@ -92,7 +92,7 @@
                                     <span class="icon-pic-primary">بسته های نرم افزاری</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Package</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllPackageCount</span>
                                 </div>
 
                             </div>
@@ -107,7 +107,7 @@
                                     <span class="icon-pic-primary">سفارشات</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Order</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllOrderCount</span>
                                 </div>
 
                             </div>
@@ -132,7 +132,7 @@
                                     <span class="icon-pic-success">کل تیکت ها</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.Ticket</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllTicket</span>
                                 </div>
                             </div>
                         </a>
@@ -145,7 +145,7 @@
                                     <span class="icon-pic-primary">تیکت های تکمیل شده</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.TicketEnded</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.TicketEnded</span>
                                 </div>
 
                             </div>
@@ -159,7 +159,7 @@
                                     <span class="icon-pic-primary">تیکت های تکمیل نشده</span>
                                 </div>
                                 <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@ViewBag.TicketNotSeen</span>
+                                    <span class="icon-pic-primary font-weight-bold">@Model.TicketNotSeen</span>
                                 </div>
 
                             </div>

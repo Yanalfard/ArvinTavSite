@@ -1,13 +1,13 @@
 ﻿<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-      @if (ViewBag.ParentID == 0)
-      {
-          @:افزودن دسته بندی اصلی
-      }
-      else
-      {
-          @:افزودن زیر مجموعه برای @ViewBag.ParentTitle
-      }
+        @if (ViewBag.ParentID == 0)
+        {
+            @:افزودن دسته بندی اصلی
+        }
+        else
+        {
+            @:افزودن زیر مجموعه برای @ViewBag.ParentTitle
+        }
 
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -31,7 +31,7 @@
             <div class="form-group col-md-6">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
-                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
+                    <label class="custom-file-label" for="Image" data-browse="انتخاب" id="FileName">انتخاب فایل</label>
                 </div>
             </div>
         </div>
@@ -48,11 +48,23 @@
         <a id="AddCategory" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
-
+<style>
+   
+</style>
 <script>
     $(function () {
         $('#my-textarea').ckeditor();
     });
+
+
+    $("#Image").change(function () {
+        if ($("#Image").val() != null) {
+            $("#FileName").html($("#Image").val());
+            $("#FileName").addClass("border");
+            $("#FileName").addClass("border-success");
+        }
+    });
+
 
     $("#AddCategory").click(function () {
         if ($("#Title").val() == null || $("#Title").val() == "" || $("#Image").val() == null || $("#Image").val() == "" || $("#my-textarea").val() == null || $("#my-textarea").val() == "") {

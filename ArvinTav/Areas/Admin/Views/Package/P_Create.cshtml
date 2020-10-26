@@ -36,7 +36,7 @@
                 <label for="Image">تصویر</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input form-control form-control-sm" id="Image">
-                    <label class="custom-file-label" for="Image" data-browse="انتخاب">انتخاب فایل</label>
+                    <label class="custom-file-label" for="Image" data-browse="انتخاب" id="FileName">انتخاب فایل</label>
                 </div>
             </div>
         </div>
@@ -62,6 +62,14 @@
                 $("#ChildCategory").html(result);
                 $("#Category").val($("#MainCategorySelect option:selected").val());
             });
+        }
+    });
+
+    $("#Image").change(function () {
+        if ($("#Image").val() != null) {
+            $("#FileName").html($("#Image").val());
+            $("#FileName").addClass("border");
+            $("#FileName").addClass("border-success");
         }
     });
 

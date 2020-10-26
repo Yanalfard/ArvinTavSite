@@ -80,21 +80,10 @@ namespace DataLayer
         {
             try
             {
-                IEnumerable<OrderDetails> orderDetails = db.OrderDetails.Where(od => od.SideID == 3 && od.PackageService.ID == ID);
 
-                if (orderDetails.Count() == 0)
-                {
-                    db.PackageServices.Remove(PackageServiceById(ID));
-                    Save();
-                    return "true";
-                }
-                else
-                {
-                    db.OrderDetails.RemoveRange(orderDetails);
-                    db.PackageServices.Remove(PackageServiceById(ID));
-                    Save();
-                    return "true";
-                }
+                db.PackageServices.Remove(PackageServiceById(ID));
+                Save();
+                return "true";
 
             }
             catch (Exception ex)

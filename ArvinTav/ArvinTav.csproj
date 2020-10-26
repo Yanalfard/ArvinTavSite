@@ -49,6 +49,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Kavenegar, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kavenegar.1.2.4\lib\net35\Kavenegar.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -1874,6 +1877,7 @@
     <Content Include="Areas\Admin\Views\Festival\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\Festival\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Festival\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeSetting\P_SliderCreate.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -3106,12 +3110,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Document\File\TicketFile\" />
     <Folder Include="Document\img\Category\" />
+    <Folder Include="Document\img\Customer\" />
+    <Folder Include="Document\img\Hosting\" />
     <Folder Include="Document\img\Package\" />
+    <Folder Include="Document\img\Partner\" />
+    <Folder Include="Document\img\Project\" />
+    <Folder Include="Document\img\Slider\" />
     <Folder Include="Document\img\Spider\" />
-    <Folder Include="Models\" />
+    <Folder Include="Document\img\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

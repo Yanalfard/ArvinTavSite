@@ -74,6 +74,8 @@ namespace DataLayer
 
         public List<MarketerReport> marketerReports { get; set; }
 
+        public List<Massage> massages { get; set; }
+
         public User()
         {
 

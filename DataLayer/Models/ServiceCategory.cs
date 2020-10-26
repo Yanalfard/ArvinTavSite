@@ -33,7 +33,8 @@ namespace DataLayer
 
         public virtual List<PackageService> PackageServices { get; set; }
 
-        public virtual List<SeoTage> SeoTages { get; set; }
+        public virtual List<Spider> Spiders { get; set; }
+
 
         public ServiceCategory()
         {

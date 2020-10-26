@@ -14,6 +14,16 @@ namespace DataLayer
 
         InnerTicketViewModel GetInnerTicket(int ID);
 
+        IEnumerable<TicketCategory> ticketCategories();
+
+        TicketCategory ticketCategoryById(int ID);
+
+        string SupportCreate(string Title, int IsActive);
+
+        string SupportEdit(int ID, string Title, int IsActive);
+
+        string RemoveSupoort(int ID);
+
         Ticket GetTicketById(int ID);
 
         IEnumerable<InnerTicket> SupporterinnerTickets(int ID);

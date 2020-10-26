@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.RevenuesViewModel
+<div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
        درآمدها
     </h6>
@@ -9,15 +10,15 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>جمع پرداخت شده ها:</label>
-                    <span></span>
+                    <span>@Model.AllPaidPrice</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>جمع لغو شده ها:</label>
-                    <span></span>
+                    <span>@Model.AllCancelledPrice</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>تعداد سفارشات:</label>
-                    <span></span>
+                    <span>@Model.OrderCount</span>
                 </div>
             </div>
         </div>

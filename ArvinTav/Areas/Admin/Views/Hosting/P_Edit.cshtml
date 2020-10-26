@@ -27,7 +27,7 @@
 
         <div class="form-row mt-3">
             <div class="form-group col-md-6">
-
+                <label>متن</label>
                 <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن" value="@Model.HostingService.Title">
 
             </div>
@@ -51,29 +51,32 @@
 
             </div>
             <div class="form-group col-md-4 mt-2">
-
+                <label>فضا</label>
                 <input type="text" class="form-control form-control-sm" id="Space" placeholder="فضا" value="@Model.HostingService.Space">
 
             </div>
 
             <div class="form-group col-md-4 mt-2">
-
+                <label>ترافیک ماهانه</label>
                 <input type="text" class="form-control form-control-sm" id="Monthly-Traffic" placeholder="ترافیک ماهانه" value="@Model.HostingService.Monthly_Traffic">
 
             </div>
             <div class="form-group col-md-4 mt-2">
-
+                <label>تعداد سایت روی هاست</label>
                 <input type="text" class="form-control form-control-sm" id="Sites-Be-Hosted" placeholder="تعداد سایت روی هاست" value="@Model.HostingService.Sites_Be_Hosted">
 
             </div>
 
             <div class="form-group col-md-4 mt-2">
+                <label>هزینه سه ماهه</label>
                 <input type="text" name="currency-field" id="threeMonthsCost" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="@Model.HostingService.threeMonthsCost" data-type="currency" placeholder="هزینه سه ماهه">
             </div>
             <div class="form-group col-md-4 mt-2">
+                <label>هزینه شش ماهه</label>
                 <input type="text" name="currency-field" id="SixMonthsCost" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="@Model.HostingService.SixMonthsCost" data-type="currency" placeholder="هزینه شش ماهه">
             </div>
             <div class="form-group col-md-4 mt-2">
+                <label>هزینه سالانه</label>
                 <input type="text" name="currency-field" id="AnnuallyCost" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="@Model.HostingService.AnnuallyCost" data-type="currency" placeholder="هزینه سالانه">
             </div>
 

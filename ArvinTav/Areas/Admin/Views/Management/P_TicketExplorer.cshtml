@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.TicketExplorerViewModel
+<div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
         تیکت ها
     </h6>
@@ -9,15 +10,15 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>تیکت های باز نشده:</label>
-                    <span></span>
+                    <span>@Model.TicketNotSeenCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>تیکت های در حال بررسی:</label>
-                    <span></span>
+                    <span>@Model.TicketSeenCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>تیکت های تکمیل شده:</label>
-                    <span></span>
+                    <span>@Model.TicketEndedCount</span>
                 </div>
 
             </div>

@@ -20,6 +20,8 @@ namespace DataLayer
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
+
+        public virtual ServiceCategory ServiceCategory { get; set; }
         
         public virtual List<SeoTage> SeoTages { get; set; }
 

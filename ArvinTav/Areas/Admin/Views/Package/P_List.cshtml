@@ -10,6 +10,12 @@
                 </tr>
             </thead>
             <tbody>
+                @if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td>یافت نشد</td>
+                    </tr>
+                }
                 @foreach (var item in Model)
                 {
                     <tr>
@@ -39,7 +45,7 @@
 
 
     function EditPackage(ID) {
-        $(".modal-content").html("<img src='~/img/gif/load.gif' class='loding justify-content-center' />");
+        $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
         $.get("/Admin/Package/P_Edit?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-lg");
             $(".modal-dialog").removeClass("modal-md");
@@ -49,7 +55,7 @@
     }
 
     function DeletePackage(ID) {
-        $(".modal-content").html("<img src='~/img/gif/load.gif' class='loding justify-content-center' />");
+        $(".modal-content").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
         $.get("/Admin/Package/P_Remove?ID=" + ID, function (result) {
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").removeClass("modal-lg");

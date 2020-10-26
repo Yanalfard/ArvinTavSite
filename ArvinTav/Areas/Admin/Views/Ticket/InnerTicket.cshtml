@@ -80,6 +80,14 @@
 
     <script>
 
+        $("#MassageFile").change(function () {
+            if ($("#MassageFile").val() != null) {
+                $("#MassageFile").html($("#Image").val());
+                $("#MassageFile").addClass("border");
+                $("MassageFile").addClass("border-success");
+            }
+        });
+
         function TicketInfo(ID) {
             $.get("/Admin/Ticket/P_Info?ID=" + ID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");

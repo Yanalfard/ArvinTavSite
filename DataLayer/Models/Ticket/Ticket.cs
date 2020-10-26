@@ -24,14 +24,16 @@ namespace DataLayer
         [Display(Name = "زمان تکمیل تیکت")]
         public DateTime EndTicketTime { get; set; }
 
+        [Display(Name = "بخش مربوطه")]
         public virtual TicketCategory TicketCategory { get; set; }
 
+        [Display(Name = "سرویس مربوطه")]
         public virtual OrderDetails OrderDetails { get; set; }
 
         [Display(Name = "کاربر")]
         public virtual User User { get; set; }
 
-        [Display(Name ="پشتیبان")]
+        [Display(Name = "پشتیبان")]
         public virtual User Supporter { get; set; }
 
         [Display(Name = "داخل تیکت")]

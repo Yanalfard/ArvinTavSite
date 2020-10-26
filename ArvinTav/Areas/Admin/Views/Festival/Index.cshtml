@@ -9,63 +9,14 @@
         <div class="card flex-div border-0 main-shadow">
             <div class="card-header bg-white">
                 <div class="row justify-content-end">
-                    <div class="col-md-10 col-12">
-                        <div class="card-form row">
-                            <div class="form-input col-md-4">
-                                <div class="form-inline">
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="پسوند">
-                                    </div>
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <select id="DegreeSearch" class="form-control form-control-sm">
-
-                                            <option value="0" selected="">همه</option>
-                                            <option value="1">فعال</option>
-                                            <option value="2">غیرفعال</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-toolbar col-6">
-                                <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <a id="AddList" class="btn btn-success btn-sm text-white float-left" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+                    <div class="col-md-12 col-12">
+                        <a id="AddList" class="btn btn-success btn-sm text-white float-right" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
                     </div>
                 </div>
             </div>
             @Html.Action("P_List")
             <div class="card-footer bg-white">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end">
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(0)">قبلی</a>
-                        </li>
-
-                        <li class="page-item">
-                            <select id="pageNumber" class="custom-select custom-select-sm">
-                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
-                            </select>
-                        </li>
-
-
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(2)">بعدی</a>
-                        </li>
-                        <li>
-                            <select id="InPageCount" class="custom-select custom-select-sm">
-                                <option value="0" selected="">18 در هر صفحه</option>
-                                <option value="20">20 در هر صفحه</option>
-                                <option value="30">30 در هر صفحه</option>
-                                <option value="40">40 در هر صفحه</option>
-                            </select>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
@@ -94,22 +45,22 @@
                 $(".modal-content").html(result);
             });
         });
-        $("#DelList").click(function () {
-            $.get("/Admin/Festival/P_Remove", function (result) {
+        function DelList(ID) {
+            $.get("/Admin/Festival/P_Remove?ID=" + ID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-lg");
                 $(".modal-dialog").addClass("modal-md");
                 $(".modal-content").html(result);
             });
-        });
-        $("#EditList").click(function () {
-            $.get("/Admin/Festival/P_Edit", function (result) {
+        }
+        function EditList(ID) {
+            $.get("/Admin/Festival/P_Edit?ID=" + ID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");
                 $(".modal-content").html(result);
             });
-        });
+        }
     </script>
 
 }

@@ -1,6 +1,7 @@
-﻿<div class="modal-header">
+﻿@model DataLayer.OrderExplorerViewModel
+<div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
-       پیگیری سفارشات
+        پیگیری سفارشات
     </h6>
 </div>
 <form>
@@ -9,23 +10,23 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>کل سفارشات:</label>
-                    <span></span>
+                    <span>@Model.AllOrderCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>سفارشات منتظر پرداخت:</label>
-                    <span></span>
+                    <span>@Model.AllWaitingPayOrderCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>سفارشات پرداخت شده:</label>
-                    <span></span>
+                    <span>@Model.AllPaidOrderCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>سفارشات تکمیل نشده:</label>
-                    <span></span>
+                    <span>@Model.AllNotEndedOrderCount</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>سفارشات تکمیل شده:</label>
-                    <span></span>
+                    <span>@Model.AllEndedOrderCount</span>
                 </div>
             </div>
         </div>

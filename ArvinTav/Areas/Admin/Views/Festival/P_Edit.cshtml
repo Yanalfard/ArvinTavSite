@@ -1,1 +1,54 @@
-﻿
+﻿@model DataLayer.Discount
+
+<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        ویرایش تخفیف @Model.Code
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-7">
+                <label for="Title">کد تخفیف</label>
+                <input type="text" class="form-control form-control-sm" id="Code" placeholder="کد تخفیف" value="@Model.Code">
+            </div>
+            <div class="form-group col-md-7">
+                <label for="Price">درصد تخفیف</label>
+                <input type="text" id="Percentage" class="form-control form-control-sm" placeholder="درصد تخفیف" value="@Model.Percentage">
+            </div>
+        </div>
+
+    </div>
+    <div class="space-half"></div>
+    <div class="modal-footer justify-content-end">
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a onclick="EditDiscount(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>ویرایش</a>
+    </div>
+</form>
+
+<script>
+    function EditDiscount(ID) {
+        if ($("#Code").val() == null || $("#Code").val() == "" || $("#Percentage").val() == null || $("#Percentage").val() == "") {
+            $("#AddDiscount").html("تمامی موارد اجباری میباشد");
+            $("#AddDiscount").removeClass("btn-success");
+            $("#AddDiscount").addClass("btn-danger");
+        } else {
+            $("#AddDiscount").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $("#AddDiscount").addClass("btn-success");
+            $("#AddDiscount").removeClass("btn-danger");
+            $(".loding").removeClass('d-none');
+            var Code = $("#Code").val();
+            var Percentage = $("#Percentage").val();
+            $.post("/Admin/Festival/Edit?ID=" + ID + "&Code=" + Code + "&Percentage=" + Percentage, function (result) {
+                if (result == "true") {
+                    window.location.reload();
+                } else {
+                    alert(result);
+                }
+            });
+        }
+    }
+</script>

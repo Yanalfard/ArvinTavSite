@@ -69,10 +69,7 @@
 </div>
 <div class="modal-footer justify-content-end">
     <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-    <button onclick="Back(@Model.ParentID)" type="button" class="btn btn-sm btn-info">
-        بازگشت
-    </button>
-
+    
 </div>
 
 <script>
@@ -85,16 +82,7 @@
             $(".modal-content").html(result);
         });
     }
-
-    function Back(ParentID) {
-        $.get("/Admin/ServiceCategory/P_ChildCategory?ParentID=" + ParentID, function (result) {
-            $(".modal-dialog").removeClass("modal-md");
-            $(".modal-dialog").removeClass("modal-lg");
-            $(".modal-dialog").addClass("modal-xl");
-            $(".modal-content").html(result);
-        });
-    }
-
+    
 </script>
 
 

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DataLayer.UserRole>
 @{
     ViewBag.Title = "کاربران";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -11,26 +11,25 @@
                 <div class="row justify-content-end">
                     <div class=" col-12">
                         <div class="card-form row">
-                            <div class="form-input col-md-6 col-6">
+                            <div class="form-input col-md-4 col-12">
                                 <div class="form-inline">
                                     <div class="form-group mx-sm-1 mb-2">
-                                        <input class="form-control form-control-sm" type="text" id="Brand" placeholder="نام تجاری">
-                                    </div>
-                                    <div class="form-group mx-sm-1 mb-2">
-                                        <input id="PhoneNumberSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن">
+                                        <input id="PhoneNumberSearch" class="form-control form-control-sm" type="text" placeholder="شماره تلفن" value="@ViewBag.Result">
                                     </div>
                                     <div class="form-group mx-sm-1 mb-2">
                                         <select id="DegreeSearch" class="form-control form-control-sm">
                                             <option value="0">نقش</option>
-                                            <option value="1">کاربر عادی</option>
-                                            <option value="2">مدیر</option>
+                                            @foreach (var item in Model)
+                                            {
+                                                <option value="@item.RoleID" @(((int)ViewBag.Degree == item.RoleID) ? "selected" : "")>@item.Title</option>
+                                            }
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-toolbar col-6">
+                            <div class="form-toolbar col-md-8 col-12">
                                 <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
-                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+                                <img id="SearchLoad" src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                             </div>
                         </div>
                     </div>
@@ -41,26 +40,80 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(0)">قبلی</a>
-                        </li>
+                        @if (ViewBag.PageId == 1)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+
+                        }
 
                         <li class="page-item">
                             <select id="pageNumber" class="custom-select custom-select-sm">
-                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
+                                @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+                                {
+                                    <option class="page-item" value="@i" @(((int)ViewBag.pageId == i) ? "selected" : "")>صفحه @i از @((int)ViewBag.PageCount + 1)</option>
+                                }
                             </select>
                         </li>
 
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(2)">بعدی</a>
-                        </li>
+                        @if ((int)ViewBag.PageId > (int)ViewBag.PageCount)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+                        }
+                        else
+
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+
+                        }
                         <li>
                             <select id="InPageCount" class="custom-select custom-select-sm">
-                                <option value="0" selected="">18 در هر صفحه</option>
-                                <option value="20">20 در هر صفحه</option>
-                                <option value="30">30 در هر صفحه</option>
-                                <option value="40">40 در هر صفحه</option>
+                                @if (ViewBag.InPageCount == 0)
+                                {
+                                    <option value="0" selected>18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+
+                                @if (ViewBag.InPageCount == 20)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20" selected>20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 30)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30" selected>30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 40)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40" selected>40 در هر صفحه</option>
+                                }
+
+
                             </select>
                         </li>
                     </ul>
@@ -84,14 +137,49 @@
 
 @section Scripts{
     <script>
-        $("#EditList").click(function () {
-            $.get("/Admin/User/P_Edit", function (result) {
+
+        function EditList(UserID) {
+            $.get("/Admin/User/P_Edit?ID=" + UserID, function (result) {
                 $(".modal-dialog").removeClass("modal-xl");
                 $(".modal-dialog").removeClass("modal-md");
                 $(".modal-dialog").addClass("modal-lg");
                 $(".modal-content").html(result);
             });
+        }
+
+
+        function BtnSearch() {
+            var PhoneNumberSearch = $("#PhoneNumberSearch").val();
+            var DegreeSearch = $("#DegreeSearch option:selected").val();
+            var PageId = 1;
+            var InPageCount = $("#InPageCount option:selected").val();
+            $("#SearchLoad").removeClass("d-none");
+            $.get("/Admin/User/P_List?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/User?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount;
+            });
+        }
+
+        $("#pageNumber").change(function () {
+            var PhoneNumberSearch = $("#PhoneNumberSearch").val();
+            var DegreeSearch = $("#DegreeSearch option:selected").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $.get("/Admin/User/P_List?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/User?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount;
+            });
         });
+
+
+        $("#InPageCount").change(function () {
+            var PhoneNumberSearch = $("#PhoneNumberSearch").val();
+            var DegreeSearch = $("#DegreeSearch option:selected").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $.get("/Admin/User/P_List?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/User?PageId=" + PageId + "&PhoneNumber=" + PhoneNumberSearch + "&Degree=" + DegreeSearch + "&InPageCount=" + InPageCount;
+            });
+        });
+
     </script>
 
 }

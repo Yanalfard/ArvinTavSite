@@ -9,10 +9,12 @@ namespace DataLayer
     public class SpiderRepository : ISpiderRepository
     {
         private ArvinContext db;
+        private IServiceCategoryRepository ServiceCategoryRepository;
 
         public SpiderRepository(ArvinContext context)
         {
             this.db = context;
+            ServiceCategoryRepository = new ServiceCategoryRepository(db);
         }
 
         public IEnumerable<Spider> AllSpider()
@@ -25,11 +27,12 @@ namespace DataLayer
             return db.spiders.Find(ID);
         }
 
-        public string AddSpider(string Title, string Description, string Image, List<string> SeoTags)
+        public string AddSpider(int Category, string Title, string Description, string Image, List<string> SeoTags)
         {
             try
             {
                 Spider spider = new Spider();
+                spider.ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
                 spider.Title = Title;
                 spider.Description = Description;
                 spider.Image = Image;
@@ -53,13 +56,14 @@ namespace DataLayer
             }
         }
 
-        public string SpiderEdit(int ID, string Title, string Description, string Image, List<string> SeoTages)
+        public string SpiderEdit(int ID,int Category, string Title, string Description, string Image, List<string> SeoTages)
         {
             Spider spider = SpiderById(ID);
             if (string.IsNullOrEmpty(Image))
             {
                 IEnumerable<SeoTage> seoTages = db.seoTages.Where(s => s.Spider.ID == spider.ID);
                 db.seoTages.RemoveRange(seoTages);
+                spider.ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
                 spider.Title = Title;
                 spider.Description = Description;
                 Save();

@@ -1,6 +1,6 @@
 ﻿<div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-    افزودن پشتیبانی
+        افزودن پشتیبانی
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -20,7 +20,50 @@
 
     </div>
     <div class="modal-footer justify-content-end">
-        <a class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a id="BtnSupportCreate" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
+
     </div>
 </form>
+
+<script>
+    $("#BtnSupportCreate").click(function () {
+        if ($("#Title").val() == null || $("#Title").val() == "") {
+            $("#BtnSupportCreate").html("لطفا متن پشتیبانی را وارد کنید");
+            $("#BtnSupportCreate").addClass('btn-danger');
+            $("#BtnSupportCreate").removeClass('btn-success');
+        } else {
+            $("#BtnSupportCreate").removeClass('btn-danger');
+            $("#BtnSupportCreate").addClass('btn-success');
+            $("#BtnSupportCreate").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $(".loding").removeClass("d-none");
+            var Title = $("#Title").val();
+            if ($("#IsActive").prop("checked") == true) {
+                var IsActive = 1;
+            }
+            if ($("#IsActive").prop("checked") == false) {
+                var IsActive = 0;
+            }
+
+            $.post("/Admin/Management/SupportCreate?Title=" + Title + "&IsActive=" + IsActive, function (result) {
+                if (result == "true") {
+                    $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                    $.get("/Admin/Management/P_SupportPart", function (result) {
+                        $(".Panel").removeClass("bg-info");
+                        $(".Panel").removeClass("text-white");
+                        $("#SupportPartPaper").addClass("bg-info");
+                        $("#SupportPartPaper").addClass("text-white");
+                        $("#card-table").html(result);
+                        alert("مطلب با موفقیت ثبت شد.");
+                        $("#modalSave").css('display', 'none');
+                        $("#modalSave").removeClass('show');
+                        document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                    });
+                } else {
+                    alert(result);
+                }
+            });
+        }
+    });
+</script>
 

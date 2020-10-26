@@ -1,65 +1,67 @@
 ﻿@model DataLayer.LoginViewModel
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Login";
-                Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<h2>ورود به پورتال</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="GridBackground loginSection center">
+    <content class="grid " dir="rtl">
+        <div class="my-column my-clipped center mat loginSection ">
+            <content>
+                <img class="login" src="~/img/login/Svg/Group 98.svg" />
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small " })
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger" })
-            </div>
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
+                    <div>
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "" } })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                    </div>
+
+                    @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
+                    <div>
+                        @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "" } })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger uk-text-small" })
+                    </div>
+
+
+                    <div class="my-row checkbox ">
+
+
+                        @Html.EditorFor(model => model.RememberMe)
+                        @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "check" })
+
+                    </div>
+
+
+                    <div class="recap">
+                        <div class="g-recaptcha " data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
+                        <small class="uk-text-danger">@ViewBag.Message</small>
+                    </div>
+
+
+                    <div class="my-row center uk-padding">
+                        
+                            <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
+                        
+                        
+                            <a href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+                        
+                    </div>
+
+                }
+
+            </content>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
-                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RememberMe)
-                    <br />
-                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "uk-text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group" dir="rtl">
-            <div class="col-md-10">
-                <div class="g-recaptcha" data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
-                <small class="uk-text-danger">@ViewBag.Message</small>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="ورود" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </content>
 </div>

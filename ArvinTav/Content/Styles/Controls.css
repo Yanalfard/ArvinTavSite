@@ -243,37 +243,64 @@
   padding: 16px !important; }
 
 /*#header-region */
+@font-face {
+  font-family: "Sahel";
+  src: url("/fonts/fontsite/Sahel.woff");
+  src: url("/fonts/fontsite/Sahel.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  outline: none;
+  font-family: Sahel; }
+
 #LayoutHeader {
   position: fixed !important;
-  height: 100px;
+  height: 70px;
   z-index: 1000;
-  padding-top: 0px;
+  padding-top: 0px !important;
   margin-bottom: 14px;
   overflow: visible !important;
   background: transparent; }
   #LayoutHeader .HomePage {
     color: #48A839 !important;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #2a2929;
     padding-bottom: 0 !important;
     margin-bottom: 8px !important;
     border-radius: 2px; }
   #LayoutHeader .uk-navbar-nav a {
-    color: white; }
+    color: #2a2929;
+    font-family: Sahel !important; }
   #LayoutHeader .uk-navbar-nav a:hover {
-    color: #2a2929; }
+    color: #80c378; }
   #LayoutHeader .uk-navbar-right {
     float: right; }
   #LayoutHeader .navBar {
     float: right;
-    width: 97vw; }
+    width: 97vw;
+    padding-right: 32px; }
   #LayoutHeader .menuComponent {
     /* padding: 8px !important;*/
-    margin-right: 30px;
+    margin-right: 8px;
     overflow: hidden !important; }
-  #LayoutHeader .LogoPic {
+  #LayoutHeader .loginDesktop {
     position: absolute;
     left: 10px;
-    top: 20px; }
+    top: 8px; }
+    #LayoutHeader .loginDesktop img {
+      width: 74px !important; }
+    #LayoutHeader .loginDesktop button {
+      width: 140px;
+      margin-top: 10px;
+      margin-left: 18px;
+      color: #4d4d4d;
+      border: 1px solid #5cb152;
+      border-radius: 20px !important;
+      height: 34px; }
+    #LayoutHeader .loginDesktop button:hover {
+      background: #80c378;
+      border: none;
+      color: white; }
   #LayoutHeader * {
     background: transparent; }
   #LayoutHeader .navBar {
@@ -301,9 +328,24 @@
 
 /*#endregion */
 /*#mobile header-region */
-@media only screen and (max-device-width: 692px) {
+@media only screen and (max-device-width: 780px) {
   #LayoutHeader .navBar {
     display: none; }
+  .loginDesktop {
+    display: none; }
+  .loginMobile button {
+    width: 140px;
+    margin-top: 14px;
+    margin-left: 18px;
+    margin-right: 18px;
+    color: #4d4d4d;
+    border: 1px solid #5cb152;
+    border-radius: 20px !important;
+    height: 34px; }
+  .loginMobile button:hover {
+    background: #80c378;
+    border: none;
+    color: white; }
   .LogoPicMobile {
     width: 60px !important;
     height: 60px !important;
@@ -313,11 +355,13 @@
     display: flex !important; }
   #menu {
     display: block; }
-    #menu ul {
+    #menu .mainMenu {
       list-style-type: none !important;
       padding: 10px; }
+    #menu .uk-nav-header {
+      color: #66AEF5 !important; }
     #menu li {
-      color: #555 !important;
+      color: #555;
       padding: 10px;
       border-bottom: 1px solid #a9a9a9;
       margin-right: 10px;
@@ -333,12 +377,27 @@
   .layout-header-scrolled {
     overflow: hidden !important; } }
 
-@media only screen and (max-width: 692px) {
+@media only screen and (max-width: 780px) {
   #LayoutHeader .navBar {
+    display: none; }
+  #LayoutHeader .loginDesktop {
     display: none; }
   .LogoPic {
     width: 50px;
     height: 40px; }
+  .loginMobile button {
+    width: 140px;
+    margin-top: 14px;
+    margin-left: 18px;
+    margin-right: 18px;
+    color: #4d4d4d;
+    border: 1px solid #5cb152;
+    border-radius: 20px !important;
+    height: 34px; }
+  .loginMobile button:hover {
+    background: #80c378;
+    border: none;
+    color: white; }
   .hamburger-button {
     display: flex !important; }
   #menu {
@@ -372,7 +431,7 @@
   padding: 10px !important;
   right: 18px;
   top: 18px;
-  color: white;
+  color: #2a2929;
   margin: auto; }
 
 /*#endregion */
@@ -516,7 +575,7 @@ footer {
 /*#end mobile footer region */
 /*#button-style-region */
 button.ServiceButton {
-  width: 10vw;
+  width: 8vw;
   padding: 8px;
   background: #5cb152;
   color: white;
@@ -531,7 +590,9 @@ button.ServiceButton:hover {
 .GridBackground {
   background-image: url("../../img/Home/gridbackground.png");
   padding: 50px;
-  overflow: hidden; }
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .overflow-visible {
   overflow: visible !important; }

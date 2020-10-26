@@ -187,6 +187,12 @@
     <Content Include="Content\Styles\Home.min.css">
       <DependentUpon>Home.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\LoginRegister.css">
+      <DependentUpon>LoginRegister.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\LoginRegister.min.css">
+      <DependentUpon>LoginRegister.css</DependentUpon>
+    </Content>
     <Content Include="Content\UIkit\styles\uikit.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome\css\all.css" />
@@ -1778,10 +1784,20 @@
     <Content Include="img\Home\cover.jpg" />
     <Content Include="img\Home\cover1.jpg" />
     <Content Include="img\Home\cover2.jpg" />
+    <Content Include="img\Home\endOfCover.png" />
     <Content Include="img\Home\footer-background-011.jpg" />
+    <Content Include="img\Home\footerRibbon.png" />
     <Content Include="img\Home\gridbackground.png" />
+    <Content Include="img\Home\online-education.jfif" />
+    <Content Include="img\Home\online-training.jpg" />
+    <Content Include="img\Home\web-design-1.png" />
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
+    <Content Include="img\Home\web-design-2.png" />
+    <Content Include="img\login\login2.png" />
+    <Content Include="img\login\login.jpg" />
+    <Content Include="img\login\log-in.jpg" />
+    <Content Include="img\login\signup.png" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="fonts\fontawesome\less\brands.less" />
     <Content Include="fonts\fontawesome\less\fontawesome.less" />
@@ -1875,6 +1891,13 @@
     <Content Include="img\Home\svg\Phone.svg" />
     <Content Include="fonts\fontsite\Sahel.woff" />
     <Content Include="Content\Styles\Controls.scss" />
+    <Content Include="Content\Styles\LoginRegister.scss" />
+    <Content Include="img\login\Svg\Group 102.svg" />
+    <Content Include="img\login\Svg\Group 103.svg" />
+    <Content Include="img\login\Svg\Group 97.svg" />
+    <Content Include="img\login\Svg\Group 98.svg" />
+    <Content Include="img\Home\digital-marketing.svg" />
+    <Content Include="img\Home\svg\WorkFlow.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

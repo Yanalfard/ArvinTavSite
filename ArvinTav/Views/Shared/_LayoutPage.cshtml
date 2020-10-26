@@ -10,6 +10,7 @@
     <!--sass file-->
     <link href="~/Content/Styles/Home.min.css" rel="stylesheet" />
     <link href="~/Content/Styles/Controls.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/LoginRegister.min.css" rel="stylesheet" />
     <!--fonts-->
     <link rel="stylesheet" href="~/fonts/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/fonts/fontawesome/css/fontawesome.css">
@@ -28,34 +29,49 @@
 <body>
     <!--header region-->
     <header id="LayoutHeader" class="my-row">
-        <img class="LogoPic uk-padding-small uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
-        <ul class="navBar uk-navbar-nav uk-padding-small uk-text-bold " style="overflow:visible!important" dir="rtl">
+        <div class="loginDesktop my-row" dir="rtl">
+
+            <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
+                <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                    <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                    <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
+                </div>
+            </button>
+
+            <img class=" uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+        </div>
+        <ul class="navBar uk-navbar-nav uk-text-bold " style="overflow:visible!important" dir="rtl">
             <li class="menuComponent HomePage">
                 <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
             <li class="menuComponent">
-                @*<a href="#"  >خدمات</a>
-                    <div class="uk-navbar-dropdown" dir="rtl">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li class="uk-active"><a href="#">زیر منو 1</a></li>
-                            <li><a href="#">زیر منو </a></li>
-                            <li class="uk-nav-header">زیر منو </li>
-                            <li><a href="#">زیر منو </a></li>
-                            <li><a href="#">زیر منو</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">زیر منو </a></li>
-                        </ul>
-                    </div>*@
                 <a>خدمات</a>
-                <div uk-dropdown="pos: bottom-justify ">
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-active"><a href="#">گزینه </a></li>
-                        <li><a href="#">گزینه </a></li>
-                        <li class="uk-nav-header">گزینه </li>
-                        <li><a href="#">گزینه </a></li>
-                        <li><a href="#">گزینه </a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li><a href="#">گزینه </a></li>
-                    </ul>
+                <div uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true" class="uk-padding-remove">
+                    <div class="uk-flex uk-flex-between">
+                        <ul class="uk-nav uk-dropdown-nav uk-padding ">
+                            <li class="uk-nav-header  uk-text-primary">سرویس 1</li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                        </ul>
+                        <ul class="uk-nav uk-dropdown-nav uk-padding ">
+                            <li class="uk-nav-header uk-text-primary">سرویس 2</li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                        </ul>
+                        <ul class="uk-nav uk-dropdown-nav uk-padding ">
+                            <li class="uk-nav-header uk-text-primary">سرویس 3</li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                            <li><a href="#">گزینه </a></li>
+                        </ul>
+                    </div>
                 </div>
             </li>
             <li class="menuComponent">
@@ -68,7 +84,6 @@
             </li>
             <li class="menuComponent">
                 <a href="#">ارتباط با ما</a>
-
             </li>
         </ul>
 
@@ -79,22 +94,50 @@
         <div id="menu" uk-offcanvas="overlay: true; flip: true" dir="rtl">
             <div class="uk-offcanvas-bar">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+
+                <div class="loginMobile my-row" dir="rtl">
+                    <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+                    <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
+                        <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                            <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                            <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
+                        </div>
+                    </button>
+
+
+                </div>
                 <ul class="uk-text-bold uk-margin-remove-top" dir="rtl">
                     <li class="uk-active">
                         <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
                     <li>
                         <a>خدمات</a>
                         <div uk-dropdown="pos: bottom-justify">
-                            <ul class="uk-nav uk-dropdown-nav uk-padding-remove">
-                                <li class="uk-active"><a href="#">گزینه </a></li>
-                                <li><a href="#">گزینه </a></li>
-                                <li class="uk-nav-header">گزینه </li>
-                                <li><a href="#">گزینه </a></li>
-                                <li><a href="#">گزینه </a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href="#">گزینه </a></li>
-                            </ul>
+                            <div class="uk-flex-column uk-flex-between ">
+                                <ul class="uk-nav uk-dropdown-nav ">
+                                    <li class="uk-nav-header  uk-text-primary">سرویس 1</li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                </ul>
+                                <ul class="uk-nav uk-dropdown-nav ">
+                                    <li class="uk-nav-header uk-text-primary">سرویس 2</li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                </ul>
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li class="uk-nav-header uk-text-primary">سرویس 3</li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                    <li><a href="#">گزینه </a></li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -110,6 +153,7 @@
 
                     </li>
                 </ul>
+
             </div>
         </div>
 

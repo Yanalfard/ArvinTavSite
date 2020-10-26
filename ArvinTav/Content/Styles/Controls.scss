@@ -3,11 +3,22 @@
 @import '_layout.scss';
 
 /*#header-region */
+@font-face {
+    font-family: "Sahel";
+    src: url('/fonts/fontsite/Sahel.woff');
+    src: url('/fonts/fontsite/Sahel.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    outline:none;
+    font-family:Sahel;
+}
 #LayoutHeader {
     position: fixed !important;
-    height: 100px;
+    height: 70px;
     z-index: 1000;
-    padding-top: 0px;
+    padding-top: 0px !important;
     // margin-top: -14px;
     margin-bottom: 14px;
     //margin-right: 40px;
@@ -16,7 +27,7 @@
 
     .HomePage {
         color: #48A839 !important;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid #2a2929;
         padding-bottom: 0 !important;
         margin-bottom: 8px !important;
         border-radius: 2px;
@@ -25,11 +36,12 @@
     .uk-navbar-nav {
 
         a {
-            color: white;
+            color: #2a2929;
+            font-family: Sahel !important;
         }
 
         a:hover {
-            color: #2a2929;
+            color: #80c378;
         }
     }
 
@@ -40,18 +52,41 @@
     .navBar {
         float: right;
         width: 100vw - 3vw;
+        padding-right: 32px;
     }
 
     .menuComponent {
         /* padding: 8px !important;*/
-        margin-right: 30px;
+        margin-right: 8px;
         overflow: hidden !important;
     }
 
-    .LogoPic {
+    .loginDesktop {
+        img {
+            width: 74px !important;
+        }
+
         position: absolute;
         left: 10px;
-        top: 20px;
+        top: 8px;
+
+        button {
+            //   padding: 0px;
+            width: 140px;
+            margin-top: 10px;
+            margin-left: 18px;
+            color: #4d4d4d;
+            border: 1px solid #5cb152;
+            border-radius: 20px !important;
+            height: 34px;
+        }
+
+
+        button:hover {
+            background: #80c378;
+            border: none;
+            color: white;
+        }
     }
 
     * {
@@ -69,6 +104,7 @@
 
     a {
         color: #2a2929 !important;
+       
     }
 }
 .uk-offcanvas-bar {
@@ -95,18 +131,41 @@
     }
     /*#endregion */
     /*#mobile header-region */
-    @media only screen and (max-device-width : 692px) {
+    @media only screen and (max-device-width : 780px) {
         #LayoutHeader {
             .navBar {
                 display: none;
+            }
+        }
+        .loginDesktop {
+            display: none;
+        }
+        .loginMobile {
+            button {
+                //   padding: 0px;
+                width: 140px;
+                margin-top: 14px;
+                margin-left: 18px;
+                margin-right: 18px;
+                color: #4d4d4d;
+                border: 1px solid #5cb152;
+                border-radius: 20px !important;
+                height: 34px;
+            }
+
+
+            button:hover {
+                background: #80c378;
+                border: none;
+                color: white;
             }
         }
 
         .LogoPicMobile {
             width: 60px !important;
             height: 60px !important;
-            margin-left:auto !important;
-            margin-right:22px;
+            margin-left: auto !important;
+            margin-right: 22px;
         }
 
         .hamburger-button {
@@ -116,14 +175,18 @@
         #menu {
             display: block;
 
-            ul {
+            .mainMenu {
                 // background:red;
                 list-style-type: none !important;
                 padding: 10px;
             }
 
+            .uk-nav-header {
+                color: #66AEF5 !important; 
+            }
+
             li {
-                color: #555 !important;
+                color: #555;
                 padding: 10px;
                 border-bottom: 1px solid #a9a9a9;
                 margin-right: 10px;
@@ -150,9 +213,13 @@
         }
     }
 
-    @media only screen and (max-width : 692px) {
+    @media only screen and (max-width :780px) {
         #LayoutHeader {
             .navBar {
+                display: none;
+            }
+
+            .loginDesktop {
                 display: none;
             }
         }
@@ -161,7 +228,26 @@
             width: 50px;
             height: 40px;
         }
+        .loginMobile {
+            button {
+                //   padding: 0px;
+                width: 140px;
+                margin-top: 14px;
+                margin-left: 18px;
+                margin-right: 18px;
+                color: #4d4d4d;
+                border: 1px solid #5cb152;
+                border-radius: 20px !important;
+                height: 34px;
+            }
 
+
+            button:hover {
+                background: #80c378;
+                border: none;
+                color: white;
+            }
+        }
         .hamburger-button {
             display: flex !important;
         }
@@ -213,7 +299,7 @@
         padding: 10px !important;
         right: 18px;
         top: 18px;
-        color: white;
+        color: #2a2929;
         margin: auto;
     }
     /*#endregion */
@@ -387,7 +473,7 @@
     /*#end mobile footer region */
     /*#button-style-region */
     button.ServiceButton {
-        width: 10vw;
+        width: 8vw;
         padding: 8px;
         background: #5cb152;
         color: white;
@@ -400,12 +486,14 @@
         opacity: 0.9;
     }
     /*#grid-background-style-region */
-    .GridBackground {
-        background-image: url('../../img/Home/gridbackground.png');
-        // background: #e9fbe8;
-        padding: 50px;
-        overflow: hidden;
-    }
+.GridBackground {
+    background-image: url('../../img/Home/gridbackground.png');
+    // background: #e9fbe8;
+    padding: 50px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
     .overflow-visible {
         overflow: visible !important;

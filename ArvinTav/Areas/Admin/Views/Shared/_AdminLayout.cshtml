@@ -178,79 +178,8 @@
                             </li>
                         </ul>
                         <ul class="nav-left float-left">
-                            <li class="user-profile dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <div class="user-info">
-                                        <span class="name pr-1"></span>
-                                        <img src="~/Document/User/" height="50" width="50" />
-                                        <i class="fas fa-chevron-down font-size-10"></i>
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-user pr-1"></i>
-                                            <span>پروفایل</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-key"></i>
-                                            <span>تغییر رمز</span>
-                                        </a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-power-off pr-1"></i>
-                                            <span>خروج</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="notifications dropdown">
-                                <span class="counter">24</span>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fas fa-bell"></i>
-                                </a>
-                                <ul class="dropdown-menu ">
-                                    <li class="notice-header">
-                                        <i class="fas fa-headset"></i>
-                                        <span>تیکت ها</span>
-                                    </li>
-                                    <li>
-                                        <ul class="list-info overflow-y-auto relative scrollable">
-                                            @*@foreach (var item in ViewBag.NotSeenProposal)
-                                                {
-                                                    <li>
-                                                        <a href="#">
-                                                            @if (item.User.UserImage == null)
-                                                            {
-
-                                                                <img class="thumb-img" src="~/img/admin/user/user.jpg" alt="">
-                                                            }
-                                                            else
-                                                            {
-                                                                <img class="thumb-img" src="~/Document/User/@item.User.UserImage" alt="">
-                                                            }
-                                                            <div class="info">
-                                                                <span class="title">
-                                                                    <span class="font-size-14 text-semibold">@item.Text</span>
-                                                                </span>
-
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                }*@
-                                        </ul>
-                                    </li>
-                                    <li class="notice-footer">
-                                        <span>
-                                            <a href="/admin/proposal" class="text-gray">مشاهده همه تیکت ها<i class="ei-right-chevron pl-1 font-size-10"></i></a>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </li>
+                            @Html.Action("P_UserBox","Dashboard", new { area = "Admin" })
+                            @Html.Action("notification","Dashboard", new { area = "Admin" })
                         </ul>
 
                     </div>

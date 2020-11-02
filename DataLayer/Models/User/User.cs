@@ -13,21 +13,18 @@ namespace DataLayer
         public int UserID { get; set; }
 
         [Display(Name = "شماره تماس")]
-        [MinLength(10, ErrorMessage = "{0} معتبر نیست")]
+        [MinLength(11, ErrorMessage = "{0} معتبر نیست")]
         [MaxLength(15, ErrorMessage = "{0} معتبر نیست")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "نام کامل")]
-        [MinLength(3, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
         [MaxLength(30, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string FullName { get; set; }
 
         [Display(Name = "نام تجاری")]
-        [MaxLength(300, ErrorMessage = "نام با کارکتر های کمتری وارد کنید")]
-        [MinLength(2, ErrorMessage = "نام با کارکتر های بیشتری وارد کنید")]
+        [MaxLength(30, ErrorMessage = "نام با کارکتر های کمتری وارد کنید")]
         public string Brand { get; set; }
 
         [Display(Name = "ایمیل")]
@@ -40,25 +37,31 @@ namespace DataLayer
 
         [Display(Name = "رمز عبور")]
         [MinLength(5, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
-        [MaxLength(30, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        [MaxLength(64, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
 
-        [Display(Name = "تایید رمز عبور")]
-        [MinLength(5, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
-        [MaxLength(30, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [DataType(DataType.Password)]
-        public string ConfirmPassWord { get; set; }
+        [Display(Name = "کد احراز هویت")]
+        [MaxLength(64, ErrorMessage = "کد نا معتبر")]
+        public string AuthenticationCode { get; set; }
+
+        [Display(Name = "فعال بودن")]
+        public bool Active { get; set; }
 
         [Display(Name = "تاریخ ثبت نام")]
-        [DataType(DataType.DateTime)]
-        public DateTime SignUpTime { get; set; }
+        //[DataType(DataType.DateTime)]
+        public DateTime? SignUpTime { get; set; }
 
         [Display(Name = "تاریخ آخرین ورود")]
-        [DataType(DataType.DateTime)]
+        //[DataType(DataType.DateTime)]
         public DateTime FinalLoginTime { get; set; }
+
+        [Display(Name = "زمان فعالسازی اکانت")]
+        public DateTime RegisterActiveTime { get; set; }
+
+        [Display(Name = "زمان استفاده از تغییر رمز")]
+        public DateTime ForgetTime { get; set; }
 
         [Display(Name = "دسترسی")]
         public virtual UserRole UserRole { get; set; }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DataLayer;
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,PartAdmin")]
     public class OrderController : Controller
     {
         private ArvinContext db = new ArvinContext();

@@ -7,6 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,PartAdmin,Content")]
     public class PackageController : Controller
     {
         private ArvinContext db = new ArvinContext();

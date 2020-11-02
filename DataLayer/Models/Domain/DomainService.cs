@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-   public class DomainService
+    public class DomainService
     {
         [Key]
         public int ID { get; set; }
-        
-        [Display(Name ="پسوند")]
+
+        [Display(Name = "پسوند")]
+        [MaxLength(10, ErrorMessage = "پسوند صحیح نیست")]
+        [MinLength(1, ErrorMessage = "پسوند صحیح نیست")]
         public string Suffix { get; set; }
 
-        [Display(Name ="قیمت")]
-        public string Price { get; set; }
+        [Display(Name = "قیمت")]
+        public int Price { get; set; }
 
-        [Display(Name ="فعال بودن")]
+        [Display(Name = "فعال بودن")]
         public bool IsActive { get; set; }
 
         [Display(Name = "تعداد سفارش")]
@@ -27,7 +29,7 @@ namespace DataLayer
         public virtual ServiceCategory ServiceCategory { get; set; }
 
         public virtual List<DomainServiceOrder> DomainServiceOrders { get; set; }
-        
+
         public DomainService()
         {
 

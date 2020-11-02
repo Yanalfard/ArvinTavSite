@@ -1,7 +1,7 @@
 ﻿@model DataLayer.RegisterViewModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "ثبت نام | آروین تاو";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
@@ -14,56 +14,52 @@
                 {
                     @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+                    <div class="form-horizontal">
 
-                @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "" } })
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                        @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger uk-text-small" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ConfirmPassWord, htmlAttributes: new { @class = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ConfirmPassWord, new { htmlAttributes = new { @class = "" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.ConfirmPassWord, "", new { @class = "uk-text-danger uk-text-small" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" dir="rtl">
+                            <div class="col-md-10">
+                                <div class="g-recaptcha" data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
+                                <small class="uk-text-danger">@ViewBag.Message</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" value="ثبت نام" class="btn btn-default">ثبت نام</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "" } })
-                        @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger uk-text-small" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ConfirmPassWord, htmlAttributes: new { @class = "" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ConfirmPassWord, new { htmlAttributes = new { @class = "" } })
-                        @Html.ValidationMessageFor(model => model.ConfirmPassWord, "", new { @class = "uk-text-danger uk-text-small" })
-                    </div>
-                </div>
-
-                <div class="my-row checkbox">
-
-
-                    @Html.EditorFor(model => model.RememberMe)
-                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "uk-text-danger uk-text-small" })
-                    @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "" })
-                </div>
-
-                <div class="form-group" dir="rtl">
-                    <div class="col-md-10">
-                        <div class="g-recaptcha" data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
-                        <small class="uk-text-danger">@ViewBag.Message</small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" value="ثبت نام" class="btn btn-default">ثبت نام</button>
-                    </div>
-                </div>
-            </div>
                 }
-
+                <br />
+                <a href="/Account/ForgetPassword"><b class="uk-text-danger uk-margin-small-right"><i class="fas fa-unlock-alt"></i> بازیابی رمز عبور</b></a>
             </content>
         </article>
 

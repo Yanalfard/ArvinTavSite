@@ -171,18 +171,48 @@
     </div>
 </div>
 
+<script>
+    let myList = [];
+    let myListCount = [];
+</script>
+
+@*<li>@item.DateTime.Year/@item.DateTime.Month</li>*@
+
+
+@foreach (var items in Model.OrderMonth.OrderBy(o => o.DateTime).GroupBy(o => o.DateTime.Month).Take(12))
+{
+    foreach (var item in items.Take(1))
+    {
+        <script>
+                myList.push('@item.DateTime.ToShamsi()');
+        </script>
+    }
+}
+
+@foreach (var items in Model.OrderMonth.OrderBy(o => o.DateTime).GroupBy(o => o.DateTime.Month).Take(12))
+{
+    foreach (var item in items.Take(1))
+    {
+        <script>
+                myListCount.push(@items.Count());
+        </script>
+    }
+}
+
+
 @section Scripts{
 
 
     <script>
+        
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['99/1', '99/2', '99/3', '99/4', '99/5', '99/6', '99/7', '99/8', '99/9', '99/10', '99/11', '99/12'],
+                labels: [myList],
                 datasets: [{
                     label: 'روند سیستم',
-                    data: [12, 19, 11, 18, 19, 25, 60, 47, 44, 56, 44, 21],
+                    data: [myListCount],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

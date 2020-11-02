@@ -51,7 +51,7 @@ namespace DataLayer
                     {
                         domainService.IsActive = false;
                     }
-                    domainService.Price = Price;
+                    domainService.Price = Convert.ToInt32(Price.Replace(",",""));
                     db.DomainServices.Add(domainService);
                     Product product = new Product();
                     product.SideID = 2;
@@ -91,7 +91,7 @@ namespace DataLayer
                 {
                     domainService.IsActive = false;
                 }
-                domainService.Price = Price;
+                domainService.Price = Convert.ToInt32(Price.Replace(",", ""));
                 Save();
 
                 return "true";

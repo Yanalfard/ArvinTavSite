@@ -28,7 +28,7 @@
                 <input type="text" class="form-control form-control-sm" id="Title" placeholder="متن" value="@Model.PackageService.Title">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="currency-field" id="Price" class="form-control form-control-sm" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="قیمت" value="@Model.PackageService.Price">
+                <input type="text" name="currency-field" id="Price" class="form-control form-control-sm PriceInput" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="قیمت" value="@Model.PackageService.Price">
             </div>
         </div>
         <div class="form-row">
@@ -54,6 +54,7 @@
     </div>
 </form>
 <script src="~/Tools/Auto_Formatting_Currency.js"></script>
+<script src="~/Tools/Input_Formatting_Currency.js"></script>
 <script>
     $(function () {
         $('#my-textarea').ckeditor();

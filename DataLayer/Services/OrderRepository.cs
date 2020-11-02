@@ -20,6 +20,11 @@ namespace DataLayer
             return db.Orders;
         }
 
+        public IEnumerable<Order> AllOrderForUser(int UserID)
+        {
+            return db.Orders.Where(o => o.User.UserID == UserID);
+        }
+
         public OrderDetailViewModel GetOrderDetail(int ID)
         {
             OrderDetailViewModel orderDetailViewModel = new OrderDetailViewModel();
@@ -61,6 +66,6 @@ namespace DataLayer
         {
             db.Dispose();
         }
-
+        
     }
 }

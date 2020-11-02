@@ -13,15 +13,23 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "متن")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "فضا")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Space { get; set; }
 
         [Display(Name = "ترافیک ماهانه")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Monthly_Traffic { get; set; }
 
         [Display(Name = "تعداد سایت قابل میزبانی")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Sites_Be_Hosted { get; set; }
 
         [Display(Name = "SSL رایگان")]
@@ -31,15 +39,17 @@ namespace DataLayer
         public bool Support { get; set; }
 
         [Display(Name = "هزینه سه ماهه")]
-        public string threeMonthsCost { get; set; }
+        public int threeMonthsCost { get; set; }
 
         [Display(Name = "هزینه شش ماهه")]
-        public string SixMonthsCost { get; set; }
+        public int SixMonthsCost { get; set; }
 
         [Display(Name = "هزینه سالانه")]
-        public string AnnuallyCost { get; set; }
+        public int AnnuallyCost { get; set; }
 
         [Display(Name = "تعداد سفارش")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public int? OrderCount { get; set; }
 
         [Display(Name = "جزئیات")]

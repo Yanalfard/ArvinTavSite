@@ -7,6 +7,7 @@ using System.IO;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,PartAdmin,Marketer,Content")]
     public class UploadController : Controller
     {
         // GET: Admin/Upload

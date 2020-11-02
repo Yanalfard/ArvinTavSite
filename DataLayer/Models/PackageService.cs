@@ -13,18 +13,26 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "متن")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
+        [MaxLength(600)]
+        [MinLength(2)]
         public string Description { get; set; }
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
 
         [Display(Name = "قیمت")]
-        public string Price { get; set; }
+        [MaxLength(100)]
+        [MinLength(2)]
+        public int Price { get; set; }
 
         [Display(Name = "تعداد سفارش")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public int? OrderCount { get; set; }
 
         public virtual ServiceCategory ServiceCategory { get; set; }

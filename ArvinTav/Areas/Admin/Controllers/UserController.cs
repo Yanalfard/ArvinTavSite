@@ -7,6 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private ArvinContext db = new ArvinContext();
@@ -428,7 +429,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             {
                 return "Erorr : یکی از نقش هارا وارد کنید";
             }
-            return userRepository.Edit(ID, FullName, Brand, Email, UserRole);
+            return userRepository.EditInAdmin(ID, FullName, Brand, Email, UserRole);
         }
 
         protected override void Dispose(bool disposing)

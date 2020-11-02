@@ -11,14 +11,20 @@ using DataLayer;
 
 namespace ArvinTav.Controllers
 {
+
     public class AccountController : Controller
     {
-        // GET: Account
-        public ActionResult Index()
+        private IUserRepository userRepository;
+        private ArvinContext db = new ArvinContext();
+        public AccountController()
         {
-            return View();
+            userRepository = new UserRepository(db);
+
         }
 
+        // GET: Account
+
+        //Login
         [HttpGet]
         public ActionResult Login()
         {
@@ -27,32 +33,35 @@ namespace ArvinTav.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(FormCollection login)
+        public ActionResult Login(LoginViewModel loginView, FormCollection login, string ReturnUrl = "/")
         {
-            if (GoogleRechapchaControl.ControlRechapcha(login) == "true")
+            if (ModelState.IsValid)
             {
-                // go ahead and write code to validate username password against database
-                var phonNumber = login["PhoneNumber"].ToString();
-                var passWord = login["PassWord"].ToString();
-
-                if (phonNumber == "" || passWord == "" || phonNumber.Length < 11 || phonNumber.Length > 15 || passWord.Length < 5)
+                if (GoogleRechapchaControl.ControlRechapcha(login) == "true")
                 {
-                    ModelState.AddModelError("PhoneNumber", "اطلاعات وارد شده نادرست است");
+                    if (userRepository.CheckUser(loginView.PhoneNumber, Security.Cryptography(loginView.PassWord)) == true)
+                    {
+                        FormsAuthentication.SetAuthCookie(loginView.PhoneNumber, loginView.RememberMe);
+                        userRepository.UserByPhoneNumber(loginView.PhoneNumber).FinalLoginTime = DateTime.Now;
+                        userRepository.Save();
+                        return Redirect(ReturnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("PhoneNumber", "این حساب وجود ندارد.");
+                    }
                 }
-
-
-                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(passWord, "SHA256");
-                
-                return View();
+                else
+                {
+                    ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
+                    return View();
+                }
             }
-            else
-            {
-                ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
-                return View();
-            }
-
+            return View(loginView);
         }
+        
 
+        //Register
         [HttpGet]
         public ActionResult Register()
         {
@@ -61,41 +70,214 @@ namespace ArvinTav.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(FormCollection Register)
+        public ActionResult Register(RegisterViewModel registerView, FormCollection Register)
         {
-            if (GoogleRechapchaControl.ControlRechapcha(Register) == "true")
+            if (ModelState.IsValid)
             {
-                // go ahead and write code to validate username password against database
-                var phonNumber = Register["PhoneNumber"].ToString();
-                var passWord = Register["PassWord"].ToString();
-
-                if (phonNumber == "" || passWord == "" || phonNumber.Length < 11 || phonNumber.Length > 15 || passWord.Length < 5)
+                registerView.PhoneNumber.Replace(" ", "");
+                if (registerView.PassWord != registerView.ConfirmPassWord)
                 {
-                    ModelState.AddModelError("PhoneNumber", "اطلاعات وارد شده نادرست است");
+                    ModelState.AddModelError("ConfirmPassWord", "لطفا رمز عبور را تایید کنید");
                 }
+                if (GoogleRechapchaControl.ControlRechapcha(Register) == "true")
+                {
+                    if (registerView.PhoneNumber.StartsWith("0") == false)
+                    {
+                        ModelState.AddModelError("PhoneNumber", "شماره تماس باید از صفر شروع شود");
+                    }
+                    else
+                    {
+                        if (userRepository.CheckPhoneNumber(registerView.PhoneNumber))
+                        {
+                            ModelState.AddModelError("PhoneNumber", "شماره تماس قبلا ثبت شده است");
+                        }
+                        else
+                        {
+                            //Create Sms Code
+                            var CodeCreator = Guid.NewGuid().ToString();
+                            string Code = CodeCreator.Substring(CodeCreator.Length - 5);
 
-                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(passWord, "SHA256");
-                
+                            // Create User
+                            ShortRegisterViewModel shortRegisterViewModel = new ShortRegisterViewModel();
+                            shortRegisterViewModel.PhoneNumber = registerView.PhoneNumber;
+                            shortRegisterViewModel.PassWord = Security.Cryptography(registerView.PassWord);
+                            shortRegisterViewModel.AuthenticationCode = Security.Cryptography(Code);
+                            userRepository.ShortRegister(shortRegisterViewModel);
+                            if (userRepository.ShortRegister(shortRegisterViewModel) == true)
+                            {
+                                //Send Code In Sms
+                                var Text = $"به آروین تاو خوش آمدید \n کد شما : {Code}";
+                                Sms.RegisterAcoount(registerView.PhoneNumber, Text);
+
+                                // Redirect To Active
+                                AccountActiveViewModel accountActiveViewModel = new AccountActiveViewModel();
+                                accountActiveViewModel.PhoneNumber = registerView.PhoneNumber;
+                                accountActiveViewModel.DateTime = DateTime.Now;
+                                return RedirectToAction("Active", accountActiveViewModel);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
+                    return View();
+                }
+            }
+            return View(registerView);
+        }
+
+
+        //Active Account
+        [HttpGet]
+        public ActionResult Active(AccountActiveViewModel accountActiveViewModel)
+        {
+            return View(accountActiveViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Active(PushAccountActiveViewModel pushAccountActiveViewModel)
+        {
+            pushAccountActiveViewModel.ActiveCode = Security.Cryptography(pushAccountActiveViewModel.ActiveCode);
+            DateTime RequestTimeActiveUser = pushAccountActiveViewModel.DateTime.AddMinutes(5);
+            if (DateTime.Now > RequestTimeActiveUser)
+            {
+                ViewBag.Massage = "زمان فعالسازی حساب شما منقضی شده است. سیستم حساب شما را پاک کرده است.";
+                userRepository.RemoveUser(userRepository.UserByPhoneNumber(pushAccountActiveViewModel.PhoneNumber));
                 return View();
             }
             else
             {
-                ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
-                return View();
+                userRepository.ActiveAccount(pushAccountActiveViewModel);
+                return RedirectToAction("SuccessAccount");
             }
-
         }
 
+
+        //Success
         [HttpGet]
-        public ActionResult Active(User user)
+        public ActionResult Success(string Massage)
+        {
+            return View();
+        }
+
+        //Forget Password
+
+        [HttpGet]
+        public ActionResult ForgetPassword()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Active(User user, int ActiveCode)
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgetPassword(string PhoneNumber, FormCollection form)
         {
+
+            if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
+            {
+                if (userRepository.UserByPhoneNumber(PhoneNumber) != null)
+                {
+                    //Create Sms Code
+                    var CodeCreator = Guid.NewGuid().ToString();
+                    string Code = CodeCreator.Substring(CodeCreator.Length - 8);
+
+                    if (userRepository.ForgetAccount(PhoneNumber, Security.Cryptography(Code)) == true)
+                    {
+                        string PhoneNumberStr = PhoneNumber;
+                        string End4NumberPhoneNumber = PhoneNumberStr.Substring(PhoneNumberStr.Length - 5);
+                        string ForgetLink = "http://arvintavco.com/Account/Forget/" + End4NumberPhoneNumber + "-" + Code;
+                        //Send Code In Sms
+                        var Text = $"جهت بازیابی رمز عبور روی لینک زیر کلیک کنید \n لینک شما : \n {ForgetLink}";
+                        Sms.ForgetAcoount(PhoneNumber, Text);
+
+                        return RedirectToAction("ForgetPasswordSuccess");
+                    }
+                    else
+                    {
+                        ViewBag.Massage = "شما به تازگی درخواست تغییر پسورد کرده اید لطفا کمی صبر کنید";
+                        return View();
+                    }
+                }
+                else
+                {
+                    ViewBag.Massage = "حسابی با این شماره تماس وجود ندارد";
+                    return View();
+                }
+            }
+            else
+            {
+                ViewBag.MessageGoogle = "لطفا گزینه من ربات نیستم را تایید کنید";
+                return View();
+            }
+
+        }
+
+        //ForgetPasswordSuccess
+        public ActionResult ForgetPasswordSuccess()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+            }
             return View();
+        }
+
+        [Route("Account/Forget/{EndPhoneNumber}-{Code}")]
+        [HttpGet]
+        public ActionResult PushForgetPassword(string EndPhoneNumber, string Code)
+        {
+            ViewBag.endph = EndPhoneNumber;
+            ViewBag.co = Code;
+            return View();
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PushForgetPassword(ForgetPasswordViewModel forgetPasswordViewModel, FormCollection form)
+        {
+            if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
+            {
+                if (forgetPasswordViewModel.Password != forgetPasswordViewModel.ConfirmPassword)
+                {
+                    ViewBag.Massage = "تایید رمز عبور را صحیح وارد کنید";
+                    return View();
+                }
+                else
+                {
+                    DateTime dateTime = userRepository.UserByAuthenticationCode(Security.Cryptography(forgetPasswordViewModel.AuthenticationCode)).ForgetTime.AddMinutes(10);
+                    if (DateTime.Now > dateTime)
+                    {
+                        ViewBag.Massage = "زمان استفاده از تغییر رمز برای شما منقضی شده است";
+                        return View();
+                    }
+                    else
+                    {
+                        forgetPasswordViewModel.Password = Security.Cryptography(forgetPasswordViewModel.Password);
+                        forgetPasswordViewModel.AuthenticationCode = Security.Cryptography(forgetPasswordViewModel.AuthenticationCode);
+                        if (userRepository.ForgetAccountPush(forgetPasswordViewModel) == true)
+                        {
+                            return Redirect("/Account/Login");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.MessageGoogle = "لطفا گزینه من ربات نیستم را تایید کنید";
+            }
+            return View();
+        }
+
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return Redirect("/");
         }
     }
 }

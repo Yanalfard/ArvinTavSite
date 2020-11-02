@@ -13,6 +13,8 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "کد تخفیف")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Code { get; set; }
 
         [Display(Name = "درصد تخفیف")]

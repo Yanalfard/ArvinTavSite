@@ -7,13 +7,16 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,PartAdmin")]
     public class TicketController : Controller
     {
         private ArvinContext db = new ArvinContext();
         private ITicketRepository ticketRepository;
+        private IUserRepository userRepository;
         public TicketController()
         {
             ticketRepository = new TicketRepository(db);
+            userRepository = new UserRepository(db);
         }
         // GET: Admin/Ticket
         public ActionResult Index(int PageId = 1, int TicketIDSearch = 0, int StatusSearch = 0, int CategorySearch = 0, int InPageCount = 0)
@@ -326,6 +329,10 @@ namespace ArvinTav.Areas.Admin.Controllers
         //InnerTicket
         public ActionResult InnerTicket(int ID)
         {
+            if (ticketRepository.GetTicketById(ID).Supporter == null)
+            {
+                ticketRepository.GetTicketById(ID).Supporter = userRepository.UserByPhoneNumber(User.Identity.Name);
+            }
             return View(ticketRepository.GetInnerTicket(ID));
         }
 

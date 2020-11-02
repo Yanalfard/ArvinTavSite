@@ -55,9 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202010261238073_initialdb.cs" />
-    <Compile Include="Migrations\202010261238073_initialdb.designer.cs">
-      <DependentUpon>202010261238073_initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\202011011521206_initialdb.cs" />
+    <Compile Include="Migrations\202011011521206_initialdb.designer.cs">
+      <DependentUpon>202011011521206_initialdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Discount.cs" />
@@ -84,13 +84,19 @@
     <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\Ticket\TicketCategory.cs" />
     <Compile Include="Models\User\User.cs" />
+    <Compile Include="Models\ViewModel\CreateTicketInUser.cs" />
+    <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
-    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\PushAccountActiveViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\RegisterViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\ShortRegisterViewModel.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
@@ -138,9 +144,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010261238073_initialdb.resx">
-      <DependentUpon>202010261238073_initialdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011011521206_initialdb.resx">
+      <DependentUpon>202011011521206_initialdb.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Seo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

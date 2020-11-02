@@ -13,6 +13,8 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "موضوع")]
+        [MaxLength(500)]
+        [MinLength(2)]
         public string Subject { get; set; }
 
         [Display(Name = "وضعیت: 1:بازنشده 2:در حال بررسی 3:تکمیل شده")]

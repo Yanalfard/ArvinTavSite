@@ -12,6 +12,8 @@ namespace DataLayer
 
         TicketListViewModel AllTicketInView();
 
+        IEnumerable<Ticket> AllTicketForUser(int UserID);
+
         InnerTicketViewModel GetInnerTicket(int ID);
 
         IEnumerable<TicketCategory> ticketCategories();

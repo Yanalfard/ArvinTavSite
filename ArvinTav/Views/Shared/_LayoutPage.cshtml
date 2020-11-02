@@ -31,12 +31,26 @@
     <header id="LayoutHeader" class="my-row">
         <div class="loginDesktop my-row" dir="rtl">
 
-            <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
-                <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
-                    <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
-                    <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
-                </div>
-            </button>
+            @*Partial View*@
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button class="uk-text-bold my-column" onclick="window.location.href='/User/Dashboard'">
+                    <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                        <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                        <span class="margin-auto-bottom margin-auto-top ">@User.Identity.Name</span>
+                    </div>
+                </button>
+            }
+            else
+            {
+                <button class="uk-text-bold my-column" onclick="window.location.href='/Account/Login'">
+                    <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                        <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                        <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
+                    </div>
+                </button>
+            }
 
             <img class=" uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
         </div>

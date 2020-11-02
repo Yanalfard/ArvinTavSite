@@ -20,6 +20,11 @@ namespace DataLayer
             return db.tickets;
         }
 
+        public IEnumerable<Ticket> AllTicketForUser(int UserID)
+        {
+            return db.tickets.Where(t => t.User.UserID == UserID);
+        }
+
         public TicketListViewModel AllTicketInView()
         {
             TicketListViewModel ticketListViewModel = new TicketListViewModel();

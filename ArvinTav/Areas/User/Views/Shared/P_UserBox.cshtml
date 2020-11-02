@@ -1,0 +1,33 @@
+﻿@model DataLayer.User
+
+<li class="user-profile dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <div class="user-info">
+            <span class="name pr-1">@Model.FullName</span>
+            <img src="~/Document/User/@Model.Image" height="50" width="50" />
+            <i class="fas fa-chevron-down font-size-10"></i>
+        </div>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <a href="/User/Dashboard/MyProfile">
+                <i class="fas fa-user pr-1"></i>
+                <span>پروفایل</span>
+            </a>
+        </li>
+        <li>
+            <a href="/Account/ForgetPassword">
+                <i class="fas fa-key"></i>
+                <span>تغییر رمز</span>
+            </a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+            <a href="/Account/SignOut">
+                <i class="fas fa-power-off pr-1"></i>
+                <span>خروج</span>
+            </a>
+        </li>
+    </ul>
+</li>
+

@@ -13,12 +13,16 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "متن")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
 
         [Display(Name = "لینک")]
+        [MaxLength(900)]
+        [MinLength(2)]
         public string Link { get; set; }
 
         [Display(Name = "وضعیت: 1:در حال ساخت  2:تکمیل شده")]

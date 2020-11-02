@@ -1,9 +1,8 @@
 ﻿@model DataLayer.LoginViewModel
 
 @{
-    /**/
 
-    ViewBag.Title = "Login";
+    ViewBag.Title = "ورود به پورتال | آروین تاو";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
@@ -50,16 +49,17 @@
 
 
                     <div class="my-row center uk-padding">
-                        
-                            <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
-                        
-                        
-                            <a href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
-                        
+
+                        <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
+
+
+                        <a href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+
                     </div>
 
                 }
 
+                <a href="/Account/ForgetPassword"><b class="uk-text-danger uk-margin-small-right"><i class="fas fa-unlock-alt"></i> بازیابی رمز عبور</b></a>
             </content>
         </div>
 

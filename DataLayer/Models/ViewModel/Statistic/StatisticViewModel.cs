@@ -25,6 +25,10 @@ namespace DataLayer
         public int TicketEnded { get; set; }
 
         public int TicketNotSeen { get; set; }
-        
+
+        public IEnumerable<Order> OrderMonth { get; set; }
+
+        public IEnumerable<Order> OrderCount { get; set; }
+
     }
 }

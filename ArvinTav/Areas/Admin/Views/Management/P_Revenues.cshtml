@@ -1,7 +1,7 @@
 ﻿@model DataLayer.RevenuesViewModel
 <div class="modal-header">
     <h6 class="modal-title mr-3" id="modalCenterTitle">
-       درآمدها
+        درآمدها
     </h6>
 </div>
 <form>
@@ -10,18 +10,20 @@
             <div class="form-row ">
                 <div class="form-group col-md-4">
                     <label>جمع پرداخت شده ها:</label>
-                    <span>@Model.AllPaidPrice</span>
+                    <span id="PriceSpan">@Model.AllPaidPrice</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>جمع لغو شده ها:</label>
-                    <span>@Model.AllCancelledPrice</span>
+                    <span id="PriceSpan">@Model.AllCancelledPrice</span>
                 </div>
                 <div class="form-group col-md-4">
                     <label>تعداد سفارشات:</label>
-                    <span>@Model.OrderCount</span>
+                    <span id="PriceSpan">@Model.OrderCount</span>
                 </div>
             </div>
         </div>
     </div>
 </form>
+
+<script src="~/Tools/Span_Formatting_Currency.js"></script>
 

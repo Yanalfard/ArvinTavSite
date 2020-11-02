@@ -10,7 +10,7 @@ namespace DataLayer
    public class RegisterViewModel
     {
         [Display(Name = "شماره تماس")]
-        [MinLength(10, ErrorMessage = "{0} معتبر نیست")]
+        [MinLength(11, ErrorMessage = "{0} معتبر نیست")]
         [MaxLength(15, ErrorMessage = "{0} معتبر نیست")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.PhoneNumber)]
@@ -30,8 +30,7 @@ namespace DataLayer
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
         public string ConfirmPassWord { get; set; }
-
-        [Display(Name = "مرا به خاطر بسپار")]
-        public bool RememberMe { get; set; }
+        
+        
     }
 }

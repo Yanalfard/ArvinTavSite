@@ -7,6 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,PartAdmin,Content")]
     public class DomainController : Controller
     {
         private IServiceCategoryRepository serviceCategoryRepository;
@@ -558,9 +559,9 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
         }
-        
+
         [HttpPost]
-        public string Create(int Category, string Suffix, int IsActive,string Price)
+        public string Create(int Category, string Suffix, int IsActive, string Price)
         {
             return domainRepository.AddDomianService(Category, Suffix, IsActive, Price);
         }

@@ -46,7 +46,7 @@
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Suffix = c.String(),
-                        Price = c.String(),
+                        Price = c.Int(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         OrderCount = c.Int(),
                         ServiceCategory_ID = c.Int(),
@@ -79,9 +79,9 @@
                         Sites_Be_Hosted = c.String(),
                         FreeSSL = c.Boolean(nullable: false),
                         Support = c.Boolean(nullable: false),
-                        threeMonthsCost = c.String(),
-                        SixMonthsCost = c.String(),
-                        AnnuallyCost = c.String(),
+                        threeMonthsCost = c.Int(nullable: false),
+                        SixMonthsCost = c.Int(nullable: false),
+                        AnnuallyCost = c.Int(nullable: false),
                         OrderCount = c.Int(),
                         ServiceCategory_ID = c.Int(),
                     })
@@ -114,14 +114,17 @@
                     {
                         UserID = c.Int(nullable: false, identity: true),
                         PhoneNumber = c.String(nullable: false, maxLength: 15),
-                        FullName = c.String(nullable: false, maxLength: 30),
-                        Brand = c.String(maxLength: 300),
+                        FullName = c.String(maxLength: 30),
+                        Brand = c.String(maxLength: 30),
                         Email = c.String(),
                         Image = c.String(),
-                        PassWord = c.String(nullable: false, maxLength: 30),
-                        ConfirmPassWord = c.String(nullable: false, maxLength: 30),
-                        SignUpTime = c.DateTime(nullable: false),
+                        PassWord = c.String(nullable: false, maxLength: 64),
+                        AuthenticationCode = c.String(maxLength: 64),
+                        Active = c.Boolean(nullable: false),
+                        SignUpTime = c.DateTime(),
                         FinalLoginTime = c.DateTime(nullable: false),
+                        RegisterActiveTime = c.DateTime(nullable: false),
+                        ForgetTime = c.DateTime(nullable: false),
                         UserRole_RoleID = c.Int(),
                     })
                 .PrimaryKey(t => t.UserID)
@@ -218,7 +221,7 @@
                         Title = c.String(),
                         Description = c.String(),
                         Image = c.String(),
-                        Price = c.String(),
+                        Price = c.Int(nullable: false),
                         OrderCount = c.Int(),
                         ServiceCategory_ID = c.Int(),
                     })

@@ -147,7 +147,6 @@
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Remove.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\favicon.ico" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\InnerTicket.cshtml" />
@@ -1878,6 +1877,18 @@
     <Content Include="Areas\Admin\Views\Festival\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Festival\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\HomeSetting\P_SliderCreate.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Areas\User\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\User\Views\Dashboard\MyProfile.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
+    <Content Include="Areas\User\Views\Shared\P_UserBox.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\Create.cshtml" />
+    <Content Include="Areas\User\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
+    <Content Include="Areas\User\Views\Order\P_List.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\P_List.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1920,6 +1931,12 @@
     <Content Include="Scripts\UIScripts\Global.js" />
     <Content Include="Test.html" />
     <Content Include="Tools\Auto_Formatting_Currency.js" />
+    <Content Include="Tools\Chart\Chart.bundle.js" />
+    <Content Include="Tools\Chart\Chart.bundle.min.js" />
+    <Content Include="Tools\Chart\Chart.css" />
+    <Content Include="Tools\Chart\Chart.js" />
+    <Content Include="Tools\Chart\Chart.min.css" />
+    <Content Include="Tools\Chart\Chart.min.js" />
     <Content Include="Tools\ckeditor\adapters\jquery.js" />
     <Content Include="Tools\ckeditor\build-config.js" />
     <Content Include="Tools\ckeditor\CHANGES.html" />
@@ -3036,6 +3053,8 @@
     <Content Include="Tools\ckeditor\_source\skins\v2\templates.css" />
     <Content Include="Tools\ckeditor\_source\skins\v2\toolbar.css" />
     <Content Include="Tools\ckeditor\_source\themes\default\theme.js" />
+    <Content Include="Tools\Input_Formatting_Currency.js" />
+    <Content Include="Tools\Span_Formatting_Currency.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3055,11 +3074,19 @@
     <Compile Include="Areas\Admin\Controllers\TicketController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\User\Controllers\OrderController.cs" />
+    <Compile Include="Areas\User\Controllers\TicketController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Classes\GoogleRechapcha.cs" />
     <Compile Include="Classes\GoogleRechapchaControl.cs" />
     <Compile Include="Classes\PersianConverterDateTime.cs" />
+    <Compile Include="Classes\RoleEngine.cs" />
+    <Compile Include="Classes\Security.cs" />
+    <Compile Include="Classes\Sms.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3101,6 +3128,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Active.cshtml" />
+    <Content Include="Views\Account\Success.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
+    <Content Include="Views\Account\PushForgetPassword.cshtml" />
+    <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
+    <Content Include="Views\Home\Erorr.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

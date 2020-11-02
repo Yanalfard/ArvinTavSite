@@ -7,6 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    
     public class ManagementController : Controller
     {
         private ISpiderRepository spiderRepository;
@@ -41,7 +42,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع اسپایدر>
         /// ///////////////////////////////////Spider
 
-
+        [Authorize(Roles = "Admin,Content")]
         public ActionResult P_Spider(int PageId = 1, string Result = "", int InPageCount = 0)
         {
             if (Result == "")
@@ -118,11 +119,13 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Content")]
         public ActionResult P_SpiderCreate()
         {
             return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
         }
 
+        [Authorize(Roles = "Admin,Content")]
         [HttpPost]
         [ValidateInput(false)]
         public JsonResult SpiderCreate(int Category, string Title, string Description, string Image, List<string> SeoTages)
@@ -130,6 +133,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             return Json(spiderRepository.AddSpider(Category, Title, Description, Image, SeoTages));
         }
 
+        [Authorize(Roles = "Admin,Content")]
         public ActionResult P_SpiderEdit(int ID)
         {
             SpiderEditViewModel spiderEditViewModel = new SpiderEditViewModel();
@@ -138,9 +142,10 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(spiderEditViewModel);
         }
 
+        [Authorize(Roles = "Admin,Content")]
         [HttpPost]
         [ValidateInput(false)]
-        public JsonResult SpiderEdit(int ID,int Category, string Title, string Description, string Image, List<string> SeoTages)
+        public JsonResult SpiderEdit(int ID, int Category, string Title, string Description, string Image, List<string> SeoTages)
         {
             if (Image != null || Image != "")
             {
@@ -153,11 +158,13 @@ namespace ArvinTav.Areas.Admin.Controllers
             return Json(spiderRepository.SpiderEdit(ID, Category, Title, Description, Image, SeoTages));
         }
 
+        [Authorize(Roles = "Admin,Content")]
         public ActionResult P_SpiderRemove(int ID)
         {
             return PartialView(spiderRepository.SpiderById(ID));
         }
 
+        [Authorize(Roles = "Admin,Content")]
         public string SpiderRemove(int ID)
         {
             string fullPathImage = Request.MapPath("/Document/img/Spider/" + spiderRepository.SpiderById(ID).Image);
@@ -176,6 +183,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع نمایندگی ها>
         /// ///////////////////////////////////Marketer
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_MarketerReport(int PageId = 1, string PhoneNumber = "", int Status = 0, int InPageCount = 0)
         {
             if (PhoneNumber == "")
@@ -434,16 +442,19 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         public string ConfirmReport(int ID)
         {
             return marketerRepository.ChangeStatus(ID);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_MarketerReportInfo(int ID)
         {
             return PartialView(marketerRepository.MarketerReportById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string RemoveMarketerReport(int ID)
         {
             return marketerRepository.RemoveReport(ID);
@@ -452,22 +463,25 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <پایان نمایندگی ها>
         /// ///////////////////////////////////Marketer
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult P_Revenues()
         {
             return PartialView(statisticRepository.AllRevenues());
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_OrderExplorer()
         {
             return PartialView(statisticRepository.AllOrderExplorer());
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_TicketExplorer()
         {
             return PartialView(statisticRepository.TicketExplorer());
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_Massage(int PageId = 1, string result = "", int Status = 0, int InPageCount = 0)
         {
 
@@ -737,11 +751,13 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_MassageInfo(int ID)
         {
             return PartialView(massageRepository.massageById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string ConfirmMassage(int ID)
         {
             bool Confirm = massageRepository.ConfirmMassage(ID);
@@ -755,6 +771,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public string RemoveMassage(int ID)
         {
             bool Remove = massageRepository.RemoveMassage(ID);
@@ -773,6 +790,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع بخش پشتیبانی>
         /// ///////////////////////////////////Support Part
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_SupportPart(string Result = "")
         {
             if (Result == "")
@@ -787,33 +805,40 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
 
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult P_SupportCreated()
         {
             return PartialView();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public string SupportCreate(string Title, int IsActive)
         {
             return ticketRepository.SupportCreate(Title, IsActive);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_SupportEdit(int ID)
         {
             return PartialView(ticketRepository.ticketCategoryById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public string SupportEdit(int ID, string Title, int IsActive)
         {
             return ticketRepository.SupportEdit(ID, Title, IsActive);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_SupportRemove(int ID)
         {
             return PartialView(ticketRepository.ticketCategoryById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string RemoveSupoort(int ID)
         {
             return ticketRepository.RemoveSupoort(ID);
@@ -828,6 +853,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع همکاران>
         /// ///////////////////////////////////Partners
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_Partners(int PageId = 1, string result = "", int InPageCount = 0)
         {
             if (result == "")
@@ -905,21 +931,26 @@ namespace ArvinTav.Areas.Admin.Controllers
                 }
             }
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult P_PartnersCreated()
         {
             return PartialView();
         }
 
-        public string CreatePartner(string Title,string PhoneNumber,string Logo)
+        [Authorize(Roles = "Admin")]
+        public string CreatePartner(string Title, string PhoneNumber, string Logo)
         {
-            return partnerRepository.CreatePartner(Title,PhoneNumber,Logo);
+            return partnerRepository.CreatePartner(Title, PhoneNumber, Logo);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_PartnersEdit(int ID)
         {
             return PartialView(partnerRepository.partnerById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string EditPartner(int ID, string Title, string PhoneNumber, string Logo)
         {
             if (Logo != "")
@@ -938,6 +969,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(partnerRepository.partnerById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string RemovePartner(int ID)
         {
             string fullPathImage = Request.MapPath("/Document/img/Partner/" + partnerRepository.partnerById(ID).Logo);
@@ -947,7 +979,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 System.IO.File.Delete(fullPathImage);
             }
 
-           return partnerRepository.RemovePartner(ID);
+            return partnerRepository.RemovePartner(ID);
 
         }
 
@@ -958,6 +990,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         /// <شروع مشتریان>
         /// ///////////////////////////////////Customers
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_Customers(int PageId = 1, string result = "", int InPageCount = 0)
         {
             if (result == "")
@@ -1035,21 +1068,26 @@ namespace ArvinTav.Areas.Admin.Controllers
                 }
             }
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult P_CustomersCreated()
         {
             return PartialView();
         }
 
+        [Authorize(Roles = "Admin")]
         public string CreateCustomer(string Title, string PhoneNumber, string Logo)
         {
             return customerRepository.CreateCustomer(Title, PhoneNumber, Logo);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_CustomersEdit(int ID)
         {
             return PartialView(customerRepository.CustomerById(ID));
         }
 
+        [Authorize(Roles = "Admin")]
         public string EditCustomer(int ID, string Title, string PhoneNumber, string Logo)
         {
             if (Logo != "")
@@ -1064,12 +1102,13 @@ namespace ArvinTav.Areas.Admin.Controllers
             return customerRepository.EditCustomer(ID, Title, PhoneNumber, Logo);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult P_CustomersRemove(int ID)
         {
             return PartialView(customerRepository.CustomerById(ID));
         }
 
-
+        [Authorize(Roles = "Admin")]
         public string RemoveCustomer(int ID)
         {
             string fullPathImage = Request.MapPath("/Document/img/Customer/" + customerRepository.CustomerById(ID).Logo);

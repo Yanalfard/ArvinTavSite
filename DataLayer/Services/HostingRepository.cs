@@ -60,9 +60,9 @@ namespace DataLayer
             hostingService.Space = Space;
             hostingService.Monthly_Traffic = MonthlyTraffic;
             hostingService.Sites_Be_Hosted = SitesBeHosted;
-            hostingService.threeMonthsCost = threeMonthsCost;
-            hostingService.SixMonthsCost = SixMonthsCost;
-            hostingService.AnnuallyCost = AnnuallyCost;
+            hostingService.threeMonthsCost = Convert.ToInt32(threeMonthsCost.Replace(",", ""));
+            hostingService.SixMonthsCost = Convert.ToInt32(SixMonthsCost.Replace(",", ""));
+            hostingService.AnnuallyCost = Convert.ToInt32(AnnuallyCost.Replace(",", ""));
             db.HostingServices.Add(hostingService);
             Product product = new Product();
             product.SideID = 1;
@@ -185,9 +185,9 @@ namespace DataLayer
             hostingService.Space = Space;
             hostingService.Monthly_Traffic = MonthlyTraffic;
             hostingService.Sites_Be_Hosted = SitesBeHosted;
-            hostingService.threeMonthsCost = threeMonthsCost;
-            hostingService.SixMonthsCost = SixMonthsCost;
-            hostingService.AnnuallyCost = AnnuallyCost;
+            hostingService.threeMonthsCost = Convert.ToInt32(threeMonthsCost.Replace(",", ""));
+            hostingService.SixMonthsCost = Convert.ToInt32(SixMonthsCost.Replace(",", ""));
+            hostingService.AnnuallyCost = Convert.ToInt32(AnnuallyCost.Replace(",", ""));
             Save();
             return ID;
         }

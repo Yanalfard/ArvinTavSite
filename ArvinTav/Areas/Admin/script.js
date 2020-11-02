@@ -45,7 +45,7 @@
     var _PREVIEW_URL;
 
     /* Show Select File dialog */
-    $("#upload-dialog").click( function () {
+    $("#upload-dialog").click(function () {
         $("#image-file").click();
     });
 
@@ -81,7 +81,7 @@
         document.querySelector("#preview-image").setAttribute('src', _PREVIEW_URL);
         document.querySelector("#preview-image").style.display = 'inline-block';
         document.querySelector("#delete-image").style.display = 'inline-block';
-       
+
     });
     $("#delete-image").click(function () {
         document.querySelector("#upload-dialog").style.display = 'inline-block';
@@ -95,11 +95,11 @@
         document.querySelector("#delete-image").style.display = 'none';
         //$("#image-file").click();
 
-        
+
     });
-   
-   
-  
+
+
+
 
 
     // End Upload File 
@@ -111,7 +111,7 @@
             var targetBox = $("." + inputValue);
             $(".download-form").not(targetBox).hide();
             $(targetBox).show();
-            
+
         });
     });
     $(document).ready(function () {
@@ -123,6 +123,8 @@
 
         });
     });
+
+
 
     function themeColorConfig() { $(".header-default input").change(function () { $(".wrapper").removeClass("header-primary header-info header-success header-danger header-dark") }), $(".header-info input").change(function () { $(".wrapper").addClass("header-info"), $(".wrapper").removeClass("header-primary header-success header-danger header-dark") }), $(".header-primary input").change(function () { $(".wrapper").addClass("header-primary"), $(".wrapper").removeClass("header-info header-success header-danger header-dark") }), $(".header-success input").change(function () { $(".wrapper").addClass("header-success"), $(".wrapper").removeClass("header-info header-primary header-danger header-dark") }), $(".header-danger input").change(function () { $(".wrapper").addClass("header-danger"), $(".wrapper").removeClass("header-info header-primary header-success header-dark") }), $(".header-dark input").change(function () { $(".wrapper").addClass("header-dark"), $(".wrapper").removeClass("header-info header-primary header-success header-danger") }), $(".theme-colors.side-nav-dark input").change(function () { $(".app").addClass("side-nav-dark"), $(".app").removeClass("side-nav-default") }), $(".theme-colors.sidenav-default input").change(function () { $(".wrapper").addClass("side-nav-default"), $(".wrapper").removeClass("side-nav-dark") }), $("#rtl-toogle").on("click", function (e) { $(".wrapper").toggleClass("rtl"), e.preventDefault() }) } ! function () { sideNav(), sideNavToggle(), sidePanelToggle(), chatToggle(), todoToggle(), searchToggle(), advanceSearch(), themeConfig(), perfectSB(), cardPortletCtrl(), themeColorConfig() }()
 }(jQuery);

@@ -29,7 +29,7 @@ namespace DataLayer
                 PackageService packageService = new PackageService();
                 packageService.ServiceCategory = CategoryRepository.ServiceCategoryById(Category);
                 packageService.Title = Title;
-                packageService.Price = Price;
+                packageService.Price = Convert.ToInt32(Price.Replace(",", ""));
                 packageService.Image = Image;
                 packageService.Description = Description;
                 db.PackageServices.Add(packageService);
@@ -56,7 +56,7 @@ namespace DataLayer
                 PackageService packageService = PackageServiceById(ID);
                 packageService.ServiceCategory = CategoryRepository.ServiceCategoryById(Category);
                 packageService.Title = Title;
-                packageService.Price = Price;
+                packageService.Price = Convert.ToInt32(Price.Replace(",", ""));
                 if (Image != "")
                 {
                     packageService.Image = Image;

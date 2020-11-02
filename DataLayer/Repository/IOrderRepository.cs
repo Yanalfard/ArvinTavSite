@@ -10,6 +10,8 @@ namespace DataLayer
     {
         IEnumerable<Order> AllOrders();
 
+        IEnumerable<Order> AllOrderForUser(int UserID);
+
         Order OrderById(int ID);
 
         string SwitchingStatus(int ID);

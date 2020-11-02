@@ -13,9 +13,13 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "متن مشتری")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "شماره تماس")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "لوگو")]

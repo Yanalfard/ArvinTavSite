@@ -40,26 +40,21 @@ namespace DataLayer
             statisticViewModel.AllTicket = ticketRepository.AllTickets().Count();
             statisticViewModel.TicketNotSeen = ticketRepository.AllTickets().Where(t => t.Status == 1).Count();
             statisticViewModel.TicketEnded = ticketRepository.AllTickets().Where(t => t.Status == 3).Count();
+            statisticViewModel.OrderMonth = orderRepository.AllOrders().Where(o => o.Status == 3).OrderBy(o => o.DateTime);
+            statisticViewModel.OrderCount = orderRepository.AllOrders().Where(o => o.Status == 3).OrderBy(o => o.DateTime);
             return statisticViewModel;
         }
 
         public RevenuesViewModel AllRevenues()
         {
             RevenuesViewModel revenuesViewModel = new RevenuesViewModel();
+            IEnumerable<Order> AllOrder = orderRepository.AllOrders();
 
-            List<string> pricesString = new List<string>();
-            db.Orders.Where(o => o.Status == 2).ToList().ForEach(p => pricesString.Add(p.Price));
-            List<int> prices = new List<int>();
-            pricesString.ForEach(p => prices.Add(Convert.ToInt32(p.Replace(",", ""))));
-            revenuesViewModel.AllPaidPrice = prices.Sum().ToString();
+            revenuesViewModel.AllPaidPrice = AllOrder.Where(o=>o.Status==2).Sum(o=>o.Price).ToString();
 
             ///////////////////////
-
-            List<string> CancelledpricesString = new List<string>();
-            db.Orders.Where(o => o.Status == 4).ToList().ForEach(p => CancelledpricesString.Add(p.Price));
-            List<int> Cancelledprices = new List<int>();
-            CancelledpricesString.ForEach(p => Cancelledprices.Add(Convert.ToInt32(p.Replace(",", ""))));
-            revenuesViewModel.AllCancelledPrice = Cancelledprices.Sum().ToString();
+            
+            revenuesViewModel.AllCancelledPrice = AllOrder.Where(o=>o.Status==4).Sum(o=>o.Price).ToString();
 
             ///////////////////////
 

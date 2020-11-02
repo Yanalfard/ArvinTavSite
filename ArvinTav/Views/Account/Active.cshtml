@@ -1,0 +1,43 @@
+﻿@model DataLayer.AccountActiveViewModel 
+@{
+    ViewBag.Title = "Active";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="GridBackground loginSection center">
+    <content class="grid " dir="rtl">
+        <div class="my-column my-clipped center mat loginSection ">
+            <content>
+                <div class="uk-alert-success uk-alert" uk-alert="">
+                    <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+                    <small>پیامکی حاوی کد احراز هویتی برای شما به شماره @Model.PhoneNumber ارسال شد . جهت فعالسازی حساب کاربری کد را در فیلد زیر وارد کنید.</small>
+                </div>
+                <img class="login" src="~/img/login/Svg/Group 103.svg" />
+
+                <form method="post" action="/Account/Active">
+
+                    @Html.AntiForgeryToken()
+
+                    <label for="ActiveCode">کد احراز هویت را وارد کنید</label>
+                    <div>
+                        <input type="hidden" value="@Model.PhoneNumber" name="PhoneNumber" />
+                        <input type="hidden" value="@Model.DateTime" name="DateTime" />
+                        <input class="text-box single-line center" maxlength="5" minlength="5" oninvalid="this.setCustomValidity('کد معتبر وارد کنید')" required name="ActiveCode" type="text">
+                        <br />
+                        <span class="field-validation-error uk-text-danger uk-text-small" data-valmsg-for="ActiveCode" data-valmsg-replace="true"></span>
+                    </div>
+                    
+                    <div class="my-row center uk-padding">
+
+                        <button class="uk-margin-small-left" type="submit" value="ورود">تایید</button>
+                        <span class="uk-text-danger">@ViewBag.Massage</span>
+                    </div>
+
+                </form>
+
+            </content>
+        </div>
+
+    </content>
+</div>
+

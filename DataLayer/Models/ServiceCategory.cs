@@ -16,12 +16,16 @@ namespace DataLayer
         public int? ParentID { get; set; }
 
         [Display(Name = "متن")]
+        [MaxLength(100)]
+        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "فعال بودن")]
         public bool IsActive { get; set; }
 
         [Display(Name = "توضیح")]
+        [MaxLength(600)]
+        [MinLength(2)]
         public string Description { get; set; }
 
         [Display(Name = "تصویر")]

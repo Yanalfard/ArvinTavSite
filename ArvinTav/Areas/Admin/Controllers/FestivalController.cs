@@ -7,6 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FestivalController : Controller
     {
         IFestivalRepository festivalRepository;

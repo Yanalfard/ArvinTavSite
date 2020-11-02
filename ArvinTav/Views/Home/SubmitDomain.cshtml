@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "SubmitDomain";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="submitDomain my-column my-clipped ">
+    <div class="uk-margin-auto-right uk-margin-auto-left uk-margin-auto-top uk-margin-auto-bottom cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
+        <img class="uk-margin-auto uk-margin-top center" src="~/img/Home/Host/domain.jpg" />
+    </div>
+    <div class="domainBackground center" dir="rtl">
+        <h5 class="uk-margin-auto-left">انتخاب دامنه</h5>
+        <hr />
+        <div class="my-column ">
+            <div class="my-row ">
+                <label class="container">
+                    <input class="uk-radio" type="radio" checked="checked" name="domainSubmit">
+                    <span class="checkmark"></span>
+                    ثبت دامنه جدید
+                </label>
+            </div>
+            <div class="domainName my-row ">
+                <content class="nameInputs">
+                    <select>
+                        <option value="0">ir. </option>
+                        <option value="1">com. </option>
+                        <option value="2">net.</option>
+                    </select>
+                    <input type="text" />
+                    <input class="ww" disabled placeholder=".WWW" />
+                </content>
+                <content>
+                    <button class="ServiceButton ">ثبت</button>
+                </content>
+            </div>
+            <div class="my-row ">
+                <label class="container">
+                    <input class="uk-radio" type="radio" name="domainSubmit">
+                    <span class="checkmark"></span>
+                    انتقال دامنه از دیگر شرکت ها
+                </label>
+            </div>
+            <div class="domainName my-row">
+                <content class="nameInputs">
+                    <select>
+                        <option value="0">ir. </option>
+                        <option value="1">com. </option>
+                        <option value="2">net.</option>
+                    </select>
+                    <input type="text" />
+                    <input disabled placeholder=".WWW" />
+                </content>
+                <content>
+                    <button class="ServiceButton ">ثبت</button>
+                </content>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -91,6 +91,7 @@
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />

@@ -178,6 +178,12 @@
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\category.css">
+      <DependentUpon>category.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\category.min.css">
+      <DependentUpon>category.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
     </Content>
@@ -1791,6 +1797,13 @@
     <Content Include="img\Home\footer-background-011.jpg" />
     <Content Include="img\Home\footerRibbon.png" />
     <Content Include="img\Home\gridbackground.png" />
+    <Content Include="img\Home\Host\domain.jpg" />
+    <Content Include="img\Home\Host\hardware.png" />
+    <Content Include="img\Home\Host\linuxhosting.png" />
+    <Content Include="img\Home\Host\software.png" />
+    <Content Include="img\Home\Host\softwarePackage.jpg" />
+    <Content Include="img\Home\Host\traffic.png" />
+    <Content Include="img\Home\Host\Web-Hosting.png" />
     <Content Include="img\Home\online-education.jfif" />
     <Content Include="img\Home\online-training.jpg" />
     <Content Include="img\Home\web-design-1.png" />
@@ -1902,6 +1915,9 @@
     <Content Include="img\login\Svg\Group 98.svg" />
     <Content Include="img\Home\digital-marketing.svg" />
     <Content Include="img\Home\svg\WorkFlow.svg" />
+    <Content Include="img\Home\Host\Hero-host.svg" />
+    <Content Include="Content\Styles\category.scss" />
+    <Content Include="img\Home\Host\plus.png" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3101,6 +3117,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\SubmitDomain.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

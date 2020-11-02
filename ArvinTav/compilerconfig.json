@@ -14,5 +14,13 @@
   {
     "outputFile": "Content/Styles/LoginRegister.css",
     "inputFile": "Content/Styles/LoginRegister.scss"
+  },
+  {
+    "outputFile": "Content/Styles/Host.css",
+    "inputFile": "Content/Styles/Host.scss"
+  },
+  {
+    "outputFile": "Content/Styles/category.css",
+    "inputFile": "Content/Styles/category.scss"
   }
 ]

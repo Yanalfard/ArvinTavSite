@@ -14,5 +14,29 @@ namespace ArvinTav.Controllers
         {
             return View();
         }
+
+        [Route("Category/{ID?}")]
+        public ActionResult Category(int? ID)
+        {
+            return View();
+        }
+
+        [Route("Products/{ID?}")]
+        public ActionResult Products(int? ID)
+        {
+            return View();
+        }
+
+        [Route("Product/{ID?}")]
+        public ActionResult Product(int? ID)
+        {
+            return View();
+        }
+
+        [Route("SubmitDomain/{ID?}")]
+        public ActionResult SubmitDomain(int? ID)
+        {
+            return View();
+        }
     }
 }

@@ -94,9 +94,13 @@
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
     <Compile Include="Models\ViewModel\User\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ViewModel\User\PushAccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ShortRegisterViewModel.cs" />
+=======
+    <Compile Include="Models\ViewModel\RegisterViewModel.cs" />
+>>>>>>> caa53eaa4bd4345ce797da0e9ce2fda8590d31cb
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />

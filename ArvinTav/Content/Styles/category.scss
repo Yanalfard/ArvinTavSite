@@ -1,0 +1,542 @@
+﻿@import '_layout.scss';
+@import '_colors.scss';
+@import '_global.scss';
+
+.cover {
+    img {
+        width: 600px !important;
+    }
+}
+/*main category page style region*/
+.hostSection {
+    /*about linux region*/
+    .Services {
+        margin-top: 20px;
+        display: flex;
+
+        div {
+            flex: 1;
+
+            h2 {
+                color: #5cb152;
+                font-family: Sahel !important;
+                font-size: 24px;
+                overflow: hidden;
+            }
+
+            p {
+                margin-top: 0 !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 6; //number of lines to show
+                -webkit-box-orient: vertical;
+                text-align: justify;
+                -ms-text-justify: kashida;
+                text-justify: kashida;
+            }
+        }
+
+        .MobileSize {
+            display: none;
+            height: 180px;
+            width: 200px;
+        }
+
+        img {
+            flex: 1;
+            height: 250px;
+            width: 150px;
+        }
+    }
+
+    @media only screen and (max-device-width: 600px) {
+        .Services {
+            display: contents !important;
+
+            div {
+                h2 {
+                    color: #5cb152;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+
+                p {
+                    margin-top: 0 !important;
+                    -webkit-line-clamp: 10; //number of lines to show
+                    -webkit-box-orient: vertical;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+
+            .MobileSize {
+                display: flex !important;
+            }
+
+            .DesktopSize {
+                display: none;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .Services {
+            display: contents !important;
+
+            div {
+
+
+                h2 {
+                    color: #5cb152;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+
+                p {
+                    margin-top: 0 !important;
+                    -webkit-line-clamp: 10; //number of lines to show
+                    -webkit-box-orient: vertical;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+
+            .MobileSize {
+                display: flex !important;
+            }
+
+            .DesktopSize {
+                display: none;
+            }
+        }
+    }
+    /*#endregion */
+    .hostType {
+        .mat {
+            background: #f7ffea !important;
+
+            h4 {
+                font-family: Sahel;
+                overflow: hidden;
+            }
+
+            p {
+                -webkit-box-orient: vertical;
+                text-align: justify;
+                -ms-text-justify: kashida;
+                text-justify: kashida;
+            }
+
+            border-radius: 14px;
+            margin: 20px;
+
+            li {
+                padding-bottom: 10px;
+
+                i {
+                    padding-left: 8px;
+                }
+            }
+
+            button {
+                width: 150px;
+                padding: 8px;
+                font-size: 14px;
+                float: left !important;
+            }
+        }
+    }
+
+    @media only screen and (max-device-width: 600px) {
+        p, ul {
+            font-size: 12px !important;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        p, ul {
+            font-size: 12px !important;
+        }
+    }
+}
+/*end region*/
+/*products page style region*/
+.productsSection {
+    .GridBackground {
+        margin-top: 60px;
+        margin-bottom: 60px !important;
+    }
+    /*#host-region */
+    .grid {
+        h4, ul {
+            padding-top: 20px;
+            font-family: Sahel !important;
+        }
+
+        li {
+            padding-bottom: 10px;
+
+            i {
+                padding-left: 8px;
+            }
+
+            a {
+                color: #555;
+            }
+
+            a:hover {
+                text-decoration: none;
+                color: #1E87F0;
+            }
+        }
+
+        @include grid-gap(200px,5em);
+        padding: 20px 2vw;
+
+        ul {
+            list-style-type: none !important;
+        }
+
+        .mat {
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #0DA574;
+        }
+
+        .ServiceButton {
+            width: 130px;
+            padding: 5px;
+            font-size: 14px;
+            margin-right: 38px !important;
+            margin-top: 20px;
+        }
+    }
+}
+/*end region*/
+/*product page style region*/
+.productSection {
+    .Services {
+        margin-top: 120px;
+        display: flex;
+
+        div {
+            flex: 1;
+
+            h2 {
+                color: #5cb152;
+                font-family: Sahel !important;
+                font-size: 24px;
+                overflow: hidden;
+            }
+
+            p {
+                margin-top: 0 !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 6; //number of lines to show
+                -webkit-box-orient: vertical;
+                text-align: justify;
+                -ms-text-justify: kashida;
+                text-justify: kashida;
+            }
+        }
+
+        .MobileSize {
+            display: none;
+            height: 180px;
+            width: 200px;
+        }
+
+        img {
+            flex: 1;
+            height: 260px;
+            width: 200px !important;
+        }
+    }
+
+    @media only screen and (max-device-width: 600px) {
+        .Services {
+            display: contents !important;
+
+            div {
+                h2 {
+                    color: #5cb152;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    margin-top: 48px !important;
+                }
+
+                p {
+                    margin-top: 0 !important;
+                    -webkit-line-clamp: 10; //number of lines to show
+                    -webkit-box-orient: vertical;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+
+            .MobileSize {
+                display: flex !important;
+            }
+
+            .DesktopSize {
+                display: none;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .Services {
+            display: contents !important;
+
+
+            div {
+
+
+                h2 {
+                    color: #5cb152;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    margin-top: 48px !important;
+                }
+
+                p {
+                    margin-top: 0 !important;
+                    -webkit-line-clamp: 10; //number of lines to show
+                    -webkit-box-orient: vertical;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+
+            .MobileSize {
+                display: flex !important;
+            }
+
+            .DesktopSize {
+                display: none;
+            }
+        }
+    }
+
+    .attrTitle {
+        img {
+            width: 66px;
+            height: 66px;
+            margin-left: 10px;
+        }
+
+        background: #d8f6d4;
+        margin-right: 60px;
+        margin-left: 60px;
+        padding: 8px 30px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .attrTitle {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+    }
+
+    .hostProperty {
+        div {
+            padding: 8px;
+        }
+
+        margin-top: 10px;
+
+        i {
+            margin-top: 3px !important;
+        }
+    }
+
+    .grid {
+        margin-top: 30px;
+        @include grid-gap(180px,3em);
+        padding: 20px 2vw;
+
+        .mat {
+            width: 180px;
+            border-radius: 10px;
+            background: #d8f6d4;
+        }
+    }
+
+    .period {
+        margin-right: 72px;
+        margin-left: 40px;
+        padding: 8px 30px;
+
+        #periodOfservice {
+            width: 300px !important;
+            padding: 3px !important;
+            font-size: 14px;
+        }
+
+        .price {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        button {
+            width: 100px !important;
+            font-size: 14px;
+            margin-right: auto !important;
+            float: left;
+        }
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        .period {
+            @include column();
+            @include center();
+            @include my-clipped();
+
+            .price {
+                margin-right: auto !important;
+            }
+
+            #periodOfservice {
+                width: 138px !important;
+                padding: 2px !important;
+                margin-top: 3px;
+                margin-right: 10px !important;
+            }
+
+            button {
+                margin: auto !important;
+                margin-top: 30px !important;
+            }
+        }
+    }
+
+    .detailTtable {
+        padding: 30px 60px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .detailTtable {
+            padding: 30px 20px;
+        }
+    }
+}
+/*end region*/
+
+/*software package region*/
+.softwarePackage {
+
+    button {
+        width: 100px !important;
+        font-size: 14px;
+    }
+
+    .price {
+        margin-top: 5px;
+        margin-left: 16px;
+    }
+}
+/*end region*/
+/*submitDomain region*/
+.submitDomain {
+    .domainBackground {
+        * {
+            overflow: visible !important;
+        }
+
+        padding: 20px;
+        width: 1100px;
+        background: #f7ffea !important;
+        /*background-image: url('../../img/Home/gridbackground.png') !important;*/
+        hr {
+            border: 1px solid #bcdcb9 !important;
+        }
+
+        h5 {
+            text-align: right !important;
+            font-family: Sahel !important;
+            overflow: hidden;
+            padding-right: 20px;
+        }
+
+        label {
+            text-align: right !important;
+            font-family: Sahel !important;
+            //overflow: hidden;
+            padding: 10px;
+
+            input {
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+            }
+
+            .uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked {
+                background-color: #6CB962;
+            }
+        }
+
+        .domainName {
+            margin-right: auto;
+            margin-left: 10px;
+            margin-top: 22px;
+            margin-bottom: 22px;
+
+            input, select {
+                margin-left: 5px;
+            }
+        }
+
+        .ServiceButton {
+            width: 80px;
+            padding: 2px;
+            font-size: 14px;
+            border-radius: 2px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .submitDomain {
+        .domainBackground {
+            width: 72vw;
+            padding: 8px !important;
+        }
+
+        .domainName {
+            * {
+                overflow: visible;
+            }
+
+            width: 100% !important;
+            @include column();
+            @include center();
+            line-height: 0.2;
+
+            .nameInputs {
+                padding: 28px 5px !important;
+
+                input, select {
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    width: 49px;
+                    padding: 2px 8px;
+                }
+            }
+
+            .ServiceButton {
+                margin-right: 0px !important;
+                margin-left: 0px !important;
+                margin-top: 5px;
+                width: 100% !important;
+            }
+        }
+    }
+}
+/*end region*/

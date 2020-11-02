@@ -26,13 +26,9 @@ namespace DataLayer
         public string Image { get; set; }
 
         [Display(Name = "قیمت")]
-        [MaxLength(100)]
-        [MinLength(2)]
         public int Price { get; set; }
 
         [Display(Name = "تعداد سفارش")]
-        [MaxLength(100)]
-        [MinLength(2)]
         public int? OrderCount { get; set; }
 
         public virtual ServiceCategory ServiceCategory { get; set; }

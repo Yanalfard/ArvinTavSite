@@ -13,8 +13,6 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "زمان انقضاء هاست : 1:سه ماه 2:شش ماه 3:یکسال")]
-        [MaxLength(200, ErrorMessage = "صحیح نیست")]
-        [MinLength(2, ErrorMessage = "صحیح نیست")]
         public int ExpirationHostSide { get; set; }
         
         [Display(Name ="نام دامنه")]

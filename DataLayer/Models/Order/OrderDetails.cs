@@ -13,8 +13,6 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "قیمت")]
-        [MaxLength(500)]
-        [MinLength(2)]
         public int Price { get; set; }
 
         [Display(Name = " سمت : 1:میزبانی 2:بسته نرم افزاری 3:دامنه")]

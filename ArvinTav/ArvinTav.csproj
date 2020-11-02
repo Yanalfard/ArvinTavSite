@@ -3072,6 +3072,9 @@
     <Compile Include="Classes\GoogleRechapcha.cs" />
     <Compile Include="Classes\GoogleRechapchaControl.cs" />
     <Compile Include="Classes\PersianConverterDateTime.cs" />
+    <Compile Include="Classes\RoleEngine.cs" />
+    <Compile Include="Classes\Security.cs" />
+    <Compile Include="Classes\Sms.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

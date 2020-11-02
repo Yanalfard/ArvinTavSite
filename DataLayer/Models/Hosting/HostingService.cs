@@ -48,8 +48,6 @@ namespace DataLayer
         public int AnnuallyCost { get; set; }
 
         [Display(Name = "تعداد سفارش")]
-        [MaxLength(100)]
-        [MinLength(2)]
         public int? OrderCount { get; set; }
 
         [Display(Name = "جزئیات")]

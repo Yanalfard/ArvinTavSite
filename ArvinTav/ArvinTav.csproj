@@ -147,6 +147,7 @@
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\favicon.ico" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\InnerTicket.cshtml" />
@@ -176,12 +177,6 @@
     </Content>
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\category.css">
-      <DependentUpon>category.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\category.min.css">
-      <DependentUpon>category.css</DependentUpon>
     </Content>
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
@@ -1796,13 +1791,6 @@
     <Content Include="img\Home\footer-background-011.jpg" />
     <Content Include="img\Home\footerRibbon.png" />
     <Content Include="img\Home\gridbackground.png" />
-    <Content Include="img\Home\Host\domain.jpg" />
-    <Content Include="img\Home\Host\hardware.png" />
-    <Content Include="img\Home\Host\linuxhosting.png" />
-    <Content Include="img\Home\Host\software.png" />
-    <Content Include="img\Home\Host\softwarePackage.jpg" />
-    <Content Include="img\Home\Host\traffic.png" />
-    <Content Include="img\Home\Host\Web-Hosting.png" />
     <Content Include="img\Home\online-education.jfif" />
     <Content Include="img\Home\online-training.jpg" />
     <Content Include="img\Home\web-design-1.png" />
@@ -1890,18 +1878,16 @@
     <Content Include="Areas\Admin\Views\Festival\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Festival\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\HomeSetting\P_SliderCreate.cshtml" />
-    <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
     <Content Include="Areas\User\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\User\Views\Dashboard\MyProfile.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
-    <Content Include="Areas\User\Views\Shared\P_UserBox.cshtml" />
-    <Content Include="Areas\User\Views\Ticket\Index.cshtml" />
-    <Content Include="Areas\User\Views\Ticket\Create.cshtml" />
     <Content Include="Areas\User\Views\Order\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
     <Content Include="Areas\User\Views\Order\P_List.cshtml" />
+    <Content Include="Areas\User\Views\Shared\P_UserBox.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\Create.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\User\Views\Ticket\P_List.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1926,9 +1912,6 @@
     <Content Include="img\login\Svg\Group 98.svg" />
     <Content Include="img\Home\digital-marketing.svg" />
     <Content Include="img\Home\svg\WorkFlow.svg" />
-    <Content Include="img\Home\Host\Hero-host.svg" />
-    <Content Include="Content\Styles\category.scss" />
-    <Content Include="img\Home\Host\plus.png" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -1947,12 +1930,6 @@
     <Content Include="Scripts\UIScripts\Global.js" />
     <Content Include="Test.html" />
     <Content Include="Tools\Auto_Formatting_Currency.js" />
-    <Content Include="Tools\Chart\Chart.bundle.js" />
-    <Content Include="Tools\Chart\Chart.bundle.min.js" />
-    <Content Include="Tools\Chart\Chart.css" />
-    <Content Include="Tools\Chart\Chart.js" />
-    <Content Include="Tools\Chart\Chart.min.css" />
-    <Content Include="Tools\Chart\Chart.min.js" />
     <Content Include="Tools\ckeditor\adapters\jquery.js" />
     <Content Include="Tools\ckeditor\build-config.js" />
     <Content Include="Tools\ckeditor\CHANGES.html" />
@@ -3069,8 +3046,6 @@
     <Content Include="Tools\ckeditor\_source\skins\v2\templates.css" />
     <Content Include="Tools\ckeditor\_source\skins\v2\toolbar.css" />
     <Content Include="Tools\ckeditor\_source\themes\default\theme.js" />
-    <Content Include="Tools\Input_Formatting_Currency.js" />
-    <Content Include="Tools\Span_Formatting_Currency.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3097,12 +3072,8 @@
     <Compile Include="Classes\GoogleRechapcha.cs" />
     <Compile Include="Classes\GoogleRechapchaControl.cs" />
     <Compile Include="Classes\PersianConverterDateTime.cs" />
-    <Compile Include="Classes\RoleEngine.cs" />
-    <Compile Include="Classes\Security.cs" />
-    <Compile Include="Classes\Sms.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3144,19 +3115,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Account\Active.cshtml" />
-    <Content Include="Views\Account\Success.cshtml" />
-    <Content Include="Views\Account\ForgetPassword.cshtml" />
-    <Content Include="Views\Account\PushForgetPassword.cshtml" />
-    <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
-    <Content Include="Views\Home\Erorr.cshtml" />
-=======
     <Content Include="Views\Home\Category.cshtml" />
-    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\Erorr.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\SubmitDomain.cshtml" />
->>>>>>> caa53eaa4bd4345ce797da0e9ce2fda8590d31cb
+    <Content Include="Views\Home\Products.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

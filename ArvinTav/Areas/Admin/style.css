@@ -1797,3 +1797,18 @@ table.hot-download td {
     border: 1px solid #ddd;
     border-radius: 3px;
 }
+
+.textarea-max-height-90{
+    max-height:90px !important;
+}
+.bg-costum {
+    background: #c1e5b0 !important;
+}
+.justify-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    text-align: justify;
+    -ms-text-justify: kashida;
+    text-justify: kashida;
+}

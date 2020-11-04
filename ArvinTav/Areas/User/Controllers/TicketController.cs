@@ -33,6 +33,11 @@ namespace ArvinTav.Areas.User.Controllers
             return PartialView();
         }
 
+        public ActionResult P_InnerTicket()
+        {
+            return PartialView();
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -45,6 +50,8 @@ namespace ArvinTav.Areas.User.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateTicketInUser createTicketInUser, HttpPostedFileBase File)
         {
+            ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+            ViewBag.OrderDetails = orderRepository.AllOrderForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Select(o => o.OrderDetails);
             return View();
         }
     }

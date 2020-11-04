@@ -149,7 +149,7 @@ namespace ArvinTav.Controllers
             else
             {
                 userRepository.ActiveAccount(pushAccountActiveViewModel);
-                return RedirectToAction("SuccessAccount");
+                return RedirectToAction("Success");
             }
         }
 

@@ -1,94 +1,109 @@
 ﻿@model DataLayer.CreateTicketInUser
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "افزودن تیکت";
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>CreateTicketInUser</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+                <h5 class="mb-0 mr-2 text-primary">افزودن تیکت جدید</h5>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TicketCategory, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <select name="TicketCategory">
-                    <option value="0"></option>
-                    @foreach (var item in ViewBag.TicketCategory)
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex">
+                    @using (Html.BeginForm())
                     {
-                        <option value="@item.ID">@item.Title</option>
+                        @Html.AntiForgeryToken()
+                        <div class="form-row col-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TicketCategory, htmlAttributes: new { @class = "control-label " })
+                                <div class="form-group ml-4">
+                                    <select name="TicketCategory" class="form-control form-control-sm ">
+                                        <option value="0">انتخاب کنید</option>
+                                        @foreach (var item in ViewBag.TicketCategory)
+                                        {
+                                            <option value="@item.ID">@item.Title</option>
+                                        }
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.TicketCategory, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.OrderDetails, htmlAttributes: new { @class = "control-label " })
+                                <div class="form-group ">
+                                    <select name="OrderDetails" class="form-control form-control-sm">
+                                        <option value="0">انتخاب کنید</option>
+                                        @foreach (var item in ViewBag.OrderDetails)
+                                        {
+                                            <option value="@item.ID">
+                                                @if (item.SideID == 1)
+                                                {
+                                                    @item.HostingOrder.HostingService.Title
+
+                                                }
+                                                else if (item.SideID == 2)
+                                                {
+                                                    @item.PackageService.Title
+
+                                                }
+                                                else if (item.SideID == 3)
+                                                {
+                                                    @item.DomainServiceOrder.DomainName
+                                                }
+                                            </option>
+                                        }
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.OrderDetails, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <div class="form-row">
+
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
+                                            <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control textarea-max-height-90 ", @placeholder = "متن را وارد کنید" } })
+                                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white justify-content-end ">
+                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+                                <input type="submit" value="افزودن" class="btn btn-success btn-sm float-left " />
+                                <div class="btn btn-primary btn-sm float-left ml-3">
+                                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "text-white" })
+                                </div>
+                            </div>
+                        </div>
                     }
-                </select>
-                @Html.ValidationMessageFor(model => model.TicketCategory, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OrderDetails, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <select name="OrderDetails">
-                    @foreach (var item in ViewBag.OrderDetails)
-                    {
-                        <option value="@item.ID">
-                            @if (item.SideID == 1)
-                            {
-                                @item.HostingOrder.HostingService.Title
-
-                            }
-                            else if (item.SideID == 2)
-                            {
-                                @item.PackageService.Title
-
-                            }
-                            else if (item.SideID == 3)
-                            {
-                                @item.DomainServiceOrder.DomainName
-                            }
-                        </option>
-                    }
-                </select>
-                @Html.ValidationMessageFor(model => model.OrderDetails, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="File" />
-                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

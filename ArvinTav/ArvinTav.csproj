@@ -178,6 +178,8 @@
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\category.css" />
+    <Content Include="Content\Styles\category.min.css" />
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
     </Content>
@@ -1782,6 +1784,7 @@
     <Content Include="fonts\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\Admin\logo\ArvinTavLogo.svg" />
+    <Content Include="img\Admin\userPro.png" />
     <Content Include="img\gif\load.gif" />
     <Content Include="img\Home\background-footer.png" />
     <Content Include="img\Home\cover.jpg" />
@@ -1797,6 +1800,7 @@
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
     <Content Include="img\Home\web-design-2.png" />
+    <Content Include="img\login\done.png" />
     <Content Include="img\login\login2.png" />
     <Content Include="img\login\login.jpg" />
     <Content Include="img\login\log-in.jpg" />
@@ -1888,6 +1892,9 @@
     <Content Include="Areas\User\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\User\Views\Ticket\P_List.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Ticket\P_InnerTicket.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1912,6 +1919,7 @@
     <Content Include="img\login\Svg\Group 98.svg" />
     <Content Include="img\Home\digital-marketing.svg" />
     <Content Include="img\Home\svg\WorkFlow.svg" />
+    <Content Include="Content\Styles\category.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3128,6 +3136,11 @@
     <Content Include="Views\Shared\P_SubCategory.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Account\Active.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
+    <Content Include="Views\Account\PushForgetPassword.cshtml" />
+    <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
+    <Content Include="Views\Account\Success.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

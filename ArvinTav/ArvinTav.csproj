@@ -3046,6 +3046,8 @@
     <Content Include="Tools\ckeditor\_source\skins\v2\templates.css" />
     <Content Include="Tools\ckeditor\_source\skins\v2\toolbar.css" />
     <Content Include="Tools\ckeditor\_source\themes\default\theme.js" />
+    <Content Include="Tools\Input_Formatting_Currency.js" />
+    <Content Include="Tools\Span_Formatting_Currency.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3120,8 +3122,11 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Home\Erorr.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\SubmitDomain.cshtml" />
+    <Content Include="Views\Shared\P_MainCategory.cshtml" />
+    <Content Include="Views\Shared\P_ChildCategory.cshtml" />
+    <Content Include="Views\Shared\P_SubCategory.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Products.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

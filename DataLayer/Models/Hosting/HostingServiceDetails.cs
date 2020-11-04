@@ -14,12 +14,10 @@ namespace DataLayer
 
         [Display(Name = "متن")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "پاسخ")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Response { get; set; }
 
         [Display(Name = "موضوع = 1:سخت افزار 2:نرم افزار 3:بیشتر")]

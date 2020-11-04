@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DataLayer.ServiceCategory>
+@foreach (var item in Model)
+{
+    <ul class="uk-nav uk-dropdown-nav uk-padding">
+
+        <li class="uk-nav-header"><a href="/Category/@item.ID">@item.Title</a></li>
+        <li class="uk-nav-divider"></li>
+        @Html.Action("P_SubCategory", "Home", new { ID = item.ID })
+
+    </ul>
+}

@@ -29,7 +29,6 @@ namespace DataLayer
 
         [Display(Name = "تعداد سایت قابل میزبانی")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Sites_Be_Hosted { get; set; }
 
         [Display(Name = "SSL رایگان")]

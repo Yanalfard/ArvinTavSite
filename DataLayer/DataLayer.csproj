@@ -59,6 +59,14 @@
     <Compile Include="Migrations\202011020755056_initialdb.designer.cs">
       <DependentUpon>202011020755056_initialdb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011040656599_edithstingservicetbl.cs" />
+    <Compile Include="Migrations\202011040656599_edithstingservicetbl.designer.cs">
+      <DependentUpon>202011040656599_edithstingservicetbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011040702277_edithostingdetails.cs" />
+    <Compile Include="Migrations\202011040702277_edithostingdetails.designer.cs">
+      <DependentUpon>202011040702277_edithostingdetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\Domain\DomainService.cs" />
@@ -84,6 +92,7 @@
     <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\Ticket\TicketCategory.cs" />
     <Compile Include="Models\User\User.cs" />
+    <Compile Include="Models\ViewModel\Ui\ChildCategoryINViewViewmodel.cs" />
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateTicketInUser.cs" />
     <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
@@ -91,6 +100,7 @@
     <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\OrderPathViewModel.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
@@ -98,6 +108,8 @@
     <Compile Include="Models\ViewModel\Statistic\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\TicketExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
+    <Compile Include="Models\ViewModel\Ui\OrdrPathViewModel.cs" />
+    <Compile Include="Models\ViewModel\Ui\SubmitDomainViewModel.cs" />
     <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
@@ -115,6 +127,7 @@
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPackageRepository.cs" />
     <Compile Include="Repository\IPartnerRepository.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
     <Compile Include="Repository\ISliderRepository.cs" />
@@ -131,6 +144,7 @@
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\PackageRepository.cs" />
     <Compile Include="Services\PartnerRepository.cs" />
+    <Compile Include="Services\ProductRepository.cs" />
     <Compile Include="Services\ProjectRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
     <Compile Include="Services\SliderRepository.cs" />
@@ -143,15 +157,19 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Seo\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="bin\Debug\DataLayer.dll" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011020755056_initialdb.resx">
       <DependentUpon>202011020755056_initialdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011040656599_edithstingservicetbl.resx">
+      <DependentUpon>202011040656599_edithstingservicetbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011040702277_edithostingdetails.resx">
+      <DependentUpon>202011040702277_edithostingdetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,10 @@
-﻿
+﻿@model DataLayer.SubmitDomainViewModel
 @{
     ViewBag.Title = "SubmitDomain";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
-
+<input type="hidden" id="HostingID" value="@Model.HostingService.ID" />
+<input type="hidden" id="PeriodOfService" value="@Model.PeriodOfService" />
 <div class="submitDomain my-column my-clipped ">
     <div class="uk-margin-auto-right uk-margin-auto-left uk-margin-auto-top uk-margin-auto-bottom cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
         <img class="uk-margin-auto uk-margin-top center" src="~/img/Home/Host/domain.jpg" />
@@ -22,12 +23,13 @@
             <div class="domainName my-row ">
                 <content class="nameInputs">
                     <select>
-                        <option value="0">ir. </option>
-                        <option value="1">com. </option>
-                        <option value="2">net.</option>
+                        @foreach (var item in Model.domainServices)
+                        {
+                            <option value="@item.ID">@item.Suffix.</option>
+                        }
                     </select>
                     <input type="text" />
-                    <input class="ww" disabled placeholder=".WWW" />
+                    <input class="ww" disabled placeholder=".www" />
                 </content>
                 <content>
                     <button class="ServiceButton ">ثبت</button>
@@ -42,16 +44,11 @@
             </div>
             <div class="domainName my-row">
                 <content class="nameInputs">
-                    <select>
-                        <option value="0">ir. </option>
-                        <option value="1">com. </option>
-                        <option value="2">net.</option>
-                    </select>
                     <input type="text" />
-                    <input disabled placeholder=".WWW" />
+                    <input disabled placeholder=".www" />
                 </content>
                 <content>
-                    <button class="ServiceButton ">ثبت</button>
+                    <button class="ServiceButton">ثبت</button>
                 </content>
             </div>
         </div>

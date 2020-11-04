@@ -1,0 +1,6 @@
+﻿@model IEnumerable<DataLayer.ServiceCategory>
+
+@foreach (var item in Model)
+{
+    <li><a href="/products/@item.ID">@item.Title</a></li>
+}

@@ -10,8 +10,6 @@ namespace DataLayer
     {
         private ArvinContext db;
         private IServiceCategoryRepository ServiceCategoryRepository;
-
-
         public HostingRepository(ArvinContext arvinContext)
         {
             this.db = arvinContext;
@@ -166,6 +164,9 @@ namespace DataLayer
             HostingService hostingService = HostingServiceById(ID);
             hostingService.ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
             hostingService.Title = Title;
+
+            db.products.Where(p => p.HostingService.ID == hostingService.ID).SingleOrDefault().ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
+
             if (FreeSSL == 1)
             {
                 hostingService.FreeSSL = true;

@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.Product
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -6,124 +6,147 @@
 
 <div class="productSection">
 
-    <div class="my-column my-clipped" dir="rtl">
-        <content class="Services my-row uk-padding">
-            <div class="my-column my-clipped" dir="rtl">
-                <h2>Linux 102</h2>
-                <img class="center MobileSize " src="~/img/Home/Host/linuxhosting.png" />
-                <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
+    @if (Model.SideID == 1)
+    {
+        <div class="my-column my-clipped" dir="rtl">
+            <content class="Services my-row uk-padding">
+                <div class="my-column my-clipped" dir="rtl">
+                    <h2>@Model.HostingService.Title</h2>
+                </div>
+            </content>
+        </div>
+
+        <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/Web-Hosting.png" />مشخصات هاست </div>
+        <div class="hostProperty my-column my-clipped" dir="rtl">
+            <div class="my-row">
+                <i class="far fa-chart-bar uk-text-primary uk-margin-small-left"></i>
+                <label>ترافیک ماهانه: @Model.HostingService.Monthly_Traffic</label>
+                <span></span>
             </div>
-            <img class="DesktopSize" src="~/img/Home/Host/linuxhosting.png" />
-        </content>
-    </div>
-
-    <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/Web-Hosting.png" />مشخصات هاست </div>
-    <div class="hostProperty my-column my-clipped" dir="rtl">
-        <div class="my-row">
-            <i class="far fa-chart-bar uk-text-primary uk-margin-small-left"></i>
-            <label>ترافیک ماهانه:</label>
-            <span></span>
-        </div>
-        <div class="my-row">
-            <i class="fas fa-server uk-text-primary uk-margin-small-left"></i>
-            <label>فضا:</label>
-            <span></span>
-        </div>
-        <div class="my-row ">
-            <i class="fas fa-sitemap uk-text-primary uk-margin-small-left"></i>
-            <label>تعداد سایت قابل میزبانی:</label>
-            <span></span>
-        </div>
-        <div class="my-row">
-            <i class="fas fa-check-square uk-text-success uk-margin-small-left"></i>
-            <label>SSL رایگان</label>
-        </div>
-        <div class="my-row">
-            <i class="fas fa-check-square uk-text-success uk-margin-small-left"></i>
-            <label>پشتیبانی 24 ساعته</label>
-        </div>
-
-    </div>
-    <div class="my-row period uk-margin-large-top" dir="rtl">
-        <content class="my-row ">
-            <select id="periodOfservice" dir="rtl">
-                <option value="3">3 ماهه </option>
-                <option value="6">6 ماهه </option>
-                <option value="9">سالانه</option>
-            </select>
-            <div class="price uk-margin-right my-row ">
-                <label>452000</label>
-                <span>تومان</span>
+            <div class="my-row">
+                <i class="fas fa-server uk-text-primary uk-margin-small-left"></i>
+                <label>فضا: @Model.HostingService.Space</label>
+                <span></span>
             </div>
-        </content>
-        <button class="ServiceButton ">ثبت و ادامه</button>
-    </div>
-    <div class="space"></div>
-    <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/hardware.png" />جزئیات سخت افزاری </div>
-    <div class="detailTtable">
-        <table class="uk-table  uk-table-striped" dir="rtl">
-            <tbody dir="rtl">
-                <tr>
-                    <td>متن1</td>
-                    <td>پاسخ 1</td>
-                </tr>
-                <tr>
-                    <td>متن2</td>
-                    <td>پاسخ 2</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/software.png" />جزئیات نرم افزاری </div>
-    <div class="detailTtable">
-        <table class="uk-table  uk-table-striped" dir="rtl">
-            <tbody dir="rtl">
-                <tr>
-                    <td>متن1</td>
-                    <td>پاسخ 1</td>
-                </tr>
-                <tr>
-                    <td>متن2</td>
-                    <td>پاسخ 2</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/plus.png" />جزئیات بیشتر </div>
-    <div class="detailTtable">
-        <table class="uk-table  uk-table-striped" dir="rtl">
-            <tbody dir="rtl">
-                <tr>
-                    <td>متن1</td>
-                    <td>پاسخ 1</td>
-                </tr>
-                <tr>
-                    <td>متن2</td>
-                    <td>پاسخ 2</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    @*software package region*@
-
-    <div class="softwarePackage my-column my-clipped" dir="rtl">
-        <content class="Services my-row uk-padding">
-            <div class="my-column my-clipped" dir="rtl">
-                <h2>بسته های نرم افزاری</h2>
-                <img class="center MobileSize " src="~/img/Home/Host/softwarePackage.jpg" />
-                <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
+            <div class="my-row ">
+                <i class="fas fa-sitemap uk-text-primary uk-margin-small-left"></i>
+                <label>تعداد سایت قابل میزبانی: @Model.HostingService.Sites_Be_Hosted</label>
+                <span></span>
             </div>
-            <img class="DesktopSize" src="~/img/Home/Host/softwarePackage.jpg" />
-        </content>
-        <div class="my-row uk-margin-auto-right">
-            <div class="price uk-margin-right my-row ">
-                <label>452000</label>
-                <span>تومان</span>
+            <div class="my-row">
+                <i class="fas fa-check-square uk-text-success uk-margin-small-left"></i>
+                <label>SSL رایگان</label>
             </div>
-            <button class="ServiceButton ">ثبت و ادامه</button>
+            <div class="my-row">
+                <i class="fas fa-check-square uk-text-success uk-margin-small-left"></i>
+                <label>پشتیبانی 24 ساعته</label>
+            </div>
+
         </div>
-    </div>
+        <div class="my-row period uk-margin-large-top" dir="rtl">
+            <content class="my-row ">
+                <select id="periodOfservice" dir="rtl">
+                    <option id="3" value="@Model.HostingService.threeMonthsCost">3 ماهه </option>
+                    <option id="6" value="@Model.HostingService.SixMonthsCost">6 ماهه </option>
+                    <option id="12" value="@Model.HostingService.AnnuallyCost">سالانه</option>
+                </select>
+                <div class="price uk-margin-right my-row">
+                    <span id="PriceSpan">@Model.HostingService.threeMonthsCost</span>
+                    <span>تومان</span>
+                </div>
+            </content>
+            <button onclick="ServiceButton(@Model.HostingService.ID)">ثبت و ادامه</button>
+        </div>
+        <div class="space"></div>
+        <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/hardware.png" />جزئیات سخت افزاری </div>
+        <div class="detailTtable">
+            <table class="uk-table  uk-table-striped" dir="rtl">
+                <tbody dir="rtl">
+                    @foreach (var item in Model.HostingService.HostingServiceDetails.Where(hd => hd.Kind == 1))
+                    {
+
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Response</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/software.png" />جزئیات نرم افزاری </div>
+        <div class="detailTtable">
+            <table class="uk-table  uk-table-striped" dir="rtl">
+                <tbody dir="rtl">
+                    @foreach (var item in Model.HostingService.HostingServiceDetails.Where(hd => hd.Kind == 2))
+                    {
+
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Response</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="attrTitle" dir="rtl"> <img src="~/img/Home/Host/plus.png" />جزئیات بیشتر </div>
+        <div class="detailTtable">
+            <table class="uk-table  uk-table-striped" dir="rtl">
+                <tbody dir="rtl">
+                    @foreach (var item in Model.HostingService.HostingServiceDetails.Where(hd => hd.Kind == 3))
+                    {
+
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Response</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (Model.SideID == 3)
+    {
+        <div class="softwarePackage my-column my-clipped" dir="rtl">
+            <content class="Services my-row uk-padding">
+                <div class="my-column my-clipped" dir="rtl">
+                    <h2>@Model.PackageService.Title</h2>
+                    <img class="center MobileSize " src="~/img/Home/Host/softwarePackage.jpg" />
+                    <p>
+                        @Html.Raw(Model.PackageService.Description)
+                    </p>
+                </div>
+                <img class="DesktopSize" src="~/Document/img/Package/@Model.PackageService.Image" />
+            </content>
+            <div class="my-row uk-margin-auto-right">
+                <div class="price uk-margin-right my-row ">
+                    <span id="PriceSpan">@Model.PackageService.Price</span>
+                    <span>تومان</span>
+                </div>
+                <button class="ServiceButton">ثبت و ادامه</button>
+            </div>
+        </div>
+    }
 
 </div>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Tools/Span_Formatting_Currency.js"></script>
+
+<script>
+    $("#periodOfservice").change(function () {
+        $("#PriceSpan").html($("#periodOfservice option:selected").val());
+        function thousands_separators(num) {
+            var num_parts = num.toString().split(".");
+            num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return num_parts.join(".");
+        }
+        $("#PriceSpan").html(thousands_separators($("#PriceSpan").html()));
+    });
+
+    function ServiceButton(HostingServiceID) {
+        window.location.href = "/SubmitDomain/" + HostingServiceID + "/" + $("#periodOfservice").children(":selected").attr("id");
+    }
+</script>

@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.ChildCategoryINViewViewmodel
 @{
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -12,48 +12,28 @@
     <div class="my-column my-clipped" dir="rtl">
         <content class="Services my-row uk-padding">
             <div class="my-column my-clipped" dir="rtl">
-                <h2>هاست لینوکس</h2>
-                <img class="center MobileSize " src="~/img/Home/Host/linuxhosting.png" />
-                <p> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
+                <h2>@Model.ServiceCategory.Title</h2>
+                <img class="center MobileSize " src="~/Document/img/Category/@Model.ServiceCategory.Image" />
+                <p>
+                    @Html.Raw(Model.ServiceCategory.Description)
+                </p>
             </div>
-            <img class="DesktopSize" src="~/img/Home/Host/linuxhosting.png" />
+            <img class="DesktopSize" src="~/Document/img/Category/@Model.ServiceCategory.Image" />
         </content>
     </div>
     <!--end region-->
     <div class="hostType my-clipped my-column uk-padding" dir="rtl">
-        <div class="mat uk-padding">
-            <h4>هاست معمولی</h4>
-            <p>طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر معمولی متن باشد</p>
-            <ul class="my-column uk-padding-remove" dir="rtl">
-                <li> <i class="fas fa-check uk-text-success"></i>ا گیگا بایت حجم</li>
-                <li><i class="fas fa-check uk-text-success"></i>70 گیگ ترافیک </li>
-                <li><i class="fas fa-check uk-text-success"></i>پشتیبانی رایگان</li>
-                <li><i class="fas fa-check uk-text-success"></i>دیتا سنتر پارس آنلاین</li>
-            </ul>
-            <button class="ServiceButton" onclick="window.location.href='/products'">مشاهده محصولات</button>
-        </div>
-        <div class="mat uk-padding">
-            <h4>هاست معمولی</h4>
-            <p>طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر معمولی متن باشد</p>
-            <ul class="my-column uk-padding-remove" dir="rtl">
-                <li> <i class="fas fa-check uk-text-success"></i>ا گیگا بایت حجم</li>
-                <li><i class="fas fa-check uk-text-success"></i>70 گیگ ترافیک </li>
-                <li><i class="fas fa-check uk-text-success"></i>پشتیبانی رایگان</li>
-                <li><i class="fas fa-check uk-text-success"></i>دیتا سنتر پارس آنلاین</li>
-            </ul>
-            <button class="ServiceButton margin-auto-left" onclick="window.location.href='/products'">مشاهده محصولات</button>
-        </div>
-        <div class="mat uk-padding">
-            <h4>هاست معمولی</h4>
-            <p>طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر معمولی متن باشد</p>
-            <ul class="my-column uk-padding-remove" dir="rtl">
-                <li> <i class="fas fa-check uk-text-success"></i>ا گیگا بایت حجم</li>
-                <li><i class="fas fa-check uk-text-success"></i>70 گیگ ترافیک </li>
-                <li><i class="fas fa-check uk-text-success"></i>پشتیبانی رایگان</li>
-                <li><i class="fas fa-check uk-text-success"></i>دیتا سنتر پارس آنلاین</li>
-            </ul>
-            <button class="ServiceButton" onclick="window.location.href='/products'">مشاهده محصولات</button>
-        </div>
+        @foreach (var item in Model.serviceCategories)
+        {
+            <div class="mat uk-padding">
+                <h4>@item.Title</h4>
+                <p>
+                    @Html.Raw(item.Description.Substring(0,100))
+                </p>
+                <a href="/products/@item.ID" class="ServiceButton">مشاهده محصولات</a>
+            </div>
+
+        }
     </div>
 
 

@@ -1,6 +1,7 @@
 ﻿@import '_layout.scss';
 @import '_colors.scss';
 @import '_global.scss';
+
 .GridBackground {
 
     * {
@@ -13,7 +14,8 @@
 .loginSection {
     .login {
         width: 180px !important;
-        margin: auto !important;
+        margin: auto 120px;
+        //margin-left: 130px !important;
     }
 
     input {
@@ -67,53 +69,109 @@
     }
 
     .checkbox {
-       // margin-top: 8px !important;
-        input{
+        // margin-top: 8px !important;
+        input {
             width: 50px !important;
-
         }
     }
 
     .register {
         width: 180px !important;
+        margin: auto 120px;
     }
 
+
     .grid {
-        @include grid-gap(300px, 1.0em);
+        @include grid-gap(800px, 1.0em);
         padding: 20px 2vw;
 
-
         .mat {
-            width: 300px !important;
+            width: 800px !important;
             border-radius: 5px !important;
             padding: 40px !important;
         }
 
-
         a {
             color: #0DA574;
+        }
+
+        content {
+            @include row();
         }
     }
 
     @media only screen and (max-device-width: 800px) {
+        .login {
+            margin: auto !important;
+        }
+
+        .register {
+            margin: auto !important;
+        }
+
         .grid {
+            @include grid-gap(300px, 1.0em);
+            padding: 20px 2vw;
 
             .mat {
-                padding: 30px 10px !important;
+                width: 300px !important;
+                border-radius: 5px !important;
+                padding: 30px 5px !important;
+            }
+
+            content {
+                @include column();
             }
         }
     }
 
     @media only screen and (max-width: 800px) {
         .grid {
+            @include grid-gap(300px, 1.0em);
+            padding: 20px 2vw;
 
             .mat {
-                padding: 30px 10px !important;
+                width: 300px !important;
+                border-radius: 5px !important;
+                padding: 30px 5px !important;
+            }
+
+            content {
+                @include column();
             }
         }
     }
 
-    button {
-        width: 120px;
+    .successNotification {
+
+        .mat {
+            width: 500px !important;
+
+
+            content {
+                @include column();
+            }
+        }
+
+        img {
+            height: 85px;
+            width: 85px;
+            margin: auto;
+        }
+
+        button {
+            padding: 5px;
+            width: 100px;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .successNotification {
+            .mat {
+                width: 300px !important;
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+            }
+        }
     }
 }

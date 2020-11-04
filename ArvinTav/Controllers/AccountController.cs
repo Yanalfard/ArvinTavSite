@@ -102,7 +102,6 @@ namespace ArvinTav.Controllers
                             shortRegisterViewModel.PhoneNumber = registerView.PhoneNumber;
                             shortRegisterViewModel.PassWord = Security.Cryptography(registerView.PassWord);
                             shortRegisterViewModel.AuthenticationCode = Security.Cryptography(Code);
-                            userRepository.ShortRegister(shortRegisterViewModel);
                             if (userRepository.ShortRegister(shortRegisterViewModel) == true)
                             {
                                 //Send Code In Sms
@@ -150,7 +149,7 @@ namespace ArvinTav.Controllers
             else
             {
                 userRepository.ActiveAccount(pushAccountActiveViewModel);
-                return RedirectToAction("SuccessAccount");
+                return RedirectToAction("Success");
             }
         }
 

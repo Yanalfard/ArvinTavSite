@@ -3,6 +3,15 @@
     ViewBag.Title = "Success";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
-<span class="uk-text-center">حساب کاربری شما تایید شد</span>
-<a href="/Account/Login">ورود</a>
+@*<span class="uk-text-center">حساب کاربری شما تایید شد</span>
+<a href="/Account/Login">ورود</a>*@
 
+<div class="GridBackground loginSection center">
+    <content class="grid successNotification" dir="rtl">
+        <div class="my-column my-clipped center uk-margin-xlarge-top mat">
+                <img src="~/img/login/done.png" />
+                <label class="uk-text-center uk-margin-auto-top uk-margin-auto-bottom uk-margin-small-right ">حساب کاربری شما تایید شد</label>     
+            <button class="uk-margin-auto-right uk-margin-auto-left" href="/Account/Login"onclick="window.location.href='/Account/Login'">ورود</button>
+        </div>
+    </content>
+</div>

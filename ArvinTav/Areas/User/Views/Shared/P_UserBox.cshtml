@@ -4,7 +4,14 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <div class="user-info">
             <span class="name pr-1">@Model.FullName</span>
-            <img src="~/Document/User/@Model.Image" height="50" width="50" />
+            @if (Model.Image != null)
+            {
+                <img src="~/Document/User/@Model.Image" height="50" width="50" />
+            }
+            else
+            {
+                <img src="~/img/Admin/userPro.png" height="50" width="50" />
+            }
             <i class="fas fa-chevron-down font-size-10"></i>
         </div>
     </a>

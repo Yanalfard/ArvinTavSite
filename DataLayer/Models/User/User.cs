@@ -51,7 +51,7 @@ namespace DataLayer
 
         [Display(Name = "تاریخ ثبت نام")]
         //[DataType(DataType.DateTime)]
-        public DateTime? SignUpTime { get; set; }
+        public DateTime SignUpTime { get; set; }
 
         [Display(Name = "تاریخ آخرین ورود")]
         //[DataType(DataType.DateTime)]
@@ -69,7 +69,7 @@ namespace DataLayer
         [Display(Name = "سفارشات")]
         public virtual List<Order> Orders { get; set; }
 
-        public virtual List<HostingOrder> HostingOrders { get; set; }
+        public virtual List<PackageService> PackageServices { get; set; }
 
         public List<Ticket> tickets { get; set; }
 

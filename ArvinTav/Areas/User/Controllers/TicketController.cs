@@ -42,7 +42,6 @@ namespace ArvinTav.Areas.User.Controllers
         public ActionResult Create()
         {
             ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-            ViewBag.OrderDetails = orderRepository.AllOrderForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Select(o => o.OrderDetails);
             return View();
         }
 
@@ -51,7 +50,6 @@ namespace ArvinTav.Areas.User.Controllers
         public ActionResult Create(CreateTicketInUser createTicketInUser, HttpPostedFileBase File)
         {
             ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-            ViewBag.OrderDetails = orderRepository.AllOrderForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Select(o => o.OrderDetails);
             return View();
         }
     }

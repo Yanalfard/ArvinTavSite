@@ -12,16 +12,9 @@ namespace ArvinTav.Controllers
         private ArvinContext db = new ArvinContext();
 
         private IServiceCategoryRepository serviceCategoryRepository;
-        private IProductRepository productRepository;
-        private IHostingRepository hostingRepository;
-        private IDomainRepository domainRepository;
-
         public HomeController()
         {
             serviceCategoryRepository = new ServiceCategoryRepository(db);
-            productRepository = new ProductRepository(db);
-            hostingRepository = new HostingRepository(db);
-            domainRepository = new DomainRepository(db);
         }
 
         // GET: Home
@@ -56,28 +49,6 @@ namespace ArvinTav.Controllers
             childCategoryINViewViewmodel.serviceCategories = serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories;
             return View(childCategoryINViewViewmodel);
         }
-
-        [Route("Products/{ID}")]
-        public ActionResult Products(int ID)
-        {
-            return View(productRepository.AllProduct().Where(p => p.ServiceCategory.ID == ID));
-        }
-
-        [Route("Product/{ID}")]
-        public ActionResult Product(int ID)
-        {
-            return View(productRepository.productById(ID));
-        }
-
-        [Route("SubmitDomain/{HostingServiceID}/{PeriodOfService}")]
-        public ActionResult SubmitDomain(int HostingServiceID, int PeriodOfService)
-        {
-            SubmitDomainViewModel submitDomainViewModel = new SubmitDomainViewModel();
-
-            submitDomainViewModel.HostingService = hostingRepository.HostingServiceById(HostingServiceID);
-            submitDomainViewModel.PeriodOfService = PeriodOfService;
-            submitDomainViewModel.domainServices = domainRepository.AllDomain(true);
-            return View(submitDomainViewModel);
-        }
+        
     }
 }

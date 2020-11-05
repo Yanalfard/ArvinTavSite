@@ -28,15 +28,14 @@ namespace DataLayer
 
         [Display(Name = "بخش مربوطه")]
         public virtual TicketCategory TicketCategory { get; set; }
-
-        [Display(Name = "سرویس مربوطه")]
-        public virtual OrderDetails OrderDetails { get; set; }
-
+        
         [Display(Name = "کاربر")]
         public virtual User User { get; set; }
 
         [Display(Name = "پشتیبان")]
         public virtual User Supporter { get; set; }
+
+        public virtual PackageService PackageService { get; set; }
 
         [Display(Name = "داخل تیکت")]
         public virtual List<InnerTicket> InnerTickets { get; set; }

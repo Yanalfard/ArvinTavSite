@@ -29,9 +29,8 @@ namespace DataLayer
         [Display(Name = "کاربر")]
         public virtual User User { get; set; }
 
-        [Display(Name = "جزئیات")]
-        public virtual List<OrderDetails> OrderDetails { get; set; }
-        
+        public virtual PackageService PackageService { get; set; }
+
         public Order()
         {
 

@@ -4,7 +4,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <div class="row flex-div">
     <div class="col-md-12 flex-div pb-3 pt-3">
         <div class="card flex-div border-0 main-shadow">
@@ -15,14 +14,14 @@
                             <div class="form-input col-md-5">
                                 <div class="form-inline">
                                     <div class="form-group mx-sm-1 mb-2">
-                                        <input id="TicketIDSearch" class="form-control form-control-sm" type="text" placeholder="کدتیکت" value="">
+                                        <input id="TicketIDSearch" class="form-control form-control-sm" type="text" placeholder="کدتیکت" value="@ViewBag.TicketIDSearch">
                                     </div>
                                     <div class="form-group mx-sm-1 mb-2">
                                         <select id="StatusSearch" class="form-control form-control-sm">
-                                            <option value="0" selected="">وضعیت</option>
-                                            <option value="1">باز نشده</option>
-                                            <option value="2">در حال بررسی</option>
-                                            <option value="3">تکمیل شده</option>
+                                            <option value="0" @(((int)ViewBag.StatusSearch == 0) ? "selected" : "")>وضعیت</option>
+                                            <option value="1" @(((int)ViewBag.StatusSearch == 1) ? "selected" : "")>باز نشده</option>
+                                            <option value="2" @(((int)ViewBag.StatusSearch == 2) ? "selected" : "")>در حال بررسی</option>
+                                            <option value="3" @(((int)ViewBag.StatusSearch == 3) ? "selected" : "")>تکمیل شده</option>
                                         </select>
                                     </div>
                                     <div class="form-group mx-sm-1 mb-2">
@@ -30,7 +29,7 @@
                                             <option value="0" selected="">بخش مربوطه</option>
                                             @foreach (var item in Model.ticketCategories)
                                             {
-                                                <option value="@item.ID">@item.Title</option>
+                                                <option value="@item.ID" @(((int)ViewBag.CategorySearch == item.ID) ? "selected" : "")>@item.Title</option>
 
                                             }
                                         </select>
@@ -86,20 +85,7 @@
                                     <td>
                                         @item.User.PhoneNumber
                                     </td>
-                                    <td>
-                                        @if (item.OrderDetails.SideID == 1)
-                                        {
-                                            @:هاست @item.OrderDetails.HostingOrder.HostingService.Title
-                                        }
-                                        else if (item.OrderDetails.SideID == 2)
-                                        {
-                                            @:دامنه @item.OrderDetails.DomainServiceOrder.DomainName.@item.OrderDetails.DomainServiceOrder.DomainService.Suffix
-                                        }
-                                        else if (item.OrderDetails.SideID == 3)
-                                        {
-                                            @:بسته نرم افزاری @item.OrderDetails.PackageService
-                                        }
-                                    </td>
+                                    <td></td>
                                     <td>
                                         @item.TicketCategory.Title
                                     </td>
@@ -261,7 +247,7 @@
             var InPageCount = $("#InPageCount option:selected").val();
             //Search
             var TicketIDSearch = $("#TicketIDSearch").val();
-            var StatusSearch = $("#StatusSearch option:selected");
+            var StatusSearch = $("#StatusSearch option:selected").val();
             var CategorySearch = $("#CategorySearch option:selected").val();
             //Search
 
@@ -275,7 +261,7 @@
             var InPageCount = $("#InPageCount option:selected").val();
             //Search
             var TicketIDSearch = $("#TicketIDSearch").val();
-            var StatusSearch = $("#StatusSearch option:selected");
+            var StatusSearch = $("#StatusSearch option:selected").val();
             var CategorySearch = $("#CategorySearch option:selected").val();
             //Search
 
@@ -290,7 +276,7 @@
             var InPageCount = $("#InPageCount option:selected").val();
             //Search
             var TicketIDSearch = $("#TicketIDSearch").val();
-            var StatusSearch = $("#StatusSearch option:selected");
+            var StatusSearch = $("#StatusSearch option:selected").val();
             var CategorySearch = $("#CategorySearch option:selected").val();
             //Search
 

@@ -24,17 +24,7 @@ namespace DataLayer
         {
             return db.Orders.Where(o => o.User.UserID == UserID);
         }
-
-        public OrderDetailViewModel GetOrderDetail(int ID)
-        {
-            OrderDetailViewModel orderDetailViewModel = new OrderDetailViewModel();
-
-            orderDetailViewModel.Order = OrderById(ID);
-            orderDetailViewModel.OrderDetails = db.OrderDetails.Where(o => o.Order.ID == ID);
-
-            return orderDetailViewModel;
-        }
-
+        
         public string SwitchingStatus(int ID)
         {
             try

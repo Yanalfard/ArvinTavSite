@@ -31,10 +31,12 @@ namespace DataLayer
         [Display(Name = "تعداد سفارش")]
         public int? OrderCount { get; set; }
 
+        public virtual List<Ticket> Tickets { get; set; }
+
         public virtual ServiceCategory ServiceCategory { get; set; }
 
-        public virtual List<OrderDetails> OrderDetails { get; set; }
-        
+        public virtual List<Order> Orders { get; set; }
+
         public PackageService()
         {
 

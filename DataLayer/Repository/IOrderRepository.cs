@@ -15,7 +15,6 @@ namespace DataLayer
         Order OrderById(int ID);
 
         string SwitchingStatus(int ID);
-
-        OrderDetailViewModel GetOrderDetail(int ID);
+        
     }
 }

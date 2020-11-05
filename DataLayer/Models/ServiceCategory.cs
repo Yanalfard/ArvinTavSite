@@ -30,11 +30,7 @@ namespace DataLayer
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
-
-        public virtual List<DomainService> domainServices { get; set; }
-
-        public virtual List<HostingService> HostingServices { get; set; }
-
+        
         public virtual List<PackageService> PackageServices { get; set; }
 
         public virtual List<Spider> Spiders { get; set; }

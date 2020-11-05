@@ -12,8 +12,7 @@ namespace DataLayer
         private IOrderRepository orderRepository;
         private ITicketRepository ticketRepository;
         private IUserRepository userRepository;
-        private IHostingRepository hostingRepository;
-        private IDomainRepository domainRepository;
+       
         private IPackageRepository packageRepository;
 
         public StatisticRepository(ArvinContext context)
@@ -22,8 +21,6 @@ namespace DataLayer
             orderRepository = new OrderRepository(db);
             ticketRepository = new TicketRepository(db);
             userRepository = new UserRepository(db);
-            hostingRepository = new HostingRepository(db);
-            domainRepository = new DomainRepository(db);
             packageRepository = new PackageRepository(db);
 
         }
@@ -33,8 +30,6 @@ namespace DataLayer
             StatisticViewModel statisticViewModel = new StatisticViewModel();
             statisticViewModel.AllUserCount = userRepository.AllUser().Where(u => u.UserRole.RoleID == 5).Count();
             statisticViewModel.AllPersonnelCount = userRepository.AllUser().Where(u => u.UserRole.RoleID < 5).Count();
-            statisticViewModel.AllHostingCount = hostingRepository.AllhostingServices().Count();
-            statisticViewModel.AllDomainCount = domainRepository.AllDomain(false).Count();
             statisticViewModel.AllPackageCount = packageRepository.AllPackageServices().Count();
             statisticViewModel.AllOrderCount = orderRepository.AllOrders().Count();
             statisticViewModel.AllTicket = ticketRepository.AllTickets().Count();

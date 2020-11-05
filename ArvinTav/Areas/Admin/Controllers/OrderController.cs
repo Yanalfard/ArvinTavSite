@@ -284,12 +284,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 }
             }
         }
-
-        public ActionResult P_Details(int ID)
-        {
-            return PartialView(OrderRepository.GetOrderDetail(ID));
-        }
-
+        
         public string SwitchingStatus(int ID)
         {
             return OrderRepository.SwitchingStatus(ID);

@@ -55,36 +55,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202011020755056_initialdb.cs" />
-    <Compile Include="Migrations\202011020755056_initialdb.designer.cs">
-      <DependentUpon>202011020755056_initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\202011050754150_initialdb.cs" />
+    <Compile Include="Migrations\202011050754150_initialdb.designer.cs">
+      <DependentUpon>202011050754150_initialdb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011040656599_edithstingservicetbl.cs" />
-    <Compile Include="Migrations\202011040656599_edithstingservicetbl.designer.cs">
-      <DependentUpon>202011040656599_edithstingservicetbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011040702277_edithostingdetails.cs" />
-    <Compile Include="Migrations\202011040702277_edithostingdetails.designer.cs">
-      <DependentUpon>202011040702277_edithostingdetails.cs</DependentUpon>
+    <Compile Include="Migrations\202011050908394_updateproduct2.cs" />
+    <Compile Include="Migrations\202011050908394_updateproduct2.designer.cs">
+      <DependentUpon>202011050908394_updateproduct2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Discount.cs" />
-    <Compile Include="Models\Domain\DomainService.cs" />
-    <Compile Include="Models\Domain\DomainServiceOrder.cs" />
-    <Compile Include="Models\Hosting\HostingOrder.cs" />
-    <Compile Include="Models\Hosting\HostingService.cs" />
-    <Compile Include="Models\Hosting\HostingServiceDetails.cs" />
     <Compile Include="Models\MarketerReport.cs" />
     <Compile Include="Models\Massage.cs" />
     <Compile Include="Models\Partner.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\SeoTage.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Spider.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Order\Order.cs" />
-    <Compile Include="Models\Order\OrderDetails.cs" />
     <Compile Include="Models\PackageService.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Ticket\Ticket.cs" />
@@ -95,12 +84,7 @@
     <Compile Include="Models\ViewModel\Ui\ChildCategoryINViewViewmodel.cs" />
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateTicketInUser.cs" />
-    <Compile Include="Models\ViewModel\DomainEditViewModel.cs" />
-    <Compile Include="Models\ViewModel\HostingEditViewModel.cs" />
-    <Compile Include="Models\ViewModel\HostingServiceDetailsViewModel.cs" />
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
-    <Compile Include="Models\ViewModel\OrderDetailViewModel.cs" />
-    <Compile Include="Models\ViewModel\OrderPathViewModel.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
@@ -108,8 +92,6 @@
     <Compile Include="Models\ViewModel\Statistic\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\TicketExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
-    <Compile Include="Models\ViewModel\Ui\OrdrPathViewModel.cs" />
-    <Compile Include="Models\ViewModel\Ui\SubmitDomainViewModel.cs" />
     <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
@@ -120,14 +102,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IFestivalRepository.cs" />
     <Compile Include="Repository\ICustomerRepository.cs" />
-    <Compile Include="Repository\IDomainRepository.cs" />
-    <Compile Include="Repository\IHostingRepository.cs" />
     <Compile Include="Repository\IMarketerRepository.cs" />
     <Compile Include="Repository\IMassageRepository.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPackageRepository.cs" />
     <Compile Include="Repository\IPartnerRepository.cs" />
-    <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IServiceCategoryRepository.cs" />
     <Compile Include="Repository\ISliderRepository.cs" />
@@ -136,15 +115,12 @@
     <Compile Include="Repository\ITicketRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Services\CustomerRepository.cs" />
-    <Compile Include="Services\DomainRepository.cs" />
     <Compile Include="Services\FestivalRepository.cs" />
-    <Compile Include="Services\HostingRepository.cs" />
     <Compile Include="Services\MarketerRepository.cs" />
     <Compile Include="Services\MassageRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\PackageRepository.cs" />
     <Compile Include="Services\PartnerRepository.cs" />
-    <Compile Include="Services\ProductRepository.cs" />
     <Compile Include="Services\ProjectRepository.cs" />
     <Compile Include="Services\ServiceCategoryRepository.cs" />
     <Compile Include="Services\SliderRepository.cs" />
@@ -157,19 +133,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="bin\Debug\DataLayer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011020755056_initialdb.resx">
-      <DependentUpon>202011020755056_initialdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011050754150_initialdb.resx">
+      <DependentUpon>202011050754150_initialdb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011040656599_edithstingservicetbl.resx">
-      <DependentUpon>202011040656599_edithstingservicetbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011040702277_edithostingdetails.resx">
-      <DependentUpon>202011040702277_edithostingdetails.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011050908394_updateproduct2.resx">
+      <DependentUpon>202011050908394_updateproduct2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

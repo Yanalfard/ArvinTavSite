@@ -146,8 +146,6 @@ namespace DataLayer
             try
             {
                 db.PackageServices.RemoveRange(db.PackageServices.Where(p => p.ServiceCategory.ID == ID));
-                db.HostingServices.RemoveRange(db.HostingServices.Where(p => p.ServiceCategory.ID == ID));
-                db.DomainServices.RemoveRange(db.DomainServices.Where(p => p.ServiceCategory.ID == ID));
                 db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c => c.ParentID == ID));
                 db.ServiceCategories.Remove(ServiceCategoryById(ID));
                 Save();

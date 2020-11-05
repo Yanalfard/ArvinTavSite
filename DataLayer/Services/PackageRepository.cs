@@ -33,13 +33,6 @@ namespace DataLayer
                 packageService.Image = Image;
                 packageService.Description = Description;
                 db.PackageServices.Add(packageService);
-                Product product = new Product();
-                product.SideID = 3;
-                product.ServiceCategory = packageService.ServiceCategory;
-                product.DomainService = null;
-                product.HostingService = null;
-                product.PackageService = packageService;
-                db.products.Add(product);
                 Save();
                 return "true";
             }

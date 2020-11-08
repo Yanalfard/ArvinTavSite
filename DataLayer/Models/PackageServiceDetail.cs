@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+=======
+using System.Linq;
+using System.Text;
+using System.ComponentModel.DataAnnotations;
+>>>>>>> e95ac9428777e79799560c444417fe806898421c
 using System.Threading.Tasks;
 
 namespace DataLayer

@@ -261,12 +261,12 @@ body {
   /*#endregion */
   /*#services-region */
   /*#endregion */
-  /*#host-region */
+  /*slider style*********************/
+  /*end slider style***********************/
+  /*why arvin region*/
   /*#endregion */
   /*#packages-region */
   /*#endregion */
-  /*slider style*********************/
-  /*end slider style***********************/
   /*#aboutArvin-region */
   /*our team region */ }
   .IndexPage .cover {
@@ -305,6 +305,8 @@ body {
       border-color: transparent !important; }
   .IndexPage .endOfCover {
     background-image: url("../../img/Home/footerRibbon.png") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100% !important;
     height: 220px;
     margin-top: -100px !important; }
@@ -348,11 +350,16 @@ body {
     color: white; }
     .IndexPage .sponsor .uk-slider-items {
       padding: 40px 10px !important; }
-      .IndexPage .sponsor .uk-slider-items a {
-        color: #555; }
-      .IndexPage .sponsor .uk-slider-items a:hover {
-        text-decoration: none;
-        font-size: larger; }
+      .IndexPage .sponsor .uk-slider-items img {
+        filter: saturate(0%);
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+        width: 60px;
+        height: 50px; }
+      .IndexPage .sponsor .uk-slider-items a:hover img {
+        filter: saturate(100%); }
   .IndexPage .Services {
     /*padding:20px;*/
     display: flex; }
@@ -381,7 +388,7 @@ body {
       flex: 1;
       height: 320px;
       width: 320px; }
-  @media only screen and (max-device-width: 600px) {
+  @media only screen and (max-device-width: 900px) {
     .IndexPage .Services {
       display: contents !important; }
       .IndexPage .Services div h2 {
@@ -403,7 +410,7 @@ body {
         padding: 10px !important;
         font-size: 8px !important;
         margin-bottom: 12px; } }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 900px) {
     .IndexPage .Services {
       display: contents !important; }
       .IndexPage .Services div h2 {
@@ -425,39 +432,60 @@ body {
         padding: 5px !important;
         font-size: 8px !important;
         margin-bottom: 12px; } }
-  .IndexPage .grid {
-    display: grid;
-    grid-template-rows: auto;
-    grid-gap: 1.1em;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    padding: 20px 2vw; }
-    .IndexPage .grid .mat {
-      width: 280px;
+  .IndexPage .projectsSlider h4 {
+    padding-bottom: 60px; }
+    .IndexPage .projectsSlider h4 .projectIcon {
+      margin-left: 8px;
+      width: 40px;
+      height: 50px;
+      color: #5cb152; }
+  .IndexPage .projectsSlider .GreenBackground {
+    padding-top: 120px !important;
+    padding-bottom: 180px !important; }
+  .IndexPage .projectsSlider .mat {
+    width: 320px;
+    padding: 30px;
+    border-radius: 5px;
+    padding-bottom: 70px !important; }
+    .IndexPage .projectsSlider .mat .rightSideLine {
+      background: #BBD1AC;
+      width: 18px;
+      margin-left: 20px;
       border-radius: 30px; }
-    .IndexPage .grid a {
-      color: #0DA574; }
-  @media only screen and (max-device-width: 1024px) {
-    .IndexPage .GridBackground {
-      padding: 10px !important; }
-    .IndexPage .grid {
-      display: grid;
-      grid-template-rows: auto;
-      grid-gap: 1em;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      padding: 20px 2vw; }
-      .IndexPage .grid .mat {
-        width: 230px; } }
-  @media only screen and (max-width: 1024px) {
-    .IndexPage .GridBackground {
-      padding: 10px !important; }
-    .IndexPage .grid {
-      display: grid;
-      grid-template-rows: auto;
-      grid-gap: 1em;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      padding: 20px 2vw; }
-      .IndexPage .grid .mat {
-        width: 230px; } }
+    .IndexPage .projectsSlider .mat img {
+      width: 100px;
+      height: 90px;
+      margin-right: auto;
+      margin-left: auto; }
+    .IndexPage .projectsSlider .mat h4 {
+      color: #5cb152; }
+    .IndexPage .projectsSlider .mat p {
+      color: black;
+      overflow: hidden;
+      text-align: justify;
+      -ms-text-justify: kashida;
+      text-justify: kashida; }
+    .IndexPage .projectsSlider .mat a {
+      color: #5CB152;
+      text-decoration: none !important;
+      margin-top: 40px !important; }
+  .IndexPage .whyArvin {
+    font-family: Sahel; }
+    .IndexPage .whyArvin .whyComponent ul {
+      padding-right: 0 !important; }
+      .IndexPage .whyArvin .whyComponent ul li {
+        padding: 12px 0; }
+    .IndexPage .whyArvin .whyComponent p {
+      text-align: justify;
+      -ms-text-justify: kashida;
+      text-justify: kashida; }
+    .IndexPage .whyArvin .whyComponent img {
+      height: 24px;
+      width: 24px;
+      margin-left: 10px; }
+  @media only screen and (max-width: 900px) {
+    .IndexPage .whyArvin .whyComponent {
+      font-size: 12px !important; } }
   .IndexPage .Packages {
     display: flex;
     -ms-flex-direction: row;
@@ -518,21 +546,6 @@ body {
       width: 230px; }
     .IndexPage .topPackage {
       width: 230px; } }
-  .IndexPage .projectsSlider .mat {
-    width: 350px;
-    padding: 30px; }
-    .IndexPage .projectsSlider .mat h4 {
-      color: #5cb152; }
-    .IndexPage .projectsSlider .mat p {
-      color: black;
-      overflow: hidden;
-      text-align: justify;
-      -ms-text-justify: kashida;
-      text-justify: kashida; }
-    .IndexPage .projectsSlider .mat button {
-      width: 100px !important;
-      height: 40px !important;
-      padding: 1px !important; }
   .IndexPage .AboutArvin {
     background: #f8ffe5;
     padding: 20px; }

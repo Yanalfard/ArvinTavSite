@@ -22,5 +22,9 @@
   {
     "outputFile": "Content/Styles/category.css",
     "inputFile": "Content/Styles/category.scss"
+  },
+  {
+    "outputFile": "Content/Styles/SoftwarePackages.css",
+    "inputFile": "Content/Styles/SoftwarePackages.scss"
   }
 ]

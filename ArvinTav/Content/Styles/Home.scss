@@ -2,20 +2,21 @@
 @import '_colors.scss';
 @import '_global.scss';
 
-    body {
-        padding: 0;
-        margin: 0;
-        font-family: Sahel;
-        /*text-align: right;*/
-    }
-    /** {
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Sahel;
+    /*text-align: right;*/
+}
+/** {
     font-family: 'B Zar' !important;
 }
 */
 * {
     overflow-x: hidden;
 }
-    .IndexPage {
+
+.IndexPage {
     /*#cover-region */
     .cover {
         /*padding-top:20px;*/
@@ -70,6 +71,8 @@
 
     .endOfCover {
         background-image: url('../../img/Home/footerRibbon.png') !important;
+        background-size: cover;
+        background-repeat: no-repeat;
         width: 100% !important;
         height: 220px;
         margin-top: -100px !important;
@@ -136,17 +139,19 @@
         }
     }
     /*#end cover-region */
-  
-
     .sponsor {
         .uk-slider-items {
-            a {
-                color: #555;
+            img {
+                filter: saturate(0%);
+                @include trans(.5s);
+                width: 60px;
+                height: 50px;
             }
 
             a:hover {
-                text-decoration: none;
-                font-size: larger;
+                img {
+                    filter: saturate(100%);
+                }
             }
 
             padding: 40px 10px !important;
@@ -197,7 +202,7 @@
         }
     }
 
-    @media only screen and (max-device-width: 600px) {
+    @media only screen and (max-device-width: 900px) {
         .Services {
             display: contents !important;
 
@@ -236,7 +241,7 @@
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
         .Services {
             display: contents !important;
 
@@ -275,51 +280,95 @@
         }
     }
     /*#endregion */
-    /*#host-region */
-    .grid {
-        @include grid-gap(280px, 1.1em);
-        padding: 20px 2vw;
+    /*slider style*********************/
+    .projectsSlider {
+        h4 {
+            padding-bottom: 60px;
 
-
-        .mat {
-            width: 280px;
-            border-radius: 30px;
+            .projectIcon {
+                margin-left: 8px;
+                width: 40px;
+                height: 50px;
+                color: #5cb152;
+            }
         }
 
+        .GreenBackground {
+            padding-top: 120px !important;
+            padding-bottom: 180px !important;
+        }
+        //background: red !important;
+        .mat {
+            width: 320px;
+            padding: 30px;
+            border-radius: 5px;
+            padding-bottom: 70px !important;
 
-        a {
-            color: #0DA574;
+            .rightSideLine {
+                background: #BBD1AC;
+                width: 18px;
+                margin-left: 20px;
+                border-radius: 30px;
+            }
+
+            img {
+                width: 100px;
+                height: 90px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            h4 {
+                color: #5cb152;
+            }
+
+            p {
+                color: black;
+                overflow: hidden;
+                text-align: justify;
+                -ms-text-justify: kashida;
+                text-justify: kashida;
+            }
+
+            a {
+                color: #5CB152;
+                text-decoration: none !important;
+                margin-top: 40px !important;
+            }
         }
     }
+    /*end slider style***********************/
+    /*why arvin region*/
+    .whyArvin {
+        font-family: Sahel;
 
-    @media only screen and (max-device-width: 1024px) {
-        .GridBackground {
-            padding: 10px !important;
-        }
+        .whyComponent {
+            ul {
+                padding-right: 0 !important;
 
-        .grid {
-            @include grid-gap(230px, 1em);
-            padding: 20px 2vw;
+                li {
+                    padding: 12px 0;
+                }
+            }
 
+            p {
+                text-align: justify;
+                -ms-text-justify: kashida;
+                text-justify: kashida;
+            }
 
-            .mat {
-                width: 230px;
+            img {
+                height: 24px;
+                width: 24px;
+                margin-left: 10px;
             }
         }
     }
 
-    @media only screen and (max-width: 1024px) {
-        .GridBackground {
-            padding: 10px !important;
-        }
-
-        .grid {
-            @include grid-gap(230px, 1em);
-            padding: 20px 2vw;
-
-
-            .mat {
-                width: 230px;
+    @media only screen and (max-width: 900px) {
+        .whyArvin {
+            .whyComponent {
+                font-size: 12px !important;
             }
         }
     }
@@ -403,33 +452,6 @@
         }
     }
     /*#endregion */
-    /*slider style*********************/
-    .projectsSlider {
-        //background: red !important;
-        .mat {
-            width: 350px;
-            padding: 30px;
-
-            h4 {
-                color: #5cb152;
-            }
-
-            p {
-                color: black;
-                overflow: hidden;
-                text-align: justify;
-                -ms-text-justify: kashida;
-                text-justify: kashida;
-            }
-
-            button {
-                width: 100px !important;
-                height: 40px !important;
-                padding: 1px !important;
-            }
-        }
-    }
-    /*end slider style***********************/
     /*#aboutArvin-region */
     .AboutArvin {
         background: #f8ffe5;

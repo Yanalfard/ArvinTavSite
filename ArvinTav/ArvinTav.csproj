@@ -164,8 +164,6 @@
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
-    <Content Include="Content\Styles\category.css" />
-    <Content Include="Content\Styles\category.min.css" />
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
     </Content>
@@ -183,6 +181,12 @@
     </Content>
     <Content Include="Content\Styles\LoginRegister.min.css">
       <DependentUpon>LoginRegister.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\SoftwarePackages.css">
+      <DependentUpon>SoftwarePackages.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\SoftwarePackages.min.css">
+      <DependentUpon>SoftwarePackages.css</DependentUpon>
     </Content>
     <Content Include="Content\UIkit\styles\uikit.min.css" />
     <Content Include="favicon.ico" />
@@ -1782,15 +1786,22 @@
     <Content Include="img\Home\gridbackground.png" />
     <Content Include="img\Home\online-education.jfif" />
     <Content Include="img\Home\online-training.jpg" />
+    <Content Include="img\Home\projects.png" />
+    <Content Include="img\Home\search.png" />
     <Content Include="img\Home\web-design-1.png" />
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
     <Content Include="img\Home\web-design-2.png" />
+    <Content Include="img\Home\why.png" />
     <Content Include="img\login\done.png" />
     <Content Include="img\login\login2.png" />
     <Content Include="img\login\login.jpg" />
     <Content Include="img\login\log-in.jpg" />
     <Content Include="img\login\signup.png" />
+    <Content Include="img\products\about.png" />
+    <Content Include="img\products\ASP.png" />
+    <Content Include="img\products\greenBackground.png" />
+    <Content Include="img\products\wordpress.png" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="fonts\fontawesome\less\brands.less" />
     <Content Include="fonts\fontawesome\less\fontawesome.less" />
@@ -1903,11 +1914,33 @@
     <Content Include="Content\Styles\LoginRegister.scss" />
     <Content Include="img\login\Svg\Group 102.svg" />
     <Content Include="img\login\Svg\Group 103.svg" />
-    <Content Include="img\login\Svg\Group 97.svg" />
     <Content Include="img\login\Svg\Group 98.svg" />
     <Content Include="img\Home\digital-marketing.svg" />
     <Content Include="img\Home\svg\WorkFlow.svg" />
-    <Content Include="Content\Styles\category.scss" />
+    <Content Include="Content\Styles\SoftwarePackages.scss" />
+    <Content Include="img\Home\svg\Waterfall\Cloud.svg" />
+    <Content Include="img\Home\svg\Waterfall\Design.svg" />
+    <Content Include="img\Home\svg\Waterfall\Learning.svg" />
+    <Content Include="img\Home\svg\Waterfall\Mobile.svg" />
+    <Content Include="img\Home\svg\Waterfall\Monitor.svg" />
+    <Content Include="img\Home\svg\Waterfall\Network.svg" />
+    <Content Include="img\Home\svg\Waterfall\Rectangle 150.svg" />
+    <Content Include="img\Home\svg\Waterfall\SocialMedia.svg" />
+    <Content Include="img\Home\svg\Waterfall\Website.svg" />
+    <Content Include="img\Home\svg\Customer-Logo\Frame 13.svg" />
+    <Content Include="img\Home\svg\Customer-Logo\Group 52.svg" />
+    <Content Include="img\Home\svg\Customer-Logo\M.svg" />
+    <Content Include="img\Home\svg\Customer-Logo\Main 1.svg" />
+    <Content Include="img\Home\svg\Customer-Logo\N.svg" />
+    <Content Include="img\Home\svg\Why\Analize.svg" />
+    <Content Include="img\Home\svg\Why\Content.svg" />
+    <Content Include="img\Home\svg\Why\Experience.svg" />
+    <Content Include="img\Home\svg\Why\Fill.svg" />
+    <Content Include="img\Home\svg\Why\Foundation.svg" />
+    <Content Include="img\Home\svg\Why\Quality.svg" />
+    <Content Include="img\Home\svg\Why\Success.svg" />
+    <Content Include="img\Home\svg\Why\Team.svg" />
+    <Content Include="img\login\Svg\Group 97.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3123,6 +3156,8 @@
     <Content Include="Views\Account\PushForgetPassword.cshtml" />
     <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

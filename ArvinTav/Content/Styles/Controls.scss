@@ -31,6 +31,7 @@
         padding-bottom: 0 !important;
         margin-bottom: 8px !important;
         border-radius: 2px;
+        margin-right: 70px !important;
     }
 
     .uk-navbar-nav {
@@ -51,13 +52,13 @@
 
     .navBar {
         float: right;
-        width: 100vw - 3vw;
+        width: 100vw;
         padding-right: 32px;
     }
 
     .menuComponent {
         /* padding: 8px !important;*/
-        margin-right: 8px;
+        margin-right: 20px;
         overflow: hidden !important;
     }
 
@@ -182,7 +183,7 @@
             }
 
             .uk-nav-header {
-                color: #66AEF5 !important; 
+                color: #66AEF5 !important;
             }
 
             li {
@@ -200,6 +201,13 @@
                 a:hover {
                     color: #808080 !important;
                 }
+            }
+
+            .search {
+                input {
+                    width: 200px !important;
+                }
+
             }
         }
 
@@ -308,6 +316,7 @@
     footer {
         background-image: url('../../img/Home/footer-background-011.jpg');
         padding: 20px;
+        background-size:cover;
 
         .footerContent {
             display: flex;
@@ -405,7 +414,7 @@
     }
     /*#end footer region */
     /*mobile footer style*/
-    @media only screen and (max-device-width : 767px) {
+    @media only screen and (max-device-width : 780px) {
         footer {
             background-image: none !important;
             background-color: #333F4D !important;
@@ -421,7 +430,7 @@
         }
     }
 
-    @media only screen and (max-device-width : 767px) {
+    @media only screen and (max-device-width : 780px) {
         footer {
             .footerEnd {
                 @include column();
@@ -438,7 +447,7 @@
         }
     }
 
-    @media only screen and (max-width : 767px) {
+    @media only screen and (max-width : 780px) {
         footer {
             background-image: none !important;
             background-color: #333F4D !important;
@@ -454,37 +463,42 @@
         }
     }
 
-    @media only screen and (max-width : 767px) {
-        footer {
-            .footerEnd {
-                @include column();
-                @include center();
+loginDesktop {
+    footer {
+        .footerEnd {
+            @include column();
+            @include center();
 
-                .Address {
-                    margin: auto !important;
-                }
+            .Address {
+                margin: auto !important;
+            }
 
-                .footerContact {
-                    margin: auto !important;
-                }
+            .footerContact {
+                margin: auto !important;
             }
         }
     }
+}
     /*#end mobile footer region */
     /*#button-style-region */
-    button.ServiceButton {
-        width: 8vw;
-        padding: 8px;
-        background: #5cb152;
-        color: white;
-        font-size: 20px;
-        border: none;
-        border-radius: 8px;
-    }
+button.ServiceButton {
+    width: 8vw;
+    padding: 4px;
+    background: #5cb152;
+    color: white;
+    font-size: 14px;
+    border: 1px solid #5cb152;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
-    button.ServiceButton:hover {
-        opacity: 0.9;
-    }
+button.ServiceButton:hover {
+    //opacity: 0.9;
+    background: transparent;
+    border:1px solid #5cb152;
+    color:#2a2929;
+
+}
     /*#grid-background-style-region */
 .GridBackground {
     background-image: url('../../img/Home/gridbackground.png');
@@ -494,7 +508,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
     .overflow-visible {
         overflow: visible !important;
 
@@ -502,3 +515,48 @@
             overflow: visible !important;
         }
     }
+.GreenBackground {
+    background-image: url('../../img/Home/gridbackground.png');
+    // background: #e9fbe8;
+    padding: 50px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.allPageGreenBackground {
+    background-image: url('../../img/products/greenBackground.png');
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -70px;
+}
+
+.search {
+    input {
+        width: 180px;
+        margin-top: 10px;
+        margin-left: 18px;
+        color: #4d4d4d;
+        border: 1px solid #5cb152;
+        border-radius: 20px !important;
+        height: 34px;
+        background-image: url('../../img/Home/search.png');
+    }
+
+    .inputContainer i {
+        position: absolute;
+    }
+
+    .inputContainer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        padding: 20px 0 2px 0;
+        margin-right: -50px;
+        color: #808080;
+        width: 20px;
+        text-align: left;
+    }
+}

@@ -267,7 +267,8 @@
     border-bottom: 2px solid #2a2929;
     padding-bottom: 0 !important;
     margin-bottom: 8px !important;
-    border-radius: 2px; }
+    border-radius: 2px;
+    margin-right: 70px !important; }
   #LayoutHeader .uk-navbar-nav a {
     color: #2a2929;
     font-family: Sahel !important; }
@@ -277,11 +278,11 @@
     float: right; }
   #LayoutHeader .navBar {
     float: right;
-    width: 97vw;
+    width: 100vw;
     padding-right: 32px; }
   #LayoutHeader .menuComponent {
     /* padding: 8px !important;*/
-    margin-right: 8px;
+    margin-right: 20px;
     overflow: hidden !important; }
   #LayoutHeader .loginDesktop {
     position: absolute;
@@ -371,6 +372,8 @@
         color: #4d4d4d; }
       #menu li a:hover {
         color: #808080 !important; }
+    #menu .search input {
+      width: 200px !important; }
   .uk-offcanvas-bar {
     display: block;
     background: #ffffff !important; }
@@ -439,7 +442,8 @@
 /*#footer-region */
 footer {
   background-image: url("../../img/Home/footer-background-011.jpg");
-  padding: 20px; }
+  padding: 20px;
+  background-size: cover; }
   footer .footerContent {
     display: flex; }
     footer .footerContent .LogoFooter {
@@ -498,7 +502,7 @@ footer {
 
 /*#end footer region */
 /*mobile footer style*/
-@media only screen and (max-device-width: 767px) {
+@media only screen and (max-device-width: 780px) {
   footer {
     background-image: none !important;
     background-color: #333F4D !important; }
@@ -517,7 +521,7 @@ footer {
       footer .footerContent .LogoFooter {
         width: 100%; } }
 
-@media only screen and (max-device-width: 767px) {
+@media only screen and (max-device-width: 780px) {
   footer .footerEnd {
     display: flex;
     -ms-flex-direction: column;
@@ -535,7 +539,7 @@ footer {
     footer .footerEnd .footerContact {
       margin: auto !important; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 780px) {
   footer {
     background-image: none !important;
     background-color: #333F4D !important; }
@@ -554,37 +558,39 @@ footer {
       footer .footerContent .LogoFooter {
         width: 100%; } }
 
-@media only screen and (max-width: 767px) {
-  footer .footerEnd {
-    display: flex;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -ms-align-content: center;
-    -webkit-align-content: center;
-    align-content: center;
-    text-align: center;
-    align-content: center;
-    align-self: center;
-    margin: 0 auto; }
-    footer .footerEnd .Address {
-      margin: auto !important; }
-    footer .footerEnd .footerContact {
-      margin: auto !important; } }
+loginDesktop footer .footerEnd {
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-align-content: center;
+  -webkit-align-content: center;
+  align-content: center;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  margin: 0 auto; }
+  loginDesktop footer .footerEnd .Address {
+    margin: auto !important; }
+  loginDesktop footer .footerEnd .footerContact {
+    margin: auto !important; }
 
 /*#end mobile footer region */
 /*#button-style-region */
 button.ServiceButton {
   width: 8vw;
-  padding: 8px;
+  padding: 4px;
   background: #5cb152;
   color: white;
-  font-size: 20px;
-  border: none;
-  border-radius: 8px; }
+  font-size: 14px;
+  border: 1px solid #5cb152;
+  border-radius: 10px;
+  cursor: pointer; }
 
 button.ServiceButton:hover {
-  opacity: 0.9; }
+  background: transparent;
+  border: 1px solid #5cb152;
+  color: #2a2929; }
 
 /*#grid-background-style-region */
 .GridBackground {
@@ -598,3 +604,41 @@ button.ServiceButton:hover {
   overflow: visible !important; }
   .overflow-visible * {
     overflow: visible !important; }
+
+.GreenBackground {
+  background-image: url("../../img/Home/gridbackground.png");
+  padding: 50px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.allPageGreenBackground {
+  background-image: url("../../img/products/greenBackground.png");
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -70px; }
+
+.search input {
+  width: 180px;
+  margin-top: 10px;
+  margin-left: 18px;
+  color: #4d4d4d;
+  border: 1px solid #5cb152;
+  border-radius: 20px !important;
+  height: 34px;
+  background-image: url("../../img/Home/search.png"); }
+
+.search .inputContainer i {
+  position: absolute; }
+
+.search .inputContainer {
+  width: 100%;
+  margin-bottom: 10px; }
+
+.search .icon {
+  padding: 20px 0 2px 0;
+  margin-right: -50px;
+  color: #808080;
+  width: 20px;
+  text-align: left; }

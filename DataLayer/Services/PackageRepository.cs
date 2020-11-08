@@ -22,7 +22,12 @@ namespace DataLayer
             return db.PackageServices;
         }
 
-        public string Create(int Category, string Title, string Price, string Image, string Description)
+        public IEnumerable<PackageServiceDetail> AllPackageServicesDetails(int ID)
+        {
+            return db.packageServiceDetails.Where(psd => psd.PackageService.ID == ID);
+        }
+
+        public int Create(int Category, string Title, string Price, string Image, string Description)
         {
             try
             {
@@ -34,12 +39,32 @@ namespace DataLayer
                 packageService.Description = Description;
                 db.PackageServices.Add(packageService);
                 Save();
-                return "true";
+                return packageService.ID;
             }
             catch (Exception ex)
             {
-                return "Erorr :" + ex.Message;
+                return 0;
             }
+        }
+
+        public string CreatePackageServiceDetails(List<PackageServiceDetails> details)
+        {
+            if (AllPackageServicesDetails(details.FirstOrDefault().PackageID).Count() > 0)
+            {
+                db.packageServiceDetails.RemoveRange(AllPackageServicesDetails(details.FirstOrDefault().PackageID));
+                Save();
+            }
+
+            foreach (var item in details)
+            {
+                PackageServiceDetail packageServiceDetail = new PackageServiceDetail();
+                packageServiceDetail.PackageService = PackageServiceById(item.PackageID);
+                packageServiceDetail.Title = item.Title;
+                packageServiceDetail.Response = item.Response;
+                db.packageServiceDetails.Add(packageServiceDetail);
+            }
+            Save();
+            return "true";
         }
 
         public string Edit(int ID, int Category, string Title, string Price, string Image, string Description)
@@ -94,5 +119,6 @@ namespace DataLayer
         {
             db.Dispose();
         }
+
     }
 }

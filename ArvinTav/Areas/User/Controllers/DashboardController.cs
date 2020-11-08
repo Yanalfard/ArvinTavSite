@@ -21,7 +21,7 @@ namespace ArvinTav.Areas.User.Controllers
         // GET: User/Dashboard
         public ActionResult Index()
         {
-            return View();
+            return View(userRepository.UserByPhoneNumber(User.Identity.Name));
         }
 
         public ActionResult MyProfile()

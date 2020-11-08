@@ -63,10 +63,15 @@
     <Compile Include="Migrations\202011050908394_updateproduct2.designer.cs">
       <DependentUpon>202011050908394_updateproduct2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011071330128_editpackageservicetbl.cs" />
+    <Compile Include="Migrations\202011071330128_editpackageservicetbl.designer.cs">
+      <DependentUpon>202011071330128_editpackageservicetbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\MarketerReport.cs" />
     <Compile Include="Models\Massage.cs" />
+    <Compile Include="Models\PackageServiceDetail.cs" />
     <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\SeoTage.cs" />
@@ -81,6 +86,7 @@
     <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\Ticket\TicketCategory.cs" />
     <Compile Include="Models\User\User.cs" />
+    <Compile Include="Models\ViewModel\PackageServiceDetails.cs" />
     <Compile Include="Models\ViewModel\Ui\ChildCategoryINViewViewmodel.cs" />
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateTicketInUser.cs" />
@@ -95,6 +101,7 @@
     <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
+    <Compile Include="Models\ViewModel\User\FullRegsiterViewModel.cs" />
     <Compile Include="Models\ViewModel\User\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\User\PushAccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\RegisterViewModel.cs" />
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011050908394_updateproduct2.resx">
       <DependentUpon>202011050908394_updateproduct2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011071330128_editpackageservicetbl.resx">
+      <DependentUpon>202011071330128_editpackageservicetbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

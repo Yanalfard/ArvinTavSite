@@ -1,8 +1,98 @@
-﻿
+﻿@model DataLayer.User
 @{
+
     ViewBag.Title = "Index";
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>داشبورد</h2>
+
+<div class="row flex-div">
+    <div class="col-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow text-center">
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex row">
+                    <div class="col-12">
+                        @if (Model.Image == null)
+                        {
+                            <img src="~/img/Admin/userPro.png" height="50" width="50" />
+                        }
+                        else
+                        {
+                            <img src="~/Document/img/User/@Model.Image" height="50" width="50" />
+                        }
+                        @if (Model.FullName != null)
+                        {
+                            <h3>@Model.FullName</h3>
+                        }
+                        else
+                        {
+                            <h3>@Model.PhoneNumber</h3>
+                        }
+                    </div>
+                    @if (Model.FullName == null && Model.Brand == null && Model.Email == null && Model.Image == null)
+                    {
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20%</div>
+                        </div>
+                    }
+
+                    @if (Model.FullName != null && Model.Brand != null && Model.Email == null && Model.Image == null)
+                    {
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%</div>
+                        </div>
+                    }
+
+                    @if (Model.FullName != null && Model.Brand != null && Model.Email != null && Model.Image == null)
+                    {
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%</div>
+                        </div>
+                    }
+
+                    @if (Model.FullName != null && Model.Brand != null && Model.Email != null && Model.Image != null)
+                    {
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%">پرفایل شما تکمیل شده است</div>
+                        </div>
+                    }
+
+                    <br />
+                    <form method="post" action="/User/Dashboard/EditInfoUser">
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <input type="tel" class="form-control form-control-sm" placeholder="نام کامل" name="FullName" value="@Model.FullName">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <input type="text" class="form-control form-control-sm" placeholder="نام تجاری" name="Brand" value="@Model.Brand">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <input type="email" class="form-control form-control-sm" placeholder="ایمیل" name="Email" value="@Model.Email">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
+                                            <label class="custom-file-label" for="Image" data-browse="انتخاب" id="FileName">انتخاب تصویر</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div class="custom-file">
+                                            <button type="submit" class="btn btn-success">تغییر</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 

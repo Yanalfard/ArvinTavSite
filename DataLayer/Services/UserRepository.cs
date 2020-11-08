@@ -93,6 +93,7 @@ namespace DataLayer
             User user = UserByPhoneNumber(PhoneNumber);
             user.AuthenticationCode = AuthenticationCode;
             user.ForgetTime = DateTime.Now;
+            Save();
             if (user.ForgetTime == null)
             {
                 Save();
@@ -100,7 +101,7 @@ namespace DataLayer
             }
             else
             {
-                if (user.ForgetTime.AddMinutes(10) > DateTime.Now)
+                if (user.ForgetTime.AddMinutes(10) < DateTime.Now)
                 {
                     return false;
                 }

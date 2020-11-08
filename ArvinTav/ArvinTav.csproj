@@ -1881,6 +1881,8 @@
     <Content Include="Areas\User\Views\Ticket\P_InnerTicket.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\P_Details.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

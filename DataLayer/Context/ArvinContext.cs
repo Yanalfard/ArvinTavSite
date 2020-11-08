@@ -15,6 +15,8 @@ namespace DataLayer
         
         public DbSet<PackageService> PackageServices { get; set; }
 
+        public DbSet<PackageServiceDetail> packageServiceDetails { get; set; }
+
         public DbSet<Project> projects { get; set; }
 
         public DbSet<TicketCategory> TicketCategories { get; set; }

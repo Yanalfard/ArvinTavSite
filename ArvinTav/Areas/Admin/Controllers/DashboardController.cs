@@ -38,7 +38,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public ActionResult notification()
         {
-            return PartialView(ticketRepository.AllTickets().Where(t => t.Status == 1));
+            return PartialView(ticketRepository.AllTickets().Where(t => t.Status == 1).Take(5));
         }
 
         protected override void Dispose(bool disposing)

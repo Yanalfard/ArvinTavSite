@@ -11,11 +11,18 @@
         </li>
         <li>
             <ul class="list-info overflow-y-auto relative scrollable">
-                @foreach (var item in Model.Take(5))
+                @foreach (var item in Model)
                 {
                     <li>
                         <a href="/Admin/Ticket?PageId=1&TicketIDSearch=@item.ID&StatusSearch=0&CategorySearch=0&InPageCount=0">
-                            <img class="thumb-img" src="~/Document/img/User/@item.User.Image" alt="">
+                            @if (item.User.Image != null)
+                            {
+                                <img class="thumb-img" src="~/Document/img/User/@item.User.Image" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/img/Admin/userPro.png " height="50" width="50" />
+                            }
                             <div class="info">
                                 <span class="title">
                                     <span class="font-size-14 text-semibold">@item.Subject</span>

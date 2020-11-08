@@ -190,6 +190,11 @@ namespace ArvinTav.Areas.Admin.Controllers
             return Json(packageRepository.Create(Category, Title, Price, Image, Description));
         }
 
+        public JsonResult CreatePackageServiceDetails(List<PackageServiceDetails> details)
+        {
+            return Json(packageRepository.CreatePackageServiceDetails(details));
+        }
+
         public ActionResult P_Edit(int ID)
         {
             PackageEditViewModel packageEditViewModel = new PackageEditViewModel();

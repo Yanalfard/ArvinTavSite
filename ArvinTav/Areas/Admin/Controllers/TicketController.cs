@@ -41,9 +41,9 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.TicketIDSearch = "";
 
-                            ViewBag.StatusSearch = "";
+                            ViewBag.StatusSearch = 0;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -68,7 +68,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.TicketIDSearch = "";
 
-                            ViewBag.StatusSearch = "";
+                            ViewBag.StatusSearch = 0;
 
                             ViewBag.CategorySearch = CategorySearch;
 
@@ -100,9 +100,9 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.TicketIDSearch = "";
 
-                            ViewBag.StatusSearch = "";
+                            ViewBag.StatusSearch = 0;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -127,9 +127,9 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.TicketIDSearch = "";
 
-                            ViewBag.StatusSearch = "";
+                            ViewBag.StatusSearch = 0;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -163,7 +163,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.StatusSearch = StatusSearch;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -190,7 +190,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.StatusSearch = StatusSearch;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -248,7 +248,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.StatusSearch = StatusSearch;
 
-                            ViewBag.CategorySearch = "";
+                            ViewBag.CategorySearch = 0;
 
                             //Search
 
@@ -279,9 +279,9 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                     ViewBag.TicketIDSearch = TicketIDSearch;
 
-                    ViewBag.StatusSearch = "";
+                    ViewBag.StatusSearch = 0;
 
-                    ViewBag.CategorySearch = "";
+                    ViewBag.CategorySearch = 0;
 
                     //Search
 
@@ -306,9 +306,9 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                     ViewBag.TicketIDSearch = TicketIDSearch;
 
-                    ViewBag.StatusSearch = "";
+                    ViewBag.StatusSearch = 0;
 
-                    ViewBag.CategorySearch = "";
+                    ViewBag.CategorySearch = 0;
 
                     //Search
 

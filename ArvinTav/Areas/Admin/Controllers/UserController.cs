@@ -195,6 +195,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
 
         }
+
         public ActionResult P_List(int PageId = 1, string PhoneNumber = "", int Degree = 0, int InPageCount = 0)
         {
             if (PhoneNumber == "")
@@ -415,6 +416,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
             return View();
         }
+
         public ActionResult P_Edit(int ID)
         {
             UserEditInAdminViewModel userEditInAdminViewModel = new UserEditInAdminViewModel();

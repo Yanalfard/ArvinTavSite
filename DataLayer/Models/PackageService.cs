@@ -37,6 +37,8 @@ namespace DataLayer
 
         public virtual List<Order> Orders { get; set; }
 
+        public virtual List<PackageServiceDetail> PackageServiceDetails { get; set; }
+
         public PackageService()
         {
 

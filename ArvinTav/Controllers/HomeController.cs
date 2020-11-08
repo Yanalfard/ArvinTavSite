@@ -41,14 +41,18 @@ namespace ArvinTav.Controllers
         }
         //End Partial Category
         //
-        [Route("Category/{ID}")]
-        public ActionResult Category(int ID)
+
+        [Route("Products/{ID?}")]
+        public ActionResult Products(int? ID)
         {
-            ChildCategoryINViewViewmodel childCategoryINViewViewmodel = new ChildCategoryINViewViewmodel();
-            childCategoryINViewViewmodel.ServiceCategory = serviceCategoryRepository.ServiceCategoryById(ID);
-            childCategoryINViewViewmodel.serviceCategories = serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories;
-            return View(childCategoryINViewViewmodel);
+            return View();
         }
-        
+
+        [Route("Product/{ID?}")]
+        public ActionResult Product(int? ID)
+        {
+            return View();
+        }
+
     }
 }

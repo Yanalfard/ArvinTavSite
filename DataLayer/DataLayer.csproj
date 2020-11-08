@@ -67,6 +67,7 @@
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\MarketerReport.cs" />
     <Compile Include="Models\Massage.cs" />
+    <Compile Include="Models\PackageServiceDetail.cs" />
     <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\SeoTage.cs" />

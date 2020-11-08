@@ -12,7 +12,7 @@
     <link href="~/Content/Styles/Home.min.css" rel="stylesheet" />
     <link href="~/Content/Styles/Controls.min.css" rel="stylesheet" />
     <link href="~/Content/Styles/LoginRegister.min.css" rel="stylesheet" />
-    <link href="~/Content/Styles/category.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/SoftwarePackages.min.css" rel="stylesheet" />
     <!--fonts-->
     <link rel="stylesheet" href="~/fonts/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/fonts/fontawesome/css/fontawesome.css">
@@ -32,6 +32,23 @@
     <!--header region-->
     <header id="LayoutHeader" class="my-row">
         <div class="loginDesktop my-row" dir="rtl">
+            @*<form class="search">
+            <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                <input type="search" placeholder="جستجو...">
+                <i class="fas fa-search margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+            </div>
+        </form>*@
+
+            <form class="search">
+                <div class="inputContainer">
+                    <input class="Field" type="search" placeholder="جستجو..." />
+                    <a><i class="fa fa-search icon"></i></a>
+                </div>
+            </form>
+
+            @*<form class="search">
+            <input type="text" name="search" placeholder="جستجو..">
+        </form>*@
 
             @*Partial View*@
 
@@ -53,7 +70,6 @@
                     </div>
                 </button>
             }
-
             <img class=" uk-margin-medium-left" src="~/img/Admin/logo/ArvinTavLogo.svg" />
         </div>
 
@@ -82,37 +98,31 @@
                     <li class="uk-active">
                         <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
                     <li>
-                        <a href="#">میزبانی</a>
+                        <a href="#">بسته های نرم افزاری</a>
                         <div uk-dropdown="pos: bottom-justify">
                             <div class="uk-flex-column uk-flex-between ">
                                 <ul class="uk-nav uk-dropdown-nav ">
-                                    <li class="uk-nav-header"><a href="/c">هاست ویندوز</a></li>
+                                    <li class="uk-nav-header"><a href="#">سایت فروشگاهی</a></li>
                                     <li class="uk-nav-divider"></li>
-                                    <li><a href="/products"> معمولی </a></li>
-                                    <li><a href="/products">حرفه ای </a></li>
+                                    <li><a href="#"> CMS آماده </a></li>
+                                    <li><a href="#">CMS اختصاصی </a></li>
                                 </ul>
-                                <ul class="uk-nav uk-dropdown-nav ">
-                                    <li class="uk-nav-header"><a href="/c">هاست لینوکس</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li><a href="/products"> معمولی </a></li>
-                                    <li><a href="/products">حرفه ای </a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">ویژگی ها</a>
 
-                    </li>
                     <li>
-                        <a href="#">برنامه ها</a>
-
-                    </li>
-                    <li>
-                        <a href="#">ارتباط با ما</a>
+                        <a href="#">درباره ما</a>
 
                     </li>
                 </ul>
+                <form class="search center ">
+                    <div class="inputContainer">
+                        <input class="Field" type="search" placeholder="جستجو..." />
+                        <a><i class="fa fa-search icon"></i></a>
+                    </div>
+                </form>
 
             </div>
         </div>
@@ -180,14 +190,12 @@
                 </div>
             </div>
             <div class="footerContact my-column my-clipped uk-margin-auto-right uk-margin-auto-top uk-margin-auto-bottom uk-margin-xlarge-left" dir="rtl">
-                <div class="LoginFooter my-row uk-margin-auto-right uk-margin-top">
-                    <input type="text" placeholder="ورود به سایت" />
-                    <button type="submit">ورود</button>
-                </div>
                 <div class="contactIcons my-row uk-margin-auto-right uk-margin-large-left ">
                     <a class="contactIcon" href="#"><i class="fab fa-instagram fa-2x uk-padding-small"></i></a>
                     <a class="contactIcon" href="#"><i class="fas fa-phone fa-2x uk-padding-small"></i></a>
-                    <a class="contactIcon" href="#"><i class="fab fa-facebook fa-2x uk-padding-small"></i></a>
+                    <a class="contactIcon" href="#"><i class="fab fab fa-whatsapp fa-2x uk-padding-small"></i></a>
+                    <a class="contactIcon" href="#"><i class="fab fa-linkedin fa-2x uk-padding-small"></i></a>
+
                 </div>
             </div>
         </div>

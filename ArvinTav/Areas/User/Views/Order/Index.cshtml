@@ -1,8 +1,80 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "سفارشات من";
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+                <div class="row">
+                    <div class="pr-4 pt-2">
+                        <div class="card-form row">
+                            <div class="form-input">
+                                <div class="form-inline">
+                                    <div class="form-group mx-sm-2">
+                                        <input id="ResultSearch" class="form-control form-control-sm" type="text" placeholder="کد سفارش">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-toolbar pr-2 ">
+                                <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Action("P_List")
+            <div class="card-footer bg-white">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item d-none">
+                            <a class="page-link" onclick="Page(0)">قبلی</a>
+                        </li>
+                        <li class="page-item">
+                            <select id="pageNumber" class="custom-select custom-select-sm">
+                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
+                            </select>
+                        </li>
+                        <li class="page-item d-none">
+                            <a class="page-link" onclick="Page(2)">بعدی</a>
+                        </li>
+                        <li>
+                            <select id="InPageCount" class="custom-select custom-select-sm">
+                                <option value="0" selected="">18 در هر صفحه</option>
+                                <option value="20">20 در هر صفحه</option>
+                                <option value="30">30 در هر صفحه</option>
+                                <option value="40">40 در هر صفحه</option>
+                            </select>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalSave" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <img src="~/img/gif/load.gif" class="loding justify-content-center" />
+            @*JS Dynamic*@
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
 
+@section Scripts{
+    <script>
+        $("#Detail").click(function () {
+            $.get("/User/Order/P_Detail", function (result) {
+                $(".modal-dialog").removeClass("modal-xl");
+                $(".modal-dialog").removeClass("modal-md");
+                $(".modal-dialog").addClass("modal-lg");
+                $(".modal-content").html(result);
+            });
+        });
+    </script>
+
+    }

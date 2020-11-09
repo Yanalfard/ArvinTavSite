@@ -30,5 +30,9 @@ namespace ArvinTav.Areas.User.Controllers
         {
             return PartialView();
         }
+        public ActionResult P_Detail()
+        {
+            return PartialView();
+        }
     }
 }

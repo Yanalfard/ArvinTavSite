@@ -1,7 +1,76 @@
-﻿
+﻿@model DataLaye.FullRegsiterViewModel
+
 @{
     ViewBag.Title = "پروفایل";
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
+
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+
+                <h4 class="pr-3 pb-0 mb-0"><i class="fas fa-user fa-7x"></i> تکمیل پروفایل</h4>
+            </div>
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <div class="form-row">
+
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
+                                            <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white justify-content-end ">
+                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+                                <input type="submit" value="ویرایش" class="btn btn-success btn-sm float-left " />
+                                <div class="btn btn-primary btn-sm float-left ml-3">
+                                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "text-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
 

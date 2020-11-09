@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLaye;
 using DataLayer;
 
 namespace ArvinTav.Areas.User.Controllers
@@ -26,7 +27,13 @@ namespace ArvinTav.Areas.User.Controllers
 
         public ActionResult MyProfile()
         {
-            return View();
+            DataLayer.User user = userRepository.UserByPhoneNumber(User.Identity.Name);
+            FullRegsiterViewModel fullRegsiterViewModel = new FullRegsiterViewModel();
+            fullRegsiterViewModel.FullName = user.FullName;
+            fullRegsiterViewModel.Brand = user.Brand;
+            fullRegsiterViewModel.Email = user.Email;
+            fullRegsiterViewModel.Image = user.Image;
+            return View(fullRegsiterViewModel);
         }
 
         public ActionResult P_UserBox()

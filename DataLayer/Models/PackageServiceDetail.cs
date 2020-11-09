@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a943b0ca43ae54c17807f00b086e5fb9aa6ea2d
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;

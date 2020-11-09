@@ -1798,6 +1798,7 @@
     <Content Include="img\login\login.jpg" />
     <Content Include="img\login\log-in.jpg" />
     <Content Include="img\login\signup.png" />
+    <Content Include="img\login\Svg\Lock.svg" />
     <Content Include="img\products\about.png" />
     <Content Include="img\products\ASP.png" />
     <Content Include="img\products\greenBackground.png" />
@@ -1940,7 +1941,6 @@
     <Content Include="img\Home\svg\Why\Quality.svg" />
     <Content Include="img\Home\svg\Why\Success.svg" />
     <Content Include="img\Home\svg\Why\Team.svg" />
-    <Content Include="img\login\Svg\Group 97.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3158,6 +3158,9 @@
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Home\Products.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\Payment.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Home\Content.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

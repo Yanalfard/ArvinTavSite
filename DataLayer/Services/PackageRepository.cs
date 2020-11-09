@@ -98,8 +98,10 @@ namespace DataLayer
         {
             try
             {
-
                 db.PackageServices.Remove(PackageServiceById(ID));
+                db.packageServiceDetails.RemoveRange(db.packageServiceDetails.Where(pd => pd.PackageService.ID == ID));
+                db.tickets.RemoveRange(db.tickets.Where(t => t.PackageService.ID == ID));
+                db.Orders.RemoveRange(db.Orders.Where(o => o.PackageService.ID == ID));
                 Save();
                 return "true";
 

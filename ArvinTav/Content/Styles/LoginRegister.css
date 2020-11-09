@@ -250,6 +250,11 @@
     .GridBackground * a:hover {
       text-decoration: none; }
 
+.loginSection .loading {
+  transform: rotateZ(180deg);
+  width: 80px !important;
+  height: 80px !important; }
+
 .loginSection .login {
   width: 180px !important;
   margin: auto 120px; }

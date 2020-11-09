@@ -6,62 +6,86 @@
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
+<link href="~/Content/Styles/LoginRegister.min.css" rel="stylesheet" />
 
 <div class="GridBackground loginSection center DesktopAccount">
     <content class="grid " dir="rtl">
         <div class="my-column my-clipped center mat loginSection ">
             <content>
                 <img class="login" src="~/img/login/Svg/Group 98.svg" />
-                @using (Html.BeginForm())
+                @if (User.Identity.IsAuthenticated)
                 {
-                    @Html.AntiForgeryToken()
-
-                    @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small " })
-
-                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
-                    <div>
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "" } })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                    <div class="uk-alert-success uk-alert" uk-alert="">
+                        <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+                        <small>شما وارد شده اید</small>
                     </div>
-
-                    @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
-                    <div>
-                        @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "" } })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger uk-text-small" })
-                    </div>
-
-
-                    <div class="my-row checkbox ">
-
-
-                        @Html.EditorFor(model => model.RememberMe)
-                        @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "check" })
-
-                    </div>
-
-
-                    <div class="recap">
-                        <div class="g-recaptcha " data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
-                        <small class="uk-text-danger">@ViewBag.Message</small>
-                    </div>
-
-
-                    <div class="my-row center uk-padding">
-
-                        <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
-
-
-                        <a href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
-
-                    </div>
-                    <a href="/Account/ForgetPassword"><b class="uk-text-danger uk-margin-small-top"><i class="fas fa-unlock-alt"></i> بازیابی رمز عبور</b></a>
                 }
+                else
+                {
+                    using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-                
+                        @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small " })
+
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
+                        <div>
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "" } })
+                            <br />
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                        </div>
+
+                        @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
+                        <div>
+                            @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "" } })
+                            <br />
+                            @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "uk-text-danger uk-text-small" })
+                        </div>
+
+
+                        <div class="my-row checkbox ">
+
+
+                            @Html.EditorFor(model => model.RememberMe)
+                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "check" })
+
+                        </div>
+
+
+                        <div class="recap">
+                            <div class="g-recaptcha " data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
+                            <small class="uk-text-danger">@ViewBag.Message</small>
+                        </div>
+
+
+                        <div class="my-row center uk-padding">
+
+                            <img src="~/img/gif/load.gif" width="80" class="loading justify-content-center" />
+                            <button id="Submit" class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
+                            <a id="Register" href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+
+                        </div>
+
+                        <a href="/Account/ForgetPassword"><b class="uk-text-danger uk-margin-small-top"><i class="fas fa-unlock-alt"></i> بازیابی رمز عبور</b></a>
+                    }
+                }
             </content>
         </div>
 
     </content>
 </div>
+
+@section Scripts{
+
+    <script>
+        $(".loading").hide();
+        $("#Submit").click(function () {
+            $("#Submit").hide();
+            $("#Register").hide();
+            $(".loading").show();
+        });
+    </script>
+
+}
+
+

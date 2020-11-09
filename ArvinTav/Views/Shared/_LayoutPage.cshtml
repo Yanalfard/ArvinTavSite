@@ -33,11 +33,11 @@
     <header id="LayoutHeader" class="my-row">
         <div class="loginDesktop my-row" dir="rtl">
             @*<form class="search">
-            <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
-                <input type="search" placeholder="جستجو...">
-                <i class="fas fa-search margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
-            </div>
-        </form>*@
+                    <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                        <input type="search" placeholder="جستجو...">
+                        <i class="fas fa-search margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                    </div>
+                </form>*@
 
             <form class="search">
                 <div class="inputContainer">
@@ -46,9 +46,6 @@
                 </div>
             </form>
 
-            @*<form class="search">
-            <input type="text" name="search" placeholder="جستجو..">
-        </form>*@
 
             @*Partial View*@
 
@@ -60,6 +57,17 @@
                         <span class="margin-auto-bottom margin-auto-top ">@User.Identity.Name</span>
                     </div>
                 </button>
+                if (User.IsInRole("Admin") || User.IsInRole("PartAdmin") || User.IsInRole("Marketer") || User.IsInRole("Content"))
+                {
+                    <div class="loginMobile my-row" dir="rtl">
+                        <button class="uk-text-bold my-column" onclick="window.location.href='/Admin/Dashboard'">
+                            <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                                <i class="fas fa-user-shield margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                                <span class="margin-auto-bottom margin-auto-top ">پنل مدیریت</span>
+                            </div>
+                        </button>
+                    </div>
+                }
             }
             else
             {
@@ -83,17 +91,41 @@
             <div class="uk-offcanvas-bar">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-                <div class="loginMobile my-row" dir="rtl">
-                    <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
-                    <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
-                        <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
-                            <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
-                            <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="loginMobile my-row" dir="rtl">
+                        <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+                        <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
+                            <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                                <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                                <span class="margin-auto-bottom margin-auto-top ">@User.Identity.Name</span>
+                            </div>
+                        </button>
+                    </div>
+                    if (User.IsInRole("Admin") || User.IsInRole("PartAdmin") || User.IsInRole("Marketer") || User.IsInRole("Content"))
+                    {
+                        <div class="loginMobile my-row" dir="rtl">
+                            <button class="uk-text-bold my-column" onclick="window.location.href='/Admin/Dashboard'">
+                                <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                                    <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                                    <span class="margin-auto-bottom margin-auto-top ">پنل مدیریت</span>
+                                </div>
+                            </button>
                         </div>
-                    </button>
-
-
-                </div>
+                    }
+                }
+                else
+                {
+                    <div class="loginMobile my-row" dir="rtl">
+                        <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
+                        <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
+                            <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
+                                <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
+                                <span class="margin-auto-bottom margin-auto-top ">ورود به پورتال</span>
+                            </div>
+                        </button>
+                    </div>
+                }
                 <ul class="uk-text-bold uk-margin-remove-top" dir="rtl">
                     <li class="uk-active">
                         <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
@@ -212,6 +244,7 @@
 <script src="~/Scripts/UIkit/uikit.min.js"></script>
 <script src="~/Scripts/UIScripts/Global.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
+@RenderSection("Scripts", false)
 
 <!--scroll-->
 <script>

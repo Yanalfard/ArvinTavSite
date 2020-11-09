@@ -1,22 +1,24 @@
-﻿
+﻿@model IEnumerable<DataLayer.PackageService>
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 <div class="productsSection allPageGreenBackground">
     <div class="cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
-      <img src="~/img/Home/gridbackground.png" />
+        <img src="~/img/Home/gridbackground.png" />
     </div>
     <!--description region-->
     <div class="productDescription">
         <div class="my-column my-clipped" dir="rtl">
             <content class="Services my-row uk-padding">
                 <div class="my-column my-clipped whiteBackground" dir="rtl">
-                    <h2 class="uk-padding-small">طراحی سایت</h2>
-                    <img class="center MobileSize" src="~/img/Home/svg/Waterfall/Website.svg" />
-                    <p class="uk-padding-small"> خدمات طراحی و توسعه وب سایت های کاربردی و عملیاتی و طراحی پورتال، برنامه نویسی و توسعه انواع نرم افزارهای کاربردی تحت وب، با توجه به نیازها، نوع فعالیت و متناسب با بودجه در نظر گرفته شده توسط مشتری صورت می پذیرد. در بعضی از موارد يک وب سايت زيبا به تنهايي کارساز نيست و برای موفقيت در تجارت بايد بتوانيد ارتباط قوي تری با بازديدکنندگان خود داشته باشيد و یا اینکه عملیاتی را نیاز دارید که میتواند به ارائه هرچه بهتر خدمات شما کمک کند. </p>
+                    <h2 class="uk-padding-small">@Model.FirstOrDefault().ServiceCategory.Title</h2>
+                    <img class="center MobileSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" />
+                    <p class="uk-padding-small">
+                        @Html.Raw(Model.FirstOrDefault().ServiceCategory.Description)
+                    </p>
                 </div>
-                <img class="DesktopSize" src="~/img/Home/svg/Waterfall/Website.svg" />
+                <img class="DesktopSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" />
             </content>
         </div>
     </div>
@@ -24,92 +26,24 @@
     <!--grid region-->
     <div class="productsGrid">
         <content class="grid " dir="rtl">
-            <article class="my-column mat uk-padding my-clipped ">
-                <content>
-                    <div class="center">
-                        <img src="~/img/products/wordpress.png" />
-                    </div>
-                    <h4 class="center">WordPress 1</h4>
-                    <ul class="my-column uk-padding-remove" dir="rtl">
-                        <li> <i class="fas fa-check uk-text-success"></i>قالب آماده</li>
-                        <li><i class="fas fa-check uk-text-success"></i>هاست و دامنه رایگان یک ساله </li>
-                        <li><i class="fas fa-check uk-text-success"></i>پشتیبانی رایگان یک ساله</li>
-                        <li> <i class="fas fa-check uk-text-success"></i>قالب آماده</li>
-                        <li><i class="fas fa-check uk-text-success"></i>هاست و دامنه رایگان یک ساله </li>
-                        <li><i class="fas fa-check uk-text-success"></i>پشتیبانی رایگان یک ساله</li>
-                    </ul>
-                    <button class="ServiceButton" onclick="window.location.href='/Product'">جزئیات و سفارش</button>
-                </content>
-            </article>
-            <article class="my-column mat uk-padding my-clipped ">
-                <content>
-                    <div class="center">
-                        <img src="~/img/products/wordpress.png" />
-                    </div>
-                    <h4 class="center">WordPress2</h4>
-                    <ul class="my-column uk-padding-remove" dir="rtl">
-                        <li> <i class="fas fa-check uk-text-success"></i>قالب اختصاصی</li>
-                        <li><i class="fas fa-check uk-text-success"></i>SEO فنی وبسایت </li>
-                        <li><i class="fas fa-check uk-text-success"></i>پشتیبانی آنلاین و آفلاین</li>
-                        <li> <i class="fas fa-check uk-text-success"></i>قالب اختصاصی</li>
-                        <li><i class="fas fa-check uk-text-success"></i>SEO فنی وبسایت </li>
-                        <li><i class="fas fa-check uk-text-success"></i>پشتیبانی آنلاین و آفلاین</li>
-                    </ul>
-                    <button class="ServiceButton" onclick="window.location.href='/Product'">جزئیات و سفارش</button>
-                </content>
-            </article>
-          
-            <article class="my-column mat uk-padding my-clipped ">
-                <content>
-                    <div class="center">
-                        <img src="~/img/products/ASP.png" />
-                    </div>
-                    <h4 class="center">ASP 1</h4>
-                    <ul class="my-column uk-padding-remove" dir="rtl">
-                        <li> <i class="fas fa-check uk-text-success"></i>دسته بندی یک لایه</li>
-                        <li><i class="fas fa-check uk-text-success"></i>فاکتور اختصاصی </li>
-                        <li><i class="fas fa-check uk-text-success"></i>SEO فنی وبسایت</li>
-                        <li><i class="fas fa-check uk-text-success"></i>فاکتور اختصاصی </li>
-                        <li><i class="fas fa-check uk-text-success"></i>SEO فنی وبسایت</li>
-                        <li> <i class="fas fa-check uk-text-success"></i>دسته بندی یک لایه</li>
-                    </ul>
-                    <button class="ServiceButton" onclick="window.location.href='/Product'">جزئیات و سفارش</button>
-                </content>
-    </article>
-    <article class="my-column mat uk-padding my-clipped ">
-        <content>
-            <div class="center">
-                <img src="~/img/products/ASP.png" />
-            </div>
-            <h4 class="center">ASP 2</h4>
-            <ul class="my-column uk-padding-remove" dir="rtl">
-                <li> <i class="fas fa-check uk-text-success"></i>Multi View</li>
-                <li><i class="fas fa-check uk-text-success"></i>مدیریت اسلاید به صورت پویا </li>
-                <li><i class="fas fa-check uk-text-success"></i>سه عدد طرح قالب</li>
-                <li><i class="fas fa-check uk-text-success"></i>مدیریت اسلاید به صورت پویا </li>
-                <li><i class="fas fa-check uk-text-success"></i>سه عدد طرح قالب</li>
-                <li> <i class="fas fa-check uk-text-success"></i>Multi View</li>
-            </ul>
-            <button class="ServiceButton" onclick="window.location.href='/Product'">جزئیات و سفارش</button>
-        </content>
-    </article>
-    <article class="my-column mat uk-padding my-clipped ">
-        <content>
-            <div class="center">
-                <img src="~/img/products/ASP.png" />
-            </div>
-            <h4 class="center">ASP 3</h4>
-            <ul class="my-column uk-padding-remove" dir="rtl">
-                <li> <i class="fas fa-check uk-text-success"></i>دسته بندی n لایه</li>
-                <li><i class="fas fa-check uk-text-success"></i> امکان اتصال به اپلیکیشن</li>
-                <li><i class="fas fa-check uk-text-success"></i>API</li>
-                <li> <i class="fas fa-check uk-text-success"></i>دسته بندی n لایه</li>
-                <li><i class="fas fa-check uk-text-success"></i> امکان اتصال به اپلیکیشن</li>
-                <li><i class="fas fa-check uk-text-success"></i>API</li>
-            </ul>
-            <button class="ServiceButton" onclick="window.location.href='/Product'">جزئیات و سفارش</button>
-        </content>
-    </article>
+            @foreach (var item in Model)
+            {
+                <article class="my-column mat uk-padding my-clipped ">
+                    <content>
+                        <div class="center">
+                            <img src="~/Document/img/Package/@item.Image" />
+                        </div>
+                        <h4 class="center">@item.Title</h4>
+                        <ul class="my-column uk-padding-remove" dir="rtl">
+                            @foreach (var Detail in item.PackageServiceDetails.Take(4))
+                            {
+                                <li> <i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
+                            }
+                        </ul>
+                        <button class="ServiceButton" onclick="window.location.href='/Product/@item.ID'">جزئیات و سفارش</button>
+                    </content>
+                </article>
+            }
         </content>
     </div>
     <!--end region-->

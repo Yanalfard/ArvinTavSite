@@ -444,6 +444,8 @@ footer {
   background-image: url("../../img/Home/footer-background-011.jpg");
   padding: 20px;
   background-size: cover; }
+  footer * {
+    overflow: hidden; }
   footer .footerContent {
     display: flex; }
     footer .footerContent .LogoFooter {
@@ -451,6 +453,12 @@ footer {
       background: white; }
     footer .footerContent .SupportFooter {
       flex: 1; }
+    footer .footerContent .LogoFooter {
+      padding: 0 60px; }
+      footer .footerContent .LogoFooter img {
+        padding: 30px 30px 0 30px; }
+      footer .footerContent .LogoFooter label {
+        padding: 0; }
   footer .footerEnd {
     display: flex; }
     footer .footerEnd .Address {
@@ -464,20 +472,6 @@ footer {
         margin-right: 8px; }
     footer .footerEnd .footerContact {
       flex: 1; }
-    footer .footerEnd .LoginFooter {
-      /*            width: 10px !important;
-            height: 170px !important;*/ }
-      footer .footerEnd .LoginFooter input {
-        width: 200px !important;
-        height: 40px !important; }
-      footer .footerEnd .LoginFooter button {
-        width: 80px !important;
-        height: 45px !important;
-        background: #5cb152 !important;
-        color: white;
-        border: none; }
-      footer .footerEnd .LoginFooter button:hover {
-        opacity: 0.7; }
     footer .footerEnd .contactIcon {
       color: #a9a9a9;
       opacity: 0.5; }
@@ -519,7 +513,13 @@ footer {
       align-self: center;
       margin: 0 auto; }
       footer .footerContent .LogoFooter {
-        width: 100%; } }
+        width: 100%;
+        padding: 0; }
+        footer .footerContent .LogoFooter img {
+          padding: 10px 80px 3px 80px; }
+        footer .footerContent .LogoFooter label {
+          padding: 0 0 8px 0;
+          font-size: 12px; } }
 
 @media only screen and (max-device-width: 780px) {
   footer .footerEnd {
@@ -556,41 +556,32 @@ footer {
       align-self: center;
       margin: 0 auto; }
       footer .footerContent .LogoFooter {
-        width: 100%; } }
-
-loginDesktop footer .footerEnd {
-  display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -ms-align-content: center;
-  -webkit-align-content: center;
-  align-content: center;
-  text-align: center;
-  align-content: center;
-  align-self: center;
-  margin: 0 auto; }
-  loginDesktop footer .footerEnd .Address {
-    margin: auto !important; }
-  loginDesktop footer .footerEnd .footerContact {
-    margin: auto !important; }
+        width: 100%;
+        padding: 0; }
+        footer .footerContent .LogoFooter img {
+          padding: 10px 80px 3px 80px; }
+        footer .footerContent .LogoFooter label {
+          padding: 0 0 8px 0;
+          font-size: 12px; } }
 
 /*#end mobile footer region */
 /*#button-style-region */
-button.ServiceButton {
-  width: 8vw;
+.ServiceButton {
+  width: 80px;
   padding: 4px;
   background: #5cb152;
   color: white;
   font-size: 14px;
   border: 1px solid #5cb152;
-  border-radius: 10px;
-  cursor: pointer; }
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center; }
 
-button.ServiceButton:hover {
+.ServiceButton:hover {
   background: transparent;
   border: 1px solid #5cb152;
-  color: #2a2929; }
+  color: #2a2929 !important;
+  text-decoration: none !important; }
 
 /*#grid-background-style-region */
 .GridBackground {

@@ -451,6 +451,24 @@
       -ms-text-justify: kashida;
       text-justify: kashida; }
   @media only screen and (max-width: 800px) {
+    .productsSection .Price {
+      display: flex;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -ms-align-content: center;
+      -webkit-align-content: center;
+      align-content: center;
+      text-align: center;
+      align-content: center;
+      align-self: center;
+      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 84vw; }
+      .productsSection .Price label {
+        margin-right: 7px;
+        padding-bottom: 5px; }
     .productsSection .descriptionOfProduct {
       padding: 40px;
       background: white !important;

@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using ArvinTav.Classes;
+=======
+>>>>>>> 63f537089829e066438fbd9f57d2dcfc75036208
 using DataLayer;
 
 namespace ArvinTav.Areas.User.Controllers

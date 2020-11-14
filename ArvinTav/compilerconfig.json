@@ -26,5 +26,9 @@
   {
     "outputFile": "Content/Styles/SoftwarePackages.css",
     "inputFile": "Content/Styles/SoftwarePackages.scss"
+  },
+  {
+    "outputFile": "Content/Styles/blog.css",
+    "inputFile": "Content/Styles/blog.scss"
   }
 ]

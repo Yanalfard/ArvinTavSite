@@ -163,6 +163,12 @@
     <Content Include="Content\Styles\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\blog.css">
+      <DependentUpon>blog.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\blog.min.css">
+      <DependentUpon>blog.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
     </Content>
@@ -1774,6 +1780,10 @@
     <Content Include="Global.asax" />
     <Content Include="img\Admin\logo\ArvinTavLogo.svg" />
     <Content Include="img\Admin\userPro.png" />
+    <Content Include="img\blog\blog.jpg" />
+    <Content Include="img\blog\logo.png" />
+    <Content Include="img\blog\logoInblog.png" />
+    <Content Include="img\blog\weblog2.jfif" />
     <Content Include="img\gif\load.gif" />
     <Content Include="img\Home\background-footer.png" />
     <Content Include="img\Home\cover.jpg" />
@@ -1785,8 +1795,6 @@
     <Content Include="img\Home\gridbackground.png" />
     <Content Include="img\Home\online-education.jfif" />
     <Content Include="img\Home\online-training.jpg" />
-    <Content Include="img\Home\projects.png" />
-    <Content Include="img\Home\search.png" />
     <Content Include="img\Home\web-design-1.png" />
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
@@ -1801,6 +1809,7 @@
     <Content Include="img\products\about.png" />
     <Content Include="img\products\ASP.png" />
     <Content Include="img\products\greenBackground.png" />
+    <Content Include="img\products\payment.jpg" />
     <Content Include="img\products\wordpress.png" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="fonts\fontawesome\less\brands.less" />
@@ -1941,6 +1950,7 @@
     <Content Include="img\Home\svg\Why\Quality.svg" />
     <Content Include="img\Home\svg\Why\Success.svg" />
     <Content Include="img\Home\svg\Why\Team.svg" />
+    <Content Include="Content\Styles\blog.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3160,11 +3170,15 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Content.cshtml" />
     <Content Include="Views\Shared\P_MainCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_ChildCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_SubCategoryMobile.cshtml" />
     <Content Include="Views\Shared\ProductsByMainCategory.cshtml" />
+=======
+    <Content Include="Views\Home\Post.cshtml" />
+>>>>>>> 63f537089829e066438fbd9f57d2dcfc75036208
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

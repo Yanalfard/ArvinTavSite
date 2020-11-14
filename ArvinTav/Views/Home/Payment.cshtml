@@ -4,5 +4,28 @@
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<h2>Payment</h2>
+<div class="GridBackground loginSection center">
+    <content class="grid" dir="rtl">
+        <div class="my-column my-clipped center mat loginSection paymentPage">
+            <content>
+                <img src="~/img/products/payment.jpg" width="320" />
+                <div class="center my-column">
+                    <label class="TitleInPayment">نام پکیج</label>
+                    <label>ydsugbd</label>
+                    &nbsp;
+                    <label class="TitleInPayment">قیمت</label>
+                    <span id="PriceSpan">14525652<span class="uk-margin-small-right">تومان</span></span>
+                    <a class="ServiceButton uk-margin-auto-left uk-margin-auto-right uk-margin-medium-top">پرداخت</a>
+                </div>
+            </content>
+        </div>
+
+    </content>
+</div>
+
+@section Scripts{
+    <script src="~/Tools/Span_Formatting_Currency.js"></script>
+
+    
+    }
 

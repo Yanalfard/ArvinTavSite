@@ -13,12 +13,12 @@
             <content class="Services my-row uk-padding">
                 <div class="my-column my-clipped whiteBackground" dir="rtl">
                     <h2 class="uk-padding-small">@Model.FirstOrDefault().ServiceCategory.Title</h2>
-                    <img class="center MobileSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" />
+                    <img class="center MobileSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="180" height="200" />
                     <p class="uk-padding-small">
                         @Html.Raw(Model.FirstOrDefault().ServiceCategory.Description)
                     </p>
                 </div>
-                <img class="DesktopSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" />
+                <img class="DesktopSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="320" height="320"/>
             </content>
         </div>
     </div>

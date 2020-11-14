@@ -31,10 +31,8 @@ namespace DataLayer
         [Required(ErrorMessage = "لطفا موضوع را وارد کنید")]
         public string File { get; set; }
 
-<<<<<<< HEAD
         [Display(Name ="سرویس")]
-=======
->>>>>>> 63f537089829e066438fbd9f57d2dcfc75036208
+
         public int order { get; set; }
 
         public User user { get; set; }

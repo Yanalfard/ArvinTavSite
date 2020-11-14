@@ -47,12 +47,12 @@ namespace ArvinTav.Controllers
 
         public ActionResult P_ChildCategoryMobile(int ID)
         {
-            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
 
         public ActionResult P_SubCategoryMobile(int ID)
         {
-            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
 
         public ActionResult P_SubCategory(int ID)

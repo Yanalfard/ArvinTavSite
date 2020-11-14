@@ -85,10 +85,9 @@
     <Compile Include="Models\ViewModel\Statistic\TicketExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
     <Compile Include="Models\ViewModel\Ui\ChildCategoryINViewViewmodel.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Models\ViewModel\Ui\PackageByMainCategoryViewModel.cs" />
-=======
->>>>>>> 63f537089829e066438fbd9f57d2dcfc75036208
+
     <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />

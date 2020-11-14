@@ -3170,15 +3170,14 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Home\Content.cshtml" />
     <Content Include="Views\Shared\P_MainCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_ChildCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_SubCategoryMobile.cshtml" />
     <Content Include="Views\Shared\ProductsByMainCategory.cshtml" />
-=======
     <Content Include="Views\Home\Post.cshtml" />
->>>>>>> 63f537089829e066438fbd9f57d2dcfc75036208
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,6 +13,7 @@
 *{
     outline:none;
     font-family:Sahel;
+    
 }
 #LayoutHeader {
     position: fixed !important;
@@ -313,157 +314,130 @@
     /*#endregion */
     /*#endregion */
     /*#footer-region */
+footer {
+    * {
+        overflow: hidden;
+    }
+
+    background-image: url('../../img/Home/footer-background-011.jpg');
+    padding: 20px;
+    background-size: cover;
+
+    .footerContent {
+        display: flex;
+        // padding-right: 50px !important;
+        .LogoFooter {
+            flex: 1;
+            background: white;
+        }
+
+        .SupportFooter {
+            flex: 1;
+        }
+
+        .LogoFooter {
+            padding: 0 60px;
+
+            img {
+                padding: 30px 30px 0 30px;
+            }
+
+            label {
+                padding: 0;
+            }
+        }
+    }
+
+    .footerEnd {
+        display: flex;
+
+        .Address {
+            flex: 1;
+
+            img {
+                width: 22px;
+                height: 22px;
+            }
+
+            label {
+                color: white !important;
+                font-size: 14px;
+                margin-right: 8px;
+            }
+        }
+
+        .footerContact {
+            flex: 1;
+        }
+
+
+        .contactIcon {
+            color: #a9a9a9;
+            opacity: 0.5;
+        }
+    }
+
+    div {
+        div {
+            label {
+                color: white !important;
+                padding: 2px;
+            }
+        }
+    }
+
+    h6 {
+        color: #5cb152;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    a {
+        color: white;
+        padding: 2px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        /*font-size: larger;*/
+        color: #808080;
+    }
+
+    hr {
+        border: 1px solid #a9a9a9;
+        opacity: 0.1;
+        border-radius: 5px;
+    }
+}
+    /*#end footer region */
+/*mobile footer style*/
+@media only screen and (max-device-width : 780px) {
     footer {
-        background-image: url('../../img/Home/footer-background-011.jpg');
-        padding: 20px;
-        background-size:cover;
+        background-image: none !important;
+        background-color: #333F4D !important;
 
         .footerContent {
-            display: flex;
-            // padding-right: 50px !important;
+            @include column();
+            @include center();
+
             .LogoFooter {
-                flex: 1;
-                background: white;
-            }
-
-            .SupportFooter {
-                flex: 1;
-            }
-        }
-
-        .footerEnd {
-            display: flex;
-
-            .Address {
-                flex: 1;
+                width: 100%;
+                padding: 0;
 
                 img {
-                    width: 22px;
-                    height: 22px;
+                    padding: 10px 80px 3px 80px;
                 }
 
                 label {
-                    color: white !important;
-                    font-size: 14px;
-                    margin-right: 8px;
-                }
-            }
-
-            .footerContact {
-                flex: 1;
-            }
-
-            .LoginFooter {
-                /*            width: 10px !important;
-            height: 170px !important;*/
-                input {
-                    width: 200px !important;
-                    height: 40px !important;
-                }
-
-                button {
-                    width: 80px !important;
-                    height: 45px !important;
-                    background: #5cb152 !important;
-                    color: white;
-                    border: none;
-                }
-
-                button:hover {
-                    opacity: 0.7;
-                }
-            }
-
-            .contactIcon {
-                color: #a9a9a9;
-                opacity: 0.5;
-            }
-        }
-
-        div {
-            div {
-                label {
-                    color: white !important;
-                    padding: 2px;
-                }
-            }
-        }
-
-        h6 {
-            color: #5cb152;
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        a {
-            color: white;
-            padding: 2px;
-        }
-
-        a:hover {
-            text-decoration: none;
-            /*font-size: larger;*/
-            color: #808080;
-        }
-
-        hr {
-            border: 1px solid #a9a9a9;
-            opacity: 0.1;
-            border-radius: 5px;
-        }
-    }
-    /*#end footer region */
-    /*mobile footer style*/
-    @media only screen and (max-device-width : 780px) {
-        footer {
-            background-image: none !important;
-            background-color: #333F4D !important;
-
-            .footerContent {
-                @include column();
-                @include center();
-
-                .LogoFooter {
-                    width: 100%;
+                    padding: 0 0 8px 0;
+                    font-size: 12px;
                 }
             }
         }
     }
+}
 
-    @media only screen and (max-device-width : 780px) {
-        footer {
-            .footerEnd {
-                @include column();
-                @include center();
-
-                .Address {
-                    margin: auto !important;
-                }
-
-                .footerContact {
-                    margin: auto !important;
-                }
-            }
-        }
-    }
-
-    @media only screen and (max-width : 780px) {
-        footer {
-            background-image: none !important;
-            background-color: #333F4D !important;
-
-            .footerContent {
-                @include column();
-                @include center();
-
-                .LogoFooter {
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-loginDesktop {
+@media only screen and (max-device-width : 780px) {
     footer {
         .footerEnd {
             @include column();
@@ -479,24 +453,53 @@ loginDesktop {
         }
     }
 }
-    /*#end mobile footer region */
+
+@media only screen and (max-width : 780px) {
+    footer {
+        background-image: none !important;
+        background-color: #333F4D !important;
+
+        .footerContent {
+            @include column();
+            @include center();
+
+            .LogoFooter {
+                width: 100%;
+                padding: 0;
+
+                img {
+                    padding: 10px 80px 3px 80px;
+                }
+
+                label {
+                    padding: 0 0 8px 0;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+/*#end mobile footer region */
     /*#button-style-region */
-button.ServiceButton {
-    width: 8vw;
+.ServiceButton {
+    width: 80px;
     padding: 4px;
     background: #5cb152;
     color: white;
     font-size: 14px;
     border: 1px solid #5cb152;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
+    text-align:center;
 }
 
-button.ServiceButton:hover {
+.ServiceButton:hover {
     //opacity: 0.9;
     background: transparent;
     border:1px solid #5cb152;
-    color:#2a2929;
+    color:#2a2929 !important;
+    text-decoration:none !important;
 
 }
     /*#grid-background-style-region */

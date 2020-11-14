@@ -1,8 +1,95 @@
 ﻿@model IEnumerable<DataLayer.Spider>
-    @{
-        ViewBag.Title = "Blog";
-        Layout = "~/Views/Shared/_LayoutPage.cshtml";
-    }
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
 
-    <h2>Blog</h2>
 
+
+<link href="~/Content/Styles/blog.min.css" rel="stylesheet" />
+<div class="center cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
+    <img src="~/img/Home/gridbackground.png" />
+    <div class="absolute center uk-width-5-6 uk-text-center uk-margin-auto uk-margin-large-top uk-margin-large-left">
+        <img class="logoinCenter center uk-margin-large-left" src="~/img/blog/logoInblog.png" width="320"/>
+    </div>
+</div> 
+
+@*<div class="blogTitle center uk-margin-auto ">
+        <div class=" center"> یه vdscasdsASdی!</div>
+    </div>*@
+
+<!--grid region-->
+<div class="">
+    <content class="grid " dir="rtl">
+        <article class="my-column mat my-clipped ">
+            <content>
+                <div class="center">
+                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
+                </div>
+                <a class="title" href="/post"><h4>عنوان</h4></a>
+                <hr class="uk-divider-icon" />
+                <div class="category my-row uk-margin-small-top">
+                    <a>دسته بندی</a>
+                    <a>دسته بندی</a>
+                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
+                </div>
+            </content>
+        </article>
+        <article class="my-column mat my-clipped ">
+            <content>
+                <div class="center">
+                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
+                </div>
+                <a class="title" href="/post"><h4>عنوان</h4></a>
+                <hr class="uk-divider-icon" />
+                <div class="category my-row uk-margin-small-top">
+                    <a>دسته بندی</a>
+                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
+                </div>
+            </content>
+        </article>
+        <article class="my-column mat my-clipped ">
+            <content>
+                <div class="center">
+                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
+                </div>
+                <a class="title" href="/post"><h4>عنوان</h4></a>
+                <hr class="uk-divider-icon" />
+                <div class="category my-row uk-margin-small-top">
+                    <a>دسته بندی</a>
+                    <a>دسته بندی</a>
+                    <a>دسته بندی</a>
+                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
+                </div>
+            </content>
+        </article>
+        <article class="my-column mat my-clipped ">
+            <content>
+                <div class="center">
+                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
+                </div>
+                <a class="title" href="/post"><h4>عنوان</h4></a>
+                <hr class="uk-divider-icon" />
+                <div class="category my-row uk-margin-small-top">
+                    <a>دسته بندی</a>
+                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
+                </div>
+            </content>
+        </article>
+        <article class="my-column mat my-clipped ">
+            <content>
+                <div class="center">
+                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
+                </div>
+                <a class="title" href="/post"><h4>عنوان</h4></a>
+                <hr class="uk-divider-icon" />
+                <div class="category my-row uk-margin-small-top">
+                    <a>دسته بندی</a>
+                    <a>دسته بندی</a>
+                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
+                </div>
+            </content>
+        </article>
+    </content>
+</div>
+<!--end region-->

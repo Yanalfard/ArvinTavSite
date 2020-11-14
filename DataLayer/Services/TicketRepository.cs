@@ -95,8 +95,8 @@ namespace DataLayer
         {
             try
             {
-                IEnumerable<InnerTicket> innerTickets = db.innerTickets.Where(it => it.Ticket.TicketCategory.ID == ID);
-                db.innerTickets.RemoveRange(innerTickets);
+                IEnumerable<InnerTicket> innerTickets = db.InnerTickets.Where(it => it.Ticket.TicketCategory.ID == ID);
+                db.InnerTickets.RemoveRange(innerTickets);
                 IEnumerable<Ticket> tickets = db.tickets.Where(t => t.TicketCategory.ID == ID);
                 db.tickets.RemoveRange(tickets);
                 db.TicketCategories.Remove(ticketCategoryById(ID));
@@ -113,7 +113,7 @@ namespace DataLayer
         {
             InnerTicketViewModel innerTicketViewModel = new InnerTicketViewModel();
             innerTicketViewModel.Ticket = GetTicketById(ID);
-            innerTicketViewModel.innerTickets = db.innerTickets.Where(it => it.Ticket.ID == ID);
+            innerTicketViewModel.innerTickets = db.InnerTickets.Where(it => it.Ticket.ID == ID);
 
             return innerTicketViewModel;
         }
@@ -125,7 +125,7 @@ namespace DataLayer
 
         public IEnumerable<InnerTicket> SupporterinnerTickets(int ID)
         {
-            return db.innerTickets.Where(it => it.ParentID == ID);
+            return db.InnerTickets.Where(it => it.ParentID == ID);
         }
 
         public string SendMassage(int ID, string TextMassage, string FileMassage)

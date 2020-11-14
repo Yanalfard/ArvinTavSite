@@ -33,5 +33,9 @@ namespace DataLayer
         [MinLength(5, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
         [Required(ErrorMessage = "لطفا موضوع را وارد کنید")]
         public string File { get; set; }
+
+        public int order { get; set; }
+
+        public User user { get; set; }
     }
 }

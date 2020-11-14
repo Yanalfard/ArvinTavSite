@@ -11,7 +11,7 @@
 
     <!--description region-->
     <div class=" product center">
-        <img src="~/Document/img/Package/@Model.Image" />
+        <img src="~/Document/img/Package/@Model.Image" width="250" />
     </div>
     <div class="productcontent my-column" dir="rtl">
         <div class="uk-padding-small my-column my-clipped">
@@ -36,9 +36,10 @@
                     <li> <i class="fas fa-check uk-text-success"></i>@item.Title</li>
                 }
             </ul>
-
-            <button class="ServiceButton center">سفارش</button>
-            <span id="PriceSpan" class="ServiceButton">@Model.Price تومان</span>
+            <div class="Price uk-margin-auto-right" dir="rtl">
+                <label id="PriceSpan" class="uk-margin-small-left uk-text-bold">@Model.Price تومان</label>
+                <button class="ServiceButton">سفارش</button>
+            </div>
         </div>
 
     </div>

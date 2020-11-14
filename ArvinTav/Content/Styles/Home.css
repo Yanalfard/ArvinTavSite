@@ -269,6 +269,8 @@ body {
   /*#endregion */
   /*#aboutArvin-region */
   /*our team region */ }
+  .IndexPage * {
+    overflow: hidden; }
   .IndexPage .cover {
     /*padding-top:20px;*/
     /*height:800px;*/ }
@@ -289,7 +291,8 @@ body {
       text-align: justify;
       -ms-text-justify: kashida;
       text-justify: kashida;
-      color: #555; }
+      color: #555;
+      overflow: hidden; }
     .IndexPage .headSlider h3 {
       color: #555;
       overflow: hidden;
@@ -303,6 +306,12 @@ body {
       padding: 8px !important; }
     .IndexPage .headSlider .ServiceButton:hover {
       border-color: transparent !important; }
+    .IndexPage .headSlider .uk-slidenav-container {
+      margin-top: -30px;
+      background: #b1b0b0;
+      opacity: 0.7;
+      border-radius: 5px;
+      width: 10px; }
   .IndexPage .endOfCover {
     background-image: url("../../img/Home/footerRibbon.png") !important;
     background-size: cover;
@@ -310,7 +319,7 @@ body {
     width: 100% !important;
     height: 220px;
     margin-top: -100px !important; }
-  @media only screen and (max-device-width: 520px) {
+  @media only screen and (max-device-width: 600px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
@@ -335,6 +344,8 @@ body {
         padding: 1px;
         font-size: 12px;
         margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
     .IndexPage .endOfCover {
       margin-top: -400px !important;
       height: 150px; } }
@@ -345,7 +356,9 @@ body {
       width: 220px;
       font-size: 12px; }
     .IndexPage .headSlider .ServiceButton {
-      padding: 4px !important; } }
+      padding: 4px !important; }
+    .IndexPage .headSlider .uk-slidenav-container {
+      margin-top: -80px; } }
   .IndexPage .sponsor {
     color: white; }
     .IndexPage .sponsor .uk-slider-items {
@@ -494,10 +507,13 @@ body {
     -ms-align-content: center;
     -webkit-align-content: center;
     align-content: center; }
+    .IndexPage .Packages .ServiceButton {
+      padding-right: 24px !important;
+      padding-left: 24px !important; }
   .IndexPage .packageOffer {
     width: 300px;
     background-image: url("../../img/Home/packagebackground.png"); }
-    .IndexPage .packageOffer button:hover {
+    .IndexPage .packageOffer .ServiceButton:hover {
       background: transparent !important;
       color: black; }
   .IndexPage .topPackage {
@@ -507,10 +523,10 @@ body {
     background-image: url("../../img/Home/top-package.jpg"); }
     .IndexPage .topPackage h3 {
       color: white; }
-    .IndexPage .topPackage button {
+    .IndexPage .topPackage .ServiceButton {
       background: white !important;
       color: #5cb152 !important; }
-    .IndexPage .topPackage button:hover {
+    .IndexPage .topPackage .ServiceButton:hover {
       background: transparent !important; }
   @media only screen and (max-device-width: 650px) {
     .IndexPage .Packages {
@@ -525,8 +541,22 @@ body {
         width: 230px; }
       .IndexPage .Packages .topPackage {
         width: 230px; }
-      .IndexPage .Packages button {
-        width: 100px !important;
+      .IndexPage .Packages .ServiceButton {
+        font-size: 16px !important; } }
+  @media only screen and (max-width: 650px) {
+    .IndexPage .Packages {
+      display: flex;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -ms-align-content: center;
+      -webkit-align-content: center;
+      align-content: center; }
+      .IndexPage .Packages .packageOffer {
+        width: 230px; }
+      .IndexPage .Packages .topPackage {
+        width: 230px; }
+      .IndexPage .Packages .ServiceButton {
         font-size: 16px !important; } }
   @media only screen and (min-device-width: 651px) and (max-device-width: 800px) {
     .IndexPage .Packages {
@@ -538,10 +568,28 @@ body {
       -webkit-align-content: center;
       align-content: center; }
       .IndexPage .Packages .packageOffer {
-        width: 350px; }
+        width: 320px; }
       .IndexPage .Packages .topPackage {
-        width: 350px; } }
-  @media only screen and (min-device-width: 651px) and (max-device-width: 1320px) {
+        width: 320px; } }
+  @media only screen and (min-width: 651px) and (max-width: 800px) {
+    .IndexPage .Packages {
+      display: flex;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -ms-align-content: center;
+      -webkit-align-content: center;
+      align-content: center; }
+      .IndexPage .Packages .packageOffer {
+        width: 320px; }
+      .IndexPage .Packages .topPackage {
+        width: 320px; } }
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1320px) {
+    .IndexPage .packageOffer {
+      width: 230px; }
+    .IndexPage .topPackage {
+      width: 230px; } }
+  @media only screen and (min-width: 800px) and (max-width: 1320px) {
     .IndexPage .packageOffer {
       width: 230px; }
     .IndexPage .topPackage {

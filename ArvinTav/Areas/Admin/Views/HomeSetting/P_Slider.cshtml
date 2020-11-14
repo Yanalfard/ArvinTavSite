@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 col-4">
-                        <a id="AddSpider" class="btn btn-success btn-sm text-white float-left" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
+                        <a id="AddList" class="btn btn-success btn-sm text-white float-left" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,18 @@
 <script src="/Scripts/jquery-3.4.1.js"></script>
 <script src="/Scripts/jquery-3.4.1.min.js"></script>
 
+<script>
 
+    $("#AddList").click(function () {
+        $.get("/Admin/HomeSetting/P_SliderCreate", function (result) {
+            $(".modal-dialog").removeClass("modal-lg");
+            $(".modal-dialog").removeClass("modal-md");
+            $(".modal-dialog").addClass("modal-xl");
+            $(".modal-content").html(result);
+        });
+    });
+
+</script>
 
 
 

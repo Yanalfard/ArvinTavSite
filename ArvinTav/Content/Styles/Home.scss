@@ -14,9 +14,13 @@ body {
 */
 * {
     overflow-x: hidden;
+    
 }
 
 .IndexPage {
+    * {
+        overflow: hidden;
+    }
     /*#cover-region */
     .cover {
         /*padding-top:20px;*/
@@ -47,6 +51,7 @@ body {
             -ms-text-justify: kashida;
             text-justify: kashida;
             color: #555;
+            overflow: hidden;
         }
 
         h3 {
@@ -67,6 +72,14 @@ body {
         .ServiceButton:hover {
             border-color: transparent !important;
         }
+
+        .uk-slidenav-container {
+            margin-top: -30px;
+            background: #b1b0b0;
+            opacity: 0.7;
+            border-radius: 5px;
+            width: 10px;
+        }
     }
 
     .endOfCover {
@@ -78,7 +91,7 @@ body {
         margin-top: -100px !important;
     }
 
-    @media only screen and (max-device-width: 520px) {
+    @media only screen and (max-device-width: 600px) {
         .headSlider {
             height: 540px !important;
 
@@ -114,6 +127,10 @@ body {
                 margin-top: -40px !important;
                 // border-radius:10px;
             }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
         }
 
         .endOfCover {
@@ -135,6 +152,10 @@ body {
 
             .ServiceButton {
                 padding: 4px !important;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
             }
         }
     }
@@ -376,13 +397,18 @@ body {
     /*#packages-region */
     .Packages {
         @include row();
+
+        .ServiceButton {
+            padding-right: 24px !important;
+            padding-left: 24px !important;
+        }
     }
 
     .packageOffer {
         width: 300px;
         background-image: url('../../img/Home/packagebackground.png');
 
-        button:hover {
+        .ServiceButton:hover {
             background: transparent !important;
             color: black;
         }
@@ -398,12 +424,12 @@ body {
             color: white;
         }
 
-        button {
+        .ServiceButton {
             background: white !important;
             color: #5cb152 !important;
         }
 
-        button:hover {
+        .ServiceButton:hover {
             background: transparent !important;
         }
     }
@@ -420,8 +446,25 @@ body {
                 width: 230px;
             }
 
-            button {
-                width: 100px !important;
+            .ServiceButton {
+                font-size: 16px !important;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 650px) {
+        .Packages {
+            @include column();
+
+            .packageOffer {
+                width: 230px;
+            }
+
+            .topPackage {
+                width: 230px;
+            }
+
+            .ServiceButton {
                 font-size: 16px !important;
             }
         }
@@ -432,16 +475,41 @@ body {
             @include column();
 
             .packageOffer {
-                width: 350px;
+                width: 320px;
             }
 
             .topPackage {
-                width: 350px;
+                width: 320px;
             }
         }
     }
 
-    @media only screen and (min-device-width : 651px) and (max-device-width : 1320px) {
+    @media only screen and (min-width : 651px) and (max-width :800px) {
+        .Packages {
+            @include column();
+
+            .packageOffer {
+                width: 320px;
+            }
+
+            .topPackage {
+                width: 320px;
+            }
+        }
+    }
+
+    @media only screen and (min-device-width : 800px) and (max-device-width : 1320px) {
+
+        .packageOffer {
+            width: 230px;
+        }
+
+        .topPackage {
+            width: 230px;
+        }
+    }
+
+    @media only screen and (min-width : 800px) and (max-width : 1320px) {
 
         .packageOffer {
             width: 230px;

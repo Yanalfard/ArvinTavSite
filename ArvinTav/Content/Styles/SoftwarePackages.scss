@@ -323,6 +323,16 @@
     }
 
     @media only screen and (max-width: 800px) {
+        .Price {
+            @include column();
+            @include center();
+            @include my-clipped;
+            label{
+                margin-right:7px;
+                padding-bottom:5px;
+            }
+        }
+
         .descriptionOfProduct {
             padding: 40px;
             background: white !important;

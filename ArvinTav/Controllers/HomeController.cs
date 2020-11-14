@@ -68,7 +68,7 @@ namespace ArvinTav.Controllers
         //End Product Part
         
         //Start Spider Part
-        [Route("Blog/{PageId}/{Result}/{InPageCount}")]
+        [Route("Blog/{PageId?}/{Result?}/{InPageCount?}")]
         public ActionResult Blog(int PageId = 1, string Result = "", int InPageCount = 0)
         {
             if (Result == "")
@@ -145,10 +145,10 @@ namespace ArvinTav.Controllers
             }
         }
 
-        [Route("Content/{ID}/{Title}")]
-        public ActionResult Content(int ID, string Title)
+        [Route("Post")]
+        public ActionResult Post()
         {
-            return View(spiderRepository.SpiderById(ID));
+            return View();
         }
         //End Spider Part
 

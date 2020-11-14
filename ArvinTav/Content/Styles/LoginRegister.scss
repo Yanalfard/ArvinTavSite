@@ -198,4 +198,22 @@
             }
         }
     }
+
+    .paymentPage {
+        .TitleInPayment {
+            background: #d2e8c3;
+            padding: 5px 77px !important;
+            color: #555;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        .ServiceButton {
+            width: 120px;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            border-radius: 5px !important;
+            color: white;
+        }
+    }
 }

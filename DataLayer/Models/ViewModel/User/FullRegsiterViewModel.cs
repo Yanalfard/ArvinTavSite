@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace DataLaye
+namespace DataLayer
 {
     public class FullRegsiterViewModel
     {

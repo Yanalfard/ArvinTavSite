@@ -43,6 +43,28 @@ namespace DataLayer
             //}
         }
 
+        public bool FullRegister(User user)
+        {
+            try
+            {
+                User userUp = UserByPhoneNumber(user.PhoneNumber);
+                userUp.FullName = user.FullName;
+                userUp.Email = user.Email;
+                userUp.Brand = user.Brand;
+                if (user.Image != null)
+                {
+                    userUp.Image = user.Image;
+                }
+                Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
         public User UserById(int ID)
         {
             return db.Users.Find(ID);
@@ -182,6 +204,5 @@ namespace DataLayer
         {
             db.Dispose();
         }
-
     }
 }

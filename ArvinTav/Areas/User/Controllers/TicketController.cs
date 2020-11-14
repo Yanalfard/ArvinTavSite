@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,35 +14,121 @@ namespace ArvinTav.Areas.User.Controllers
         private ArvinContext db = new ArvinContext();
 
         private ITicketRepository ticketRepository;
-        private IOrderRepository orderRepository;
         private IUserRepository userRepository;
         public TicketController()
         {
             ticketRepository = new TicketRepository(db);
-            orderRepository = new OrderRepository(db);
             userRepository = new UserRepository(db);
         }
 
         // GET: User/Ticket
-        public ActionResult Index()
+        public ActionResult Index(int PageId = 1, int InPageCount = 0)
         {
-            return View();
+            if (InPageCount == 0)
+            {
+                int count = ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Count();
+
+                var skip = (PageId - 1) * 18;
+
+                ViewBag.PageId = PageId;
+
+                ViewBag.PageCount = count / 18;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return View();
+            }
+            else
+            {
+
+                int count = ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Count();
+
+                var skip = (PageId - 1) * InPageCount;
+
+                ViewBag.PageId = PageId;
+
+                ViewBag.PageCount = count / InPageCount;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return View();
+            }
         }
 
-        public ActionResult P_List()
+        public ActionResult P_List(int PageId = 1, int InPageCount = 0)
         {
-            return PartialView();
+            if (InPageCount == 0)
+            {
+                int count = ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Count();
+
+                var skip = (PageId - 1) * 18;
+
+                ViewBag.PageId = PageId;
+
+                ViewBag.PageCount = count / 18;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return PartialView(ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).OrderBy(v => v.ID).Skip(skip).Take(18).ToList());
+            }
+            else
+            {
+
+                int count = ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).Count();
+
+                var skip = (PageId - 1) * InPageCount;
+
+                ViewBag.PageId = PageId;
+
+                ViewBag.PageCount = count / InPageCount;
+
+                ViewBag.InPageCount = InPageCount;
+
+                return PartialView(ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).ToList());
+            }
         }
 
-        public ActionResult P_InnerTicket()
+        public ActionResult InnerTicket(int ID)
         {
-            return PartialView();
+            return PartialView(ticketRepository.GetInnerTicket(ID));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendMassage(int TicketID, string Text, HttpPostedFileBase File)
+        {
+            if (File != null)
+            {
+                if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+                {
+
+                    return Redirect("InnerTicket?ID=" + TicketID + "&Erorr=1");
+                }
+                else
+                {
+                    string MassageFile = null;
+                    MassageFile = Guid.NewGuid() + Path.GetExtension(File.FileName);
+                    File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + MassageFile));
+
+                    ticketRepository.SendMassage(TicketID, Text, MassageFile, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+
+                    return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
+
+                }
+            }
+            else
+            {
+                ticketRepository.SendMassage(TicketID, Text, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+
+                return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
+            }
         }
 
         [HttpGet]
         public ActionResult Create()
         {
             ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+            ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
             return View();
         }
 
@@ -49,8 +136,62 @@ namespace ArvinTav.Areas.User.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateTicketInUser createTicketInUser, HttpPostedFileBase File)
         {
-            ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-            return View();
+            if (createTicketInUser.TicketCategory == 0)
+            {
+                ModelState.AddModelError("TicketCategory", "لطفا بخش مورد نظر را انتخاب کنید");
+                ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+
+                return View();
+            }
+            else
+            {
+                if (createTicketInUser.order == 0)
+                {
+                    ModelState.AddModelError("Order", "لطفا سرویس مورد نظر  را انتخاب کنید");
+                    ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                    ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders;
+                    return View();
+                }
+                else
+                {
+                    if (File != null)
+                    {
+                        if (File.ContentLength > 3000000)
+                        {
+                            ModelState.AddModelError("File", "حجم فایل بیش از 3 مگابایت میباشد");
+                            ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                            return View();
+                        }
+                        else
+                        {
+                            if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+                            {
+                                ModelState.AddModelError("File", "تنها فایل ها با فرمت pdf و png و jpeg قابل ارسال میباشد");
+                                ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                                ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                                return View();
+                            }
+                            else
+                            {
+                                createTicketInUser.File = Guid.NewGuid() + Path.GetExtension(File.FileName);
+                                File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + createTicketInUser.File));
+
+                                createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                                ticketRepository.CreateTicketInUser(createTicketInUser);
+                                return Redirect("/User/Ticket");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                        createTicketInUser.File = null;
+                        ticketRepository.CreateTicketInUser(createTicketInUser);
+                        return Redirect("/User/Ticket");
+                    }
+                }
+            }
         }
     }
 }

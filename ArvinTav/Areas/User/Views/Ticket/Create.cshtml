@@ -14,7 +14,7 @@
             </div>
             <div id="card-table" class="card-body flex-div">
                 <div class="table-responsive flex">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("Create", "Ticket", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-row col-12">
@@ -33,33 +33,19 @@
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.OrderDetails, htmlAttributes: new { @class = "control-label " })
-                                <div class="form-group ">
-                                    <select name="OrderDetails" class="form-control form-control-sm">
+                                @Html.LabelFor(model => model.order, htmlAttributes: new { @class = "control-label " })
+                                <div class="form-group ml-4">
+                                    <select name="order" class="form-control form-control-sm ">
                                         <option value="0">انتخاب کنید</option>
-                                        @foreach (var item in ViewBag.OrderDetails)
+                                        @foreach (var item in ViewBag.Order)
                                         {
-                                            <option value="@item.ID">
-                                                @if (item.SideID == 1)
-                                                {
-                                                    @item.HostingOrder.HostingService.Title
-
-                                                }
-                                                else if (item.SideID == 2)
-                                                {
-                                                    @item.PackageService.Title
-
-                                                }
-                                                else if (item.SideID == 3)
-                                                {
-                                                    @item.DomainServiceOrder.DomainName
-                                                }
-                                            </option>
+                                            <option value="@item.ID">@item.Title</option>
                                         }
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.OrderDetails, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.order, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+
                         </div>
                         <div class="form-horizontal">
 
@@ -78,7 +64,7 @@
                                     <div class="form-row">
 
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
+                                            <input type="file" class="custom-file-input form-control form-control-sm" name="File" accept="image/jpg,image/png,application/pdf,image/jpeg">
                                             <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
                                         </div>
                                     </div>
@@ -89,15 +75,15 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control textarea-max-height-90 ", @placeholder = "متن را وارد کنید" } })
+                                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control textarea-max-height-90", @placeholder = "متن را وارد کنید" } })
                                     @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="card-footer bg-white justify-content-end ">
+                            <div class="card-footer bg-white justify-content-end">
                                 <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                                 <input type="submit" value="افزودن" class="btn btn-success btn-sm float-left " />
                                 <div class="btn btn-primary btn-sm float-left ml-3">
-                                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "text-white" })
+                                    <a class="text-white" href="/User/Ticket">بازگشت</a>
                                 </div>
                             </div>
                         </div>

@@ -126,29 +126,7 @@
                         </button>
                     </div>
                 }
-                <ul class="uk-text-bold uk-margin-remove-top" dir="rtl">
-                    <li class="uk-active">
-                        <a href="#"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
-                    <li>
-                        <a href="#">بسته های نرم افزاری</a>
-                        <div uk-dropdown="pos: bottom-justify">
-                            <div class="uk-flex-column uk-flex-between ">
-                                <ul class="uk-nav uk-dropdown-nav ">
-                                    <li class="uk-nav-header"><a href="#">سایت فروشگاهی</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li><a href="#"> CMS آماده </a></li>
-                                    <li><a href="#">CMS اختصاصی </a></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="#">درباره ما</a>
-
-                    </li>
-                </ul>
+                @Html.Action("P_MainCategoryMobile","Home")
                 <form class="search center ">
                     <div class="inputContainer">
                         <input class="Field" type="search" placeholder="جستجو..." />

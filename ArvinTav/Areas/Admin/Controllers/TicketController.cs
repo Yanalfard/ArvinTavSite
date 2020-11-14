@@ -18,6 +18,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             ticketRepository = new TicketRepository(db);
             userRepository = new UserRepository(db);
         }
+        
         // GET: Admin/Ticket
         public ActionResult Index(int PageId = 1, int TicketIDSearch = 0, int StatusSearch = 0, int CategorySearch = 0, int InPageCount = 0)
         {
@@ -331,7 +332,9 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             if (ticketRepository.GetTicketById(ID).Supporter == null)
             {
+                ticketRepository.GetTicketById(ID).Status = 2;
                 ticketRepository.GetTicketById(ID).Supporter = userRepository.UserByPhoneNumber(User.Identity.Name);
+                ticketRepository.Save();
             }
             return View(ticketRepository.GetInnerTicket(ID));
         }
@@ -341,14 +344,23 @@ namespace ArvinTav.Areas.Admin.Controllers
             return PartialView(ticketRepository.GetTicketById(ID));
         }
 
-        public ActionResult P_SupporterMassage(int ID)
+        public ActionResult EndTicket(int ID)
         {
-            return PartialView(ticketRepository.SupporterinnerTickets(ID));
+            ticketRepository.GetTicketById(ID).Status = 3;
+            ticketRepository.Save();
+            return Redirect("/Admin/Ticket");
         }
 
         public string SendMassage(int ID, string TextMassage, string FileMassage)
         {
-            return ticketRepository.SendMassage(ID, TextMassage, FileMassage);
+            if (FileMassage != "")
+            {
+                return ticketRepository.SendMassage(ID, TextMassage, FileMassage, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+            }
+            else
+            {
+                return ticketRepository.SendMassage(ID, TextMassage, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+            }
         }
 
         protected override void Dispose(bool disposing)

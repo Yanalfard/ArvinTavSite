@@ -1,0 +1,5 @@
+﻿@model IEnumerable<DataLayer.ServiceCategory>
+@foreach (var item in Model)
+{
+    <li><a href="/Products/@item.ID/@item.Title.Replace(" ","-")">@item.Title</a></li>
+}

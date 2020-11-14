@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DataLayer
 {
@@ -18,8 +19,10 @@ namespace DataLayer
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
-        [MaxLength(600)]
+        [MaxLength(1000)]
         [MinLength(2)]
+        [DataType(DataType.MultilineText)]
+        [AllowHtml]
         public string Description { get; set; }
 
         [Display(Name = "تصویر")]

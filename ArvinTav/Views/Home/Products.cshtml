@@ -40,7 +40,7 @@
                                 <li> <i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
                             }
                         </ul>
-                        <button class="ServiceButton" onclick="window.location.href='/Product/@item.ID'">جزئیات و سفارش</button>
+                        <button class="ServiceButton" onclick="window.location.href='/Product/@item.ID/@item.Title.Replace(" ","-")'">جزئیات و سفارش</button>
                     </content>
                 </article>
             }

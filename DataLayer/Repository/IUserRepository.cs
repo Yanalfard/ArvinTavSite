@@ -12,6 +12,8 @@ namespace DataLayer
 
         bool ShortRegister(ShortRegisterViewModel shortRegisterViewModel);
 
+        bool FullRegister(User user);
+
         User UserById(int ID);
 
         User UserByPhoneNumber(string PhoneNumber);
@@ -28,7 +30,7 @@ namespace DataLayer
 
         bool ForgetAccountPush(ForgetPasswordViewModel ForgetPasswordViewModel);
 
-        bool CheckUser(string PhoneNumber,string Password);
+        bool CheckUser(string PhoneNumber, string Password);
 
         IEnumerable<UserRole> AllRoles();
 

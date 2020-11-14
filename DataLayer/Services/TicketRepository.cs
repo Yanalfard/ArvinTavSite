@@ -9,10 +9,14 @@ namespace DataLayer
     public class TicketRepository : ITicketRepository
     {
         private ArvinContext db;
+        private IPackageRepository packageRepository;
+        private IUserRepository userRepository;
 
         public TicketRepository(ArvinContext context)
         {
             this.db = context;
+            packageRepository = new PackageRepository(db);
+            userRepository = new UserRepository(db);
         }
 
         public IEnumerable<Ticket> AllTickets()
@@ -23,6 +27,29 @@ namespace DataLayer
         public IEnumerable<Ticket> AllTicketForUser(int UserID)
         {
             return db.tickets.Where(t => t.User.UserID == UserID);
+        }
+
+        public void CreateTicketInUser(CreateTicketInUser createTicketInUser)
+        {
+            Ticket ticket = new Ticket();
+            ticket.dateTime = DateTime.Now;
+            ticket.Status = 1;
+            ticket.Subject = createTicketInUser.Subject;
+            ticket.PackageService = packageRepository.PackageServiceById(createTicketInUser.order);
+            ticket.Supporter = null;
+            ticket.EndTicketTime = DateTime.Now;
+            ticket.TicketCategory = ticketCategoryById(createTicketInUser.TicketCategory);
+            ticket.User = createTicketInUser.user;
+            db.tickets.Add(ticket);
+            InnerTicket inner = new InnerTicket();
+            inner.ParentID = null;
+            inner.Text = createTicketInUser.Text;
+            inner.Ticket = ticket;
+            inner.User = createTicketInUser.user;
+            inner.dateTime = DateTime.Now;
+            inner.File = createTicketInUser.File;
+            db.InnerTickets.Add(inner);
+            Save();
         }
 
         public TicketListViewModel AllTicketInView()
@@ -95,8 +122,8 @@ namespace DataLayer
         {
             try
             {
-                IEnumerable<InnerTicket> innerTickets = db.innerTickets.Where(it => it.Ticket.TicketCategory.ID == ID);
-                db.innerTickets.RemoveRange(innerTickets);
+                IEnumerable<InnerTicket> innerTickets = db.InnerTickets.Where(it => it.Ticket.TicketCategory.ID == ID);
+                db.InnerTickets.RemoveRange(innerTickets);
                 IEnumerable<Ticket> tickets = db.tickets.Where(t => t.TicketCategory.ID == ID);
                 db.tickets.RemoveRange(tickets);
                 db.TicketCategories.Remove(ticketCategoryById(ID));
@@ -113,7 +140,7 @@ namespace DataLayer
         {
             InnerTicketViewModel innerTicketViewModel = new InnerTicketViewModel();
             innerTicketViewModel.Ticket = GetTicketById(ID);
-            innerTicketViewModel.innerTickets = db.innerTickets.Where(it => it.Ticket.ID == ID);
+            innerTicketViewModel.innerTickets = db.InnerTickets.Where(it => it.Ticket.ID == ID);
 
             return innerTicketViewModel;
         }
@@ -125,28 +152,28 @@ namespace DataLayer
 
         public IEnumerable<InnerTicket> SupporterinnerTickets(int ID)
         {
-            return db.innerTickets.Where(it => it.ParentID == ID);
+            return db.InnerTickets.Where(it => it.ParentID == ID);
         }
 
-        public string SendMassage(int ID, string TextMassage, string FileMassage)
+        public string SendMassage(int ID, string TextMassage, string FileMassage, int UserID)
         {
             try
             {
                 InnerTicket innerTicket = new InnerTicket();
                 innerTicket.dateTime = DateTime.Now;
+                innerTicket.User = userRepository.UserById(UserID);
                 innerTicket.Text = TextMassage;
-                if (string.IsNullOrEmpty(FileMassage))
-                {
-                    innerTicket.File = null;
-                }
-                else
+                if (FileMassage != null)
                 {
                     innerTicket.File = FileMassage;
                 }
-                InnerTicket InnerTicket = GetTicketById(ID).InnerTickets.Where(it => it.Ticket.ID == ID).OrderBy(it => it.ID).Last();
-                innerTicket.ParentID = InnerTicket.ID;
+                else
+                {
+                    innerTicket.File = null;
+                }
                 innerTicket.Ticket = GetTicketById(ID);
-                //innerTicket.User =;
+
+                db.InnerTickets.Add(innerTicket);
                 Save();
                 return "true";
             }

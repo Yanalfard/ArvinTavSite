@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DataLayer.ServiceCategory>
+@foreach (var item in Model)
+{
+<ul class="uk-nav uk-dropdown-nav ">
+    <li class="uk-nav-header"><a href="#">@item.Title</a></li>
+    <li class="uk-nav-divider"></li>
+    @Html.Action("P_SubCategoryMobile")
+
+</ul>
+}

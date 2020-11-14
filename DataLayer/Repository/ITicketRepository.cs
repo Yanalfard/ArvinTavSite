@@ -14,6 +14,8 @@ namespace DataLayer
 
         IEnumerable<Ticket> AllTicketForUser(int UserID);
 
+        void CreateTicketInUser(CreateTicketInUser createTicketInUser);
+
         InnerTicketViewModel GetInnerTicket(int ID);
 
         IEnumerable<TicketCategory> ticketCategories();
@@ -30,7 +32,7 @@ namespace DataLayer
 
         IEnumerable<InnerTicket> SupporterinnerTickets(int ID);
 
-        string SendMassage(int ID, string TextMassage, string FileMassage);
+        string SendMassage(int ID, string TextMassage, string FileMassage, int UserID);
 
         void Save();
 

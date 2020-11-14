@@ -1,0 +1,68 @@
+﻿@model DataLayer.InnerTicketViewModel
+
+@{
+    ViewBag.Title = "InnerTicket";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div class="row flex-div">
+    <div class="col-md-12 flex-div pb-3 pt-3">
+        <div class="card flex-div border-0 main-shadow">
+            <div class="card-header bg-white">
+                <div class="row col-12">
+                    <label class="uk-text-bold pr-3">کد تیکت:</label>
+                    <span>@Model.Ticket.ID</span>
+                    <a href="/User/Ticket" class="btn btn-primary btn-sm text-white float-left uk-margin-auto-right uk-margin-auto-top uk-margin-auto-bottom">بازگشت</a>
+                </div>
+            </div>
+            <div id="card-table" class="card-body flex-div">
+                <div class="table-responsive flex">
+                    <div class="table fixed">
+                        @foreach (var item in Model.innerTickets)
+                        {
+                            <div class="col-10 col-sm-10 col-md-6 bg-costum p-3 uk-border-rounded">
+                                <p class="justify-text">
+                                    @item.Text
+                                </p>
+                                <time>@item.dateTime.ToShamsi()</time>
+                                <span>@item.User.FullName</span>
+                                @if (item.File != null)
+                                {
+                                    <span data-placement="top" data-toggle="tooltip" title="" data-original-title="دارای فایل">
+                                        <a href="/Document/File/TicketFile/@item.File"><i class="fas fa-file-download mr-2"></i></a>
+                                    </span>
+                                }
+                            </div>
+                            @:&nbsp;
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white ">
+                <nav aria-label="Page navigation example">
+                    <div class="row ">
+                        @if (Model.Ticket.Status == 1 || Model.Ticket.Status == 2)
+                        {
+                            <form class="row col-sm-12 col-12" method="post" action="SendMassage" enctype="multipart/form-data">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" value="@Model.Ticket.ID" name="TicketID" />
+                                <textarea name="Text" class="form-control col-sm-10 col-12 textarea-max-height-90" required maxlength="700"></textarea>
+                                <input type="file" name="File" accept="application/pdf,image/x-png,image/jpeg" />
+                                @if (Request.QueryString["Erorr"] != null)
+                                {
+                                    <span class="text-danger">فایل های مجاز Pdf , Image</span>
+                                }
+                                <button type="submit" class="btn btn-info btn-sm text-white float-left uk-margin-auto-right uk-margin-auto-top uk-margin-auto-bottom mb-4 mt-3"><i class="fas fa-reply"></i>پاسخ</button>
+                            </form>
+                        } else if (Model.Ticket.Status==3) {
+                            <span class="text-success">این تیکت تکمیل شده است</span>
+                        }
+                    
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+

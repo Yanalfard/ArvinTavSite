@@ -4,14 +4,23 @@
     ViewBag.Title = "داشبورد";
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
-@if (Model.FullName != null || Model.Brand != null || Model.Email != null || Model.Image != null)
+
+@if (Model.FullName == null && Model.Brand == null && Model.Email == null && Model.Image == null)
+{
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 15%">15%</div>
+    </div>
+}
+
+
+@if (Model.FullName != null && Model.Brand == null && Model.Email == null && Model.Image == null)
 {
     <div class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%</div>
     </div>
 }
 
-@if ((Model.FullName != null && Model.Brand != null) || (Model.FullName != null && Model.Email != null) || (Model.FullName != null && Model.Image != null) || (Model.Brand != null && Model.Email != null) || (Model.Brand != null && Model.Image != null) || (Model.Email != null && Model.Image != null))
+@if (Model.FullName != null && Model.Brand != null && Model.Email == null && Model.Image == null)
 {
 
     <div class="progress">
@@ -19,7 +28,7 @@
     </div>
 }
 
-@if ((Model.FullName != null && Model.Brand != null && Model.Email != null) || (Model.FullName != null && Model.Brand != null && Model.Image != null) || (Model.Email != null && Model.Brand != null && Model.Image != null) || (Model.FullName != null && Model.Email != null && Model.Image != null))
+@if (Model.FullName != null && Model.Brand != null && Model.Email != null && Model.Image == null)
 {
     <div class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
@@ -29,7 +38,7 @@
 @if (Model.FullName != null && Model.Brand != null && Model.Email != null && Model.Image != null)
 {
     <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">پرفایل شما تکمیل شده است</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">پرفایل شما تکمیل شده است</div>
     </div>
 }
 <div class="row flex-div">
@@ -66,10 +75,9 @@
                                 <label>ایمیل</label>
                                 <span>@Model.Email</span>
                             </div>
-                            
+
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div class="card-footer bg-white">

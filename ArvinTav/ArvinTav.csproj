@@ -138,7 +138,6 @@
     <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\InnerTicket.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\P_Info.cshtml" />
-    <Content Include="Areas\Admin\Views\Ticket\P_SupporterMassage.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
@@ -1880,9 +1879,14 @@
     <Content Include="Areas\Admin\Views\Festival\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Festival\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\HomeSetting\P_SliderCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\P_Details.cshtml" />
     <Content Include="Areas\User\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\User\Views\Dashboard\MyProfile.cshtml" />
     <Content Include="Areas\User\Views\Order\Index.cshtml" />
+    <Content Include="Areas\User\Views\Order\P_Detail.cshtml" />
     <Content Include="Areas\User\Views\Order\P_List.cshtml" />
     <Content Include="Areas\User\Views\Shared\P_UserBox.cshtml" />
     <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
@@ -1890,12 +1894,7 @@
     <Content Include="Areas\User\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\User\Views\Ticket\P_List.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\Ticket\P_InnerTicket.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\P_UserBox.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\notification.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\P_Details.cshtml" />
-    <Content Include="Areas\User\Views\Order\P_Detail.cshtml" />
+    <Content Include="Areas\User\Views\Ticket\InnerTicket.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -3162,6 +3161,10 @@
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\Content.cshtml" />
+    <Content Include="Views\Shared\P_MainCategoryMobile.cshtml" />
+    <Content Include="Views\Shared\P_ChildCategoryMobile.cshtml" />
+    <Content Include="Views\Shared\P_SubCategoryMobile.cshtml" />
+    <Content Include="Views\Shared\ProductsByMainCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

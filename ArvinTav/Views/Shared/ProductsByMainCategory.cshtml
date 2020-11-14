@@ -1,0 +1,27 @@
+﻿@model DataLayer.PackageByMainCategoryViewModel
+@{
+    ViewBag.Title = "ProductsByMainCategory";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>نمایش محصولات بر اساس دسته بندی اصلی</h2>
+
+@foreach (var item in Model.ServiceCategory.ChildCategories)
+{
+    @item.Title
+    @item.Image
+
+}
+
+
+@foreach (var item in Model.packageServices)
+{
+    @:
+    @item.Title
+    @:
+    @foreach (var Detail in item.PackageServiceDetails)
+    {
+        <i>@Detail.Title</i>
+    }
+}
+

@@ -2,5 +2,5 @@
 
 @foreach (var item in Model)
 {
-    <li><a href="/products/@item.ID">@item.Title</a></li>
+    <li><a href="/products/@item.ID/@item.Title.Replace(" ","-")">@item.Title</a></li>
 }

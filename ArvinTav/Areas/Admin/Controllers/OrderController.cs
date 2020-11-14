@@ -290,6 +290,11 @@ namespace ArvinTav.Areas.Admin.Controllers
             return OrderRepository.SwitchingStatus(ID);
         }
 
+        public ActionResult P_Details(int ID)
+        {
+            return PartialView(OrderRepository.OrderById(ID));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

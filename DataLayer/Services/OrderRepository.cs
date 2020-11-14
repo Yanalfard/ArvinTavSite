@@ -24,7 +24,7 @@ namespace DataLayer
         {
             return db.Orders.Where(o => o.User.UserID == UserID);
         }
-        
+
         public string SwitchingStatus(int ID)
         {
             try
@@ -33,13 +33,16 @@ namespace DataLayer
                 if (order.Status == 1)
                 {
                     order.Status = 4;
+                    Save();
                     return "true";
                 }
-                else
+                else if (order.Status == 2)
                 {
                     order.Status = 3;
+                    Save();
                     return "true";
                 }
+                return "false";
             }
             catch (Exception ex)
             {
@@ -56,6 +59,10 @@ namespace DataLayer
         {
             db.Dispose();
         }
-        
+
+        public void Save()
+        {
+            db.SaveChanges();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model DataLaye.FullRegsiterViewModel
+﻿@model DataLayer.FullRegsiterViewModel
 
 @{
     ViewBag.Title = "پروفایل";
@@ -16,7 +16,7 @@
             <div id="card-table" class="card-body flex-div">
                 <div class="table-responsive flex">
 
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("MyProfile", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -52,8 +52,15 @@
                                     <div class="form-row">
 
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input form-control form-control-sm" id="Image" accept="image/jpg,image/png">
-                                            <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
+                                            <input type="file" class="custom-file-input form-control form-control-sm" name="ImageUp" accept="image/jpg,image/png,image/jpeg">
+                                            @if (Model.Image != null)
+                                            {
+                                                <label class="custom-file-label" for="Image" data-browse="انتخاب">@Model.Image<i class="fas fa-paperclip"></i></label>
+                                            }
+                                            else
+                                            {
+                                                <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
+                                            }
                                         </div>
                                     </div>
                                     @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
@@ -71,6 +78,6 @@
                 </div>
             </div>
         </div>
-            </div>
-        </div>
+    </div>
+</div>
 

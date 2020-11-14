@@ -35,9 +35,24 @@ namespace ArvinTav.Controllers
             return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
         }
 
+        public ActionResult P_MainCategoryMobile()
+        {
+            return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
+        }
+
         public ActionResult P_ChildCategory(int ID)
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
+        }
+
+        public ActionResult P_ChildCategoryMobile(int ID)
+        {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
+        }
+
+        public ActionResult P_SubCategoryMobile(int ID)
+        {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
         }
 
         public ActionResult P_SubCategory(int ID)
@@ -48,14 +63,25 @@ namespace ArvinTav.Controllers
 
 
         //Start Product Part
-        [Route("Products/{ID}")]
-        public ActionResult Products(int ID)
+        [Route("Products/{ID}/{Title}")]
+
+        [Route("MainPackage/{ID}/{Title}")]
+        public ActionResult ProductsByMainCategory(int ID)
+        {
+            PackageByMainCategoryViewModel PackageByMainCategoryViewModel = new PackageByMainCategoryViewModel();
+            PackageByMainCategoryViewModel.ServiceCategory = serviceCategoryRepository.AllChildCategory(ID, true);
+            PackageByMainCategoryViewModel.packageServices = packageRepository.AllPackageServices().Where(p => p.ServiceCategory.ParentID == ID);
+
+            return View(PackageByMainCategoryViewModel);
+        }
+
+        public ActionResult Products(int ID, string Title)
         {
             return View(serviceCategoryRepository.ServiceCategoryById(ID).PackageServices);
         }
 
-        [Route("Product/{ID}")]
-        public ActionResult Product(int ID)
+        [Route("Product/{ID}/{Title}")]
+        public ActionResult Product(int ID, string Title)
         {
             return View(packageRepository.PackageServiceById(ID));
         }
@@ -66,7 +92,7 @@ namespace ArvinTav.Controllers
             return View();
         }
         //End Product Part
-        
+
         //Start Spider Part
         [Route("Blog/{PageId}/{Result}/{InPageCount}")]
         public ActionResult Blog(int PageId = 1, string Result = "", int InPageCount = 0)

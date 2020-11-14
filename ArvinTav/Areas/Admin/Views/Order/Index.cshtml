@@ -248,7 +248,7 @@
         }
 
         function SwitchingStatus(ID) {
-            $.get("Admin/Order/SwitchingStatus?ID=" + ID, function (result) {
+            $.get("/Admin/Order/SwitchingStatus?ID=" + ID, function (result) {
                 if (result == "true") {
                     window.location.reload();
                 } else {

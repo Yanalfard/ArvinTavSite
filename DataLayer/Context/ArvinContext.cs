@@ -10,9 +10,9 @@ namespace DataLayer
     public class ArvinContext : DbContext
     {
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
-
+        
         public DbSet<Order> Orders { get; set; }
-
+        
         public DbSet<PackageService> PackageServices { get; set; }
 
         public DbSet<PackageServiceDetail> packageServiceDetails { get; set; }
@@ -23,7 +23,7 @@ namespace DataLayer
 
         public DbSet<Ticket> tickets { get; set; }
 
-        public DbSet<InnerTicket> innerTickets { get; set; }
+        public DbSet<InnerTicket> InnerTickets { get; set; }
 
         public DbSet<Spider> spiders { get; set; }
 
@@ -44,7 +44,6 @@ namespace DataLayer
         public DbSet<Slider> sliders { get; set; }
 
         public DbSet<Discount> discounts { get; set; }
-
 
 
     }

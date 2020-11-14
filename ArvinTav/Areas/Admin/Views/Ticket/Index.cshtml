@@ -85,7 +85,9 @@
                                     <td>
                                         @item.User.PhoneNumber
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        @item.PackageService.Title
+                                    </td>
                                     <td>
                                         @item.TicketCategory.Title
                                     </td>
@@ -105,7 +107,7 @@
                                         }
                                         else if (item.Status == 2)
                                         {
-                                            <span class="text-danger">(در حال بررسی)</span>
+                                            <span class="text-danger">(در حال بررسی توسط @item.Supporter.FullName)</span>
                                         }
                                         else if (item.Status == 3)
                                         {
@@ -115,7 +117,7 @@
                                     <td>
                                         @if (item.Status == 3)
                                         {
-                                            <span class="text-success">تکمیل شده در تاریخ : </span>@item.EndTicketTime.ToShamsi()
+                                            @item.EndTicketTime.ToShamsi()
                                         }
                                         else
                                         {
@@ -126,7 +128,13 @@
                                         @if (item.Status == 2)
                                         {
                                             <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تکمیل تیکت">
-                                                <a id="InnerTicket" href="/Admin/Ticket/InnerTicket?ID=@item.ID"><i class="fas fa-comment-alt mr-2 text-primary"></i></a>
+                                                <a href="/Admin/Ticket/EndTicket?ID=@item.ID" class="text-success"><i class="fas fa-check"></i></a>
+                                            </span>
+                                        }
+                                        else if (item.Status == 3)
+                                        {
+                                            <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تکمیل شده توسط @item.Supporter.FullName">
+                                                <a class="text-success"><i class="fas fa-check-double"></i></a>
                                             </span>
                                         }
                                         else

@@ -55,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
+    <Compile Include="Migrations\202011150705596_debuginnertickettbl.cs" />
+    <Compile Include="Migrations\202011150705596_debuginnertickettbl.designer.cs">
+      <DependentUpon>202011150705596_debuginnertickettbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\MarketerReport.cs" />
@@ -85,9 +90,7 @@
     <Compile Include="Models\ViewModel\Statistic\TicketExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\TicketListViewModel.cs" />
     <Compile Include="Models\ViewModel\Ui\ChildCategoryINViewViewmodel.cs" />
-
     <Compile Include="Models\ViewModel\Ui\PackageByMainCategoryViewModel.cs" />
-
     <Compile Include="Models\ViewModel\UserEditInAdminViewModel.cs" />
     <Compile Include="Models\ViewModel\User\AccountActiveViewModel.cs" />
     <Compile Include="Models\ViewModel\User\ForgetPasswordViewModel.cs" />
@@ -135,6 +138,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Seo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011150705596_debuginnertickettbl.resx">
+      <DependentUpon>202011150705596_debuginnertickettbl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

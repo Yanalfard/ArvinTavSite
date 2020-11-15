@@ -30,9 +30,7 @@ namespace DataLayer
 
         Ticket GetTicketById(int ID);
 
-        IEnumerable<InnerTicket> SupporterinnerTickets(int ID);
-
-        string SendMassage(int ID, string TextMassage, string FileMassage, int UserID);
+        string SendMassage(int ID, int SideID, string TextMassage, string FileMassage, int UserID);
 
         void Save();
 

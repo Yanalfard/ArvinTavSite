@@ -110,7 +110,7 @@ namespace ArvinTav.Areas.User.Controllers
                     MassageFile = Guid.NewGuid() + Path.GetExtension(File.FileName);
                     File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + MassageFile));
 
-                    ticketRepository.SendMassage(TicketID, Text, MassageFile, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+                    ticketRepository.SendMassage(TicketID, 1, Text, MassageFile, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
 
                     return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
 
@@ -118,7 +118,7 @@ namespace ArvinTav.Areas.User.Controllers
             }
             else
             {
-                ticketRepository.SendMassage(TicketID, Text, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+                ticketRepository.SendMassage(TicketID,1, Text, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
 
                 return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
             }

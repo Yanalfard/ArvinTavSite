@@ -18,8 +18,8 @@ namespace DataLayer
         [Display(Name = "فایل")]
         public string File { get; set; }
 
-        [Display(Name = "والد")]
-        public int? ParentID { get; set; }
+        [Display(Name = "از طرف")]
+        public int? SideID { get; set; }
 
         [Display(Name = "زمان")]
         public DateTime dateTime { get; set; }

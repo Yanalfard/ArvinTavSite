@@ -18,7 +18,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             ticketRepository = new TicketRepository(db);
             userRepository = new UserRepository(db);
         }
-        
+
         // GET: Admin/Ticket
         public ActionResult Index(int PageId = 1, int TicketIDSearch = 0, int StatusSearch = 0, int CategorySearch = 0, int InPageCount = 0)
         {
@@ -355,11 +355,11 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             if (FileMassage != "")
             {
-                return ticketRepository.SendMassage(ID, TextMassage, FileMassage, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+                return ticketRepository.SendMassage(ID, 2, TextMassage, FileMassage, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
             }
             else
             {
-                return ticketRepository.SendMassage(ID, TextMassage, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+                return ticketRepository.SendMassage(ID, 2, TextMassage, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
             }
         }
 

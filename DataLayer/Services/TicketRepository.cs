@@ -42,7 +42,7 @@ namespace DataLayer
             ticket.User = createTicketInUser.user;
             db.tickets.Add(ticket);
             InnerTicket inner = new InnerTicket();
-            inner.ParentID = null;
+            inner.SideID = 1;
             inner.Text = createTicketInUser.Text;
             inner.Ticket = ticket;
             inner.User = createTicketInUser.user;
@@ -150,12 +150,8 @@ namespace DataLayer
             return db.tickets.Find(ID);
         }
 
-        public IEnumerable<InnerTicket> SupporterinnerTickets(int ID)
-        {
-            return db.InnerTickets.Where(it => it.ParentID == ID);
-        }
 
-        public string SendMassage(int ID, string TextMassage, string FileMassage, int UserID)
+        public string SendMassage(int ID, int SideID, string TextMassage, string FileMassage, int UserID)
         {
             try
             {
@@ -163,6 +159,7 @@ namespace DataLayer
                 innerTicket.dateTime = DateTime.Now;
                 innerTicket.User = userRepository.UserById(UserID);
                 innerTicket.Text = TextMassage;
+                innerTicket.SideID = SideID;
                 if (FileMassage != null)
                 {
                     innerTicket.File = FileMassage;

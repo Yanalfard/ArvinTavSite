@@ -3246,6 +3246,8 @@
     <Content Include="Views\Home\Verify.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\ByTage.cshtml" />
+    <Content Include="Views\Home\ByCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

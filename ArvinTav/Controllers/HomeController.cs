@@ -250,7 +250,23 @@ namespace ArvinTav.Controllers
         {
             return View(spiderRepository.SpiderById(ID));
         }
+       
+        [Route("tage={Tage}")]
+        public ActionResult ByTage(string Tage)
+        {
+            return View();
+        }
+
+        [Route("cat={ID}")]
+        public ActionResult ByCategory(int ID)
+        {
+            return View();
+        }
+
         //End Spider Part
+
+
+
 
         [Route("AboutUs")]
         public ActionResult AboutUs()
@@ -259,7 +275,7 @@ namespace ArvinTav.Controllers
         }
 
         [Route("ContactUs")]
-        [HttpPost]
+        [HttpGet]
         public ActionResult ContactUs()
         {
             return View();

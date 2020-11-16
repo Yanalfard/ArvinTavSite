@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.PackageService
 @{
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -11,11 +11,11 @@
                 <img src="~/img/products/payment.jpg" width="320" />
                 <div class="center my-column">
                     <label class="TitleInPayment">نام پکیج</label>
-                    <label>ydsugbd</label>
+                    <label>@Model.Title</label>
                     &nbsp;
                     <label class="TitleInPayment">قیمت</label>
-                    <span id="PriceSpan">14525652<span class="uk-margin-small-right">تومان</span></span>
-                    <a class="ServiceButton uk-margin-auto-left uk-margin-auto-right uk-margin-medium-top">پرداخت</a>
+                    <span id="PriceSpan">@Model.Price<span class="uk-margin-small-right">تومان</span></span>
+                    <a class="ServiceButton uk-margin-auto-left uk-margin-auto-right uk-margin-medium-top" href="/Home/PaymentPay?ID=@Model.ID">پرداخت</a>
                 </div>
             </content>
         </div>
@@ -26,6 +26,5 @@
 @section Scripts{
     <script src="~/Tools/Span_Formatting_Currency.js"></script>
 
-    
     }
 

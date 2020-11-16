@@ -12,16 +12,13 @@
             <div>
                 <select id="MainCategorySelect">
                     <option selected value="0">انتخاب دسته</option>
-                    @foreach (var item in Model.serviceCategories)
+                    @foreach (var item in Model.spiderCategories)
                     {
                         <option value="@item.ID">@item.Title</option>
                     }
                 </select>
-                <div id="ChildCategory">
-
-                </div>
-                <input type="hidden" id="Category" value="@Model.Spider.ServiceCategory.ID" />
-                <span class="text-success">دسته بندی @Model.Spider.ServiceCategory.Title</span>
+                <input type="hidden" id="Category" value="@Model.Spider.SpiderCategory.ID" />
+                <span class="text-success">دسته بندی @Model.Spider.SpiderCategory.Title</span>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -69,10 +66,7 @@
 
         $("#MainCategorySelect").change(function () {
             if ($("#MainCategorySelect option:selected").val() == 0) { } else {
-                $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
-                    $("#ChildCategory").html(result);
-                    $("#Category").val($("#MainCategorySelect option:selected").val());
-                });
+                $("#Category").val($("#MainCategorySelect option:selected").val());
             }
         });
 

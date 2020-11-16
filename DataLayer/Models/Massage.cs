@@ -12,12 +12,25 @@ namespace DataLayer
         [Key]
         public int ID { get; set; }
 
+        [Display(Name = "نام کامل")]
+        [MinLength(2,ErrorMessage ="لطفا نام صحیح وارد کنید")]
+        [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        public string FullName { get; set; }
+
+        [Display(Name = "ایمیل")]
+        [MinLength(3,ErrorMessage ="ایمیل معتبر وارد کنید")]
+        [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        public string Email { get; set; }
+
+        [MaxLength(15, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "متن پیغام")]
         [MaxLength(500, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string Text { get; set; }
 
+        [Display(Name = "وضعیت")]
         public bool Seen { get; set; }
-
-        public virtual User User { get; set; }
 
         public Massage()
         {

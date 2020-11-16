@@ -59,6 +59,8 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -140,6 +142,55 @@
     <Content Include="Areas\Admin\Views\Ticket\P_Info.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\ArvinTav.ZarinPal.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Management\P_SpiderCategoryCreate.cshtml" />
+    <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinPal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinTest\ArvinTav.ZarinTest.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ZarinTest\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinTest\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinTest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
@@ -1951,6 +2002,8 @@
     <Content Include="img\Home\svg\Why\Success.svg" />
     <Content Include="img\Home\svg\Why\Team.svg" />
     <Content Include="Content\Styles\blog.scss" />
+    <None Include="Connected Services\ZarinPal\PaymentGatewayImplementationService.wsdl" />
+    <None Include="Connected Services\ZarinTest\PaymentGatewayImplementationService.wsdl" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -1967,8 +2020,13 @@
     <Content Include="Scripts\UIkit\uikit-icons.min.js" />
     <Content Include="Scripts\UIkit\uikit.min.js" />
     <Content Include="Scripts\UIScripts\Global.js" />
-    <Content Include="Test.html" />
     <Content Include="Tools\Auto_Formatting_Currency.js" />
+    <Content Include="Tools\Chart\Chart.bundle.js" />
+    <Content Include="Tools\Chart\Chart.bundle.min.js" />
+    <Content Include="Tools\Chart\Chart.css" />
+    <Content Include="Tools\Chart\Chart.js" />
+    <Content Include="Tools\Chart\Chart.min.css" />
+    <Content Include="Tools\Chart\Chart.min.js" />
     <Content Include="Tools\ckeditor\adapters\jquery.js" />
     <Content Include="Tools\ckeditor\build-config.js" />
     <Content Include="Tools\ckeditor\CHANGES.html" />
@@ -3114,6 +3172,16 @@
     <Compile Include="Classes\RoleEngine.cs" />
     <Compile Include="Classes\Security.cs" />
     <Compile Include="Classes\Sms.cs" />
+    <Compile Include="Connected Services\ZarinPal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ZarinTest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3170,14 +3238,14 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-
-    <Content Include="Views\Home\Content.cshtml" />
     <Content Include="Views\Shared\P_MainCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_ChildCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_SubCategoryMobile.cshtml" />
-    <Content Include="Views\Shared\ProductsByMainCategory.cshtml" />
+    <Content Include="Views\Home\ProductsByMainCategory.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
-
+    <Content Include="Views\Home\Verify.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3203,6 +3271,13 @@
       <Project>{69150334-361d-4e58-9934-6cf017a55323}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ZarinPal\" />
+    <WCFMetadataStorage Include="Connected Services\ZarinTest\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

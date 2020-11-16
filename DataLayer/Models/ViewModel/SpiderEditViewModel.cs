@@ -10,6 +10,6 @@ namespace DataLayer
     {
         public Spider Spider { get; set; }
 
-        public IEnumerable<ServiceCategory> serviceCategories { get; set; }
+        public IEnumerable<SpiderCategory> spiderCategories { get; set; }
     }
 }

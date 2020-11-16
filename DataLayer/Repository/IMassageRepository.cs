@@ -9,9 +9,7 @@ namespace DataLayer
     public interface IMassageRepository : IDisposable
     {
         IEnumerable<Massage> AllMasssages();
-
-        IEnumerable<Massage> AllMassageByUser(int UserID);
-
+        
         Massage massageById(int ID);
 
         bool CreateMassage(Massage massage);

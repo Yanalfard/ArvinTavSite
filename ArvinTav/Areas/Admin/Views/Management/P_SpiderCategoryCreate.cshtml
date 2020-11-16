@@ -1,0 +1,50 @@
+﻿<div class="modal-header">
+    <h6 class="modal-title" id="modalCenterTitle">
+        افزودن اسپایدر
+    </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form>
+    <div class="modal-body">
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Title">عنوان</label>
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="عنوان">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-end">
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a id="BtnAddSpiderCategory" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
+    </div>
+</form>
+
+<script>
+    $("#BtnAddSpiderCategory").click(function () {
+
+        var Title = $("#Title").val();
+        $(".loding").removeClass('d-none');
+        $.get("/Admin/Management/SpiderCategoryCreate?Title=" + Title, function (result) {
+            if (result == "true") {
+                alert("دسته بلاگ اضافه شد");
+                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                $.get("/Admin/Management/P_Spider", function (result) {
+                    $(".Panel").removeClass("bg-info");
+                    $(".Panel").removeClass("text-white");
+                    $("#SpiderPaper").addClass("bg-info");
+                    $("#SpiderPaper").addClass("text-white");
+                    $("#card-table").html(result);
+                    $("#modalSave").css('display', 'none');
+                    $("#modalSave").removeClass('show');
+                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                });
+            } else {
+                alert(result);
+            }
+        });
+
+    });
+</script>

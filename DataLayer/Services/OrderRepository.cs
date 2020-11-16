@@ -25,6 +25,13 @@ namespace DataLayer
             return db.Orders.Where(o => o.User.UserID == UserID);
         }
 
+        public int Create(Order order)
+        {
+            db.Orders.Add(order);
+            Save();
+            return order.ID;
+        }
+
         public string SwitchingStatus(int ID)
         {
             try

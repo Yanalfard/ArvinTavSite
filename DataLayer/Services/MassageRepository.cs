@@ -19,12 +19,7 @@ namespace DataLayer
         {
             return db.massages;
         }
-
-        public IEnumerable<Massage> AllMassageByUser(int UserID)
-        {
-            return db.massages.Where(m => m.User.UserID == UserID);
-        }
-
+        
         public Massage massageById(int ID)
         {
             return db.massages.Find(ID);

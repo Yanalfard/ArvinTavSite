@@ -12,6 +12,16 @@ namespace DataLayer
 
         Spider SpiderById(int ID);
 
+        IEnumerable<SpiderCategory> AllspiderCategories();
+
+        SpiderCategory spiderCategoryById(int ID);
+
+        string AddSpiderCategory(string Title);
+
+        string EditSpiderCategory(int ID, string Title);
+
+        string RemoveSpiderCategory(int ID);
+
         string AddSpider(int Category, string Title, string Description, string Image, List<string> SeoTages);
 
         string SpiderEdit(int ID,int Category, string Title, string Description, string Image, List<string> SeoTages);

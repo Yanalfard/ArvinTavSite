@@ -55,9 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202011150705596_debuginnertickettbl.cs" />
-    <Compile Include="Migrations\202011150705596_debuginnertickettbl.designer.cs">
-      <DependentUpon>202011150705596_debuginnertickettbl.cs</DependentUpon>
+    <Compile Include="Migrations\202011160753428_initialdb.cs" />
+    <Compile Include="Migrations\202011160753428_initialdb.designer.cs">
+      <DependentUpon>202011160753428_initialdb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161029095_editmassagetbl.cs" />
+    <Compile Include="Migrations\202011161029095_editmassagetbl.designer.cs">
+      <DependentUpon>202011161029095_editmassagetbl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -72,7 +76,8 @@
     <Compile Include="Models\SeoTage.cs" />
     <Compile Include="Models\ServiceCategory.cs" />
     <Compile Include="Models\Slider.cs" />
-    <Compile Include="Models\Spider.cs" />
+    <Compile Include="Models\Spider\Spider.cs" />
+    <Compile Include="Models\Spider\SpiderCategory.cs" />
     <Compile Include="Models\Ticket\InnerTicket.cs" />
     <Compile Include="Models\Ticket\Ticket.cs" />
     <Compile Include="Models\Ticket\TicketCategory.cs" />
@@ -140,8 +145,11 @@
     <Folder Include="Models\Seo\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011150705596_debuginnertickettbl.resx">
-      <DependentUpon>202011150705596_debuginnertickettbl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011160753428_initialdb.resx">
+      <DependentUpon>202011160753428_initialdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161029095_editmassagetbl.resx">
+      <DependentUpon>202011161029095_editmassagetbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

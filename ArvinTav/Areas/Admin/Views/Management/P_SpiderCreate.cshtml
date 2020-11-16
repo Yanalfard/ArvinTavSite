@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLayer.ServiceCategory>
+﻿@model IEnumerable<DataLayer.SpiderCategory>
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
         افزودن اسپایدر
@@ -17,9 +17,6 @@
                     <option value="@item.ID">@item.Title</option>
                 }
             </select>
-            <div id="ChildCategory">
-
-            </div>
             <input type="hidden" id="Category" />
         </div>
         <div class="form-row">
@@ -58,10 +55,7 @@
 
     $("#MainCategorySelect").change(function () {
         if ($("#MainCategorySelect option:selected").val() == 0) { } else {
-            $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
-                $("#ChildCategory").html(result);
-                $("#Category").val($("#MainCategorySelect option:selected").val());
-            });
+            $("#Category").val($("#MainCategorySelect option:selected").val());
         }
     });
 
@@ -132,7 +126,7 @@
                         dataType: "json",
                         traditional: true
                     });
-                    
+
                 }
             });
 

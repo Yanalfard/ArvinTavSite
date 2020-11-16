@@ -7,7 +7,7 @@ using DataLayer;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
-    
+
     public class ManagementController : Controller
     {
         private ISpiderRepository spiderRepository;
@@ -41,6 +41,36 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         /// <شروع اسپایدر>
         /// ///////////////////////////////////Spider
+
+        [Authorize(Roles = "Admin,Content")]
+        public ActionResult P_SpiderCategory()
+        {
+            return PartialView();
+        }
+
+        [Authorize(Roles = "Admin,Content")]
+        public ActionResult P_SpiderCategoryCreate()
+        {
+            return PartialView();
+        }
+
+        [Authorize(Roles = "Admin,Content")]
+        public ActionResult P_SpiderCategoryEdit(int ID)
+        {
+            return PartialView(spiderRepository.spiderCategoryById(ID));
+        }
+
+        [Authorize(Roles = "Admin,Content")]
+        public string SpiderCategoryCreate(string Title)
+        {
+            return spiderRepository.AddSpiderCategory(Title);
+        }
+
+        [Authorize(Roles = "Admin,Content")]
+        public string SpiderCategoryEdit(int ID, string Title)
+        {
+            return spiderRepository.EditSpiderCategory(ID, Title);
+        }
 
         [Authorize(Roles = "Admin,Content")]
         public ActionResult P_Spider(int PageId = 1, string Result = "", int InPageCount = 0)
@@ -122,7 +152,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Content")]
         public ActionResult P_SpiderCreate()
         {
-            return PartialView(serviceCategoryRepository.AllMainServiceCategory(true));
+            return PartialView(spiderRepository.AllspiderCategories());
         }
 
         [Authorize(Roles = "Admin,Content")]
@@ -138,7 +168,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             SpiderEditViewModel spiderEditViewModel = new SpiderEditViewModel();
             spiderEditViewModel.Spider = spiderRepository.SpiderById(ID);
-            spiderEditViewModel.serviceCategories = serviceCategoryRepository.AllMainServiceCategory(true);
+            spiderEditViewModel.spiderCategories = spiderRepository.AllspiderCategories();
             return PartialView(spiderEditViewModel);
         }
 
@@ -620,7 +650,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 {
                     if (InPageCount == 0)
                     {
-                        int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result)).Count();
+                        int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result)).Count();
 
                         var skip = (PageId - 1) * 18;
 
@@ -634,12 +664,12 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                         ViewBag.InPageCount = InPageCount;
 
-                        return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
                     }
                     else
                     {
 
-                        int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result)).Count();
+                        int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result)).Count();
 
                         var skip = (PageId - 1) * InPageCount;
 
@@ -653,7 +683,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                         ViewBag.InPageCount = InPageCount;
 
-                        return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
                     }
                 }
                 else
@@ -663,7 +693,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                         if (InPageCount == 0)
                         {
-                            int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).Count();
+                            int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).Count();
 
                             var skip = (PageId - 1) * 18;
 
@@ -677,12 +707,12 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.InPageCount = InPageCount;
 
-                            return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                            return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
                         }
                         else
                         {
 
-                            int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).Count();
+                            int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).Count();
 
                             var skip = (PageId - 1) * InPageCount;
 
@@ -696,7 +726,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.InPageCount = InPageCount;
 
-                            return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                            return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
                         }
 
 
@@ -706,7 +736,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                         if (InPageCount == 0)
                         {
-                            int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).Count();
+                            int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).Count();
 
                             var skip = (PageId - 1) * 18;
 
@@ -720,12 +750,12 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.InPageCount = InPageCount;
 
-                            return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                            return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == true).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
                         }
                         else
                         {
 
-                            int count = massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == false).Count();
+                            int count = massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == false).Count();
 
                             var skip = (PageId - 1) * InPageCount;
 
@@ -739,7 +769,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.InPageCount = InPageCount;
 
-                            return PartialView(massageRepository.AllMasssages().Where(m => m.User.FullName.Contains(result) && m.Seen == false).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                            return PartialView(massageRepository.AllMasssages().Where(m => m.FullName.Contains(result) && m.Seen == false).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
                         }
 
                     }

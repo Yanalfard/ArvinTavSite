@@ -16,6 +16,8 @@ namespace DataLayer
 
         string SwitchingStatus(int ID);
 
+        int Create(Order order);
+
         void Save();
         
     }

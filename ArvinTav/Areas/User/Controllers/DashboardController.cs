@@ -45,14 +45,19 @@ namespace ArvinTav.Areas.User.Controllers
         public ActionResult MyProfile(FullRegsiterViewModel fullRegsiterViewModel, HttpPostedFileBase ImageUp)
         {
             DataLayer.User UpdateUser = new DataLayer.User();
-
+            DataLayer.User user = userRepository.UserByPhoneNumber(User.Identity.Name);
             if (ImageUp != null)
             {
 
-                if (ImageUp.ContentType != "image/png" || ImageUp.ContentType != "image/jpeg" || ImageUp.ContentType != "image/jpg")
+                if (ImageUp.ContentType != "image/png" && ImageUp.ContentType != "image/jpeg" && ImageUp.ContentType != "image/jpg")
                 {
                     ModelState.AddModelError("Image", "تصویر با فرمت png و jpeg معتبر است");
-                    return View();
+                    FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                    fullReplyRegsiterViewModel.FullName = user.FullName;
+                    fullReplyRegsiterViewModel.Brand = user.Brand;
+                    fullReplyRegsiterViewModel.Email = user.Email;
+                    fullReplyRegsiterViewModel.Image = user.Image;
+                    return View(fullRegsiterViewModel);
                 }
                 else
                 {
@@ -62,12 +67,16 @@ namespace ArvinTav.Areas.User.Controllers
                     if (img.Width > 600 || img.Height > 600)
                     {
                         ModelState.AddModelError("Image", "طول و عرض تصویر نباید بیشتر از 600 پیکسل باشد");
-                        return View();
+                        FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                        fullReplyRegsiterViewModel.FullName = user.FullName;
+                        fullReplyRegsiterViewModel.Brand = user.Brand;
+                        fullReplyRegsiterViewModel.Email = user.Email;
+                        fullReplyRegsiterViewModel.Image = user.Image;
+                        return View(fullRegsiterViewModel);
                     }
                     else
                     {
-                        DataLayer.User user = userRepository.UserByPhoneNumber(User.Identity.Name);
-
+                        
                         if (user.Image != null)
                         {
                             System.IO.File.Delete(Server.MapPath("/Document/img/User/" + user.Image));

@@ -32,10 +32,11 @@ namespace DataLayer
             try
             {
                 Spider spider = new Spider();
-                spider.ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
+                spider.SpiderCategory = db.spiderCategories.Find(Category);
                 spider.Title = Title;
                 spider.Description = Description;
                 spider.Image = Image;
+                spider.DateTime = DateTime.Now;
                 db.spiders.Add(spider);
                 Save();
                 foreach (var item in SeoTags)
@@ -56,14 +57,14 @@ namespace DataLayer
             }
         }
 
-        public string SpiderEdit(int ID,int Category, string Title, string Description, string Image, List<string> SeoTages)
+        public string SpiderEdit(int ID, int Category, string Title, string Description, string Image, List<string> SeoTages)
         {
             Spider spider = SpiderById(ID);
             if (string.IsNullOrEmpty(Image))
             {
                 IEnumerable<SeoTage> seoTages = db.seoTages.Where(s => s.Spider.ID == spider.ID);
                 db.seoTages.RemoveRange(seoTages);
-                spider.ServiceCategory = ServiceCategoryRepository.ServiceCategoryById(Category);
+                spider.SpiderCategory = spiderCategoryById(Category);
                 spider.Title = Title;
                 spider.Description = Description;
                 Save();
@@ -139,6 +140,57 @@ namespace DataLayer
 
                 return "Erorr :" + ex.Message;
             }
+        }
+
+        public IEnumerable<SpiderCategory> AllspiderCategories()
+        {
+            return db.spiderCategories;
+        }
+
+        public string AddSpiderCategory(string Title)
+        {
+            try
+            {
+                SpiderCategory spiderCategory = new SpiderCategory();
+
+                spiderCategory.Title = Title;
+
+                db.spiderCategories.Add(spiderCategory);
+                Save();
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                return "Erorr :" + ex.Message;
+            }
+        }
+
+        public string EditSpiderCategory(int ID, string Title)
+        {
+            try
+            {
+                SpiderCategory spiderCategory = db.spiderCategories.Find(ID);
+                spiderCategory.Title = Title;
+                Save();
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                return "Erorr :" + ex.Message;
+            }
+        }
+
+        public string RemoveSpiderCategory(int ID)
+        {
+            db.spiderCategories.Remove(db.spiderCategories.Find(ID));
+            Save();
+            return "true";
+        }
+
+        public SpiderCategory spiderCategoryById(int ID)
+        {
+            return db.spiderCategories.Find(ID);
         }
     }
 }

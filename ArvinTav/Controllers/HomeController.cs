@@ -14,11 +14,15 @@ namespace ArvinTav.Controllers
         private IServiceCategoryRepository serviceCategoryRepository;
         private IPackageRepository packageRepository;
         private ISpiderRepository spiderRepository;
+        private IUserRepository userRepository;
+        private IOrderRepository orderRepository;
         public HomeController()
         {
             serviceCategoryRepository = new ServiceCategoryRepository(db);
             packageRepository = new PackageRepository(db);
             spiderRepository = new SpiderRepository(db);
+            userRepository = new UserRepository(db);
+            orderRepository = new OrderRepository(db);
         }
 
         // GET: Home
@@ -63,7 +67,6 @@ namespace ArvinTav.Controllers
 
 
         //Start Product Part
-        [Route("Products/{ID}/{Title}")]
 
         [Route("MainPackage/{ID}/{Title}")]
         public ActionResult ProductsByMainCategory(int ID)
@@ -75,6 +78,7 @@ namespace ArvinTav.Controllers
             return View(PackageByMainCategoryViewModel);
         }
 
+        [Route("Products/{ID}/{Title}")]
         public ActionResult Products(int ID, string Title)
         {
             return View(serviceCategoryRepository.ServiceCategoryById(ID).PackageServices);
@@ -89,12 +93,82 @@ namespace ArvinTav.Controllers
         [Route("Payment/{ID}")]
         public ActionResult Payment(int ID)
         {
+            return View(packageRepository.PackageServiceById(ID));
+        }
+
+        public ActionResult PaymentPay(int ID)
+        {
+            PackageService package = packageRepository.PackageServiceById(ID);
+
+            Order order = new Order();
+            order.DateTime = DateTime.Now;
+            order.PackageService = packageRepository.PackageServiceById(ID);
+            order.Status = 1;
+            order.User = userRepository.UserByPhoneNumber(User.Identity.Name);
+            order.Price = package.Price;
+            System.Net.ServicePointManager.Expect100Continue = false;
+            ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
+            string Authority;
+
+            int Status = zp.PaymentRequest("YOUR-ZARINPAL-MERCHANT-CODE", order.Price, "شرکت ایده پردازان آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Home/Verify/" + orderRepository.Create(order), out Authority);
+
+
+
+            if (Status == 100)
+            {
+                // return Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
+
+                return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
+            }
+            else
+            {
+                ViewBag.Error = "Error : " + Status;
+                return RedirectToAction("Verify");
+
+            }
+
+        }
+
+        public ActionResult Verify(int ID)
+        {
+            if (Request.QueryString["Status"] != "" && Request.QueryString["Status"] != null && Request.QueryString["Authority"] != "" && Request.QueryString["Authority"] != null)
+            {
+                if (Request.QueryString["Status"].ToString().Equals("OK"))
+                {
+                    int Amount = orderRepository.OrderById(ID).Price;
+                    long RefID;
+                    System.Net.ServicePointManager.Expect100Continue = false;
+                    ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
+
+                    int Status = zp.PaymentVerification("YOUR-ZARINPAL-MERCHANT-CODE", Request.QueryString["Authority"].ToString(), Amount, out RefID);
+
+                    if (Status == 100)
+                    {
+                        Response.Write("Success!! RefId: " + RefID);
+                    }
+                    else
+                    {
+                        Response.Write("Error!! Status: " + Status);
+                    }
+
+                }
+                else
+                {
+                    Response.Write("Error! Authority: " + Request.QueryString["Authority"].ToString() + " Status: " + Request.QueryString["Status"].ToString());
+                }
+            }
+            else
+            {
+                Response.Write("Invalid Input");
+            }
             return View();
         }
+
         //End Product Part
 
         //Start Spider Part
-        [Route("Blog/{PageId?}/{Result?}/{InPageCount?}")]
+
+        [Route("Blog")]
         public ActionResult Blog(int PageId = 1, string Result = "", int InPageCount = 0)
         {
             if (Result == "")
@@ -171,12 +245,32 @@ namespace ArvinTav.Controllers
             }
         }
 
-        [Route("Post")]
-        public ActionResult Post()
+        [Route("Post/{ID}/{Title}")]
+        public ActionResult Post(int ID, string Title)
+        {
+            return View(spiderRepository.SpiderById(ID));
+        }
+        //End Spider Part
+
+        [Route("AboutUs")]
+        public ActionResult AboutUs()
         {
             return View();
         }
-        //End Spider Part
+
+        [Route("ContactUs")]
+        [HttpPost]
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(Massage massage)
+        {
+            var t = massage;
+            return View();
+        }
 
     }
 }

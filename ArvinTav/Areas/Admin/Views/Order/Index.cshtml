@@ -213,6 +213,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@ViewBag.PageId" id="PageId" />
 
 <!-- Modal -->
 <div class="modal fade" id="modalSave" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
@@ -259,7 +260,7 @@
 
         $("#pageNumber").change(function () {
             $(".loding").removeClass("d-none");
-            var PageId = 1;
+            var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
             var OrderID = $("#OrderIDSearch").val();
             var PhoneNumberSearch = $("#PhoneNumberSearch").val();
@@ -271,7 +272,7 @@
 
         $("#InPageCount").change(function () {
             $(".loding").removeClass("d-none");
-            var PageId = 1;
+            var PageId = $("#pageNumber option:selected").val();
             var InPageCount = $("#InPageCount option:selected").val();
             var OrderID = $("#OrderIDSearch").val();
             var PhoneNumberSearch = $("#PhoneNumberSearch").val();

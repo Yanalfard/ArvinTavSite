@@ -10,12 +10,13 @@ namespace ArvinTav.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content")]
     public class MarketerController : Controller
     {
-        ArvinContext db = new ArvinContext();
-        IMarketerRepository marketerRepository;
-        IUserRepository userRepository;
+        private ArvinContext db = new ArvinContext();
+        private IMarketerRepository marketerRepository;
+        private IUserRepository userRepository;
 
         public MarketerController()
         {
+
             marketerRepository = new MarketerRepository(db);
             userRepository = new UserRepository(db);
         }
@@ -63,7 +64,18 @@ namespace ArvinTav.Areas.Admin.Controllers
         [HttpPost]
         public string CraateReport(string Title, string Description)
         {
-            return "";
+            return marketerRepository.CraateReport(Title, Description, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                marketerRepository.Dispose();
+                userRepository.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

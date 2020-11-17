@@ -10,11 +10,12 @@ namespace ArvinTav.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class FestivalController : Controller
     {
-        IFestivalRepository festivalRepository;
-        ArvinContext db = new ArvinContext();
+        private ArvinContext db = new ArvinContext();
+        private IFestivalRepository festivalRepository;
 
         public FestivalController()
         {
+
             festivalRepository = new FestivalRepository(db);
         }
 
@@ -65,7 +66,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 festivalRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

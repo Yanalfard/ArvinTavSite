@@ -10,10 +10,12 @@ namespace DataLayer
     {
         ArvinContext db;
 
+
         public FestivalRepository(ArvinContext context)
         {
             this.db = context;
         }
+
         public IEnumerable<Discount> AllDiscounts()
         {
             return db.discounts;
@@ -43,6 +45,11 @@ namespace DataLayer
             return db.discounts.Find(ID);
         }
 
+        public Discount DiscountByCode(string Code)
+        {
+            return db.discounts.Where(d => d.Code == Code).SingleOrDefault();
+        }
+        
         public void Dispose()
         {
             db.Dispose();

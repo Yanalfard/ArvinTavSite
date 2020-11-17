@@ -14,12 +14,13 @@ namespace ArvinTav.Areas.User.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content,Customer")]
     public class DashboardController : Controller
     {
-        private ArvinContext db = new ArvinContext();
+        private IDatabase database;
         private IUserRepository userRepository;
 
         public DashboardController()
         {
-            userRepository = new UserRepository(db);
+            database = new Database();
+            userRepository = new UserRepository(database._db());
         }
 
         // GET: User/Dashboard

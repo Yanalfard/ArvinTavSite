@@ -14,6 +14,8 @@ namespace DataLayer
 
         string SliderCreate(string Title, string Link, string Image);
 
+        string SliderEdit(int ID, string Title, string Link, string Image);
+
         string SliderRemove(int ID);
 
         void Save();

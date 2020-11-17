@@ -9,19 +9,37 @@ namespace DataLayer
     public class MarketerRepository : IMarketerRepository
     {
         private ArvinContext db;
+        private UserRepository userRepository;
 
         public MarketerRepository(ArvinContext context)
         {
             this.db = context;
+            userRepository = new UserRepository(db);
         }
+
         public IEnumerable<MarketerReport> AllMarketerReports()
         {
             return db.marketerReports;
         }
+
         public IEnumerable<MarketerReport> AllMarketerReportByMarketer(int UserID)
         {
             return db.marketerReports.Where(mr => mr.User.UserID == UserID);
         }
+
+        public string CraateReport(string Title, string Description, int MarketerID)
+        {
+            MarketerReport report = new MarketerReport();
+            report.Title = Title;
+            report.Description = Description;
+            report.Status = false;
+            report.DateTime = DateTime.Now;
+            report.User = userRepository.UserById(MarketerID);
+            db.marketerReports.Add(report);
+            Save();
+            return "true";
+        }
+
         public string ChangeStatus(int ID)
         {
             try
@@ -43,7 +61,7 @@ namespace DataLayer
                 return "Erorr :" + ex.Message;
             }
         }
-        
+
         public MarketerReport MarketerReportById(int ID)
         {
             return db.marketerReports.Find(ID);
@@ -72,5 +90,6 @@ namespace DataLayer
         {
             db.Dispose();
         }
+
     }
 }

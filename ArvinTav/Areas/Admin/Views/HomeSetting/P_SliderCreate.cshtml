@@ -68,7 +68,12 @@
                     $.post("/Admin/HomeSetting/SliderCreate?Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
 
                         if (result == "true") {
-                            window.location.reload();
+                            $("#Slider").click(function () {
+                                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                                $.get("/Admin/HomeSetting/P_Slider", function (result) {
+                                    $("#card-table").html(result);
+                                });
+                            });
                         } else {
                             alert(result);
                         }

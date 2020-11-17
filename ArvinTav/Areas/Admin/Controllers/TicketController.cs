@@ -15,6 +15,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         private IUserRepository userRepository;
         public TicketController()
         {
+            
             ticketRepository = new TicketRepository(db);
             userRepository = new UserRepository(db);
         }
@@ -368,7 +369,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 ticketRepository.Dispose();
-                db.Dispose();
+                userRepository.Dispose();
             }
             base.Dispose(disposing);
         }

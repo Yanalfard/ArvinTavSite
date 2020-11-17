@@ -14,11 +14,12 @@ namespace ArvinTav.Controllers
 
     public class AccountController : Controller
     {
+        private IDatabase database;
         private IUserRepository userRepository;
-        private ArvinContext db = new ArvinContext();
         public AccountController()
         {
-            userRepository = new UserRepository(db);
+            database = new Database();
+            userRepository = new UserRepository(database._db());
 
         }
 
@@ -277,6 +278,16 @@ namespace ArvinTav.Controllers
             FormsAuthentication.SignOut();
 
             return Redirect("/");
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                userRepository.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

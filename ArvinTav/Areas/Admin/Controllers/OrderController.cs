@@ -14,6 +14,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public OrderController()
         {
+            
             OrderRepository = new OrderRepository(db);
         }
         // GET: Admin/Order
@@ -78,7 +79,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                     {
                         if (InPageCount == 0)
                         {
-                            int count = OrderRepository.AllOrders().Where(o => o.User.PhoneNumber == PhoneNumber).Count();
+                            int count = OrderRepository.AllOrders().Where(o => o.User.PhoneNumber.Contains(PhoneNumber)).Count();
 
                             var skip = (PageId - 1) * 18;
 
@@ -98,7 +99,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                             ViewBag.InPageCount = InPageCount;
 
-                            return View(OrderRepository.AllOrders().Where(o => o.User.PhoneNumber == PhoneNumber).OrderBy(v => v.ID).Skip(skip).Take(18).ToList());
+                            return View(OrderRepository.AllOrders().Where(o => o.User.PhoneNumber.Contains(PhoneNumber)).OrderBy(v => v.ID).Skip(skip).Take(18).ToList());
                         }
                         else
                         {
@@ -300,7 +301,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 OrderRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

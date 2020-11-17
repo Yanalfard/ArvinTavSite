@@ -19,6 +19,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public DashboardController()
         {
+            
             statisticRepository = new StatisticRepository(db);
             userRepository = new UserRepository(db);
             ticketRepository = new TicketRepository(db);
@@ -46,7 +47,9 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 statisticRepository.Dispose();
-                db.Dispose();
+                userRepository.Dispose();
+                ticketRepository.Dispose();
+                orderRepository.Dispose();
             }
             base.Dispose(disposing);
         }

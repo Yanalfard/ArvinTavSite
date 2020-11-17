@@ -15,6 +15,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public UserController()
         {
+
             userRepository = new UserRepository(db);
         }
 
@@ -439,7 +440,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 userRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

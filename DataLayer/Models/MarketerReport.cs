@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DataLayer
 {
@@ -13,14 +14,16 @@ namespace DataLayer
         public int ID { get; set; }
 
         [MaxLength(100)]
-        [MinLength(2)]
         public string Title { get; set; }
 
         [MaxLength(600)]
-        [MinLength(2)]
+        [AllowHtml]
         public string Description { get; set; }
 
+        
         public bool Status { get; set; }
+
+        public DateTime DateTime { get; set; }
 
         public virtual User User { get; set; }
 

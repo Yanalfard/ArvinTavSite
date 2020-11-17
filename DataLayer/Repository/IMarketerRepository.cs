@@ -12,6 +12,8 @@ namespace DataLayer
 
         IEnumerable<MarketerReport> AllMarketerReportByMarketer(int UserID);
 
+        string CraateReport(string Title, string Description, int MarketerID);
+
         MarketerReport MarketerReportById(int ID);
 
         string RemoveReport(int ID);

@@ -10,14 +10,15 @@ namespace ArvinTav.Areas.User.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content,Customer")]
     public class OrderController : Controller
     {
-        private ArvinContext db = new ArvinContext();
+        private IDatabase database;
         private IOrderRepository orderRepository;
         private IUserRepository userRepository;
 
         public OrderController()
         {
-            orderRepository = new OrderRepository(db);
-            userRepository = new UserRepository(db);
+            database = new Database();
+            orderRepository = new OrderRepository(database._db());
+            userRepository = new UserRepository(database._db());
         }
 
         // GET: User/Order

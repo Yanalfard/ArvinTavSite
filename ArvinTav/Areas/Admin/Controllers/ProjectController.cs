@@ -15,6 +15,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public ProjectController()
         {
+            
             projectRepository = new ProjectRepository(db);
         }
 
@@ -230,7 +231,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 projectRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -15,18 +15,18 @@
                 <img class="login" src="~/img/login/Svg/Group 98.svg" />
                 @if (User.Identity.IsAuthenticated)
                 {
-                <div class="uk-alert-success uk-alert" uk-alert="">
-                    <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
-                    <small>شما وارد شده اید</small>
-                    @if (Request.QueryString["ReturnUrl"] != null)
-                    {
-                        <div>به دلایل زیر  شما نمیتواند وارد بخش شوید</div>
-                         <ul>
-                             <li>پروفایل را تکمیل کنید.</li>
-                             <li>مجوز ورود به این صفحه را ندارید</li>
-                         </ul>
-                    }
-                </div>
+                    <div class="uk-alert-success uk-alert" uk-alert="">
+                        <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+                        <small>شما وارد شده اید</small>
+                        @if (Request.QueryString["ReturnUrl"] != null)
+                        {
+                            <div>به دلایل زیر  شما نمیتواند وارد بخش شوید</div>
+                            <ul>
+                                <li>پروفایل را تکمیل کنید.</li>
+                                <li>مجوز ورود به این صفحه را ندارید</li>
+                            </ul>
+                        }
+                    </div>
                 }
                 else
                 {
@@ -70,7 +70,9 @@
 
                             <img src="~/img/gif/load.gif" width="80" class="loading justify-content-center" />
                             <button id="Submit" class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
+
                             <a id="Register" href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+
 
                         </div>
 

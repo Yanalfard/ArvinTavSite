@@ -81,6 +81,15 @@
         });
     });
 
+    function EditSpider(ID) {
+        $.get("/Admin/HomeSetting/P_SliderCreate", function (result) {
+            $(".modal-dialog").removeClass("modal-lg");
+            $(".modal-dialog").removeClass("modal-md");
+            $(".modal-dialog").addClass("modal-xl");
+            $(".modal-content").html(result);
+        });
+    }
+
 </script>
 
 

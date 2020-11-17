@@ -59,6 +59,11 @@ namespace DataLayer
             }
         }
 
+        public string SliderEdit(int ID, string Title, string Link, string Image)
+        {
+            throw new NotImplementedException();
+        }
+
         public string SliderRemove(int ID)
         {
             try

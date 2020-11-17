@@ -11,14 +11,16 @@ namespace ArvinTav.Areas.User.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content,Customer")]
     public class TicketController : Controller
     {
-        private ArvinContext db = new ArvinContext();
 
+
+        private IDatabase database;
         private ITicketRepository ticketRepository;
         private IUserRepository userRepository;
         public TicketController()
         {
-            ticketRepository = new TicketRepository(db);
-            userRepository = new UserRepository(db);
+            database = new Database();
+            ticketRepository = new TicketRepository(database._db());
+            userRepository = new UserRepository(database._db());
         }
 
         // GET: User/Ticket

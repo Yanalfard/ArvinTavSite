@@ -161,6 +161,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Management\P_SpiderCategoryCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeSetting\P_SliderEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeSetting\P_SliderRemove.cshtml" />
     <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
     <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
     <None Include="Connected Services\ZarinPal\Reference.svcmap">
@@ -3183,7 +3185,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3234,20 +3239,20 @@
     <Content Include="Views\Account\PushForgetPassword.cshtml" />
     <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
-    <Content Include="Views\Home\Products.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\Payment.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Product\Products.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
+    <Content Include="Views\Payment\PaymentSuccses.cshtml" />
+    <Content Include="Views\Blog\Blog.cshtml" />
     <Content Include="Views\Shared\P_MainCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_ChildCategoryMobile.cshtml" />
     <Content Include="Views\Shared\P_SubCategoryMobile.cshtml" />
-    <Content Include="Views\Home\ProductsByMainCategory.cshtml" />
-    <Content Include="Views\Home\Post.cshtml" />
-    <Content Include="Views\Home\Verify.cshtml" />
+    <Content Include="Views\Product\ProductsByMainCategory.cshtml" />
+    <Content Include="Views\Blog\Post.cshtml" />
+    <Content Include="Views\Payment\Verify.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
-    <Content Include="Views\Home\ByTage.cshtml" />
-    <Content Include="Views\Home\ByCategory.cshtml" />
+    <Content Include="Views\Blog\ByTage.cshtml" />
+    <Content Include="Views\Blog\ByCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

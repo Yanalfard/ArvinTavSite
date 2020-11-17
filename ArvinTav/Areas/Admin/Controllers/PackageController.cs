@@ -16,6 +16,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public PackageController()
         {
+            
             serviceCategoryRepository = new ServiceCategoryRepository(db);
             packageRepository = new PackageRepository(db);
         }
@@ -207,7 +208,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         [ValidateInput(false)]
         public JsonResult Edit(int ID, int Category, string Title, string Price, string Image, string Description)
         {
-            if (Image != "")
+            if (Image != "" || Image != null)
             {
                 string fullPathImage = Request.MapPath("/Document/img/Package/" + packageRepository.PackageServiceById(ID).Image);
                 if (System.IO.File.Exists(fullPathImage))
@@ -240,7 +241,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             {
                 packageRepository.Dispose();
                 serviceCategoryRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

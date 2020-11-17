@@ -12,6 +12,8 @@ namespace DataLayer
 
         Discount DiscountById(int ID);
 
+        Discount DiscountByCode(string Code);
+
         string Create(string Code, int Percentage);
 
         string Edit(int ID, string Code, int Percentage);

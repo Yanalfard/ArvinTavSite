@@ -47,14 +47,61 @@
         <div class="form-row">
 
         </div>
+        <hr />
+        <label for="Title">افزودن جزئیات بسته</label>
+        <div class="form-row mt-1">
+
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control form-control-sm" id="title" placeholder="متن">
+            </div>
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control form-control-sm" id="Response" placeholder="پاسخ">
+            </div>
+
+        </div>
+
+        @* Buton *@
+        <a id="TblDataAdder" onclick="AddTblData()"
+           class="btn btn-info btn-sm text-white margin-auto-right mb-2"><i class="fas fa-plus-circle"></i>افزودن جزئیات</a>
+
+        <div class="table-responsive flex">
+            <table class="table fixed">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">متن</th>
+                        <th scope="col">متن</th>
+                        <th scope="col">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="tblMain">
+                    @foreach (var item in Model.PackageService.PackageServiceDetails)
+                    {
+                        <tr class="DetailsRow" id="@item.Title@item.Response">
+                            <td>@item.Title</td>
+
+                            <td>@item.Response</td>
+
+
+                            <td>
+                                <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                                    <a onclick="DeleteRow('@item.Title@item.Response')"><i class="btn fas fa-trash mr-2 text-danger"></i></a>
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="modal-footer justify-content-end">
         <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-        <a onclick="EditPackageService(@Model.PackageService.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <a onclick="EditPackageService(@Model.PackageService.ID)" id="EditPackageService" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
-<script src="~/Tools/Auto_Formatting_Currency.js"></script>
-<script src="~/Tools/Input_Formatting_Currency.js"></script>
+@*<script src="~/Tools/Auto_Formatting_Currency.js"></script>
+    <script src="~/Tools/Input_Formatting_Currency.js"></script>*@
 <script>
     $(function () {
         $('#my-textarea').ckeditor();
@@ -72,71 +119,128 @@
 
     function EditPackageService(ID) {
         if ($("#Title").val() == null || $("#Title").val() == "" || $("#Price").val() == null || $("#my-textarea").val() == null || $("#my-textarea").val() == "" || $("#Price").val() == "" || $("#Category").val() == null || $("#Category").val() == "") {
-            $("#AddPackageService").removeClass('btn-success');
-            $("#AddPackageService").addClass('btn-danger');
-            $("#AddPackageService").html("تمامی موارد اجباری است");
+            $("#EditPackageService").removeClass('btn-success');
+            $("#EditPackageService").addClass('btn-danger');
+            $("#EditPackageService").html("تمامی موارد اجباری است");
         } else {
-            $("#AddPackageService").addClass('btn-success');
-            $("#AddPackageService").removeClass('btn-danger');
-            $("#AddPackageService").html("<i class='fas fa-plus-circle'></i>افزودن");
+            alert("5");
+            $("#EditPackageService").addClass('btn-success');
+            $("#EditPackageService").removeClass('btn-danger');
+            $("#EditPackageService").html("<i class='fas fa-plus-circle'></i>افزودن");
             $(".loding").removeClass("d-none");
-
-            if ($("#Image").val() == null || $("#Image").val() == "") {
-                var Category = $("#Category").val();
-                var Title = $("#Title").val();
-                var Price = $("#Price").val();
-                var mytextarea = $("#my-textarea").val();
-                $.ajax({
-                    type: "POST",
-                    url: '/Admin/Package/Edit',
-                    data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: null, Description: mytextarea },
-                    success: function (result) {
-                        if (result == "true") {
-                            window.location.reload();
-                        } else {
-                            alert(result);
-                        }
-                    },
-                    dataType: "json",
-                    traditional: true
-                });
-            } else {
-                var data = new FormData();
-                var files = $("#Image").get(0).files;
-                if (files.length > 0) {
-                    data.append("UploadPackageImageFile", files[0]);
-                }
-                $.ajax({
-                    url: "/Admin/Upload/UploadPackageImage",
-                    type: "POST",
-                    processData: false,
-                    contentType: false,
-                    data: data,
-                    success: function (response) {
-                        var Category = $("#Category").val();;
-                        var Title = $("#Title").val();
-                        var Price = $("#Price").val();
-                        var Image = response;
-                        var mytextarea = $("#my-textarea").val();
-
-                        $.ajax({
-                            type: "POST",
-                            url: '/Admin/Package/Edit',
-                            data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: Image, Description: mytextarea },
-                            success: function (result) {
-                                if (result == "true") {
-                                    window.location.reload();
-                                } else {
-                                    alert(result);
-                                }
-                            },
-                            dataType: "json",
-                            traditional: true
-                        });
-                    }
-                });
+            var data = new FormData();
+            var files = $("#Image").get(0).files;
+            if (files.length > 0) {
+                data.append("UploadPackageImageFile", files[0]);
             }
+            $.ajax({
+                url: "/Admin/Upload/UploadPackageImage",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    var Category = $("#Category").val();;
+                    var Title = $("#Title").val();
+                    var Price = $("#Price").val();
+                    var Image = response;
+                    var mytextarea = $("#my-textarea").val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/Admin/Package/Edit',
+                        data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: Image, Description: mytextarea },
+                        success: function (result) {
+                            if (result != 0) {
+
+
+                                ////////////////////////////////
+
+                                var len = $(".DetailsRow").length;
+                                var Details = [];
+
+                                for (let i = 0; i < len; i++) {
+                                    var part = $(".DetailsRow")[i]
+                                    var obj = {
+                                        PackageID: result,
+                                        Title: part.children[0].innerHTML,
+                                        Response: part.children[1].innerHTML
+                                    }
+
+                                    Details.push(obj);
+                                }
+
+                                $.ajax(
+                                    {
+                                        url: "/Admin/Package/CreatePackageServiceDetails",
+                                        data: JSON.stringify(Details),
+                                        method: 'Post',
+                                        contentType: 'application/json',
+                                        dataType: 'json',
+                                        async: true,
+                                        success: function (data) {
+                                            window.location.reload();
+                                        },
+                                        error: function () {
+                                            returner = false;
+                                        }
+                                    });
+
+                                ////////////////////////////////
+
+                            } else {
+                                alert(result);
+                            }
+                        },
+                        dataType: "json",
+                        traditional: true
+                    });
+                }
+            });
         }
     }
 
+
+    function AddTblData() {
+        const table = document.getElementById('tblMain');
+        const textAlpha = document.getElementById('title');
+        const textBeta = document.getElementById('Response');
+
+        if (textAlpha.value == '' || textAlpha.value == null) {
+            alert('لطفا موارد خواسته شده را پرکنید')
+            return;
+        }
+        if (textBeta.value == '' || textBeta.value == null) {
+            alert('لطفا موارد خواسته شده را پرکنید')
+            return;
+        }
+
+
+        //table.innerHTML = table.innerHTML + '';
+
+        table.innerHTML +=
+            `
+                                                                                                                    <tr class="DetailsRow" id="${textAlpha.value}${textBeta.value}">
+                                                                                                                        <td>${textAlpha.value}</td>
+
+                                                                                                                        <td>${textBeta.value}</td>
+
+
+                                                                                                                        <td>
+                                                                                                                            <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
+                                                                                                                                <a onclick="DeleteRow('${textAlpha.value}${textBeta.value}')"><i class="btn fas fa-trash mr-2 text-danger"></i></a>
+                                                                                                                            </span>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    `
+
+        textAlpha.value = "";
+        textBeta.value = "";
+
+    }
+
+    function DeleteRow(row) {
+        const element = document.getElementById(row);
+        element.parentElement.removeChild(element);
+    }
 </script>

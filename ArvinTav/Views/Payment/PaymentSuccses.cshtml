@@ -15,7 +15,11 @@
                     &nbsp;
                     <label class="TitleInPayment">قیمت</label>
                     <span id="PriceSpan">@Model.Price<span class="uk-margin-small-right">تومان</span></span>
-                    <a class="ServiceButton uk-margin-auto-left uk-margin-auto-right uk-margin-medium-top" href="/Home/PaymentPay?ID=@Model.ID">پرداخت</a>
+                    <form method="post" action="/Payment/Pay">
+                        <input type="hidden" name="ID" value="@Model.ID" />
+                        <input type="text" name="OffCode" maxlength="10" placeholder="کد تخفیف"/>
+                        <button type="submit" class="ServiceButton uk-margin-auto-left uk-margin-auto-right uk-margin-medium-top"></button>
+                    </form>
                 </div>
             </content>
         </div>

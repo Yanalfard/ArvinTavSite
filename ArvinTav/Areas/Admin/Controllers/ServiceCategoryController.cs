@@ -10,10 +10,11 @@ namespace ArvinTav.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class ServiceCategoryController : Controller
     {
-        private IServiceCategoryRepository serviceCategoryRepository;
         private ArvinContext db = new ArvinContext();
+        private IServiceCategoryRepository serviceCategoryRepository;
         public ServiceCategoryController()
         {
+            
             serviceCategoryRepository = new ServiceCategoryRepository(db);
         }
         // GET: Admin/ServiceCategory
@@ -124,7 +125,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (disposing)
             {
                 serviceCategoryRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -10,6 +10,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
     public class ManagementController : Controller
     {
+        private ArvinContext db = new ArvinContext();
         private ISpiderRepository spiderRepository;
         private IMarketerRepository marketerRepository;
         private IStatisticRepository statisticRepository;
@@ -18,7 +19,6 @@ namespace ArvinTav.Areas.Admin.Controllers
         private IPartnerRepository partnerRepository;
         private ICustomerRepository customerRepository;
         private IServiceCategoryRepository serviceCategoryRepository;
-        private ArvinContext db = new ArvinContext();
 
         public ManagementController()
         {
@@ -1167,7 +1167,6 @@ namespace ArvinTav.Areas.Admin.Controllers
                 partnerRepository.Dispose();
                 customerRepository.Dispose();
                 serviceCategoryRepository.Dispose();
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

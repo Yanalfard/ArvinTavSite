@@ -20,7 +20,6 @@ namespace DataLayer
 
         [Display(Name = "توضیحات سفارش")]
         [MaxLength(600, ErrorMessage = "توضیحات کوتاه تری وارد کنید")]
-        [MinLength(2)]
         public string Description { get; set; }
 
         [Display(Name = "زمان ثبت")]

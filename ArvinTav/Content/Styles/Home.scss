@@ -17,7 +17,7 @@ body {
     
 }
 
-.IndexPage {
+.IndexPage{
     * {
         overflow: hidden;
     }
@@ -521,6 +521,8 @@ body {
     }
     /*#endregion */
     /*#aboutArvin-region */
+
+
     .AboutArvin {
         background: #f8ffe5;
         padding: 20px;
@@ -530,15 +532,7 @@ body {
             -webkit-line-clamp: 20 !important; //number of lines to show
         }
 
-        img {
-            width: 320px;
-            height: 320px;
-        }
-
-        .MobileSize {
-            width: 250px !important;
-            height: 180px !important;
-        }
+        
     }
     /*our team region */
     .ourteamSlider {

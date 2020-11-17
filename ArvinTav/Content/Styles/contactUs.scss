@@ -1,0 +1,119 @@
+﻿@import '_layout.scss';
+@import '_colors.scss';
+@import '_global.scss';
+
+.contactSection {
+    .mat {
+        width: 220px;
+        padding:22px;
+    }
+
+    .contactAddress {
+        * {
+            overflow: hidden;
+        }
+    }
+}
+.GreenBackground {
+    padding: 50px 0px!important;
+}
+   h4 {
+        @include center();
+        text-align: center;
+        color: #5cb152;
+        font-family: Sahel;
+        overflow: hidden;
+    }
+.aboutUs {
+    padding: 40px;
+    background: white !important;
+    margin-top: 70px;
+
+    img {
+        position: absolute;
+        margin-right: auto;
+        margin-left: auto;
+        @include center();
+        width: 80px;
+        height: 60px;
+        opacity: 0.8;
+        margin-top: -44px;
+    }
+    p {
+        color: black;
+        overflow: hidden;
+        text-align: justify;
+        -ms-text-justify: kashida;
+        text-justify: kashida;
+    }
+}
+.contactForm {
+    input {
+        background: #dcdbdb;
+        border: none;
+        padding: 5px 20px;
+        margin: 8px 0;
+    }
+
+    textarea {
+        overflow: visible !important;
+        max-height: 120px !important;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .ServiceButton {
+        width: 80px;
+        padding: 4px;
+        background: #5cb152;
+        color: white;
+        font-size: 14px;
+        border: 1px solid #5cb152;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .ServiceButton:hover {
+        //opacity: 0.9;
+        background: transparent;
+        border: 1px solid #5cb152;
+        color: #2a2929 !important;
+        text-decoration: none !important;
+    }
+}
+.socialContact {
+    display: flex;
+    div {
+        flex: 2;
+
+        a {
+            margin-top: 10px;
+            margin-right: 12px;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    img {
+        flex: 1;
+    }
+}
+@media only screen and (max-device-width: 700px) {
+    .socialContact {
+        img {
+            display:none;
+        }
+    }
+    }
+    .map {
+        width: 100%;
+        margin: auto !important;
+        //background: $ControlBackground;
+        height: 28vw;
+    }
+

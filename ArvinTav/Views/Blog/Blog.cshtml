@@ -23,9 +23,9 @@
             <article class="my-column mat my-clipped ">
                 <content>
                     <div class="center">
-                        <a href="/post"><img src="~/Document/img/Spider/@item.Image" width="300" /></a>
+                        <a href="/post/@item.ID/@item.Title"><img src="~/Document/img/Spider/@item.Image" width="300" /></a>
                     </div>
-                    <a class="title" href="/post"><h4>@item.Title</h4></a>
+                    <a class="title" href="/post/@item.ID/@item.Title"><h4>@item.Title</h4></a>
                     <hr class="uk-divider-icon" />
                     <div class="category my-row uk-margin-small-top">
                         <a href="/cat=@item.SpiderCategory.ID">@item.SpiderCategory.Title</a>
@@ -35,5 +35,17 @@
             </article>
         }
     </content>
+    <div class="center uk-margin-large-top">
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </div>
 </div>
 <!--end region-->

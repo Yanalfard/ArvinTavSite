@@ -22,6 +22,7 @@ namespace DataLayer
         [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string Email { get; set; }
 
+        [Display(Name = "شماره تماس")]
         [MaxLength(15, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string PhoneNumber { get; set; }
 

@@ -242,162 +242,96 @@
     .space-desktop {
       visibility: collapse; } }
 
-body {
-  background-image: url("../../img/products/greenBackground.png"); }
-  body * {
+.contactSection .mat {
+  width: 220px;
+  padding: 22px; }
+
+.contactSection .contactAddress * {
+  overflow: hidden; }
+
+.GreenBackground {
+  padding: 50px 0px !important; }
+
+h4 {
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  margin: 0 auto;
+  text-align: center;
+  color: #5cb152;
+  font-family: Sahel;
+  overflow: hidden; }
+
+.aboutUs {
+  padding: 40px;
+  background: white !important;
+  margin-top: 70px; }
+  .aboutUs img {
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    margin: 0 auto;
+    width: 80px;
+    height: 60px;
+    opacity: 0.8;
+    margin-top: -44px; }
+  .aboutUs p {
+    color: black;
     overflow: hidden;
-    font-family: Sahel; }
+    text-align: justify;
+    -ms-text-justify: kashida;
+    text-justify: kashida; }
 
-.cover .logoinCenter {
-  margin-right: -200px !important; }
+.contactForm input {
+  background: #dcdbdb;
+  border: none;
+  padding: 5px 20px;
+  margin: 8px 0; }
 
-.blogTitle {
-  padding: 20px;
-  border: 1px solid;
-  border-radius: 20px;
-  width: 600px;
-  /*    margin-top:-50px;
-    margin-bottom:60px;*/
-  background: white;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto; }
+.contactForm textarea {
+  overflow: visible !important;
+  max-height: 120px !important; }
 
-.category {
-  font-size: 12px; }
-  .category a {
-    padding: 2px;
-    margin: 3px;
-    background: #ffed87;
-    color: #555 !important;
-    border-radius: 3px; }
-  .category a:hover {
-    text-decoration: none;
-    opacity: 0.8; }
+.contactForm label {
+  font-size: 14px; }
 
-.grid {
-  display: grid;
-  grid-template-rows: auto;
-  grid-gap: 2em;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 20px 2vw; }
-  .grid img:hover {
-    opacity: 0.7; }
-  .grid * {
-    overflow: visible; }
-  .grid .title h4 {
-    font-family: Sahel !important;
-    overflow: hidden !important;
-    color: #5cb152;
-    margin-top: 15px; }
-  .grid .title:hover {
-    text-decoration: none; }
-  .grid .mat {
-    width: 300px;
-    border-radius: 4px;
-    padding: 10px; }
+.contactForm .ServiceButton {
+  width: 80px;
+  padding: 4px;
+  background: #5cb152;
+  color: white;
+  font-size: 14px;
+  border: 1px solid #5cb152;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center; }
 
-@media only screen and (max-width: 800px) {
-  .cover .logoinCenter {
-    margin-right: 0px !important;
-    width: 220px !important; }
-  .grid {
-    display: grid;
-    grid-template-rows: auto;
-    grid-gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    padding: 20px 2vw; }
-    .grid .mat {
-      width: 280px; } }
+.contactForm .ServiceButton:hover {
+  background: transparent;
+  border: 1px solid #5cb152;
+  color: #2a2929 !important;
+  text-decoration: none !important; }
 
-.postContent {
-  margin-top: -146px; }
-  .postContent .whiteBackground, .postContent Content {
-    background: white !important;
-    border-radius: 5px; }
-  .postContent .Titr {
-    background: #ffed87 !important;
-    display: flex; }
-    .postContent .Titr h4 {
-      flex: 2; }
-    .postContent .Titr img {
-      flex: 1; }
-  .postContent hr {
-    margin: 0 !important; }
-  .postContent .Content {
-    background: white;
-    display: flex; }
-    .postContent .Content div {
-      flex: 1; }
-      .postContent .Content div h2 {
-        color: #5cb152;
-        font-family: Sahel !important;
-        font-size: 24px;
-        overflow: hidden; }
-      .postContent .Content div p {
-        margin-top: 0 !important;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        /*-webkit-line-clamp: 6; //number of lines to show*/
-        -webkit-box-orient: vertical;
-        text-align: justify;
-        -ms-text-justify: kashida;
-        text-justify: kashida; }
-    .postContent .Content .MobileSize {
-      display: none; }
-  .postContent .keyword a {
-    padding: 2px;
-    font-size: 14px; }
-  .postContent .keyword a:hover {
-    text-decoration: none; }
+.socialContact {
+  display: flex; }
+  .socialContact div {
+    flex: 2; }
+    .socialContact div a {
+      margin-top: 10px;
+      margin-right: 12px; }
+    .socialContact div a:hover {
+      text-decoration: none; }
+  .socialContact img {
+    flex: 1; }
 
-@media only screen and (max-device-width: 800px) {
-  .cover .logoinCenter {
-    margin-right: 0px !important;
-    width: 220px !important; }
-  .postContent .Content {
-    display: contents !important; }
-    .postContent .Content div h2 {
-      font-size: 12px !important;
-      margin-bottom: 10px !important; }
-    .postContent .Content div p {
-      /* -webkit-line-clamp: 10; //number of lines to show*/
-      -webkit-box-orient: vertical;
-      font-size: 12px !important;
-      margin-bottom: 10px !important; }
-    .postContent .Content .MobileSize {
-      display: flex !important; }
-    .postContent .Content .DesktopSize {
-      display: none; } }
+@media only screen and (max-device-width: 700px) {
+  .socialContact img {
+    display: none; } }
 
-@media only screen and (max-width: 800px) {
-  .postContent .Content {
-    display: contents !important; }
-    .postContent .Content div h2 {
-      font-size: 12px !important;
-      margin-bottom: 10px !important; }
-    .postContent .Content div p {
-      /* -webkit-line-clamp: 10; //number of lines to show*/
-      -webkit-box-orient: vertical;
-      font-size: 12px !important;
-      margin-bottom: 10px !important; }
-    .postContent .Content .MobileSize {
-      display: flex !important; }
-    .postContent .Content .DesktopSize {
-      display: none; } }
-
-.pagination {
-  display: inline-block; }
-
-.pagination a {
-  color: black;
-  padding: 8px 10px;
-  text-decoration: none; }
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white; }
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd; }
+.map {
+  width: 100%;
+  margin: auto !important;
+  height: 28vw; }

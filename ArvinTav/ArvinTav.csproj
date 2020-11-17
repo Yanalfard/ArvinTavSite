@@ -222,6 +222,12 @@
     <Content Include="Content\Styles\blog.min.css">
       <DependentUpon>blog.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\contactUs.css">
+      <DependentUpon>contactUs.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\contactUs.min.css">
+      <DependentUpon>contactUs.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\Controls.css">
       <DependentUpon>Controls.scss</DependentUpon>
     </Content>
@@ -239,6 +245,12 @@
     </Content>
     <Content Include="Content\Styles\LoginRegister.min.css">
       <DependentUpon>LoginRegister.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\mainCategory.css">
+      <DependentUpon>mainCategory.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\mainCategory.min.css">
+      <DependentUpon>mainCategory.css</DependentUpon>
     </Content>
     <Content Include="Content\Styles\SoftwarePackages.css">
       <DependentUpon>SoftwarePackages.scss</DependentUpon>
@@ -1839,6 +1851,7 @@
     <Content Include="img\blog\weblog2.jfif" />
     <Content Include="img\gif\load.gif" />
     <Content Include="img\Home\background-footer.png" />
+    <Content Include="img\Home\contact\social media.png" />
     <Content Include="img\Home\cover.jpg" />
     <Content Include="img\Home\cover1.jpg" />
     <Content Include="img\Home\cover2.jpg" />
@@ -2006,6 +2019,8 @@
     <Content Include="Content\Styles\blog.scss" />
     <None Include="Connected Services\ZarinPal\PaymentGatewayImplementationService.wsdl" />
     <None Include="Connected Services\ZarinTest\PaymentGatewayImplementationService.wsdl" />
+    <Content Include="Content\Styles\mainCategory.scss" />
+    <Content Include="Content\Styles\contactUs.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

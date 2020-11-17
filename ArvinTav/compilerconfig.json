@@ -30,5 +30,13 @@
   {
     "outputFile": "Content/Styles/blog.css",
     "inputFile": "Content/Styles/blog.scss"
+  },
+  {
+    "outputFile": "Content/Styles/mainCategory.css",
+    "inputFile": "Content/Styles/mainCategory.scss"
+  },
+  {
+    "outputFile": "Content/Styles/contactUs.css",
+    "inputFile": "Content/Styles/contactUs.scss"
   }
 ]

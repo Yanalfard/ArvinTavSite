@@ -133,173 +133,176 @@
     }
     /*#endregion */
     /*#mobile header-region */
-    @media only screen and (max-device-width : 780px) {
-        #LayoutHeader {
-            .navBar {
-                display: none;
+@media only screen and (max-device-width : 780px) {
+    #LayoutHeader {
+        .navBar {
+            display: none;
+        }
+    }
+
+    .loginDesktop {
+        display: none;
+    }
+
+    .loginMobile {
+        button {
+            //   padding: 0px;
+            width: 140px;
+            margin-top: 14px;
+            margin-left: 18px;
+            margin-right: 18px;
+            color: #4d4d4d;
+            border: 1px solid #5cb152;
+            border-radius: 20px !important;
+            height: 34px;
+        }
+
+
+        button:hover {
+            background: #80c378;
+            border: none;
+            color: white;
+        }
+    }
+
+    .LogoPicMobile {
+        width: 60px !important;
+        height: 60px !important;
+        margin-left: auto !important;
+        margin-right: 22px;
+    }
+
+    .hamburger-button {
+        display: flex !important;
+    }
+
+    #menu {
+        display: block;
+
+        .mainMenu {
+            // background:red;
+            list-style-type: none !important;
+            padding: 10px;
+        }
+
+        .uk-nav-header {
+            color: #66AEF5 !important;
+        }
+
+        li {
+            color: #555;
+            padding: 10px;
+            border-bottom: 1px solid #a9a9a9;
+            margin-right: 10px;
+            margin-top: 10px;
+
+            a {
+                font-size: 14px !important;
+                color: #4d4d4d;
+            }
+
+            a:hover {
+                color: #808080 !important;
             }
         }
+
+        .search {
+            input {
+                width: 200px !important;
+            }
+        }
+    }
+
+    .uk-offcanvas-bar {
+        display: block;
+        background: #ffffff !important;
+    }
+
+    .layout-header-scrolled {
+        overflow: hidden !important;
+    }
+}
+
+@media only screen and (max-width :780px) {
+    #LayoutHeader {
+        .navBar {
+            display: none;
+        }
+
         .loginDesktop {
             display: none;
         }
-        .loginMobile {
-            button {
-                //   padding: 0px;
-                width: 140px;
-                margin-top: 14px;
-                margin-left: 18px;
-                margin-right: 18px;
-                color: #4d4d4d;
-                border: 1px solid #5cb152;
-                border-radius: 20px !important;
-                height: 34px;
-            }
+    }
 
+    .LogoPic {
+        width: 50px;
+        height: 40px;
+    }
 
-            button:hover {
-                background: #80c378;
-                border: none;
-                color: white;
-            }
+    .loginMobile {
+        button {
+            //   padding: 0px;
+            width: 140px;
+            margin-top: 14px;
+            margin-left: 18px;
+            margin-right: 18px;
+            color: #4d4d4d;
+            border: 1px solid #5cb152;
+            border-radius: 20px !important;
+            height: 34px;
         }
 
-        .LogoPicMobile {
-            width: 60px !important;
-            height: 60px !important;
-            margin-left: auto !important;
-            margin-right: 22px;
-        }
 
-        .hamburger-button {
-            display: flex !important;
-        }
-
-        #menu {
-            display: block;
-
-            .mainMenu {
-                // background:red;
-                list-style-type: none !important;
-                padding: 10px;
-            }
-
-            .uk-nav-header {
-                color: #66AEF5 !important;
-            }
-
-            li {
-                color: #555;
-                padding: 10px;
-                border-bottom: 1px solid #a9a9a9;
-                margin-right: 10px;
-                margin-top: 10px;
-
-                a {
-                    font-size: 14px !important;
-                    color: #4d4d4d;
-                }
-
-                a:hover {
-                    color: #808080 !important;
-                }
-            }
-
-            .search {
-                input {
-                    width: 200px !important;
-                }
-
-            }
-        }
-
-        .uk-offcanvas-bar {
-            display: block;
-            background: #ffffff !important;
-        }
-
-        .layout-header-scrolled {
-            overflow: hidden !important;
+        button:hover {
+            background: #80c378;
+            border: none;
+            color: white;
         }
     }
 
-    @media only screen and (max-width :780px) {
-        #LayoutHeader {
-            .navBar {
-                display: none;
-            }
+    .hamburger-button {
+        display: flex !important;
+    }
 
-            .loginDesktop {
-                display: none;
-            }
+    #menu {
+        display: block;
+
+        ul {
+            // background:red;
+            list-style-type: none !important;
+            padding: 10px;
         }
 
-        .LogoPic {
-            width: 50px;
-            height: 40px;
-        }
-        .loginMobile {
-            button {
-                //   padding: 0px;
-                width: 140px;
-                margin-top: 14px;
-                margin-left: 18px;
-                margin-right: 18px;
+        li {
+            color: #555 !important;
+            padding: 10px;
+            border-bottom: 1px solid #a9a9a9;
+            margin-right: 10px;
+            margin-top: 10px;
+
+            a {
+                font-size: 14px !important;
                 color: #4d4d4d;
-                border: 1px solid #5cb152;
-                border-radius: 20px !important;
-                height: 34px;
             }
 
-
-            button:hover {
-                background: #80c378;
-                border: none;
-                color: white;
+            a:hover {
+                color: #808080 !important;
             }
-        }
-        .hamburger-button {
-            display: flex !important;
-        }
-
-        #menu {
-            display: block;
-
-            ul {
-                // background:red;
-                list-style-type: none !important;
-                padding: 10px;
-            }
-
-            li {
-                color: #555 !important;
-                padding: 10px;
-                border-bottom: 1px solid #a9a9a9;
-                margin-right: 10px;
-                margin-top: 10px;
-
-                a {
-                    font-size: 14px !important;
-                    color: #4d4d4d;
-                }
-
-                a:hover {
-                    color: #808080 !important;
-                }
-            }
-        }
-
-        .uk-offcanvas-bar {
-            display: block;
-            background: #ffffff !important;
-        }
-
-        .layout-header-scrolled {
-            background: transparent !important;
-            height: 70px;
-            opacity: 0.8;
-            overflow: hidden !important;
         }
     }
+
+    .uk-offcanvas-bar {
+        display: block;
+        background: #ffffff !important;
+    }
+
+    .layout-header-scrolled {
+        background: transparent !important;
+        height: 70px;
+        opacity: 0.8;
+        overflow: hidden !important;
+    }
+}
 
 
     .hamburger-button {
@@ -381,7 +384,7 @@ footer {
         div {
             label {
                 color: white !important;
-                padding: 2px;
+                padding: 5px;
             }
         }
     }

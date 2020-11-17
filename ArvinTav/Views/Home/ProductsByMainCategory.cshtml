@@ -1,27 +1,96 @@
 ﻿@model DataLayer.PackageByMainCategoryViewModel
 @{
     ViewBag.Title = "ProductsByMainCategory";
-    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<h2>نمایش محصولات بر اساس دسته بندی اصلی</h2>
+@*<h2>نمایش محصولات بر اساس دسته بندی اصلی</h2>*@
+<link href="~/Content/Styles/mainCategory.min.css" rel="stylesheet" />
+<div class="categorySection">
+    <div class="uk-margin-auto-right uk-margin-auto-left uk-margin-auto-top uk-margin-auto-bottom cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
+        <img class="uk-margin-auto uk-margin-top center" src="~/img/Home/Host/Hero-host.svg" width="600" />
+    </div>
 
-@foreach (var item in Model.ServiceCategory.ChildCategories)
-{
-    @item.Title
-    @item.Image
+    <ul uk-accordion dir="rtl">
+        <li>
+            <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/img/Home/web-developer-master-tn.svg" width="66" />فروشگاه اختصاصی </div>
+            <div class="uk-accordion-content childGrid">
+                <content class="grid " dir="rtl">
 
-}
+                    <article class="my-column mat my-clipped uk-padding-small">
+                        <content>
+                            <div class="center">
+                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
+                            </div>
+                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
+                            <ul class="my-column uk-padding-remove" dir="rtl">
 
 
-@foreach (var item in Model.packageServices)
-{
-    @:
-    @item.Title
-    @:
-    foreach (var Detail in item.PackageServiceDetails)
-    {
-        <i>@Detail.Title</i>
-    }
-}
+                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
+
+                            </ul>
+                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
+                        </content>
+                    </article>
+                    <article class="my-column mat my-clipped uk-padding-small">
+                        <content>
+                            <div class="center">
+                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
+                            </div>
+                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
+                            <ul class="my-column uk-padding-remove" dir="rtl">
+
+
+                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
+
+                            </ul>
+                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
+                        </content>
+                    </article>
+                    <article class="my-column mat my-clipped uk-padding-small">
+                        <content>
+                            <div class="center">
+                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
+                            </div>
+                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
+                            <ul class="my-column uk-padding-remove" dir="rtl">
+
+
+                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
+
+                            </ul>
+                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
+                        </content>
+                    </article>
+                </content>
+            </div>
+        </li>
+        <li>
+            <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/img/Home/web-developer-master-tn.svg" width="66" />سایت شخصی </div>
+            <div class="uk-accordion-content childGrid">
+                <content class="grid " dir="rtl">
+
+                    <article class="my-column mat my-clipped uk-padding-small">
+                        <content>
+                            <div class="center">
+                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
+                            </div>
+                            <a><h5 class="center">محصول سایت شخصی</h5></a>
+                            <ul class="my-column uk-padding-remove" dir="rtl">
+
+
+                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
+
+                            </ul>
+                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
+                        </content>
+                    </article>
+
+                </content>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
 

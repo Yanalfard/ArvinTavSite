@@ -13,6 +13,7 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "متن")]
+        [MaxLength(200)]
         public string Text { get; set; }
 
         [Display(Name = "فایل")]

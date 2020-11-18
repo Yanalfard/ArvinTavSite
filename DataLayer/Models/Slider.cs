@@ -17,6 +17,7 @@ namespace DataLayer
 
         
         [MinLength(2)]
+        [MaxLength(300)]
         public string Link { get; set; }
 
         public string Image { get; set; }

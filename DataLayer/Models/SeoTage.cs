@@ -15,6 +15,7 @@ namespace DataLayer
         [Display(Name = "سمت : 1:بلاگ 2:صفحات فروش")]
         public int SideID { get; set; }
 
+        [MaxLength(20)]
         public string Tage { get; set; }
 
         public virtual Spider Spider { get; set; }

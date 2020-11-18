@@ -14,7 +14,7 @@ namespace DataLayer
 
         [Display(Name = "شماره تماس")]
         [MinLength(11, ErrorMessage = "{0} معتبر نیست")]
-        [MaxLength(15, ErrorMessage = "{0} معتبر نیست")]
+        [MaxLength(11, ErrorMessage = "{0} معتبر نیست")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
@@ -29,6 +29,7 @@ namespace DataLayer
 
         [Display(Name = "ایمیل")]
         [DataType(DataType.EmailAddress, ErrorMessage = "ایمیل معتبر وارد کنید")]
+        [MaxLength(80)]
         public string Email { get; set; }
 
         [Display(Name = "تصویر")]

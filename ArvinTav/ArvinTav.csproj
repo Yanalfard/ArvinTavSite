@@ -206,6 +206,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\ErorrPage.css" />
     <Content Include="Content\owlCarousel\owl.carousel.css" />
     <Content Include="Content\owlCarousel\owl.carousel.min.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.css" />
@@ -233,6 +234,12 @@
     </Content>
     <Content Include="Content\Styles\Controls.min.css">
       <DependentUpon>Controls.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\Home.css">
+      <DependentUpon>Home.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\Home.min.css">
+      <DependentUpon>Home.css</DependentUpon>
     </Content>
     <Content Include="Content\Styles\LoginRegister.css">
       <DependentUpon>LoginRegister.scss</DependentUpon>
@@ -3240,7 +3247,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\Erorr.cshtml" />
     <Content Include="Views\Shared\P_MainCategory.cshtml" />
     <Content Include="Views\Shared\P_ChildCategory.cshtml" />
     <Content Include="Views\Shared\P_SubCategory.cshtml" />
@@ -3263,6 +3269,7 @@
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Blog\ByTage.cshtml" />
     <Content Include="Views\Blog\ByCategory.cshtml" />
+    <Content Include="Views\Shared\Erorr.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

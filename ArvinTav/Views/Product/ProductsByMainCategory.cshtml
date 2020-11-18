@@ -12,83 +12,38 @@
     </div>
 
     <ul uk-accordion dir="rtl">
-        <li>
-            <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/img/Home/web-developer-master-tn.svg" width="66" />فروشگاه اختصاصی </div>
-            <div class="uk-accordion-content childGrid">
-                <content class="grid " dir="rtl">
+        @foreach (var item in Model.ServiceCategory.ChildCategories)
+        {
+            <li>
+                <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/Document/img/Category/@item.Image" width="66" />@item.Title</div>
+                <div class="uk-accordion-content childGrid">
+                    <content class="grid " dir="rtl">
 
-                    <article class="my-column mat my-clipped uk-padding-small">
-                        <content>
-                            <div class="center">
-                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
-                            </div>
-                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
-                            <ul class="my-column uk-padding-remove" dir="rtl">
+                        @foreach (var Product in item.PackageServices)
+                        {
+                            <article class="my-column mat my-clipped uk-padding-small">
+                                <content>
+                                    <div class="center">
+                                        <img src="~/Document/img/Package/@Product.Image" width="60" />
+                                    </div>
+                                    <a><h5 class="center">@Product.Title</h5></a>
+                                    <ul class="my-column uk-padding-remove" dir="rtl">
 
+                                        @foreach (var Detail in Product.PackageServiceDetails)
+                                        {
+                                            <li><i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
+                                        }
 
-                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
+                                    </ul>
+                                    <a class="ServiceButton" href="/Product/@Product.ID/@Product.Title.Replace(" ","-")">جزئیات و سفارش</a>
+                                </content>
+                            </article>
+                        }
 
-                            </ul>
-                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
-                        </content>
-                    </article>
-                    <article class="my-column mat my-clipped uk-padding-small">
-                        <content>
-                            <div class="center">
-                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
-                            </div>
-                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
-                            <ul class="my-column uk-padding-remove" dir="rtl">
-
-
-                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
-
-                            </ul>
-                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
-                        </content>
-                    </article>
-                    <article class="my-column mat my-clipped uk-padding-small">
-                        <content>
-                            <div class="center">
-                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
-                            </div>
-                            <a><h5 class="center">محصول فروشگاه اختصاصی</h5></a>
-                            <ul class="my-column uk-padding-remove" dir="rtl">
-
-
-                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
-
-                            </ul>
-                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
-                        </content>
-                    </article>
-                </content>
-            </div>
-        </li>
-        <li>
-            <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/img/Home/web-developer-master-tn.svg" width="66" />سایت شخصی </div>
-            <div class="uk-accordion-content childGrid">
-                <content class="grid " dir="rtl">
-
-                    <article class="my-column mat my-clipped uk-padding-small">
-                        <content>
-                            <div class="center">
-                                <img src="~/img/Home/web-developer-master-tn.svg" width="60" />
-                            </div>
-                            <a><h5 class="center">محصول سایت شخصی</h5></a>
-                            <ul class="my-column uk-padding-remove" dir="rtl">
-
-
-                                <li> <i class="fas fa-check uk-text-success"></i>ویژگی</li>
-
-                            </ul>
-                            <a class="ServiceButton" href="/products'">مشاهده محصولات</a>
-                        </content>
-                    </article>
-
-                </content>
-            </div>
-        </li>
+                    </content>
+                </div>
+            </li>
+        }
     </ul>
 </div>
 

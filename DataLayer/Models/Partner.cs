@@ -18,7 +18,7 @@ namespace DataLayer
         public string Title { get; set; }
 
         [Display(Name = "شماره تماس")]
-        [MaxLength(15)]
+        [MaxLength(11)]
         [MinLength(11)]
         public string PhoneNumber { get; set; }
 

@@ -14,12 +14,10 @@ namespace DataLayer
 
         [Display(Name = "نام")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "متن")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Description { get; set; }
 
         [Display(Name = "تصویر")]

@@ -56,10 +56,7 @@ namespace ArvinTav.Controllers
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
-
-
-
-
+        
         [Route("AboutUs")]
         public ActionResult AboutUs()
         {

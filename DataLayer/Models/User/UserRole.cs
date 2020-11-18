@@ -13,9 +13,11 @@ namespace DataLayer
         public int RoleID { get; set; } 
 
         [Display(Name = "متن دسترسی")]
+        [MaxLength(20)]
         public string Title { get; set; }
 
         [Display(Name = "دسترسی")]
+        [MaxLength(20)]
         public string Name { get; set; }
 
         [Display(Name = "کاربران")]

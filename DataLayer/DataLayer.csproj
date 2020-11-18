@@ -155,9 +155,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\DataLayer.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Seo\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011160753428_initialdb.resx">
       <DependentUpon>202011160753428_initialdb.cs</DependentUpon>

@@ -9,9 +9,9 @@ namespace ArvinTav.Controllers
 {
     public class ProductController : Controller
     {
-       private IDatabase database;
-       private IServiceCategoryRepository serviceCategoryRepository;
-       private IPackageRepository packageRepository;
+        private IDatabase database;
+        private IServiceCategoryRepository serviceCategoryRepository;
+        private IPackageRepository packageRepository;
 
         public ProductController()
         {
@@ -28,7 +28,6 @@ namespace ArvinTav.Controllers
         {
             PackageByMainCategoryViewModel PackageByMainCategoryViewModel = new PackageByMainCategoryViewModel();
             PackageByMainCategoryViewModel.ServiceCategory = serviceCategoryRepository.AllChildCategory(ID, true);
-            PackageByMainCategoryViewModel.packageServices = packageRepository.AllPackageServices().Where(p => p.ServiceCategory.ParentID == ID);
 
             return View(PackageByMainCategoryViewModel);
         }

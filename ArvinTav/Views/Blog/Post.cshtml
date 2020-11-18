@@ -21,7 +21,7 @@
                     <hr class="uk-divider-icon" />
                     <small>
                         دسته بندی :
-                        <a href="/cat=@Model.SpiderCategory.ID">@Model.SpiderCategory.Title</a>
+                        <a href="/cat=1/@Model.SpiderCategory.ID">@Model.SpiderCategory.Title</a>
                     </small>
                     <p class="uk-padding-small">
                         @Html.Raw(Model.Description)
@@ -30,7 +30,7 @@
                         <label>برچسب ها:</label>
                         @foreach (var item in Model.SeoTages)
                         {
-                            <a href="/tage=@item.Tage">@item.Tage</a>@:,
+                            <a href="/tage=1/@item.Tage">@item.Tage</a>@:,
                         }
                     </div>
                 </content>

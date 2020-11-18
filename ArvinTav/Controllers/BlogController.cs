@@ -26,25 +26,25 @@ namespace ArvinTav.Controllers
         {
             if (Result == "")
             {
-                int skip = (PageId - 1) * 3;
+                int skip = (PageId - 1) * 10;
 
                 int Count = spiderRepository.AllSpider().Count();
                 ViewBag.PageID = PageId;
-                ViewBag.PageCount = Count / 3;
+                ViewBag.PageCount = Count / 10;
 
-                var list = spiderRepository.AllSpider().OrderByDescending(p => p.ID).Skip(skip).Take(3).ToList();
+                var list = spiderRepository.AllSpider().OrderByDescending(p => p.ID).Skip(skip).Take(10).ToList();
 
                 return View(list);
             }
             else
             {
-                int skip = (PageId - 1) * 3;
+                int skip = (PageId - 1) * 10;
 
                 int Count = spiderRepository.AllSpider().Count();
                 ViewBag.PageID = PageId;
-                ViewBag.PageCount = Count / 3;
+                ViewBag.PageCount = Count / 10;
 
-                var list = spiderRepository.AllSpider().Where(p => p.Title.Contains(Result)).OrderByDescending(p => p.ID).Skip(skip).Take(3).ToList();
+                var list = spiderRepository.AllSpider().Where(p => p.Title.Contains(Result)).OrderByDescending(p => p.ID).Skip(skip).Take(10).ToList();
 
                 return View(list);
             }
@@ -56,26 +56,35 @@ namespace ArvinTav.Controllers
             return View(spiderRepository.SpiderById(ID));
         }
 
-        [Route("tage={Tage}")]
+        [Route("tage={PageId}/{Tage}")]
         public ActionResult ByTage(int PageId, string Tage)
         {
 
-            int skip = (PageId - 1) * 3;
+            int skip = (PageId - 1) * 10;
 
             int Count = spiderRepository.AllSpider().Count();
             ViewBag.PageID = PageId;
-            ViewBag.PageCount = Count / 3;
+            ViewBag.PageCount = Count / 10;
 
-            var list = spiderRepository.AllSpider().OrderByDescending(p => p.ID).Skip(skip).Take(3).ToList();
+            var list = database._db().seoTages.Where(s => s.Tage.Contains(Tage)).Select(p => p.Spider).OrderByDescending(p => p.ID).Skip(skip).Take(10);
+
 
             return View(list);
 
         }
 
-        [Route("cat={ID}")]
-        public ActionResult ByCategory(int ID)
+        [Route("cat={PageId}/{ID}")]
+        public ActionResult ByCategory(int PageId, int ID)
         {
-            return View(spiderRepository.AllSpider().Where(s => s.SpiderCategory.ID == ID));
+            int skip = (PageId - 1) * 10;
+
+            int Count = spiderRepository.AllSpider().Count();
+            ViewBag.PageID = PageId;
+            ViewBag.PageCount = Count / 10;
+
+            var list = spiderRepository.AllSpider().Where(p => p.SpiderCategory.ID == ID).OrderByDescending(p => p.ID).Skip(skip).Take(10);
+
+            return View(list);
         }
 
 

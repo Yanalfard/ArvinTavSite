@@ -18,7 +18,7 @@ namespace ArvinTav.Controllers
 
         public PaymentController()
         {
-            
+
             packageRepository = new PackageRepository(db);
             userRepository = new UserRepository(db);
             orderRepository = new OrderRepository(db);
@@ -34,7 +34,7 @@ namespace ArvinTav.Controllers
         }
 
 
-        public ActionResult Pay(int ID, string OffCode)
+        public ActionResult Pay(int ID, string OffCode, string Description)
         {
             PackageService package = packageRepository.PackageServiceById(ID);
             Order order = new Order();
@@ -58,7 +58,7 @@ namespace ArvinTav.Controllers
             {
                 order.Price = package.Price;
             }
-
+            order.Description = Description;
             order.Price = package.Price;
             order.DateTime = DateTime.Now;
             order.PackageService = packageRepository.PackageServiceById(ID);
@@ -68,7 +68,7 @@ namespace ArvinTav.Controllers
             ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
             string Authority;
             int OrderID = orderRepository.Create(order);
-            int Status = zp.PaymentRequest("YOUR-ZARINPAL-MERCHANT-CODE", order.Price, "شرکت ایده پردازان آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Home/Verify/" + OrderID, out Authority);
+            int Status = zp.PaymentRequest("YOUR-ZARINPAL-MERCHANT-CODE", order.Price, "شرکت ایده پرداز آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Payment/Verify/" + OrderID, out Authority);
 
 
 
@@ -96,27 +96,30 @@ namespace ArvinTav.Controllers
                     long RefID;
                     System.Net.ServicePointManager.Expect100Continue = false;
                     ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
-
+                    Order Order = orderRepository.OrderById(ID);
+                    Order.Status = 2;
+                    orderRepository.Save();
                     int Status = zp.PaymentVerification("YOUR-ZARINPAL-MERCHANT-CODE", Request.QueryString["Authority"].ToString(), Amount, out RefID);
 
                     if (Status == 100)
                     {
-                        Response.Write("Success!! RefId: " + RefID);
+                        ViewBag.OrderID = ID;
+                        ViewBag.RefID = RefID;
                     }
                     else
                     {
-                        Response.Write("Error!! Status: " + Status);
+                        ViewBag.Erorr = "پرداخت شما نا موفق بود. چنانچه مبلغ از حساب شما کسر شده باشد و خدمات برای شما ارائه داده نشده است مبلغ طی 24 ساعت به حساب شما بازگشت داده میشود";
                     }
 
                 }
                 else
                 {
-                    Response.Write("Error! Authority: " + Request.QueryString["Authority"].ToString() + " Status: " + Request.QueryString["Status"].ToString());
+                    ViewBag.Erorr = "پرداخت شما نا موفق بود. چنانچه مبلغ از حساب شما کسر شده باشد و خدمات برای شما ارائه داده نشده است مبلغ طی 24 ساعت به حساب شما بازگشت داده میشود";
                 }
             }
             else
             {
-                Response.Write("Invalid Input");
+                ViewBag.Erorr = "پرداخت شما نا موفق بود. چنانچه مبلغ از حساب شما کسر شده باشد و خدمات برای شما ارائه داده نشده است مبلغ طی 24 ساعت به حساب شما بازگشت داده میشود";
             }
             return View();
         }

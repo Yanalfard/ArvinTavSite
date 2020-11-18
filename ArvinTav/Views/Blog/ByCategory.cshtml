@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DataLayer.Spider>
 @{
     ViewBag.Title = "ByCategory";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -15,32 +15,36 @@
 
 <!--grid region-->
 <div>
-    <content class="grid " dir="rtl">
-        <article class="my-column mat my-clipped ">
-            <content>
-                <div class="center">
-                    <a href="/post"><img src="~/img/blog/blog.jpg" width="300" /></a>
-                </div>
-                <a class="title" href="/post"><h4>عنوان</h4></a>
-                <hr class="uk-divider-icon" />
-                <div class="category my-row uk-margin-small-top">
-                    <a>دسته بندی</a>
-                    <span class="uk-margin-auto-top uk-margin-auto-right">10:00</span>
-                </div>
-            </content>
-        </article>
-    </content>
-    <div class="center uk-margin-large-top">
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
+    @foreach (var item in Model)
+    {
+        <content class="grid " dir="rtl">
+            <article class="my-column mat my-clipped ">
+                <content>
+                    <div class="center">
+                        <a href="/Post/@item.ID/@item.Title.Replace(" ","-")"><img src="~/Document/img/Spider/@item.Image" width="300" /></a>
+                    </div>
+                    <a class="title" href="/post"><h4>@item.Title</h4></a>
+                    <hr class="uk-divider-icon" />
+                    <div class="category my-row uk-margin-small-top">
+                        <a href="/cat=1/@item.ID">@item.SpiderCategory.Title</a>
+                        <span class="uk-margin-auto-top uk-margin-auto-right">@item.DateTime.ToShamsi()</span>
+                    </div>
+                </content>
+            </article>
+        </content>
+    }
+        <div class="center uk-margin-large-top">
+            <div class="pagination">
+                <a class="disabled"><span aria-hidden="true">«</span></a>
+
+                @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+                {
+                    <a class="@(((int)ViewBag.PageId==i)?"active":"")" href="/cat=@i/@Model.FirstOrDefault().ID">@i</a>
+                }
+
+
+                <a><span aria-hidden="true">»</span></a>
+            </div>
         </div>
-    </div>
 </div>
 <!--end region-->

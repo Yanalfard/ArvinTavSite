@@ -1,35 +1,54 @@
-﻿
+﻿@model IEnumerable<DataLayer.Spider>
 @{
     ViewBag.Title = "ByTage";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
+
+
+
+
 <link href="~/Content/Styles/blog.min.css" rel="stylesheet" />
-<div class="center cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200" dir="rtl">
+<div class="center cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
     <img src="~/img/Home/gridbackground.png" />
+    <div class="absolute center uk-width-5-6 uk-text-center uk-margin-auto uk-margin-large-top uk-margin-large-left">
+        <img class="logoinCenter center uk-margin-large-left" src="~/img/blog/logoInblog.png" width="320" />
+    </div>
 </div>
-<div class="postContent">
-    <div class="my-column my-clipped" dir="rtl">
-        <content class="Content my-row uk-padding ">
-            <div class="my-column my-clipped whiteBackground" dir="rtl">
+
+
+
+<div>
+    @foreach (var item in Model)
+    {
+        <content class="grid " dir="rtl">
+            <article class="my-column mat my-clipped ">
                 <content>
-                    <div class="my-row Titr">
-                        <h4 class="center">عنوان متن  </h4>
-                        <img class="uk-margin-auto-right uk-padding-small " src="~/img/blog/weblog2.jfif" width="300" height="300" />
+                    <div class="center">
+                        <a href="/Post/@item.ID/@item.Title.Replace(" ","-")"><img src="~/Document/img/Spider/@item.Image" width="300" /></a>
                     </div>
+                    <a class="title" href="/post"><h4>@item.Title</h4></a>
                     <hr class="uk-divider-icon" />
-                    <p class="uk-padding-small">
-                        از آنجا که لورم ایپسوم، شباهت زیادی به متن های واقعی دارد، طراحان معمولا از لورم ایپسوم استفاده میکنند تا فقط به مشتری یا کار فرما نشان دهند که قالب طراحی شده بعد از اینکه متن در آن قرار میگرد چگونه خواهد بود و فونت ها و اندازه ها چگونه در نظر گرفته شده است.
-                        از آنجا که لورم ایپسوم، شباهت زیادی به متن های واقعی دارد، طراحان معمولا از لورم ایپسوم استفاده میکنند تا فقط به مشتری یا کار فرما نشان دهند که قالب طراحی شده بعد از اینکه متن در آن قرار میگرد چگونه خواهد بود و فونت ها و اندازه ها چگونه در نظر گرفته شده است.
-                        از آنجا که لورم ایپسوم، شباهت زیادی به متن های واقعی دارد، طراحان معمولا از لورم ایپسوم استفاده میکنند تا فقط به مشتری یا کار فرما نشان دهند که قالب طراحی شده بعد از اینکه متن در آن قرار میگرد چگونه خواهد بود و فونت ها و اندازه ها چگونه در نظر گرفته شده است.
-                    </p>
-                    <div class="keyword my-row uk-padding-small uk-margin-auto-top">
-                        <label>برچسب ها:</label>
-                        <a>کلمات کلیدی</a>
+                    <div class="category my-row uk-margin-small-top">
+                        <a href="/cat=1/@item.ID">@item.SpiderCategory.Title</a>
+                        <span class="uk-margin-auto-top uk-margin-auto-right">@item.DateTime.ToShamsi()</span>
                     </div>
                 </content>
-            </div>
+            </article>
         </content>
+    }
+    <div class="center uk-margin-large-top">
+        <div class="pagination">
+            <a class="disabled"><span aria-hidden="true">«</span></a>
+
+            @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+            {
+                <a class="@(((int)ViewBag.PageId==i)?"active":"")" href="/tage=@i/@Model.FirstOrDefault().ID">@i</a>
+            }
+
+
+            <a><span aria-hidden="true">»</span></a>
+        </div>
     </div>
 </div>
 

@@ -9,7 +9,6 @@ namespace DataLayer
     public class PackageByMainCategoryViewModel
     {
         public ChildCategoryViewModel ServiceCategory { get; set; }
-
-        public IEnumerable<PackageService> packageServices { get; set; }
+        
     }
 }

@@ -53,7 +53,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            <textarea class="uk-width-1-1" name="Text"></textarea>
+                            <textarea class="uk-width-1-1" id="textareaInContact" name="Text"></textarea>
                             @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -76,19 +76,20 @@
                 <div class="my-row"><i class="fab fa-whatsapp fa-2x uk-text-success"></i><a dir="ltr">0914 501 66077</a></div>
                 <div class="my-row"><i class="far fa-envelope fa-2x uk-text-danger"></i><a dir="ltr">info@arvintavco.com</a></div>
             </div>
-            <img class="uk-margin-auto-right" src="~/img/Home/contact/social media.png" width="100" />
+            
+            <img class="uk-margin-auto-right" src="~/img/Home/head slider/social media.svg" width="80" height="200" alt="social"/>
         </div>
         <hr />
         <div class="my-column" dir="rtl">
             <div class="my-row uk-padding-small">
-                <img src="~/img/Home/svg/Location.svg" width="20" />
+                <img class="uk-margin-small-left" src="~/img/Home/svg/Location.svg" width="20" />
                 <label>
                     چایکنار-بعد از پل منصور به سمت آبرسان-ساختمان عمارت صبا-طبقه همکف غربی
                 </label>
             </div>
 
             <div class="my-row uk-padding-small">
-                <img src="~/img/Home/svg/Phone.svg" width="20" />
+                <img class="uk-margin-small-left" src="~/img/Home/svg/Phone.svg" width="20" />
                 <label dir="ltr">
                     041 - 33371059 - 33373556
                 </label>

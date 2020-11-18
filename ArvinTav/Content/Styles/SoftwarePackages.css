@@ -374,7 +374,10 @@
     .productsSection .productcontent progress {
       width: 400px;
       height: 12px;
-      border-radius: 20px; }
+      border-radius: 20px;
+      margin-top: 5px;
+      margin-right: 5px;
+      margin-left: 5px; }
     .productsSection .productcontent * {
       overflow: hidden; }
     .productsSection .productcontent label {
@@ -388,7 +391,7 @@
       padding-bottom: 24px; }
       .productsSection .productcontent li i {
         margin-left: 14px; }
-    .productsSection .productcontent button {
+    .productsSection .productcontent .ServiceButton {
       float: left;
       margin-left: 40px; }
   @media only screen and (max-width: 800px) {
@@ -407,7 +410,7 @@
         padding-bottom: 24px; }
         .productsSection .productcontent li i {
           margin-left: 14px; }
-      .productsSection .productcontent button {
+      .productsSection .productcontent .ServiceButton {
         float: none;
         margin-right: auto;
         margin-left: auto;

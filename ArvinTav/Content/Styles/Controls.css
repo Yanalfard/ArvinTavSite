@@ -293,7 +293,7 @@
     #LayoutHeader .loginDesktop button {
       width: 140px;
       margin-top: 10px;
-      margin-left: 18px;
+      margin-left: 12px;
       color: #4d4d4d;
       border: 1px solid #5cb152;
       border-radius: 20px !important;
@@ -329,7 +329,7 @@
 
 /*#endregion */
 /*#mobile header-region */
-@media only screen and (max-device-width: 780px) {
+@media only screen and (max-device-width: 1020px) {
   #LayoutHeader .navBar {
     display: none; }
   .loginDesktop {
@@ -380,7 +380,7 @@
   .layout-header-scrolled {
     overflow: hidden !important; } }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1020px) {
   #LayoutHeader .navBar {
     display: none; }
   #LayoutHeader .loginDesktop {
@@ -613,7 +613,7 @@ footer {
 .search input {
   width: 180px;
   margin-top: 10px;
-  margin-left: 18px;
+  margin-left: 12px;
   color: #4d4d4d;
   border: 1px solid #5cb152;
   border-radius: 20px !important;

@@ -55,9 +55,10 @@
         margin: 8px 0;
     }
 
-    textarea {
+    #textareaInContact {
         overflow: visible !important;
-        max-height: 120px !important;
+        height: 120px !important;
+        resize: none;
     }
 
     label {

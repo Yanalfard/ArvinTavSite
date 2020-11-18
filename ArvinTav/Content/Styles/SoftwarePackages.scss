@@ -135,7 +135,7 @@
         /*#endregion */
     }
 
-    .productsGrid{
+    .productsGrid {
         margin-bottom: 70px;
         margin-top: 70px;
         /*products page style region*/
@@ -213,6 +213,9 @@
             width: 400px;
             height: 12px;
             border-radius: 20px;
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-left: 5px;
         }
 
         * {
@@ -240,7 +243,7 @@
             }
         }
 
-        button {
+        .ServiceButton {
             float: left;
             margin-left: 40px;
         }
@@ -276,7 +279,7 @@
                 }
             }
 
-            button {
+            .ServiceButton {
                 float: none;
                 margin-right: auto;
                 margin-left: auto;
@@ -327,9 +330,10 @@
             @include column();
             @include center();
             @include my-clipped;
-            label{
-                margin-right:7px;
-                padding-bottom:5px;
+
+            label {
+                margin-right: 7px;
+                padding-bottom: 5px;
             }
         }
 

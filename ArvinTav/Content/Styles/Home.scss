@@ -27,8 +27,8 @@ body {
         overflow-y: hidden !important;
 
         img {
-            width: 400px !important;
-            margin:90px 100px 0 0 !important;
+            /*width: 400px !important;*/
+            margin: 130px 120px 0 0 !important;
         }
 
         .coverContent {
@@ -82,15 +82,15 @@ body {
         margin-top: -240px !important;
     }
 
-    @media only screen and (max-device-width: 800px) {
+    @media only screen and (max-device-width: 411px) {
         .headSlider {
             height: 540px !important;
 
             img {
                 padding: 20px 20px 0 0 !important;
                 margin: auto !important;
-                width: 180px !important;
-                height: 180px !important;
+                width: 158px !important;
+                height: 182px !important;
             }
 
             .coverContent {
@@ -130,15 +130,15 @@ body {
         }
     }
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 411px) {
         .headSlider {
             height: 540px !important;
 
             img {
                 padding: 20px 20px 0 0 !important;
                 margin: auto !important;
-                width: 180px !important;
-                height: 180px !important;
+                width: 158px !important;
+                height: 182px !important;
             }
 
             .coverContent {
@@ -161,6 +161,296 @@ body {
 
             .ServiceButton {
                 width: 60px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-device-width : 411px) and (max-device-width :500px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: auto !important;
+                width: 258px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 26px !important;
+                overflow: hidden;
+            }
+
+            p {
+                width: 140px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 60px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-width : 411px) and (max-width :500px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: auto !important;
+                width: 258px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 26px !important;
+                overflow: hidden;
+            }
+
+            p {
+                width: 140px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 60px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-device-width : 500px) and (max-device-width :780px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: auto !important;
+                width: 320px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 26px !important;
+                overflow: hidden;
+            }
+
+            p {
+                width: 250px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 140px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-width : 500px) and (max-width :780px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: auto !important;
+                width: 320px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 26px !important;
+                overflow: hidden;
+            }
+
+            p {
+                width: 250px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 140px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-device-width : 780px) and (max-device-width :1004px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: 50px 50px 0 0 !important;
+                width: 390px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 70px !important;
+                margin-left: 30px;
+                overflow: hidden;
+            }
+
+            p {
+                width: 250px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 140px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
+            }
+
+            .uk-slidenav-container {
+                margin-top: -80px;
+            }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
+        }
+    }
+
+    @media only screen and (min-width : 780px) and (max-width :1004px) {
+        .headSlider {
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: 50px 50px 0 0 !important;
+                width: 390px !important;
+                height: 182px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 70px !important;
+                margin-left: 30px;
+                overflow: hidden;
+            }
+
+            p {
+                width: 250px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
+            }
+
+            .ServiceButton {
+                width: 140px !important;
                 padding: 1px;
                 font-size: 12px;
                 margin-top: -40px !important;
@@ -184,7 +474,7 @@ body {
                 filter: saturate(0%);
                 @include trans(.5s);
                 width: 60px;
-                height: 50px;
+                height: 60px;
             }
 
             a:hover {
@@ -230,14 +520,14 @@ body {
 
         .MobileSize {
             display: none;
-            height: 200px;
+            height: 180px;
             width: 180px;
         }
 
         img {
             flex: 1;
-            height: 320px;
-            width: 320px;
+            height: 280px;
+            width: 280px;
         }
     }
 
@@ -372,7 +662,7 @@ body {
             }
 
             a {
-                color: #5CB152;
+                color: #4a9a41;
                 text-decoration: none !important;
                 margin-top: 40px !important;
             }
@@ -382,6 +672,11 @@ body {
     /*why arvin region*/
     .whyArvin {
         font-family: Sahel;
+
+        .MobileSize {
+            width: 250px;
+            height: 250px;
+        }
 
         .whyComponent {
             ul {
@@ -407,6 +702,14 @@ body {
     }
 
     @media only screen and (max-width: 900px) {
+        .whyArvin {
+            .whyComponent {
+                font-size: 12px !important;
+            }
+        }
+    }
+
+    @media only screen and (max-device-width: 900px) {
         .whyArvin {
             .whyComponent {
                 font-size: 12px !important;
@@ -551,25 +854,4 @@ body {
         }
     }
     /*our team region */
-    .ourteamSlider {
-        .mat {
-            display: flex;
-            width: 220px;
-            height: 350px;
-
-            img {
-                flex: 1;
-                width: 140px;
-                padding: 16px;
-            }
-
-            content {
-                flex: 1;
-            }
-
-            label {
-                color: #555;
-            }
-        }
-    }
 }

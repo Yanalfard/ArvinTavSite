@@ -273,8 +273,13 @@ body {
   .IndexPage .headSlider {
     overflow-y: hidden !important; }
     .IndexPage .headSlider img {
+<<<<<<< HEAD
       width: 400px !important;
       margin: 90px 100px 0 0 !important; }
+=======
+      /*width: 400px !important;*/
+      margin: 130px 120px 0 0 !important; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
     .IndexPage .headSlider .coverContent {
       padding: 160px 0 0 100px !important;
       font-family: Sahel !important; }
@@ -311,14 +316,23 @@ body {
     width: 100% !important;
     height: 220px;
     margin-top: -240px !important; }
+<<<<<<< HEAD
   @media only screen and (max-device-width: 800px) {
+=======
+  @media only screen and (max-device-width: 411px) {
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
+<<<<<<< HEAD
         width: 180px !important;
         height: 180px !important; }
+=======
+        width: 158px !important;
+        height: 182px !important; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 26px !important;
@@ -341,14 +355,23 @@ body {
     .IndexPage .endOfCover {
       margin-top: -350px !important;
       height: 150px; } }
+<<<<<<< HEAD
   @media only screen and (max-width: 800px) {
+=======
+  @media only screen and (max-width: 411px) {
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
+<<<<<<< HEAD
         width: 180px !important;
         height: 180px !important; }
+=======
+        width: 158px !important;
+        height: 182px !important; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 26px !important;
@@ -371,6 +394,191 @@ body {
     .IndexPage .endOfCover {
       margin-top: -350px !important;
       height: 150px; } }
+<<<<<<< HEAD
+=======
+  @media only screen and (min-device-width: 411px) and (max-device-width: 500px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: auto !important;
+        width: 258px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 26px !important;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 140px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 60px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+  @media only screen and (min-width: 411px) and (max-width: 500px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: auto !important;
+        width: 258px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 26px !important;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 140px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 60px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+  @media only screen and (min-device-width: 500px) and (max-device-width: 780px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: auto !important;
+        width: 320px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 26px !important;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 250px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 140px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: auto !important;
+        width: 320px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 26px !important;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 250px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 140px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+  @media only screen and (min-device-width: 780px) and (max-device-width: 1004px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: 50px 50px 0 0 !important;
+        width: 390px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 70px !important;
+        margin-left: 30px;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 250px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 140px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+  @media only screen and (min-width: 780px) and (max-width: 1004px) {
+    .IndexPage .headSlider {
+      height: 540px !important; }
+      .IndexPage .headSlider img {
+        padding: 20px 20px 0 0 !important;
+        margin: 50px 50px 0 0 !important;
+        width: 390px !important;
+        height: 182px !important; }
+      .IndexPage .headSlider .coverContent {
+        padding: 0 !important;
+        margin-top: 70px !important;
+        margin-left: 30px;
+        overflow: hidden; }
+      .IndexPage .headSlider p {
+        width: 250px !important;
+        font-size: 10px !important;
+        padding: 10px;
+        margin: 0; }
+      .IndexPage .headSlider h3 {
+        font-size: 12px !important;
+        margin: 0; }
+      .IndexPage .headSlider .ServiceButton {
+        width: 140px !important;
+        padding: 1px;
+        font-size: 12px;
+        margin-top: -40px !important; }
+      .IndexPage .headSlider .uk-slidenav-container {
+        margin-top: -80px; }
+    .IndexPage .endOfCover {
+      margin-top: -350px !important;
+      height: 150px; } }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
   .IndexPage .sponsor {
     color: white; }
     .IndexPage .sponsor .uk-slider-items {
@@ -382,7 +590,11 @@ body {
         -webkit-transition: all ease 0.5s;
         transition: all ease 0.5s;
         width: 60px;
+<<<<<<< HEAD
         height: 50px; }
+=======
+        height: 60px; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
       .IndexPage .sponsor .uk-slider-items a:hover img {
         filter: saturate(100%); }
   .IndexPage .Services {
@@ -407,12 +619,21 @@ body {
         text-justify: kashida; }
     .IndexPage .Services .MobileSize {
       display: none;
+<<<<<<< HEAD
       height: 200px;
       width: 180px; }
     .IndexPage .Services img {
       flex: 1;
       height: 320px;
       width: 320px; }
+=======
+      height: 180px;
+      width: 180px; }
+    .IndexPage .Services img {
+      flex: 1;
+      height: 280px;
+      width: 280px; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
   @media only screen and (max-device-width: 900px) {
     .IndexPage .Services {
       display: contents !important; }
@@ -499,11 +720,21 @@ body {
       -ms-text-justify: kashida;
       text-justify: kashida; }
     .IndexPage .projectsSlider .mat a {
+<<<<<<< HEAD
       color: #5CB152;
+=======
+      color: #4a9a41;
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
       text-decoration: none !important;
       margin-top: 40px !important; }
   .IndexPage .whyArvin {
     font-family: Sahel; }
+<<<<<<< HEAD
+=======
+    .IndexPage .whyArvin .MobileSize {
+      width: 250px;
+      height: 250px; }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
     .IndexPage .whyArvin .whyComponent ul {
       padding-right: 0 !important; }
       .IndexPage .whyArvin .whyComponent ul li {
@@ -519,6 +750,12 @@ body {
   @media only screen and (max-width: 900px) {
     .IndexPage .whyArvin .whyComponent {
       font-size: 12px !important; } }
+<<<<<<< HEAD
+=======
+  @media only screen and (max-device-width: 900px) {
+    .IndexPage .whyArvin .whyComponent {
+      font-size: 12px !important; } }
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea
   .IndexPage .Packages {
     display: flex;
     -ms-flex-direction: row;
@@ -620,6 +857,7 @@ body {
     .IndexPage .AboutArvin p {
       color: black;
       -webkit-line-clamp: 20 !important; }
+<<<<<<< HEAD
   .IndexPage .ourteamSlider .mat {
     display: flex;
     width: 220px;
@@ -632,3 +870,5 @@ body {
       flex: 1; }
     .IndexPage .ourteamSlider .mat label {
       color: #555; }
+=======
+>>>>>>> d9ce2760f13ee593b9904986c91824c8fa75eeea

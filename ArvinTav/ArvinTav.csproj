@@ -234,6 +234,12 @@
     <Content Include="Content\Styles\Controls.min.css">
       <DependentUpon>Controls.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\Home.css">
+      <DependentUpon>Home.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\Home.min.css">
+      <DependentUpon>Home.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\LoginRegister.css">
       <DependentUpon>LoginRegister.scss</DependentUpon>
     </Content>
@@ -2016,6 +2022,10 @@
     <Content Include="Content\Styles\mainCategory.scss" />
     <Content Include="Content\Styles\contactUs.scss" />
     <Content Include="Content\Styles\Home.scss" />
+    <Content Include="img\Home\head slider\digital-marketing.svg" />
+    <Content Include="img\Home\head slider\online-learning.svg" />
+    <Content Include="img\Home\head slider\social media.svg" />
+    <Content Include="img\Home\head slider\web-design.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

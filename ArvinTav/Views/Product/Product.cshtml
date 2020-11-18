@@ -11,24 +11,15 @@
 
     <!--description region-->
     <div class=" product center">
-        <img src="~/Document/img/Package/@Model.Image" width="250" />
+        <img src="~/Document/img/Package/@Model.Image" width="250"  height="250" />
+        
     </div>
     <div class="productcontent my-column" dir="rtl">
         <div class="uk-padding-small my-column my-clipped">
-            <div class="my-row uk-padding-small">
-                <label class=" uk-text-bold" for="security">امنیت</label>
-                <progress class="uk-margin-right" id="security" value="1" max="5"> 1 </progress>
-                <label class=" amount uk-text-bold uk-margin-right" for="security">1/5</label>
-            </div>
-            <div class="my-row uk-padding-small ">
-                <label class=" uk-text-bold" for="speed">سرعت</label>
-                <progress class="uk-margin-right" id="speed" value="2" max="5"> 2 </progress>
-                <label class=" amount uk-text-bold uk-margin-right" for="security">2/5</label>
-            </div>
-            <div class="my-row uk-padding-small">
-                <label class=" uk-text-bold" for="seeming">زیبایی</label>
-                <progress class="uk-margin-right" id="seeming" value="4" max="5"> 4 </progress>
-                <label class="amount uk-text-bold uk-margin-right" for="security">4/5</label>
+            <div class="my-row">
+                <label class="uk-text-bold">رضایت مشتری</label>
+                <progress class="" id="security" value="3" max="5"> 3 </progress>
+                <label class=" amount uk-text-bold ">3/5</label>
             </div>
             <ul class="my-column uk-padding-remove" dir="rtl">
                 @foreach (var item in Model.PackageServiceDetails)
@@ -38,7 +29,7 @@
             </ul>
             <div class="Price uk-margin-auto-right" dir="rtl">
                 <label id="PriceSpan" class="uk-margin-small-left uk-text-bold">@Model.Price تومان</label>
-                <a class="ServiceButton" onclick="window.location.href='/PaymentSuccses/@Model.ID'">سفارش</a>
+                <a class="ServiceButton" href="/PaymentSuccses/@Model.ID">سفارش</a>
             </div>
         </div>
 

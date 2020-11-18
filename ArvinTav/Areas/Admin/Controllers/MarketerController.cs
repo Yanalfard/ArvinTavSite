@@ -62,7 +62,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public string CraateReport(string Title, string Description)
+        public string CraateReportUp(string Title, string Description)
         {
             return marketerRepository.CraateReport(Title, Description, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
         }

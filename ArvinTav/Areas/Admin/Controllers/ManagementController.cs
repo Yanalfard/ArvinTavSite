@@ -264,46 +264,6 @@ namespace ArvinTav.Areas.Admin.Controllers
                     {
                         if (InPageCount == 0)
                         {
-                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
-
-                            var skip = (PageId - 1) * 18;
-
-                            ViewBag.pageid = PageId;
-
-                            ViewBag.PhoneNumber = "";
-
-                            ViewBag.Status = Status;
-
-                            ViewBag.PageCount = count / 18;
-
-                            ViewBag.InPageCount = InPageCount;
-
-                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
-                        }
-                        else
-                        {
-
-                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
-
-                            var skip = (PageId - 1) * InPageCount;
-
-                            ViewBag.pageid = PageId;
-
-                            ViewBag.PhoneNumber = "";
-
-                            ViewBag.Status = Status;
-
-                            ViewBag.PageCount = count / InPageCount;
-
-                            ViewBag.InPageCount = InPageCount;
-
-                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
-                        }
-                    }
-                    else if (Status == 2)
-                    {
-                        if (InPageCount == 0)
-                        {
                             int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).Count();
 
                             var skip = (PageId - 1) * 18;
@@ -338,6 +298,46 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                    else if (Status == 2)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = "";
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
                         }
                     }
                 }
@@ -390,46 +390,6 @@ namespace ArvinTav.Areas.Admin.Controllers
                     {
                         if (InPageCount == 0)
                         {
-                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
-
-                            var skip = (PageId - 1) * 18;
-
-                            ViewBag.pageid = PageId;
-
-                            ViewBag.PhoneNumber = PhoneNumber;
-
-                            ViewBag.Status = Status;
-
-                            ViewBag.PageCount = count / 18;
-
-                            ViewBag.InPageCount = InPageCount;
-
-                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
-                        }
-                        else
-                        {
-
-                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
-
-                            var skip = (PageId - 1) * InPageCount;
-
-                            ViewBag.pageid = PageId;
-
-                            ViewBag.PhoneNumber = PhoneNumber;
-
-                            ViewBag.Status = Status;
-
-                            ViewBag.PageCount = count / InPageCount;
-
-                            ViewBag.InPageCount = InPageCount;
-
-                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
-                        }
-                    }
-                    else if (Status == 2)
-                    {
-                        if (InPageCount == 0)
-                        {
                             int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
 
                             var skip = (PageId - 1) * 18;
@@ -445,6 +405,46 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
+                        }
+                        else
+                        {
+
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * InPageCount;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / InPageCount;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == true && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList());
+                        }
+                    }
+                    else if (Status == 2)
+                    {
+                        if (InPageCount == 0)
+                        {
+                            int count = marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).Count();
+
+                            var skip = (PageId - 1) * 18;
+
+                            ViewBag.pageid = PageId;
+
+                            ViewBag.PhoneNumber = PhoneNumber;
+
+                            ViewBag.Status = Status;
+
+                            ViewBag.PageCount = count / 18;
+
+                            ViewBag.InPageCount = InPageCount;
+
+                            return PartialView(marketerRepository.AllMarketerReports().Where(mr => mr.Status == false && mr.User.PhoneNumber.Contains(PhoneNumber)).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList());
                         }
                         else
                         {

@@ -10,7 +10,7 @@
     <div class="modal-body">
         <div class="form-row"> 
             <div class="form-group col-12 col-md-6">
-                <input type="text" class="form-control form-control-sm" id="FullName" placeholder="عنوان">
+                <input type="text" class="form-control form-control-sm" id="Title" placeholder="عنوان">
             </div>
         </div>
         <div class="form-row">
@@ -25,7 +25,7 @@
 
 <script>
     $("#BtnCreateMarketerReport").click(function () {
-        if ($("#FullName").val() == null || $("#FullName").val() == "" || $("#Description").val() == null || $("#Description").val() == "") {
+        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Description").val() == null || $("#Description").val() == "") {
             $("#BtnCreateMarketerReport").removeClass('btn-success');
             $("#BtnCreateMarketerReport").addClassClass('btn-danger');
             $("#BtnCreateMarketerReport").html("تمامی موارد اجباری میباشد");
@@ -34,10 +34,10 @@
             $("#BtnCreateMarketerReport").addClass('btn-success');
             $("#BtnCreateMarketerReport").html("<i class='fas fa-plus-circle'></i>افزودن");
 
-            var FullName = $("#FullName").val();
+            var Title = $("#Title").val();
             var Description = $("#Description").val();
 
-            $.get("/Admin/Marketer/CraateReport?FullName=" + FullName + "&Description=" + Description, function (result) {
+            $.post("/Admin/Marketer/CraateReportUp?Title=" + Title + "&Description=" + Description, function (result) {
                 if (result == "true") {
                     window.location.reload();
                 } else {

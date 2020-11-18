@@ -17,27 +17,18 @@ body {
     
 }
 
-.IndexPage{
+.IndexPage {
     * {
         overflow: hidden;
     }
-    /*#cover-region */
-    .cover {
-        /*padding-top:20px;*/
-        /*height:800px;*/
-        img {
-            width: 600px !important;
-        }
-    }
 
     .headSlider {
-        height: 600px !important;
+        // height: 600px !important;
         overflow-y: hidden !important;
 
         img {
-            width: 600px !important;
-            height: 500px !important;
-            padding: 80px 100px 0 0 !important;
+            width: 400px !important;
+            margin:90px 100px 0 0 !important;
         }
 
         .coverContent {
@@ -88,10 +79,10 @@ body {
         background-repeat: no-repeat;
         width: 100% !important;
         height: 220px;
-        margin-top: -100px !important;
+        margin-top: -240px !important;
     }
 
-    @media only screen and (max-device-width: 600px) {
+    @media only screen and (max-device-width: 800px) {
         .headSlider {
             height: 540px !important;
 
@@ -134,29 +125,56 @@ body {
         }
 
         .endOfCover {
-            margin-top: -400px !important;
+            margin-top: -350px !important;
             height: 150px;
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
         .headSlider {
-            h2 {
-                font-size: 14px !important;
+            height: 540px !important;
+
+            img {
+                padding: 20px 20px 0 0 !important;
+                margin: auto !important;
+                width: 180px !important;
+                height: 180px !important;
+            }
+
+            .coverContent {
+                padding: 0 !important;
+                margin-top: 26px !important;
+                overflow: hidden;
             }
 
             p {
-                width: 220px;
-                font-size: 12px;
+                width: 140px !important;
+                font-size: 10px !important;
+                padding: 10px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 12px !important;
+                margin: 0;
             }
 
             .ServiceButton {
-                padding: 4px !important;
+                width: 60px !important;
+                padding: 1px;
+                font-size: 12px;
+                margin-top: -40px !important;
+                // border-radius:10px;
             }
 
             .uk-slidenav-container {
                 margin-top: -80px;
             }
+        }
+
+        .endOfCover {
+            margin-top: -350px !important;
+            height: 150px;
         }
     }
     /*#end cover-region */
@@ -231,6 +249,7 @@ body {
 
 
                 h2 {
+                    @include center();
                     color: #5cb152;
                     font-size: 12px !important;
                     margin-bottom: 10px !important;
@@ -270,6 +289,7 @@ body {
 
 
                 h2 {
+                    @include center();
                     color: #5cb152;
                     font-size: 12px !important;
                     margin-bottom: 10px !important;
@@ -521,8 +541,6 @@ body {
     }
     /*#endregion */
     /*#aboutArvin-region */
-
-
     .AboutArvin {
         background: #f8ffe5;
         padding: 20px;
@@ -531,8 +549,6 @@ body {
             color: black;
             -webkit-line-clamp: 20 !important; //number of lines to show
         }
-
-        
     }
     /*our team region */
     .ourteamSlider {

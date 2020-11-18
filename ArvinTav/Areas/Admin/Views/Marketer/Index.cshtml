@@ -22,6 +22,7 @@
                             <tr>
                                 <th scope="col">عنوان</th>
                                 <th scope="col">وضعیت</th>
+                                <th scope="col">زمان ثبت</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +42,9 @@
                                             در انتظار تایید
                                         </td>
                                     }
+                                    <td>
+                                        @item.DateTime.ToShamsi()
+                                    </td>
                                 </tr>
                             }
                         </tbody>

@@ -50,6 +50,8 @@
                             <tr>
                                 <th scope="col">عنوان</th>
                                 <th scope="col">نام نمایندگی</th>
+                                <th scope="col">وضعیت</th>
+                                <th scope="col">تاریخ ثبت</th>
                                 <th scope="col">عملیات</th>
                             </tr>
                         </thead>
@@ -59,6 +61,16 @@
                                 <tr>
                                     <td>@item.Title</td>
                                     <td>@item.User.FullName</td>
+                                    <th>
+                                        @if (item.Status == true)
+                                        {
+                                            <span class="text-success">تایید شده</span>
+                                        }
+                                        else if (item.Status == false)
+                                        {
+                                            <span class="text-warning">تایید نشده</span>
+                                        }
+                                    </th>
                                     <td>
                                         @if (item.Status == false)
                                         {
@@ -67,7 +79,7 @@
                                             </span>
                                         }
                                         <span data-placement="top" data-toggle="tooltip" title="" data-original-title="حذف">
-                                            <a onclick="RemoveReport(@item.ID)" data-toggle="modal" data-target="#modalSave"><i class="fas fa-trash  text-danger"></i></a>
+                                            <a onclick="RemoveReport(@item.ID)"><i class="fas fa-trash  text-danger"></i></a>
                                         </span>
                                         <span data-placement="top" data-toggle="tooltip" title="" data-original-title="جزئیات">
                                             <a onclick="ReportInfo(@item.ID)" data-toggle="modal" data-target="#modalSave"><i class="text-primary fas fa-info-circle"></i></a>
@@ -208,7 +220,7 @@
 
 
     function BtnSearch() {
-        var Result = $("#Search").val();
+        var Result = $("#PhoneNumberSearch").val();
         var Status = $("#DegreeSearch option:selected").val();
         var PageId = 1;
         var InPageCount = $("#InPageCount option:selected").val();
@@ -221,7 +233,7 @@
     }
 
     $("#pageNumber").change(function () {
-        var Result = $("#Search").val();
+        var Result = $("#PhoneNumberSearch").val();
         var Status = $("#DegreeSearch option:selected").val();
         var PageId = $("#pageNumber option:selected").val();
         var InPageCount = $("#InPageCount option:selected").val();
@@ -233,7 +245,7 @@
     });
 
     $("#InPageCount").change(function () {
-        var Result = $("#Search").val();
+        var Result = $("#PhoneNumberSearch").val();
         var Status = $("#DegreeSearch option:selected").val();
         var PageId = 1;
         var InPageCount = $("#InPageCount option:selected").val();

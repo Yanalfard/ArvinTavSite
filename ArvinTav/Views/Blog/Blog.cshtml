@@ -37,14 +37,15 @@
     </content>
     <div class="center uk-margin-large-top">
         <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
+            <a class="disabled"><span aria-hidden="true">«</span></a>
+
+            @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+            {
+                <a class="@(((int)ViewBag.PageId==i)?"active":"")" href="/blog?pageid=@i&Result=@ViewBag.Result">@i</a>
+            }
+
+
+            <a><span aria-hidden="true">»</span></a>
         </div>
     </div>
 </div>

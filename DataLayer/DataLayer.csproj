@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202011171443514_marketerreporttbl2.designer.cs">
       <DependentUpon>202011171443514_marketerreporttbl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011171936195_editmarketerreport.cs" />
+    <Compile Include="Migrations\202011171936195_editmarketerreport.designer.cs">
+      <DependentUpon>202011171936195_editmarketerreport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Discount.cs" />
@@ -166,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011171443514_marketerreporttbl2.resx">
       <DependentUpon>202011171443514_marketerreporttbl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171936195_editmarketerreport.resx">
+      <DependentUpon>202011171936195_editmarketerreport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -234,12 +234,6 @@
     <Content Include="Content\Styles\Controls.min.css">
       <DependentUpon>Controls.css</DependentUpon>
     </Content>
-    <Content Include="Content\Styles\Home.css">
-      <DependentUpon>Home.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\Home.min.css">
-      <DependentUpon>Home.css</DependentUpon>
-    </Content>
     <Content Include="Content\Styles\LoginRegister.css">
       <DependentUpon>LoginRegister.scss</DependentUpon>
     </Content>
@@ -1861,6 +1855,7 @@
     <Content Include="img\Home\gridbackground.png" />
     <Content Include="img\Home\online-education.jfif" />
     <Content Include="img\Home\online-training.jpg" />
+    <Content Include="img\Home\online-training.png" />
     <Content Include="img\Home\web-design-1.png" />
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
@@ -1978,7 +1973,6 @@
     <Content Include="Content\Styles\_colors.scss" />
     <Content Include="Content\Styles\_global.scss" />
     <Content Include="Content\Styles\_layout.scss" />
-    <Content Include="Content\Styles\Home.scss" />
     <Content Include="img\Home\web-developer-master-tn.svg" />
     <Content Include="img\Home\svg\CellPhone.svg" />
     <Content Include="img\Home\svg\Instagram.svg" />
@@ -2021,6 +2015,7 @@
     <None Include="Connected Services\ZarinTest\PaymentGatewayImplementationService.wsdl" />
     <Content Include="Content\Styles\mainCategory.scss" />
     <Content Include="Content\Styles\contactUs.scss" />
+    <Content Include="Content\Styles\Home.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

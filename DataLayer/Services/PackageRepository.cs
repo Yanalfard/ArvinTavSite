@@ -98,10 +98,14 @@ namespace DataLayer
         {
             try
             {
+                foreach (var item in PackageServiceById(ID).Tickets)
+                {
+                    db.InnerTickets.RemoveRange(item.InnerTickets);
+                }
+                db.packageServiceDetails.RemoveRange(PackageServiceById(ID).PackageServiceDetails);
+                db.tickets.RemoveRange(PackageServiceById(ID).Tickets);
+                db.Orders.RemoveRange(PackageServiceById(ID).Orders);
                 db.PackageServices.Remove(PackageServiceById(ID));
-                db.packageServiceDetails.RemoveRange(db.packageServiceDetails.Where(pd => pd.PackageService.ID == ID));
-                db.tickets.RemoveRange(db.tickets.Where(t => t.PackageService.ID == ID));
-                db.Orders.RemoveRange(db.Orders.Where(o => o.PackageService.ID == ID));
                 Save();
                 return "true";
 

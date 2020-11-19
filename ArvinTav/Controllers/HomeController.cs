@@ -12,19 +12,29 @@ namespace ArvinTav.Controllers
         private IDatabase database;
         private IServiceCategoryRepository serviceCategoryRepository;
         private IUserRepository userRepository;
+        private IPackageRepository packageRepository;
+        private IProjectRepository projectRepository;
+        private ISliderRepository sliderRepository;
 
         public HomeController()
         {
-            database = new Database();
+            this.database = new Database();
             serviceCategoryRepository = new ServiceCategoryRepository(database._db());
             userRepository = new UserRepository(database._db());
+            packageRepository = new PackageRepository(database._db());
+            projectRepository = new ProjectRepository(database._db());
+            sliderRepository = new SliderRepository(database._db());
         }
 
         // GET: Home
         [Route("")]
         public ActionResult Index()
         {
-            return View();
+            LandingViewModel landingView = new LandingViewModel();
+            landingView.packageServices = packageRepository.AllPackageServices().OrderBy(p => p.OrderCount).Take(3);
+            landingView.projects = projectRepository.Allprojects().Take(15);
+            landingView.AllSlider = sliderRepository.AllSliders();
+            return View(landingView);
         }
 
 
@@ -58,7 +68,7 @@ namespace ArvinTav.Controllers
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
-        
+
         [Route("AboutUs")]
         public ActionResult AboutUs()
         {

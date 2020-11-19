@@ -102,6 +102,7 @@
     <Compile Include="Models\ViewModel\ChildCategoryViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateTicketInUser.cs" />
     <Compile Include="Models\ViewModel\InnerTicketViewModel.cs" />
+    <Compile Include="Models\ViewModel\LandingViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageServiceDetails.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />

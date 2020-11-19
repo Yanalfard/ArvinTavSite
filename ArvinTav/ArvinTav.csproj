@@ -206,7 +206,6 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\ErorrPage.css" />
     <Content Include="Content\owlCarousel\owl.carousel.css" />
     <Content Include="Content\owlCarousel\owl.carousel.min.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.css" />
@@ -2004,11 +2003,6 @@
     <Content Include="img\Home\svg\Waterfall\Rectangle 150.svg" />
     <Content Include="img\Home\svg\Waterfall\SocialMedia.svg" />
     <Content Include="img\Home\svg\Waterfall\Website.svg" />
-    <Content Include="img\Home\svg\Customer-Logo\Frame 13.svg" />
-    <Content Include="img\Home\svg\Customer-Logo\Group 52.svg" />
-    <Content Include="img\Home\svg\Customer-Logo\M.svg" />
-    <Content Include="img\Home\svg\Customer-Logo\Main 1.svg" />
-    <Content Include="img\Home\svg\Customer-Logo\N.svg" />
     <Content Include="img\Home\svg\Why\Analize.svg" />
     <Content Include="img\Home\svg\Why\Content.svg" />
     <Content Include="img\Home\svg\Why\Experience.svg" />
@@ -2043,6 +2037,7 @@
     <Content Include="Scripts\UIkit\uikit-icons.min.js" />
     <Content Include="Scripts\UIkit\uikit.min.js" />
     <Content Include="Scripts\UIScripts\Global.js" />
+    <Content Include="StaticPage\404.html" />
     <Content Include="Tools\Auto_Formatting_Currency.js" />
     <Content Include="Tools\Chart\Chart.bundle.js" />
     <Content Include="Tools\Chart\Chart.bundle.min.js" />

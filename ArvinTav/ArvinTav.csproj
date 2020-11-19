@@ -3274,6 +3274,7 @@
     <Content Include="Views\Blog\ByTage.cshtml" />
     <Content Include="Views\Blog\ByCategory.cshtml" />
     <Content Include="Views\Shared\Erorr.cshtml" />
+    <Content Include="Views\Shared\P_UserBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

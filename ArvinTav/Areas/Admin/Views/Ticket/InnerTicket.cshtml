@@ -1,6 +1,6 @@
 ﻿@model DataLayer.InnerTicketViewModel
 @{
-    ViewBag.Title = "داخل تیکت";
+    ViewBag.Title = "محتوا تیکت";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -26,7 +26,7 @@
             <div id="card-table" class="card-body flex-div">
                 <div class="table-responsive flex">
                     <div class="table fixed">
-                        @foreach (var item in Model.innerTickets)
+                        @foreach (var item in Model.innerTickets.OrderBy(it => it.ID))
                         {
 
                             if (item.SideID == 1)
@@ -41,7 +41,7 @@
                                             @if (item.File != null)
                                             {
                                                 <span data-placement="top" data-toggle="tooltip" title="" data-original-title="دارای فایل">
-                                                    <a href="~/Document/File/TicketFile/@item.File"><i class="fas fa-file-download mr-2"></i></a>
+                                                    <a href="~/Document/File/TicketFile/@item.File" download><i class="fas fa-file-download mr-2"></i></a>
                                                 </span>
                                             }
                                             <time class="float-left">@item.dateTime.ToShamsi()</time>
@@ -49,7 +49,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @:&nbsp;
 
                             }
                             else if (item.SideID == 2)
@@ -64,7 +63,7 @@
                                             @if (item.File != null)
                                             {
                                                 <span data-placement="top" data-toggle="tooltip" title="" data-original-title="دارای فایل">
-                                                    <a href="~/Document/File/TicketFile/@item.File"><i class="fas fa-file-download mr-2"></i></a>
+                                                    <a href="~/Document/File/TicketFile/@item.File" download><i class="fas fa-file-download mr-2"></i></a>
                                                 </span>
                                             }
                                             <time class="float-left">@item.dateTime.ToShamsi()</time>
@@ -72,7 +71,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @:&nbsp;
 
                             }
                         }

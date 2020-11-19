@@ -58,7 +58,7 @@
                 <button class="uk-text-bold my-column" onclick="window.location.href='/User/Dashboard'">
                     <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
                         <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
-                        <span class="margin-auto-bottom margin-auto-top ">@User.Identity.Name</span>
+                        <span class="margin-auto-bottom margin-auto-top ">@Html.Action("P_UserBox","Home")</span>
                     </div>
                 </button>
                 if (User.IsInRole("Admin") || User.IsInRole("PartAdmin") || User.IsInRole("Marketer") || User.IsInRole("Content"))

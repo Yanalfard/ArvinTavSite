@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Pagging_MVC.Models.Person>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="well text-center">
+                @item.FullName
+            </div>
+        </div>
+    }
+</div>
+<div class="row text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+          @for (int i = 1; i <= (ViewBag.PageCount+1); i++)
+          {
+                <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a href="/Home/Index?pageid=@i">@i<span class="sr-only">(current)</span></a></li>
+          }
+      
+            <li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+        </ul>
+    </nav>
+</div>
+

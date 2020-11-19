@@ -13,14 +13,13 @@ namespace ArvinTav.Areas.User.Controllers
     {
 
 
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private ITicketRepository ticketRepository;
         private IUserRepository userRepository;
         public TicketController()
         {
-            database = new Database();
-            ticketRepository = new TicketRepository(database._db());
-            userRepository = new UserRepository(database._db());
+            ticketRepository = new TicketRepository(db);
+            userRepository = new UserRepository(db);
         }
 
         // GET: User/Ticket
@@ -86,7 +85,7 @@ namespace ArvinTav.Areas.User.Controllers
 
                 ViewBag.InPageCount = InPageCount;
 
-                return PartialView(ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).ToList());
+                return PartialView(ticketRepository.AllTicketForUser(userRepository.UserByPhoneNumber(User.Identity.Name).UserID).OrderBy(v => v.ID).ToList());
             }
         }
 

@@ -11,11 +11,13 @@ namespace ArvinTav.Controllers
     {
         private IDatabase database;
         private IServiceCategoryRepository serviceCategoryRepository;
+        private IUserRepository userRepository;
 
         public HomeController()
         {
             database = new Database();
             serviceCategoryRepository = new ServiceCategoryRepository(database._db());
+            userRepository = new UserRepository(database._db());
         }
 
         // GET: Home
@@ -75,6 +77,11 @@ namespace ArvinTav.Controllers
         {
             var t = massage;
             return View();
+        }
+
+        public ActionResult P_UserBox()
+        {
+            return PartialView(userRepository.UserByPhoneNumber(User.Identity.Name));
         }
 
 

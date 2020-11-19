@@ -64,6 +64,9 @@
     }
 
     .loginDesktop {
+        *{
+            overflow:hidden;
+        }
         img {
             width: 74px !important;
         }
@@ -111,6 +114,7 @@
 }
 .uk-offcanvas-bar {
     display: none;
+    width:310px
 }
     /*#region This will be toggled on scroll */
     .layout-header-scrolled {
@@ -218,6 +222,14 @@
         background: #ffffff !important;
     }
 
+    .uk-dropdown {
+      width:250px !important;
+      li{
+          border-bottom:none!important;
+          padding:2px!important;
+      }
+    }
+
     .layout-header-scrolled {
         overflow: hidden !important;
     }
@@ -295,7 +307,14 @@
         display: block;
         background: #ffffff !important;
     }
+    .uk-dropdown {
+        width: 250px !important;
 
+        li {
+            border-bottom: none !important;
+            padding: 2px !important;
+        }
+    }
     .layout-header-scrolled {
         background: transparent !important;
         height: 70px;

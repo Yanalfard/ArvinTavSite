@@ -415,8 +415,9 @@
   margin-bottom: 8px; }
 
 .loginSection .paymentPage .ServiceButton {
-  width: 120px;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-  border-radius: 5px !important;
-  color: white; }
+  padding: 8px; }
+
+.loginSection .paymentPage #paymentText {
+  height: 120px !important;
+  resize: none;
+  margin-top: 10px; }

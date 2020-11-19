@@ -288,6 +288,8 @@
     position: absolute;
     left: 10px;
     top: 8px; }
+    #LayoutHeader .loginDesktop * {
+      overflow: hidden; }
     #LayoutHeader .loginDesktop img {
       width: 74px !important; }
     #LayoutHeader .loginDesktop button {
@@ -313,7 +315,8 @@
     color: #2a2929 !important; }
 
 .uk-offcanvas-bar {
-  display: none; }
+  display: none;
+  width: 310px; }
 
 /*#region This will be toggled on scroll */
 .layout-header-scrolled {
@@ -377,6 +380,11 @@
   .uk-offcanvas-bar {
     display: block;
     background: #ffffff !important; }
+  .uk-dropdown {
+    width: 250px !important; }
+    .uk-dropdown li {
+      border-bottom: none !important;
+      padding: 2px !important; }
   .layout-header-scrolled {
     overflow: hidden !important; } }
 
@@ -422,6 +430,11 @@
   .uk-offcanvas-bar {
     display: block;
     background: #ffffff !important; }
+  .uk-dropdown {
+    width: 250px !important; }
+    .uk-dropdown li {
+      border-bottom: none !important;
+      padding: 2px !important; }
   .layout-header-scrolled {
     background: transparent !important;
     height: 70px;

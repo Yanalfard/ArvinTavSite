@@ -6,12 +6,30 @@
 
 
 
-کد پیگیری زرین پال
-@ViewBag.RefID
 
-کد سفارش
-@ViewBag.OrderID
+<div class="loginSection center">
+    <content class="grid successNotification" dir="rtl">
+        <div class="my-column my-clipped center uk-margin-xlarge-top mat">
 
-خطا
-@ViewBag.Erorr
+            @if (ViewBag.RefID != null)
+            {
+                @:    کد پیگیری زرین پال
+                @ViewBag.RefID
+            }
+            <br />
 
+            @if (ViewBag.OrderID != null)
+            {
+                @:    کد سفارش
+                @ViewBag.OrderID
+            }
+
+            @if (ViewBag.Erorr != null)
+            {
+                @:    خطا
+                @ViewBag.Erorr
+            }
+
+        </div>
+    </content>
+</div>

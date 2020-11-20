@@ -1,6 +1,6 @@
 ﻿@model DataLayer.LandingViewModel
 @{
-    ViewBag.Title = "شرکت ایده پردازان آروین تاو";
+    ViewBag.Title = "شرکت ایده پرداز آروین تاو";
     ViewBag.Description = "مجموعه طراحی سایت با بیش 15 سال سابقه کار در زمینه طراحی فروشگاه اینترنتی و سایت اختصاصی";
     ViewBag.Keywords = "طراحی سایت,طراحی فروشگاه اینترنتی,طراحی سایت اختصاصی";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -102,7 +102,7 @@
                                         @item.Title
                                     </p>
                                 </div>
-                                <a class="center">بیشتر...</a>
+                                <a class="center" href="@item.Link" target="_blank">مشاهده</a>
                             </div>
                         </div>
                     </li>
@@ -143,8 +143,6 @@
     <!--packages-->
     <div class="my-clipped my-column ">
         <div class="Packages center">
-
-
 
             <article class="packageOffer column uk-padding center uk-margin-remove">
                 <content>

@@ -70,7 +70,7 @@
             $("#Category").val($("#MainCategorySelect option:selected").val());
         }
     });
-
+    
     function EditSpiderUp(ID) {
         if ($("#Title").val() == null || $("#Title").val() == "" || $("#my-textarea").val() == null || $("#my-textarea").val() == "") {
             $("#BtnEditSpider").removeClass('btn-success');
@@ -79,7 +79,7 @@
         } else {
             $("#BtnEditSpider").addClass('btn-success');
             $("#BtnEditSpider").removeClass('btn-danger');
-            $("#BtnEditSpider").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $("#BtnEditSpider").html("<i class='fas fa-edit'></i>ویرایش");
 
             if ($("#Image").val() == null || $("#Image").val() == "") {
 
@@ -131,7 +131,7 @@
                 }
 
                 $.ajax({
-                    url: "/Admin/Upload/UploadSliderImage",
+                    url: "/Admin/Upload/UploadSpiderImage",
                     type: "POST",
                     processData: false,
                     contentType: false,

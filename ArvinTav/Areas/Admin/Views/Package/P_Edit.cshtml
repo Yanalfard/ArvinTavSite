@@ -107,7 +107,7 @@
         $('#my-textarea').ckeditor();
     });
 
-
+   
     $("#MainCategorySelect").change(function () {
         if ($("#MainCategorySelect option:selected").val() == 0) { } else {
             $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
@@ -123,10 +123,9 @@
             $("#EditPackageService").addClass('btn-danger');
             $("#EditPackageService").html("تمامی موارد اجباری است");
         } else {
-            alert("5");
             $("#EditPackageService").addClass('btn-success');
             $("#EditPackageService").removeClass('btn-danger');
-            $("#EditPackageService").html("<i class='fas fa-plus-circle'></i>افزودن");
+            $("#EditPackageService").html("<i class='fas fa-edit'></i>ویرایش");
             $(".loding").removeClass("d-none");
             var data = new FormData();
             var files = $("#Image").get(0).files;

@@ -3264,7 +3264,6 @@
     <Content Include="Views\Product\ProductsByMainCategory.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Payment\Verify.cshtml" />
-    <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Blog\ByTage.cshtml" />
     <Content Include="Views\Blog\ByCategory.cshtml" />

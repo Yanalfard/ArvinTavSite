@@ -310,7 +310,8 @@
     font-size: 18px !important; }
 
 .uk-dropdown {
-  background: white !important; }
+  background: white !important;
+  padding: 15px; }
   .uk-dropdown a {
     color: #2a2929 !important; }
 
@@ -381,7 +382,7 @@
     display: block;
     background: #ffffff !important; }
   .uk-dropdown {
-    width: 250px !important; }
+    width: 266px !important; }
     .uk-dropdown li {
       border-bottom: none !important;
       padding: 2px !important; }
@@ -431,7 +432,7 @@
     display: block;
     background: #ffffff !important; }
   .uk-dropdown {
-    width: 250px !important; }
+    width: 266px !important; }
     .uk-dropdown li {
       border-bottom: none !important;
       padding: 2px !important; }

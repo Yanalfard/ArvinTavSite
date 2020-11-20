@@ -210,12 +210,6 @@
     <Content Include="Content\owlCarousel\owl.carousel.min.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.css" />
     <Content Include="Content\owlCarousel\owl.theme.default.min.css" />
-    <Content Include="Content\Styles\Admin.css">
-      <DependentUpon>Admin.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\Admin.min.css">
-      <DependentUpon>Admin.css</DependentUpon>
-    </Content>
     <Content Include="Content\Styles\blog.css">
       <DependentUpon>blog.scss</DependentUpon>
     </Content>
@@ -1850,22 +1844,12 @@
     <Content Include="img\blog\logoInblog.png" />
     <Content Include="img\blog\weblog2.jfif" />
     <Content Include="img\gif\load.gif" />
-    <Content Include="img\Home\background-footer.png" />
     <Content Include="img\Home\contact\social media.png" />
-    <Content Include="img\Home\cover.jpg" />
-    <Content Include="img\Home\cover1.jpg" />
-    <Content Include="img\Home\cover2.jpg" />
-    <Content Include="img\Home\endOfCover.png" />
     <Content Include="img\Home\footer-background-011.jpg" />
     <Content Include="img\Home\footerRibbon.png" />
     <Content Include="img\Home\gridbackground.png" />
-    <Content Include="img\Home\online-education.jfif" />
-    <Content Include="img\Home\online-training.jpg" />
-    <Content Include="img\Home\online-training.png" />
-    <Content Include="img\Home\web-design-1.png" />
     <Content Include="img\Home\packagebackground.png" />
     <Content Include="img\Home\top-package.jpg" />
-    <Content Include="img\Home\web-design-2.png" />
     <Content Include="img\Home\why.png" />
     <Content Include="img\login\done.png" />
     <Content Include="img\login\login2.png" />
@@ -1975,14 +1959,11 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\Styles\Admin.scss" />
     <Content Include="Content\Styles\_colors.scss" />
     <Content Include="Content\Styles\_global.scss" />
     <Content Include="Content\Styles\_layout.scss" />
-    <Content Include="img\Home\web-developer-master-tn.svg" />
     <Content Include="img\Home\svg\CellPhone.svg" />
     <Content Include="img\Home\svg\Instagram.svg" />
-    <Content Include="img\Home\svg\Location.svg" />
     <Content Include="img\Home\svg\Mail.svg" />
     <Content Include="img\Home\svg\Phone.svg" />
     <Content Include="fonts\fontsite\Sahel.woff" />
@@ -1991,7 +1972,6 @@
     <Content Include="img\login\Svg\Group 102.svg" />
     <Content Include="img\login\Svg\Group 103.svg" />
     <Content Include="img\login\Svg\Group 98.svg" />
-    <Content Include="img\Home\digital-marketing.svg" />
     <Content Include="img\Home\svg\WorkFlow.svg" />
     <Content Include="Content\Styles\SoftwarePackages.scss" />
     <Content Include="img\Home\svg\Waterfall\Cloud.svg" />
@@ -2021,6 +2001,7 @@
     <Content Include="img\Home\head slider\online-learning.svg" />
     <Content Include="img\Home\head slider\social media.svg" />
     <Content Include="img\Home\head slider\web-design.svg" />
+    <Content Include="img\Home\svg\Location.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -2033,8 +2014,6 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\modal.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\UIkit\uikit-icons.js" />
-    <Content Include="Scripts\UIkit\uikit-icons.min.js" />
     <Content Include="Scripts\UIkit\uikit.min.js" />
     <Content Include="Scripts\UIScripts\Global.js" />
     <Content Include="StaticPage\404.html" />

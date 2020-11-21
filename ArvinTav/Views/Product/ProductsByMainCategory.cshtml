@@ -8,14 +8,16 @@
 <link href="~/Content/Styles/mainCategory.min.css" rel="stylesheet" />
 <div class="categorySection">
     <div class="uk-margin-auto-right uk-margin-auto-left uk-margin-auto-top uk-margin-auto-bottom cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
-        <img class="uk-margin-auto uk-margin-top center" src="~/img/Home/Host/Hero-host.svg" width="600" />
+        <img class="uk-margin-auto uk-margin-top center" src="~/img/products/mainCategoryCover.svg" width="600" />
     </div>
 
     <ul uk-accordion dir="rtl">
         @foreach (var item in Model.ServiceCategory.ChildCategories)
         {
             <li>
-                <div class="uk-accordion-title serviceTitle" dir="rtl"> <img src="~/Document/img/Category/@item.Image" width="66" />@item.Title</div>
+                <div class="uk-accordion-title serviceTitle" dir="rtl"> 
+                    <img src="~/Document/img/Category/@item.Image" width="66" />@item.Title
+                </div>
                 <div class="uk-accordion-content childGrid">
                     <content class="grid " dir="rtl">
 

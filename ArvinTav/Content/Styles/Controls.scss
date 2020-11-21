@@ -440,22 +440,7 @@ footer {
         background-color: #333F4D !important;
 
         .footerContent {
-            @include column();
-            @include center();
-
-            .LogoFooter {
-                width: 100%;
-                padding: 0;
-
-                img {
-                    padding: 10px 80px 3px 80px;
-                }
-
-                label {
-                    padding: 0 0 8px 0;
-                    font-size: 12px;
-                }
-            }
+            display:none!important;
         }
     }
 }
@@ -483,22 +468,7 @@ footer {
         background-color: #333F4D !important;
 
         .footerContent {
-            @include column();
-            @include center();
-
-            .LogoFooter {
-                width: 100%;
-                padding: 0;
-
-                img {
-                    padding: 10px 80px 3px 80px;
-                }
-
-                label {
-                    padding: 0 0 8px 0;
-                    font-size: 12px;
-                }
-            }
+            display: none !important;
         }
     }
 }

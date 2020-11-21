@@ -243,9 +243,10 @@
       visibility: collapse; } }
 
 .categorySection .serviceTitle {
-  background: #d8f6d4;
-  margin-right: 60px;
-  margin-left: 60px;
+  width: 70vw;
+  border: 1px solid #5cb152;
+  border-radius: 20px;
+  margin: auto;
   margin-bottom: 10px;
   padding: 8px 30px;
   font-size: 14px;

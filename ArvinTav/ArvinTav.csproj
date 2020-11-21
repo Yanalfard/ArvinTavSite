@@ -206,10 +206,6 @@
     <Content Include="Content\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\owlCarousel\owl.carousel.css" />
-    <Content Include="Content\owlCarousel\owl.carousel.min.css" />
-    <Content Include="Content\owlCarousel\owl.theme.default.css" />
-    <Content Include="Content\owlCarousel\owl.theme.default.min.css" />
     <Content Include="Content\Styles\blog.css">
       <DependentUpon>blog.scss</DependentUpon>
     </Content>
@@ -2002,6 +1998,7 @@
     <Content Include="img\Home\head slider\social media.svg" />
     <Content Include="img\Home\head slider\web-design.svg" />
     <Content Include="img\Home\svg\Location.svg" />
+    <Content Include="img\products\mainCategoryCover.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

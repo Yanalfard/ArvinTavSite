@@ -425,18 +425,6 @@
     background: white !important;
     margin-bottom: 100px;
     margin-top: 50px; }
-    .productsSection .descriptionOfProduct img {
-      position: absolute;
-      margin-right: auto;
-      margin-left: auto;
-      text-align: center;
-      align-content: center;
-      align-self: center;
-      margin: 0 auto;
-      width: 80px;
-      height: 60px;
-      opacity: 0.3;
-      margin-top: -90px; }
     .productsSection .descriptionOfProduct h4 {
       text-align: center;
       align-content: center;

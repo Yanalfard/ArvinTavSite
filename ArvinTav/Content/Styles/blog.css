@@ -314,7 +314,6 @@ body {
     background: white !important;
     border-radius: 5px; }
   .postContent .Titr {
-    background: #ffed87 !important;
     display: flex; }
     .postContent .Titr h4 {
       flex: 2; }

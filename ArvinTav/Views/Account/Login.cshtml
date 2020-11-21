@@ -34,14 +34,16 @@
                     {
                         @Html.AntiForgeryToken()
 
+                        <br />
                         @Html.ValidationSummary(true, "", new { @class = "uk-text-danger uk-text-small " })
 
                         @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
-                    <div>
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "", @type = "tel", @pattern = "[0-9]{11}" } })
+                        <div>
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "", @type = "tel", @pattern = "[0-9]{11}" } })
 
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
-                    </div>
+                            <br />
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
+                        </div>
 
                         @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "" })
                         <div>

@@ -9,21 +9,23 @@ namespace ArvinTav.Controllers
 {
     public class HomeController : Controller
     {
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private IServiceCategoryRepository serviceCategoryRepository;
         private IUserRepository userRepository;
         private IPackageRepository packageRepository;
         private IProjectRepository projectRepository;
         private ISliderRepository sliderRepository;
+        private IMassageRepository massageRepository;
 
         public HomeController()
         {
-            this.database = new Database();
-            serviceCategoryRepository = new ServiceCategoryRepository(database._db());
-            userRepository = new UserRepository(database._db());
-            packageRepository = new PackageRepository(database._db());
-            projectRepository = new ProjectRepository(database._db());
-            sliderRepository = new SliderRepository(database._db());
+            
+            serviceCategoryRepository = new ServiceCategoryRepository(db);
+            userRepository = new UserRepository(db);
+            packageRepository = new PackageRepository(db);
+            projectRepository = new ProjectRepository(db);
+            sliderRepository = new SliderRepository(db);
+            massageRepository = new MassageRepository(db);
         }
 
         // GET: Home
@@ -68,25 +70,29 @@ namespace ArvinTav.Controllers
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
-
-        [Route("AboutUs")]
-        public ActionResult AboutUs()
-        {
-            return View();
-        }
-
-        [Route("ContactUs")]
+        
+        
         [HttpGet]
-        public ActionResult ContactUs()
+        public ActionResult ContactUs(string Massage)
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ContactUs(Massage massage)
+        [ValidateAntiForgeryToken]
+        public ActionResult ContactUs(Massage massage,FormCollection form)
         {
-            var t = massage;
+            if (ModelState.IsValid)
+            {
+                if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
+                {
+                    massageRepository.CreateMassage(massage);
+                    massageRepository.Save();
+                   return Redirect("/Home/ContactUs?Massage=true");
+                }
+            }
             return View();
+                   
         }
 
         public ActionResult P_UserBox()

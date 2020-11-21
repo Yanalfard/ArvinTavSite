@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DataLayer.ServiceCategory>
 <ul class="uk-text-bold uk-margin-remove-top" dir="rtl">
     <li class="uk-active">
-        <a href=""><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
+        <a href="/"><i class="uk-margin-small-left fas fa-home"></i>خانه</a>
         @foreach (var item in Model)
         {
         <li>
@@ -19,6 +19,6 @@
             <a href="/blog">مرکز آموزش</a>
         </li>
         <li>
-            <a href="/ContactUs">ارتباط با ما</a>
+            <a href="/Home/ContactUs">ارتباط با ما</a>
         </li>
     </ul>

@@ -60,7 +60,7 @@ namespace ArvinTav.Controllers
             }
             return View(loginView);
         }
-        
+
 
         //Register
         [HttpGet]
@@ -107,7 +107,7 @@ namespace ArvinTav.Controllers
                             {
                                 //Send Code In Sms
                                 var Text = $"به آروین تاو خوش آمدید \n کد شما : {Code}";
-                                Sms.RegisterAcoount(registerView.PhoneNumber, Text);
+                                Sms.SendSms(registerView.PhoneNumber, Text);
 
                                 // Redirect To Active
                                 AccountActiveViewModel accountActiveViewModel = new AccountActiveViewModel();
@@ -190,7 +190,7 @@ namespace ArvinTav.Controllers
                         string ForgetLink = "http://arvintavco.com/Account/Forget/" + End4NumberPhoneNumber + "-" + Code;
                         //Send Code In Sms
                         var Text = $"جهت بازیابی رمز عبور روی لینک زیر کلیک کنید \n لینک شما : \n {ForgetLink}";
-                        Sms.ForgetAcoount(PhoneNumber, Text);
+                        Sms.SendSms(PhoneNumber, Text);
 
                         return RedirectToAction("ForgetPasswordSuccess");
                     }

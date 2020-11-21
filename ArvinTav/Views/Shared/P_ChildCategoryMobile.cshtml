@@ -2,7 +2,7 @@
 @foreach (var item in Model)
 {
     <ul class="uk-nav uk-dropdown-nav ">
-        <li class="uk-nav-header"><a href="#">@item.Title</a></li>
+        <li class="uk-nav-header"><a href="/MainPackage/@item.ID/@item.Title.Replace(" ","-")">@item.Title</a></li>
         <li class="uk-nav-divider"></li>
         @Html.Action("P_SubCategoryMobile","Home", new { ID = item.ID })
 

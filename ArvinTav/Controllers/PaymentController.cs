@@ -96,13 +96,19 @@ namespace ArvinTav.Controllers
                     long RefID;
                     System.Net.ServicePointManager.Expect100Continue = false;
                     ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
-                    Order Order = orderRepository.OrderById(ID);
-                    Order.Status = 2;
-                    orderRepository.Save();
+
                     int Status = zp.PaymentVerification("YOUR-ZARINPAL-MERCHANT-CODE", Request.QueryString["Authority"].ToString(), Amount, out RefID);
 
                     if (Status == 100)
                     {
+                        Order Order = orderRepository.OrderById(ID);
+                        Order.Status = 2;
+                        orderRepository.Save();
+
+                        //Send Code In Sms
+                        var Text = $"سفارش شما با موفقیت ثبت شد \n کد سفارش جهت پیگیری : \n {Order.ID}";
+                        Sms.SendSms(Order.User.PhoneNumber, Text);
+
                         ViewBag.OrderID = ID;
                         ViewBag.RefID = RefID;
                     }
@@ -123,7 +129,6 @@ namespace ArvinTav.Controllers
             }
             return View();
         }
-
 
         protected override void Dispose(bool disposing)
         {

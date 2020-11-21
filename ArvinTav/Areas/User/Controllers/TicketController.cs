@@ -119,7 +119,7 @@ namespace ArvinTav.Areas.User.Controllers
             }
             else
             {
-                ticketRepository.SendMassage(TicketID,1, Text, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
+                ticketRepository.SendMassage(TicketID, 1, Text, null, userRepository.UserByPhoneNumber(User.Identity.Name).UserID);
 
                 return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
             }
@@ -151,45 +151,69 @@ namespace ArvinTav.Areas.User.Controllers
                 {
                     ModelState.AddModelError("Order", "لطفا سرویس مورد نظر  را انتخاب کنید");
                     ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-                    ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders;
+                    ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
                     return View();
                 }
                 else
                 {
-                    if (File != null)
+
+                    if (string.IsNullOrEmpty(createTicketInUser.Subject))
                     {
-                        if (File.ContentLength > 3000000)
+                        ModelState.AddModelError("Subject", "لطفا موضوع  مورد نظر  را وارد کنید");
+                        ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                        ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                        return View();
+                    }
+                    else
+                    {
+
+                        if (string.IsNullOrEmpty(createTicketInUser.Text))
                         {
-                            ModelState.AddModelError("File", "حجم فایل بیش از 3 مگابایت میباشد");
+                            ModelState.AddModelError("Text", "لطفا متن مورد نظر  را انتخاب کنید");
                             ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                            ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
                             return View();
                         }
                         else
                         {
-                            if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+
+                            if (File != null)
                             {
-                                ModelState.AddModelError("File", "تنها فایل ها با فرمت pdf و png و jpeg قابل ارسال میباشد");
-                                ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-                                ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
-                                return View();
+                                if (File.ContentLength > 3000000)
+                                {
+                                    ModelState.AddModelError("File", "حجم فایل بیش از 3 مگابایت میباشد");
+                                    ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                                    ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                                    return View();
+                                }
+                                else
+                                {
+                                    if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+                                    {
+                                        ModelState.AddModelError("File", "تنها فایل ها با فرمت pdf و png و jpeg قابل ارسال میباشد");
+                                        ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                                        ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                                        return View();
+                                    }
+                                    else
+                                    {
+                                        createTicketInUser.File = Guid.NewGuid() + Path.GetExtension(File.FileName);
+                                        File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + createTicketInUser.File));
+
+                                        createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                                        ticketRepository.CreateTicketInUser(createTicketInUser);
+                                        return Redirect("/User/Ticket");
+                                    }
+                                }
                             }
                             else
                             {
-                                createTicketInUser.File = Guid.NewGuid() + Path.GetExtension(File.FileName);
-                                File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + createTicketInUser.File));
-
                                 createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                                createTicketInUser.File = null;
                                 ticketRepository.CreateTicketInUser(createTicketInUser);
                                 return Redirect("/User/Ticket");
                             }
                         }
-                    }
-                    else
-                    {
-                        createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
-                        createTicketInUser.File = null;
-                        ticketRepository.CreateTicketInUser(createTicketInUser);
-                        return Redirect("/User/Ticket");
                     }
                 }
             }

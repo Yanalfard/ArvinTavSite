@@ -144,44 +144,48 @@
     <div class="my-clipped my-column ">
         <div class="Packages center">
 
-            <article class="packageOffer column uk-padding center uk-margin-remove">
-                <content>
-                    <i class="far fa-gem fa-2x"></i>
-                    <h3>@Model.packageServices.ToList()[0].Title</h3>
-                    <div class="space-half"></div>
-                    <p>@Html.Raw(Model.packageServices.ToList()[0].Description)</p>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[0].ID/@Model.packageServices.ToList()[0].Title.Replace(" ","-")">سفارش</a>
-                </content>
-            </article>
-            <article class="topPackage column uk-padding center uk-margin-remove ">
-                <content>
-                    <i class="far fa-gem fa-2x"></i>
-                    <h3>@Model.packageServices.ToList()[1].Title</h3>
-                    <div class="space-half"></div>
-                    <p>@Html.Raw(Model.packageServices.ToList()[1].Description)</p>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[1].ID/@Model.packageServices.ToList()[1].Title.Replace(" ","-")">سفارش</a>
+            @if (Model.packageServices.Count() > 3)
+            {
+                <article class="packageOffer column uk-padding center uk-margin-remove">
+                    <content>
+                        <i class="far fa-gem fa-2x"></i>
+                        <h3>@Model.packageServices.ToList()[0].Title</h3>
+                        <div class="space-half"></div>
+                        <p>@Html.Raw(Model.packageServices.ToList()[0].Description)</p>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[0].ID/@Model.packageServices.ToList()[0].Title.Replace(" ","-")">سفارش</a>
+                    </content>
+                </article>
+                <article class="topPackage column uk-padding center uk-margin-remove ">
+                    <content>
+                        <i class="far fa-gem fa-2x"></i>
+                        <h3>@Model.packageServices.ToList()[1].Title</h3>
+                        <div class="space-half"></div>
+                        <p>@Html.Raw(Model.packageServices.ToList()[1].Description)</p>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[1].ID/@Model.packageServices.ToList()[1].Title.Replace(" ","-")">سفارش</a>
 
-                </content>
-            </article>
-            <article class="packageOffer column uk-padding center uk-margin-remove ">
-                <content>
-                    <i class="far fa-gem fa-2x"></i>
-                    <h3>@Model.packageServices.ToList()[2].Title</h3>
-                    <div class="space-half"></div>
-                    <p>@Html.Raw(Model.packageServices.ToList()[2].Description)</p>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <div class="space"></div>
-                    <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[2].ID/@Model.packageServices.ToList()[2].Title.Replace(" ","-")">سفارش</a>
+                    </content>
+                </article>
+                <article class="packageOffer column uk-padding center uk-margin-remove ">
+                    <content>
+                        <i class="far fa-gem fa-2x"></i>
+                        <h3>@Model.packageServices.ToList()[2].Title</h3>
+                        <div class="space-half"></div>
+                        <p>@Html.Raw(Model.packageServices.ToList()[2].Description)</p>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <div class="space"></div>
+                        <a class="ServiceButton" href="/Product/@Model.packageServices.ToList()[2].ID/@Model.packageServices.ToList()[2].Title.Replace(" ","-")">سفارش</a>
 
-                </content>
-            </article>
+                    </content>
+                </article>
+            }
+
         </div>
 
     </div>

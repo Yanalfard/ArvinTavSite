@@ -16,8 +16,9 @@ namespace DataLayer
         [MaxLength(100)]
         public string Title { get; set; }
 
-        [MaxLength(600)]
+        
         [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         

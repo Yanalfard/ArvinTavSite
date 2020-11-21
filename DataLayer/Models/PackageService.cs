@@ -19,8 +19,6 @@ namespace DataLayer
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
-        [MaxLength(1000)]
-        [MinLength(2)]
         [DataType(DataType.MultilineText)]
         [AllowHtml]
         public string Description { get; set; }

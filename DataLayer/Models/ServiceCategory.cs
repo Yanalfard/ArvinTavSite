@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DataLayer
 {
@@ -17,20 +18,19 @@ namespace DataLayer
 
         [Display(Name = "متن")]
         [MaxLength(100)]
-        [MinLength(2)]
         public string Title { get; set; }
 
         [Display(Name = "فعال بودن")]
         public bool IsActive { get; set; }
 
         [Display(Name = "توضیح")]
-        [MaxLength(600)]
-        [MinLength(2)]
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Display(Name = "تصویر")]
         public string Image { get; set; }
-        
+
         public virtual List<PackageService> PackageServices { get; set; }
 
         public virtual List<Spider> Spiders { get; set; }

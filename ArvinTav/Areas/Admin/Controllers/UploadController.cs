@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Drawing;
 
 namespace ArvinTav.Areas.Admin.Controllers
 {
@@ -21,18 +22,36 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadCategoryImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
+                        var img = Bitmap.FromStream(pic.InputStream);
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Category/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                        if (img.Width > 600 || img.Height > 600)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var fileName = Path.GetFileName(pic.FileName);
+                            var _ext = Path.GetExtension(pic.FileName);
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                            _imgname = Guid.NewGuid().ToString();
+                            var _comPath = Server.MapPath("/Document/img/Category/") + _imgname + _ext;
+                            _imgname = _imgname + _ext;
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                            ViewBag.Msg = _comPath;
+                            var path = _comPath;
+
+                            // Saving Image in Original Mode
+                            pic.SaveAs(path);
+                        }
+                    }
 
                 }
             }

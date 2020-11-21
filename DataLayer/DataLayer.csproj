@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202011182112006_debugmodel.designer.cs">
       <DependentUpon>202011182112006_debugmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011211530439_editdescription.cs" />
+    <Compile Include="Migrations\202011211530439_editdescription.designer.cs">
+      <DependentUpon>202011211530439_editdescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211808549_editcategorytbl.cs" />
+    <Compile Include="Migrations\202011211808549_editcategorytbl.designer.cs">
+      <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Discount.cs" />
@@ -179,6 +187,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011182112006_debugmodel.resx">
       <DependentUpon>202011182112006_debugmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211530439_editdescription.resx">
+      <DependentUpon>202011211530439_editdescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211808549_editcategorytbl.resx">
+      <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

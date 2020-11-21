@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DataLayer
 {
@@ -19,7 +20,8 @@ namespace DataLayer
         public int Status { get; set; }
 
         [Display(Name = "توضیحات سفارش")]
-        [MaxLength(600, ErrorMessage = "توضیحات کوتاه تری وارد کنید")]
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Display(Name = "زمان ثبت")]

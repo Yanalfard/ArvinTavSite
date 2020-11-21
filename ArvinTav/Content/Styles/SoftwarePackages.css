@@ -277,7 +277,7 @@
         height: 200px;
         width: 180px; }
       .productsSection .productDescription .Services img {
-        flex: 1;
+        /*flex: 1;*/
         height: 320px;
         width: 320px; }
     @media only screen and (max-device-width: 600px) {

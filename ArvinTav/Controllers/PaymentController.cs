@@ -38,7 +38,7 @@ namespace ArvinTav.Controllers
         {
             PackageService package = packageRepository.PackageServiceById(ID);
             Order order = new Order();
-
+            order.Price = package.Price;
             if (OffCode != null && OffCode != "")
             {
 
@@ -47,7 +47,8 @@ namespace ArvinTav.Controllers
 
                 if (discount != null)
                 {
-                    order.Price = (package.Price * discount.Percentage) / 100;
+                    int OFF = (package.Price * discount.Percentage) / 100;
+                    order.Price = order.Price - OFF;
                 }
                 else
                 {

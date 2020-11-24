@@ -11,6 +11,7 @@ namespace ArvinTav.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content")]
     public class UploadController : Controller
     {
+        
         // GET: Admin/Upload
         [AcceptVerbs(HttpVerbs.Post)]
         public JsonResult UploadCategoryImage()
@@ -22,7 +23,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadCategoryImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType!= "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -77,7 +78,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadPackageImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -135,7 +136,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 {
 
 
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -191,7 +192,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
                 if (pic.ContentLength > 0)
                 {
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -246,7 +247,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadPartnerImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -300,7 +301,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadCustomerImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -355,7 +356,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 if (pic.ContentLength > 0)
                 {
 
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -411,7 +412,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                 if (pic.ContentLength > 0)
                 {
 
-                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg" && pic.ContentType != "image/svg+xml")
                     {
                         var Erorr = "0";
                         return Json(Erorr);
@@ -454,6 +455,7 @@ namespace ArvinTav.Areas.Admin.Controllers
             }
             return Json(_imgname);
         }
+        
 
     }
 }

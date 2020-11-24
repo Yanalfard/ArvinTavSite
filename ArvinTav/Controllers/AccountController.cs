@@ -187,7 +187,7 @@ namespace ArvinTav.Controllers
                     {
                         string PhoneNumberStr = PhoneNumber;
                         string End4NumberPhoneNumber = PhoneNumberStr.Substring(PhoneNumberStr.Length - 5);
-                        string ForgetLink = "http://arvintavco.com/Account/Forget/" + End4NumberPhoneNumber + "-" + Code;
+                        string ForgetLink = "http://arvintavco.com/Account/Forgot/" + End4NumberPhoneNumber + "-" + Code;
                         //Send Code In Sms
                         var Massage = ForgetLink;
                         Sms.SendSms(PhoneNumber, Massage, "Forgot");

@@ -19,9 +19,9 @@
     <div class="GreenBackground">
         <h4 class="center">تماس با ما</h4>
         <div class="contactForm mat uk-margin-top center" dir="rtl">
-            @if (@Request.QueryString["Massage"] != null)
+            @if (Request.QueryString["Massage"] != null)
             {
-                <h1 class="uk-text-success">پیام شما ارسال شد.</h1>
+                <small class="uk-text-success">پیام شما ارسال شد.</small>
             }
             @using (Html.BeginForm())
             {
@@ -86,7 +86,7 @@
                 <div class="my-row"><i class="far fa-envelope fa-2x uk-text-danger"></i><a dir="ltr">info@arvintavco.com</a></div>
             </div>
 
-            <img class="uk-margin-auto-right" src="~/img/Home/head slider/social media.svg" width="80" height="200" alt="social" />
+            <img class="uk-margin-auto-right" src="~/img/Home/head slider/social media.svg" width="260" alt="social" />
         </div>
         <hr />
         <div class="my-column" dir="rtl">
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <div class="column">
+    <div class="map column">
         <iframe class="map"
                 frameborder="0"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.737504409133!2d46.30713261520968!3d38.07649387970567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x401a052af04f17a7%3A0x1d32d4238cb5b126!2zRWFzdCBBemVyYmFpamFuIFByb3ZpbmNlLCBUYWJyaXosIFBvbCAtZS0gU2FuZ2ksIEFsbGFtZWggVGFiYXRhYmFpLCDYqNix2Kwg2LnZhdin2LHYqiDYtdio2Kdf2LTYsdqp2Kog2LPYp9iu2KrYp9ix2LPYp9iy2Ycg2KrYqNix24zYstiMIElyYW4!5e0!3m2!1sen!2snl!4v1600765196863!5m2!1sen!2snl"></iframe>

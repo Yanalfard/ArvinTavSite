@@ -304,7 +304,7 @@ body {
       border-radius: 5px;
       width: 10px; }
   .IndexPage .endOfCover {
-    background-image: url("../../img/Home/footerRibbon.png") !important;
+    background-image: url("../../img/Home/endOfCover.svg") !important;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100% !important;

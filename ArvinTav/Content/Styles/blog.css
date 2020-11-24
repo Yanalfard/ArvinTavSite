@@ -299,6 +299,8 @@ body {
   .cover .logoinCenter {
     margin-right: 0px !important;
     width: 220px !important; }
+  .cover .logoinCenterContainer {
+    margin-left: 24px !important; }
   .grid {
     display: grid;
     grid-template-rows: auto;
@@ -353,6 +355,8 @@ body {
   .cover .logoinCenter {
     margin-right: 0px !important;
     width: 220px !important; }
+  .cover .logoinCenterContainer {
+    margin-left: 24px !important; }
   .postContent .Content {
     display: contents !important; }
     .postContent .Content div h2 {

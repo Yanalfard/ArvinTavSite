@@ -243,8 +243,8 @@
       visibility: collapse; } }
 
 .contactSection .mat {
-  width: 220px;
-  padding: 22px; }
+  width: 303px;
+  padding: 10px; }
 
 .contactSection .contactAddress * {
   overflow: hidden; }
@@ -288,13 +288,15 @@ h4 {
 .contactForm input {
   background: #dcdbdb;
   border: none;
-  padding: 5px 20px;
-  margin: 8px 0; }
+  padding: 10px 52px;
+  margin: 12px 0; }
 
 .contactForm #textareaInContact {
   overflow: visible !important;
-  height: 120px !important;
-  resize: none; }
+  height: 101px !important;
+  resize: none;
+  width: 87% !important;
+  margin-bottom: 12px; }
 
 .contactForm label {
   font-size: 14px; }
@@ -325,17 +327,17 @@ h4 {
       margin-right: 12px; }
     .socialContact div a:hover {
       text-decoration: none; }
-  .socialContact img {
-    flex: 1; }
 
 @media only screen and (max-device-width: 700px) {
   .socialContact img {
     display: none; }
   .contactUsIcon {
-    width: 30px;
-    height: 30px; } }
+    width: 25px;
+    height: 25px; }
+  .map {
+    height: 240px !important; } }
 
 .map {
   width: 100%;
   margin: auto !important;
-  height: 32vw; }
+  height: 400px; }

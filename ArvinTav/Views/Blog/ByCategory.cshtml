@@ -7,7 +7,7 @@
 <link href="~/Content/Styles/blog.min.css" rel="stylesheet" />
 <div class="center cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
     <img src="~/img/Home/gridbackground.png" />
-    <div class="absolute center uk-width-5-6 uk-text-center uk-margin-auto uk-margin-large-top uk-margin-large-left">
+    <div class="logoinCenterContainer absolute center uk-width-5-6 uk-text-center uk-margin-auto uk-margin-large-top uk-margin-large-left">
         <img class="logoinCenter center uk-margin-large-left" src="~/img/blog/logoInblog.png" width="320" />
     </div>
 </div>
@@ -15,9 +15,10 @@
 
 <!--grid region-->
 <div>
-    @foreach (var item in Model)
-    {
-        <content class="grid " dir="rtl">
+   
+    <content class="grid " dir="rtl">
+        @foreach (var item in Model)
+        {
             <article class="my-column mat my-clipped ">
                 <content>
                     <div class="center">
@@ -31,8 +32,9 @@
                     </div>
                 </content>
             </article>
+        }
         </content>
-    }
+    
         <div class="center uk-margin-large-top">
             <div class="pagination">
                 <a class="disabled"><span aria-hidden="true">«</span></a>

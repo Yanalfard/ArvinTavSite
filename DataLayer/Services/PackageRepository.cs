@@ -49,6 +49,10 @@ namespace DataLayer
 
         public string CreatePackageServiceDetails(List<PackageServiceDetails> details)
         {
+            if (details == null)
+            {
+                return "true";
+            }
             if (AllPackageServicesDetails(details.FirstOrDefault().PackageID).Count() > 0)
             {
                 db.packageServiceDetails.RemoveRange(AllPackageServicesDetails(details.FirstOrDefault().PackageID));

@@ -33,36 +33,49 @@
             $("#BtnSupportCreate").addClass('btn-danger');
             $("#BtnSupportCreate").removeClass('btn-success');
         } else {
-            $("#BtnSupportCreate").removeClass('btn-danger');
-            $("#BtnSupportCreate").addClass('btn-success');
-            $("#BtnSupportCreate").html("<i class='fas fa-plus-circle'></i>افزودن");
-            $(".loding").removeClass("d-none");
-            var Title = $("#Title").val();
-            if ($("#IsActive").prop("checked") == true) {
-                var IsActive = 1;
-            }
-            if ($("#IsActive").prop("checked") == false) {
-                var IsActive = 0;
-            }
-
-            $.post("/Admin/Management/SupportCreate?Title=" + Title + "&IsActive=" + IsActive, function (result) {
-                if (result == "true") {
-                    $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                    $.get("/Admin/Management/P_SupportPart", function (result) {
-                        $(".Panel").removeClass("bg-info");
-                        $(".Panel").removeClass("text-white");
-                        $("#SupportPartPaper").addClass("bg-info");
-                        $("#SupportPartPaper").addClass("text-white");
-                        $("#card-table").html(result);
-                        alert("مطلب با موفقیت ثبت شد.");
-                        $("#modalSave").css('display', 'none');
-                        $("#modalSave").removeClass('show');
-                        document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                    });
+            if ($("#Title").val().includes("'")) {
+                $("#BtnSupportCreate").html("لطفا متن پشتیبانی مناسب وارد کنید ");
+                $("#BtnSupportCreate").addClass('btn-danger');
+                $("#BtnSupportCreate").removeClass('btn-success');
+            } else {
+                if ($("#Title").val().length > 30) {
+                    $("#BtnSupportCreate").html("لطفا متن پشتیبانی مناسب وارد کنید");
+                    $("#BtnSupportCreate").addClass('btn-danger');
+                    $("#BtnSupportCreate").removeClass('btn-success');
                 } else {
-                    alert(result);
+
+                    $("#BtnSupportCreate").removeClass('btn-danger');
+                    $("#BtnSupportCreate").addClass('btn-success');
+                    $("#BtnSupportCreate").html("<i class='fas fa-plus-circle'></i>افزودن");
+                    $(".loding").removeClass("d-none");
+                    var Title = $("#Title").val();
+                    if ($("#IsActive").prop("checked") == true) {
+                        var IsActive = 1;
+                    }
+                    if ($("#IsActive").prop("checked") == false) {
+                        var IsActive = 0;
+                    }
+
+                    $.post("/Admin/Management/SupportCreate?Title=" + Title + "&IsActive=" + IsActive, function (result) {
+                        if (result == "true") {
+                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                            $.get("/Admin/Management/P_SupportPart", function (result) {
+                                $(".Panel").removeClass("bg-info");
+                                $(".Panel").removeClass("text-white");
+                                $("#SupportPartPaper").addClass("bg-info");
+                                $("#SupportPartPaper").addClass("text-white");
+                                $("#card-table").html(result);
+                                alert("مطلب با موفقیت ثبت شد.");
+                                $("#modalSave").css('display', 'none');
+                                $("#modalSave").removeClass('show');
+                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                            });
+                        } else {
+                            alert(result);
+                        }
+                    });
                 }
-            });
+            }
         }
     });
 </script>

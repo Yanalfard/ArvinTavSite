@@ -102,6 +102,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\CommandJs\Customers.js" />
+    <Content Include="Areas\Admin\CommandJs\Festival.js" />
+    <Content Include="Areas\Admin\CommandJs\Marketer.js" />
+    <Content Include="Areas\Admin\CommandJs\PackageService.js" />
+    <Content Include="Areas\Admin\CommandJs\Partner.js" />
+    <Content Include="Areas\Admin\CommandJs\Project.js" />
+    <Content Include="Areas\Admin\CommandJs\ServiceCategory.js" />
+    <Content Include="Areas\Admin\CommandJs\Slider.js" />
+    <Content Include="Areas\Admin\CommandJs\Spider.js" />
     <Content Include="Areas\Admin\script.js" />
     <Content Include="Areas\Admin\style-rtl.css" />
     <Content Include="Areas\Admin\style.css" />
@@ -162,7 +171,6 @@
     </Content>
     <Content Include="Areas\Admin\Views\Management\P_SpiderCategoryCreate.cshtml" />
     <Content Include="Areas\Admin\Views\HomeSetting\P_SliderEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeSetting\P_SliderRemove.cshtml" />
     <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
     <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
     <None Include="Connected Services\ZarinPal\Reference.svcmap">
@@ -3139,7 +3147,9 @@
     <Content Include="Tools\ckeditor\_source\themes\default\theme.js" />
     <Content Include="Tools\Input_Formatting_Currency.js" />
     <Content Include="Tools\Span_Formatting_Currency.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -3226,9 +3236,9 @@
     <Content Include="Views\Shared\P_ChildCategory.cshtml" />
     <Content Include="Views\Shared\P_SubCategory.cshtml" />
     <Content Include="Views\Account\Active.cshtml" />
-    <Content Include="Views\Account\ForgetPassword.cshtml" />
-    <Content Include="Views\Account\PushForgetPassword.cshtml" />
-    <Content Include="Views\Account\ForgetPasswordSuccess.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\PushForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordSuccess.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Product\Products.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />

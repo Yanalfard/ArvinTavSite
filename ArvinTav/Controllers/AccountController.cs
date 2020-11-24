@@ -106,8 +106,8 @@ namespace ArvinTav.Controllers
                             if (userRepository.ShortRegister(shortRegisterViewModel) == true)
                             {
                                 //Send Code In Sms
-                                var Text = $"به آروین تاو خوش آمدید \n کد شما : {Code}";
-                                Sms.SendSms(registerView.PhoneNumber, Text);
+                                var Massage = Code;
+                                Sms.SendSms(registerView.PhoneNumber, Massage, "verifecation");
 
                                 // Redirect To Active
                                 AccountActiveViewModel accountActiveViewModel = new AccountActiveViewModel();
@@ -165,14 +165,14 @@ namespace ArvinTav.Controllers
         //Forget Password
 
         [HttpGet]
-        public ActionResult ForgetPassword()
+        public ActionResult ForgotPassword()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ForgetPassword(string PhoneNumber, FormCollection form)
+        public ActionResult ForgotPassword(string PhoneNumber, FormCollection form)
         {
 
             if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
@@ -189,10 +189,10 @@ namespace ArvinTav.Controllers
                         string End4NumberPhoneNumber = PhoneNumberStr.Substring(PhoneNumberStr.Length - 5);
                         string ForgetLink = "http://arvintavco.com/Account/Forget/" + End4NumberPhoneNumber + "-" + Code;
                         //Send Code In Sms
-                        var Text = $"جهت بازیابی رمز عبور روی لینک زیر کلیک کنید \n لینک شما : \n {ForgetLink}";
-                        Sms.SendSms(PhoneNumber, Text);
+                        var Massage = ForgetLink;
+                        Sms.SendSms(PhoneNumber, Massage, "Forgot");
 
-                        return RedirectToAction("ForgetPasswordSuccess");
+                        return RedirectToAction("ForgotPasswordSuccess");
                     }
                     else
                     {
@@ -214,8 +214,8 @@ namespace ArvinTav.Controllers
 
         }
 
-        //ForgetPasswordSuccess
-        public ActionResult ForgetPasswordSuccess()
+        //ForgotPasswordSuccess
+        public ActionResult ForgotPasswordSuccess()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -224,9 +224,9 @@ namespace ArvinTav.Controllers
             return View();
         }
 
-        [Route("Account/Forget/{EndPhoneNumber}-{Code}")]
+        [Route("Account/Forgot/{EndPhoneNumber}-{Code}")]
         [HttpGet]
-        public ActionResult PushForgetPassword(string EndPhoneNumber, string Code)
+        public ActionResult PushForgotPassword(string EndPhoneNumber, string Code)
         {
             ViewBag.endph = EndPhoneNumber;
             ViewBag.co = Code;
@@ -237,7 +237,7 @@ namespace ArvinTav.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult PushForgetPassword(ForgetPasswordViewModel forgetPasswordViewModel, FormCollection form)
+        public ActionResult PushForgotPassword(ForgetPasswordViewModel forgetPasswordViewModel, FormCollection form)
         {
             if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
             {

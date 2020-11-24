@@ -39,7 +39,7 @@
 
                         @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "" })
                         <div>
-                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "", @type = "tel", @pattern = "[0-9]{11}" } })
+                            @Html.EditorFor(model => model.PhoneNumber)
 
                             <br />
                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "uk-text-danger uk-text-small" })
@@ -70,10 +70,9 @@
 
                         <div class="my-row center uk-padding">
 
-                            <img src="~/img/gif/load.gif" width="80" class="loading justify-content-center" />
-                            <button id="Submit" class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
+                            <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
 
-                            <a id="Register" href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+                            <a  href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
 
 
                         </div>
@@ -86,18 +85,5 @@
 
     </content>
 </div>
-
-@section Scripts{
-
-    <script>
-        $(".loading").hide();
-        $("#Submit").click(function () {
-            $("#Submit").hide();
-            $("#Register").hide();
-            $(".loading").show();
-        });
-    </script>
-
-}
 
 

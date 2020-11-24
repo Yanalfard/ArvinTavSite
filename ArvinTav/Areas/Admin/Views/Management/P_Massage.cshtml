@@ -77,14 +77,8 @@
                                             <a onclick="RemoveMassage(@item.ID)"><i class="fas fa-trash  text-danger"></i></a>
                                         </span>
                                         <span data-placement="top" data-toggle="tooltip" title="" data-original-title="جزئیات">
-                                            <a onclick="InfoMassage(@item.ID)"><i class="text-primary fas fa-info-circle"></i></a>
+                                            <a onclick="InfoMassage(@item.ID)" data-toggle="modal" data-target="#modalSave"><i class="text-primary fas fa-info-circle"></i></a>
                                         </span>
-                                        @if (item.Seen == false)
-                                        {
-                                            <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تایید">
-                                                <a onclick="ConfirmMassage(@item.ID)"><i class="text-success fas fa-check-circle"></i></a>
-                                            </span>
-                                        }
                                     </td>
                                 </tr>
                             }
@@ -186,23 +180,13 @@
             $(".modal-dialog").removeClass("modal-xl");
             $(".modal-dialog").addClass("modal-md");
             $(".modal-content").html(result);
-        });
-    }
-
-    function ConfirmMassage(ID) {
-        $.get("/Admin/Management/ConfirmMassage?ID=" + ID, function (result) {
-            if (result == "true") {
-                $.get("/Admin/Management/P_Massage", function (result) {
-                    $(".Panel").removeClass("bg-info");
-                    $(".Panel").removeClass("text-white");
-                    $("#MassagePaper").addClass("bg-info");
-                    $("#MassagePaper").addClass("text-white");
-                    $("#card-table").html(result);
-                    alert("پیغام تایید شد");
-                });
-            } else {
-                alert(result);
-            }
+            $.get("/Admin/Management/P_Massage", function (result) {
+                $(".Panel").removeClass("bg-info");
+                $(".Panel").removeClass("text-white");
+                $("#MassagePaper").addClass("bg-info");
+                $("#MassagePaper").addClass("text-white");
+                $("#card-table").html(result);
+            });
         });
     }
 

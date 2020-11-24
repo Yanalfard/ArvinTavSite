@@ -784,28 +784,16 @@ namespace ArvinTav.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult P_MassageInfo(int ID)
         {
+            massageRepository.massageById(ID).Seen = true;
+            massageRepository.Save();
             return PartialView(massageRepository.massageById(ID));
-        }
-
-        [Authorize(Roles = "Admin")]
-        public string ConfirmMassage(int ID)
-        {
-            bool Confirm = massageRepository.ConfirmMassage(ID);
-            if (Confirm == true)
-            {
-                return "true";
-            }
-            else
-            {
-                return "false";
-            }
         }
 
         [Authorize(Roles = "Admin")]
         public string RemoveMassage(int ID)
         {
             bool Remove = massageRepository.RemoveMassage(ID);
-
+            massageRepository.Save();
             if (Remove == true)
             {
                 return "true";

@@ -1,27 +1,53 @@
 ﻿@model IEnumerable<DataLayer.PackageService>
+
+
 @{
-    ViewBag.Title = "محصولات -"+Model.FirstOrDefault().ServiceCategory.Title.Replace(" ","-");
+    if (Model.Count() == 0)
+    {
+        ViewBag.Title = "محصولات";
+    }
+    else
+    {
+        ViewBag.Title = "محصولات -" + Model.FirstOrDefault().ServiceCategory.Title.Replace(" ", "-");
+    }
+
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
+
 <div class="productsSection allPageGreenBackground">
     <div class="cover uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
         <img src="~/img/Home/gridbackground.png" />
     </div>
     <!--description region-->
-    <div class="productDescription">
-        <div class="my-column my-clipped" dir="rtl">
-            <content class="Services my-row uk-padding">
-                <div class="my-column my-clipped whiteBackground" dir="rtl">
-                    <h2 class="uk-padding-small">@Model.FirstOrDefault().ServiceCategory.Title</h2>
-                    <img class="center MobileSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="180" height="200" />
-                    <p class="uk-padding-small">
-                        @Html.Raw(Model.FirstOrDefault().ServiceCategory.Description)
-                    </p>
-                </div>
-                <img class="DesktopSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="320" height="320"/>
-            </content>
+    @if (Model.Count() == 0)
+    {
+        <div class="productDescription">
+            <div class="my-column my-clipped" dir="rtl">
+                <content class="Services my-row uk-padding">
+                    <h3>محصولی وجود ندارد</h3>
+                </content>
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+
+        <div class="productDescription">
+            <div class="my-column my-clipped" dir="rtl">
+                <content class="Services my-row uk-padding">
+                    <div class="my-column my-clipped whiteBackground" dir="rtl">
+                        <h2 class="uk-padding-small">@Model.FirstOrDefault().ServiceCategory.Title</h2>
+                        <img class="center MobileSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="180" height="200" />
+                        <p class="uk-padding-small">
+                            @Html.Raw(Model.FirstOrDefault().ServiceCategory.Description)
+                        </p>
+                    </div>
+                    <img class="DesktopSize" src="~/Document/img/Category/@Model.FirstOrDefault().ServiceCategory.Image" width="320" height="320" />
+                </content>
+            </div>
+        </div>
+    }
+
     <!--end region-->
     <!--grid region-->
     <div class="productsGrid">
@@ -37,7 +63,7 @@
                         <ul class="my-column uk-padding-remove" dir="rtl">
                             @foreach (var Detail in item.PackageServiceDetails.Take(4))
                             {
-                                <li> <i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
+                                <li> <i class="fas fa-check uk-text-success"></i>@Detail.Response</li>
                             }
                         </ul>
                         <button class="ServiceButton" onclick="window.location.href='/Product/@item.ID/@item.Title.Replace(" ","-")'">جزئیات و سفارش</button>

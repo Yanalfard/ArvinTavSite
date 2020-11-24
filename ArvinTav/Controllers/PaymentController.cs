@@ -106,8 +106,8 @@ namespace ArvinTav.Controllers
                         orderRepository.Save();
 
                         //Send Code In Sms
-                        var Text = $"سفارش شما با موفقیت ثبت شد \n کد سفارش جهت پیگیری : \n {Order.ID}";
-                        Sms.SendSms(Order.User.PhoneNumber, Text);
+                        var Text = Order.ID.ToString();
+                        Sms.SendSms(Order.User.PhoneNumber, Text,"OrderCode");
 
                         ViewBag.OrderID = ID;
                         ViewBag.RefID = RefID;

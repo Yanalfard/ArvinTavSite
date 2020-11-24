@@ -30,62 +30,10 @@
     </div>
     <div class="space-half"></div>
     <div class="modal-footer justify-content-end">
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
         <a id="BtnProjectCreate" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
+<script src="~/Areas/Admin/CommandJs/Project.js"></script>
 
-
-<script>
-
-    $("#Image").change(function () {
-        if ($("#Image").val() != null) {
-            $("#FileName").html($("#Image").val());
-            $("#FileName").addClass("border");
-            $("#FileName").addClass("border-success");
-        }
-    });
-
-
-    $("#BtnProjectCreate").click(function () {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Image").val() == null || $("#Image").val() == "" || $("#Link").val() == null || $("#Link").val() == "") {
-            $("#BtnProjectCreate").html("تمامی موارد اجباری میباشد");
-            $("#BtnProjectCreate").addClass('btn-danger');
-            $("#BtnProjectCreate").removeClass('btn-success');
-        } else {
-            $("#BtnProjectCreate").html("<i class='fas fa-plus-circle'></i>افزودن");
-            $("#BtnProjectCreate").removeClass('btn-danger');
-            $("#BtnProjectCreate").addClass('btn-success');
-
-            var data = new FormData();
-            var files = $("#Image").get(0).files;
-            if (files.length > 0) {
-                data.append("UploadProjectImageFile", files[0]);
-            }
-
-            $.ajax({
-                url: "/Admin/Upload/UploadProjectImage",
-                type: "POST",
-                processData: false,
-                contentType: false,
-                data: data,
-                success: function (response) {
-
-                    var Title = $("#Title").val();
-                    var Image = response;
-                    var Link = $("#Link").val();
-
-                    $.post("/Admin/Project/Create?Title=" + Title + "&Image=" + Image + "&Link=" + Link, function (result) {
-                        if (result == "true") {
-                            window.location.reload();
-                        } else {
-                            alert(result);
-                        }
-
-                    });
-
-                }
-            });
-        }
-    });
-</script>
 

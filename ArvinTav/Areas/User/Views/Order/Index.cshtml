@@ -20,6 +20,7 @@
                             </div>
                             <div class="form-toolbar pr-2 ">
                                 <button onclick="BtnSearch()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i>جستجو</button>
+                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                             </div>
                         </div>
                     </div>
@@ -125,6 +126,19 @@
 
 @section Scripts{
     <script>
+
+
+        function BtnSearch() {
+            $(".loding").removeClass('d-none');
+            $("#card-table").remove();
+            var Result = $("#Result").val();
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $.get("/User/Order/P_List?PageId=1" + "&Result=" + Result + "&InPageCount=" + InPageCount, function (result) {
+                $(result).insertAfter(".card-header");
+                $(".loding").addClass('d-none');
+            });
+        }
 
         $("#pageNumber").change(function () {
             $(".loding").removeClass('d-none');

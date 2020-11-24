@@ -13,17 +13,18 @@ namespace DataLayer
         public int ID { get; set; }
 
         [Display(Name = "نام کامل")]
-        [MinLength(2,ErrorMessage ="لطفا نام صحیح وارد کنید")]
+        [MinLength(2, ErrorMessage = "لطفا نام صحیح وارد کنید")]
         [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string FullName { get; set; }
 
         [Display(Name = "ایمیل")]
-        [MinLength(3,ErrorMessage ="ایمیل معتبر وارد کنید")]
+        [MinLength(3, ErrorMessage = "ایمیل معتبر وارد کنید")]
         [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        [EmailAddress(ErrorMessage ="لطفا ایمیل معتبر وارد کنید")]
         public string Email { get; set; }
 
         [Display(Name = "شماره تماس")]
-        [MaxLength(15, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        [MaxLength(11, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "متن پیغام")]

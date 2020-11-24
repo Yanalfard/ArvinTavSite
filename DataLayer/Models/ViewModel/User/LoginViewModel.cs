@@ -8,6 +8,7 @@ namespace DataLayer
         [MaxLength(15, ErrorMessage = "{0} معتبر نیست")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.PhoneNumber)]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "{0} معتبر نیست")]
         public string PhoneNumber { get; set; }
 
 

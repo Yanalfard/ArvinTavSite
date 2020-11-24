@@ -19,7 +19,7 @@ namespace DataLayer
         public int TicketCategory { get; set; }
         
         [Display(Name = "متن")]
-        [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        [MaxLength(600, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         [MinLength(5, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
         [Required(ErrorMessage = "لطفا موضوع را وارد کنید")]
         [DataType(DataType.MultilineText)]

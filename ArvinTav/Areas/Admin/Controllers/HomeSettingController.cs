@@ -15,7 +15,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public HomeSettingController()
         {
-            
+
             sliderRepository = new SliderRepository(db);
         }
 
@@ -42,28 +42,40 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public ActionResult P_SliderEdit(int ID)
         {
-            return PartialView();
+            return PartialView(sliderRepository.SliderById(ID));
         }
 
         public string SliderEdit(int ID, string Title, string Link, string Image)
         {
-            if (Image == "")
+            if (Image == "" || Image == null)
             {
                 return sliderRepository.SliderEdit(ID, Title, Link, null);
             }
             else
             {
+                string fullPathImage = Request.MapPath("/Document/img/Slider/" + sliderRepository.SliderById(ID).Image);
+                if (System.IO.File.Exists(fullPathImage))
+                {
+                    System.IO.File.Delete(fullPathImage);
+                }
                 return sliderRepository.SliderEdit(ID, Title, Link, Image);
             }
 
 
         }
+        
 
-        public ActionResult P_SliderRemove(int ID)
+        public string SliderRemove(int ID)
         {
-            return PartialView();
-        }
+            string fullPathImage = Request.MapPath("/Document/img/Slider/" + sliderRepository.SliderById(ID).Image);
+            if (System.IO.File.Exists(fullPathImage))
+            {
+                System.IO.File.Delete(fullPathImage);
+            }
 
+
+            return sliderRepository.SliderRemove(ID);
+        }
 
         protected override void Dispose(bool disposing)
         {

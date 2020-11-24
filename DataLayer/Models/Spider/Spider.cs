@@ -26,13 +26,13 @@ namespace DataLayer
         [Display(Name = "تصویر")]
         public string Image { get; set; }
 
-        [Display(Name ="تاریخ ثبت")]
+        [Display(Name = "تاریخ ثبت")]
         public DateTime DateTime { get; set; }
 
         public virtual SpiderCategory SpiderCategory { get; set; }
 
         public virtual List<SeoTage> SeoTages { get; set; }
-        
+
         public Spider()
         {
 

@@ -16,7 +16,7 @@ namespace ArvinTav.Areas.Admin.Controllers
 
         public PackageController()
         {
-            
+
             serviceCategoryRepository = new ServiceCategoryRepository(db);
             packageRepository = new PackageRepository(db);
         }

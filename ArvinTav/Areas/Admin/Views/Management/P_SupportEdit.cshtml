@@ -28,37 +28,60 @@
 
     </div>
     <div class="modal-footer justify-content-end">
-        <a onclick="EditTicketCategory(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <a id="BtnEditTicketCategory" onclick="EditTicketCategory(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
 
 <script>
     function EditTicketCategory(ID) {
-        var Title = $("#Title").val();
-        if ($("#IsActive").prop("checked") == true) {
-            var IsActive = 1;
-        }
-        if ($("#IsActive").prop("checked") == false) {
-            var IsActive = 0;
-        }
-        $.post("/Admin/Management/SupportEdit?ID=" + ID + "&Title=" + Title + "&IsActive=" + IsActive, function (result) {
-            if (result == "true") {
-                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                $.get("/Admin/Management/P_SupportPart", function (result) {
-                    $(".Panel").removeClass("bg-info");
-                    $(".Panel").removeClass("text-white");
-                    $("#SupportPartPaper").addClass("bg-info");
-                    $("#SupportPartPaper").addClass("text-white");
-                    $("#card-table").html(result);
-                    alert("پشتیبانی با موفقیت ویرایش شد.");
-                    $("#modalSave").css('display', 'none');
-                    $("#modalSave").removeClass('show');
-                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                });
+        if ($("#Title").val() == null || $("#Title").val() == "") {
+            $("#BtnEditTicketCategory").html("لطفا متن پشتیبانی را وارد کنید");
+            $("#BtnEditTicketCategory").addClass('btn-danger');
+            $("#BtnEditTicketCategory").removeClass('btn-success');
+        } else {
+            if ($("#Title").val().includes("'")) {
+                $("#BtnEditTicketCategory").html("لطفا متن پشتیبانی مناسب وارد کنید ");
+                $("#BtnEditTicketCategory").addClass('btn-danger');
+                $("#BtnEditTicketCategory").removeClass('btn-success');
             } else {
-                alert(result);
-            }
+                if ($("#Title").val().length > 30) {
+                    $("#BtnEditTicketCategory").html("لطفا متن پشتیبانی مناسب وارد کنید");
+                    $("#BtnEditTicketCategory").addClass('btn-danger');
+                    $("#BtnEditTicketCategory").removeClass('btn-success');
+                } else {
 
-        });
+                    $("#BtnEditTicketCategory").removeClass('btn-danger');
+                    $("#BtnEditTicketCategory").addClass('btn-success');
+                    $("#BtnEditTicketCategory").html("<i class='fas fa-plus-circle'></i>افزودن");
+                    $(".loding").removeClass("d-none");
+                    var Title = $("#Title").val();
+                    if ($("#IsActive").prop("checked") == true) {
+                        var IsActive = 1;
+                    }
+                    if ($("#IsActive").prop("checked") == false) {
+                        var IsActive = 0;
+                    }
+                    $.post("/Admin/Management/SupportEdit?ID=" + ID + "&Title=" + Title + "&IsActive=" + IsActive, function (result) {
+                        if (result == "true") {
+                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                            $.get("/Admin/Management/P_SupportPart", function (result) {
+                                $(".Panel").removeClass("bg-info");
+                                $(".Panel").removeClass("text-white");
+                                $("#SupportPartPaper").addClass("bg-info");
+                                $("#SupportPartPaper").addClass("text-white");
+                                $("#card-table").html(result);
+                                alert("پشتیبانی با موفقیت ویرایش شد.");
+                                $("#modalSave").css('display', 'none');
+                                $("#modalSave").removeClass('show');
+                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                            });
+                        } else {
+                            alert(result);
+                        }
+
+                    });
+                }
+            }
+        }
     }
 </script>

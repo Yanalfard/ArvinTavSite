@@ -29,27 +29,36 @@ namespace ArvinTav.Areas.Admin.Controllers
                     }
                     else
                     {
-                        var img = Bitmap.FromStream(pic.InputStream);
 
-                        if (img.Width > 600 || img.Height > 600)
+                        if (pic.ContentLength > 3000000)
                         {
                             var Erorr = "0";
                             return Json(Erorr);
                         }
                         else
                         {
-                            var fileName = Path.GetFileName(pic.FileName);
-                            var _ext = Path.GetExtension(pic.FileName);
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                            _imgname = Guid.NewGuid().ToString();
-                            var _comPath = Server.MapPath("/Document/img/Category/") + _imgname + _ext;
-                            _imgname = _imgname + _ext;
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
-                            ViewBag.Msg = _comPath;
-                            var path = _comPath;
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Category/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
 
-                            // Saving Image in Original Mode
-                            pic.SaveAs(path);
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+                            }
                         }
                     }
 
@@ -68,18 +77,46 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadPackageImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Package/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Package/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
+
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+
+                            }
+                        }
+                    }
 
                 }
             }
@@ -96,19 +133,48 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadFileMassage"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/File/TicketFile/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
+
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/File/TicketFile/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
+
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+
+                            }
+                        }
+                    }
                 }
             }
             return Json(_imgname);
@@ -122,21 +188,49 @@ namespace ArvinTav.Areas.Admin.Controllers
             if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
             {
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadSpiderImage"];
+
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Spider/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Spider/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
 
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+
+                            }
+                        }
+                    }
                 }
             }
             return Json(_imgname);
@@ -152,19 +246,45 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadPartnerImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Partner/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Partner/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
 
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+                            }
+                        }
+                    }
                 }
             }
             return Json(_imgname);
@@ -180,19 +300,45 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadCustomerImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Customer/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Customer/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
 
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+                            }
+                        }
+                    }
                 }
             }
             return Json(_imgname);
@@ -208,18 +354,46 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadProjectImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Project/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
+
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Project/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
+
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+                            }
+                        }
+                    }
 
                 }
             }
@@ -236,19 +410,46 @@ namespace ArvinTav.Areas.Admin.Controllers
                 var pic = System.Web.HttpContext.Current.Request.Files["UploadSliderImageFile"];
                 if (pic.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(pic.FileName);
-                    var _ext = Path.GetExtension(pic.FileName);
 
-                    _imgname = Guid.NewGuid().ToString();
-                    var _comPath = Server.MapPath("/Document/img/Slider/") + _imgname + _ext;
-                    _imgname = _imgname + _ext;
+                    if (pic.ContentType != "image/png" && pic.ContentType != "image/jpeg" && pic.ContentType != "image/jpg")
+                    {
+                        var Erorr = "0";
+                        return Json(Erorr);
+                    }
+                    else
+                    {
 
-                    ViewBag.Msg = _comPath;
-                    var path = _comPath;
+                        if (pic.ContentLength > 3000000)
+                        {
+                            var Erorr = "0";
+                            return Json(Erorr);
+                        }
+                        else
+                        {
+                            var img = Bitmap.FromStream(pic.InputStream);
 
-                    // Saving Image in Original Mode
-                    pic.SaveAs(path);
+                            if (img.Width > 600 || img.Height > 600)
+                            {
+                                var Erorr = "0";
+                                return Json(Erorr);
+                            }
+                            else
+                            {
+                                var fileName = Path.GetFileName(pic.FileName);
+                                var _ext = Path.GetExtension(pic.FileName);
 
+                                _imgname = Guid.NewGuid().ToString();
+                                var _comPath = Server.MapPath("/Document/img/Slider/") + _imgname + _ext;
+                                _imgname = _imgname + _ext;
+
+                                ViewBag.Msg = _comPath;
+                                var path = _comPath;
+
+                                // Saving Image in Original Mode
+                                pic.SaveAs(path);
+                            }
+                        }
+                    }
                 }
             }
             return Json(_imgname);

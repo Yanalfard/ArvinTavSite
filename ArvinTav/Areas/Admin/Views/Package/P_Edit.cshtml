@@ -53,7 +53,7 @@
 
             <div class="form-group col-md-6">
 
-                <input type="text" class="form-control form-control-sm" id="title" placeholder="متن">
+                <input type="text" class="form-control form-control-sm" id="titled" placeholder="متن">
             </div>
             <div class="form-group col-md-6">
 
@@ -100,109 +100,16 @@
         <a onclick="EditPackageService(@Model.PackageService.ID)" id="EditPackageService" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
-@*<script src="~/Tools/Auto_Formatting_Currency.js"></script>
-    <script src="~/Tools/Input_Formatting_Currency.js"></script>*@
+    <script src="~/Tools/Auto_Formatting_Currency.js"></script>
+    <script src="~/Tools/Input_Formatting_Currency.js"></script>
 <script>
     $(function () {
         $('#my-textarea').ckeditor();
     });
 
-   
-    $("#MainCategorySelect").change(function () {
-        if ($("#MainCategorySelect option:selected").val() == 0) { } else {
-            $.get("/Admin/ServiceCategory/P_ChildCategoryInCreate?ParentID=" + $("#MainCategorySelect option:selected").val(), function (result) {
-                $("#ChildCategory").html(result);
-                $("#Category").val($("#MainCategorySelect option:selected").val());
-            });
-        }
-    });
-
-    function EditPackageService(ID) {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Price").val() == null || $("#my-textarea").val() == null || $("#my-textarea").val() == "" || $("#Price").val() == "" || $("#Category").val() == null || $("#Category").val() == "") {
-            $("#EditPackageService").removeClass('btn-success');
-            $("#EditPackageService").addClass('btn-danger');
-            $("#EditPackageService").html("تمامی موارد اجباری است");
-        } else {
-            $("#EditPackageService").addClass('btn-success');
-            $("#EditPackageService").removeClass('btn-danger');
-            $("#EditPackageService").html("<i class='fas fa-edit'></i>ویرایش");
-            $(".loding").removeClass("d-none");
-            var data = new FormData();
-            var files = $("#Image").get(0).files;
-            if (files.length > 0) {
-                data.append("UploadPackageImageFile", files[0]);
-            }
-            $.ajax({
-                url: "/Admin/Upload/UploadPackageImage",
-                type: "POST",
-                processData: false,
-                contentType: false,
-                data: data,
-                success: function (response) {
-                    var Category = $("#Category").val();;
-                    var Title = $("#Title").val();
-                    var Price = $("#Price").val();
-                    var Image = response;
-                    var mytextarea = $("#my-textarea").val();
-
-                    $.ajax({
-                        type: "POST",
-                        url: '/Admin/Package/Edit',
-                        data: { ID: ID, Category: Category, Title: Title, Price: Price, Image: Image, Description: mytextarea },
-                        success: function (result) {
-                            if (result != 0) {
-
-
-                                ////////////////////////////////
-
-                                var len = $(".DetailsRow").length;
-                                var Details = [];
-
-                                for (let i = 0; i < len; i++) {
-                                    var part = $(".DetailsRow")[i]
-                                    var obj = {
-                                        PackageID: result,
-                                        Title: part.children[0].innerHTML,
-                                        Response: part.children[1].innerHTML
-                                    }
-
-                                    Details.push(obj);
-                                }
-
-                                $.ajax(
-                                    {
-                                        url: "/Admin/Package/CreatePackageServiceDetails",
-                                        data: JSON.stringify(Details),
-                                        method: 'Post',
-                                        contentType: 'application/json',
-                                        dataType: 'json',
-                                        async: true,
-                                        success: function (data) {
-                                            window.location.reload();
-                                        },
-                                        error: function () {
-                                            returner = false;
-                                        }
-                                    });
-
-                                ////////////////////////////////
-
-                            } else {
-                                alert(result);
-                            }
-                        },
-                        dataType: "json",
-                        traditional: true
-                    });
-                }
-            });
-        }
-    }
-
-
     function AddTblData() {
         const table = document.getElementById('tblMain');
-        const textAlpha = document.getElementById('title');
+        const textAlpha = document.getElementById('titled');
         const textBeta = document.getElementById('Response');
 
         if (textAlpha.value == '' || textAlpha.value == null) {
@@ -211,6 +118,11 @@
         }
         if (textBeta.value == '' || textBeta.value == null) {
             alert('لطفا موارد خواسته شده را پرکنید')
+            return;
+        }
+
+        if (textAlpha.value.lentgh > 20 || textBeta.value.lentgh > 20) {
+            alert('لطفا کارکتری مناسب وارد کنید');
             return;
         }
 
@@ -238,8 +150,11 @@
 
     }
 
+
     function DeleteRow(row) {
         const element = document.getElementById(row);
         element.parentElement.removeChild(element);
     }
 </script>
+
+<script src="~/Areas/Admin/CommandJs/PackageService.js"></script>

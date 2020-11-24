@@ -5,4 +5,5 @@
         return num_parts.join(".");
     }
     $("#PriceSpan").html(thousands_separators($("#PriceSpan").html()));
+    $("#PriceSpan2").html(thousands_separators($("#PriceSpan2").html()));
 });

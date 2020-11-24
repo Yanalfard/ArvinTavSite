@@ -31,67 +31,10 @@
     </div>
     <div class="space-half"></div>
     <div class="modal-footer justify-content-end">
-        <a onclick="BtnEditProject(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+        <a id="BtnEditProject" onclick="EditProject(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
 
-<script>
-    function BtnEditProject(ID) {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Link").val() == null || $("#Link").val() == "") {
-            $("#BtnProjectCreate").html("تمامی موارد اجباری میباشد");
-            $("#BtnProjectCreate").addClass('btn-danger');
-            $("#BtnProjectCreate").removeClass('btn-success');
-        } else {
-            $("#BtnProjectCreate").html("<i class='fas fa-plus-circle'></i>افزودن");
-            $("#BtnProjectCreate").removeClass('btn-danger');
-            $("#BtnProjectCreate").addClass('btn-success');
-
-            if ($("#Image").val() == null || $("#Image").val() == "") {
-
-                var Title = $("#Title").val();
-                var Link = $("#Link").val();
-
-                $.post("/Admin/Project/Edit?ID=" + ID + "&Title=" + Title + "&Image=" + "&Link=" + Link, function (result) {
-                    if (result == "true") {
-                        window.location.reload();
-                    } else {
-                        alert(result);
-                    }
-
-                });
-
-            } else {
-                var data = new FormData();
-                var files = $("#Image").get(0).files;
-                if (files.length > 0) {
-                    data.append("UploadProjectImageFile", files[0]);
-                }
-
-                $.ajax({
-                    url: "/Admin/Upload/UploadProjectImage",
-                    type: "POST",
-                    processData: false,
-                    contentType: false,
-                    data: data,
-                    success: function (response) {
-
-                        var Title = $("#Title").val();
-                        var Image = response;
-                        var Link = $("#Link").val();
-
-                        $.post("/Admin/Project/Edit?ID=" + ID + "&Title=" + Title + "&Image=" + Image + "&Link=" + Link, function (result) {
-                            if (result == "true") {
-                                window.location.reload();
-                            } else {
-                                alert(result);
-                            }
-
-                        });
-
-                    }
-                });
-            }
-        }
-    }
-</script>
+<script src="~/Areas/Admin/CommandJs/Project.js"></script>
 

@@ -1,7 +1,7 @@
 ﻿@model DataLayer.Slider
 <div class="modal-header">
     <h6 class="modal-title" id="modalCenterTitle">
-       ویرایش اسلاید
+        ویرایش اسلاید
     </h6>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -34,80 +34,8 @@
     <div class="space"></div>
     <div class="modal-footer justify-content-end">
         <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-        <a onclick="BtnEditSlider(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
+        <a id="BtnEditSlider" onclick="BtnEditSlider(@Model.ID)" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>ویرایش</a>
     </div>
 </form>
 
-<script>
-
-    function BtnEditSlider(ID) {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Link").val() == null || $("#Link").val() == "" || $("#Image").val() == null || $("#Image").val() == "") {
-            $("#BtnAddSlider").html("تمامی موارد اجباری میباشد");
-            $("#BtnAddSlider").addClass('btn-danger');
-            $("#BtnAddSlider").removeClass('btn-success');
-        } else {
-            $("#BtnAddSlider").html("<i class='fas fa-plus-circle'></i>افزودن");
-            $("#BtnAddSlider").removeClass('btn-danger');
-            $("#BtnAddSlider").addClass('btn-success');
-
-            $(".loding").removeClass("d-none");
-
-
-            if ($("#Image").val() == null || $("#Image").val() == "") {
-
-                $.post("/Admin/HomeSetting/SliderCreate?ID=" + ID + "Title=" + Title + "&Link=" + Link + "&Image=", function (result) {
-
-                    if (result == "true") {
-                        $("#Slider").click(function () {
-                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                            $.get("/Admin/HomeSetting/P_Slider", function (result) {
-                                $("#card-table").html(result);
-                            });
-                        });
-                    } else {
-                        alert(result);
-                    }
-
-                });
-
-
-            } else {
-                
-                var data = new FormData();
-                var files = $("#Image").get(0).files;
-                if (files.length > 0) {
-                    data.append("UploadSliderImageFile", files[0]);
-                }
-
-                $.ajax({
-                    url: "/Admin/Upload/UploadSliderImage",
-                    type: "POST",
-                    processData: false,
-                    contentType: false,
-                    data: data,
-                    success: function (response) {
-                        var Title = $("#Title").val();
-                        var Link = $("#Link").val();
-                        var Image = response;
-
-                        $.post("/Admin/HomeSetting/SliderCreate?ID=" + ID + "Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
-
-                            if (result == "true") {
-                                $("#Slider").click(function () {
-                                    $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                    $.get("/Admin/HomeSetting/P_Slider", function (result) {
-                                        $("#card-table").html(result);
-                                    });
-                                });
-                            } else {
-                                alert(result);
-                            }
-
-                        });
-                    }
-                });
-            }
-        }
-    }
-
-</script>
+<script src="~/Areas/Admin/CommandJs/Slider.js"></script>

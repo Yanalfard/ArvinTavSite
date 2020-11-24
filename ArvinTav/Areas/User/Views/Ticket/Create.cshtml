@@ -64,7 +64,8 @@
                                     <div class="form-row">
 
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input form-control form-control-sm" name="File" accept="image/jpg,image/png,application/pdf,image/jpeg">
+                                            <input id="File" type="file" class="custom-file-input form-control form-control-sm" name="File" accept="image/jpg,image/png,application/pdf,image/jpeg">
+
                                             <label class="custom-file-label" for="Image" data-browse="انتخاب"><i class="fas fa-paperclip"></i></label>
                                         </div>
                                     </div>
@@ -81,7 +82,7 @@
                             </div>
                             <div class="card-footer bg-white justify-content-end">
                                 <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-                                <input type="submit" value="افزودن" class="btn btn-success btn-sm float-left " />
+                                <input id="submi" type="submit" value="افزودن" class="btn btn-success btn-sm float-left " />
                                 <div class="btn btn-primary btn-sm float-left ml-3">
                                     <a class="text-white" href="/User/Ticket">بازگشت</a>
                                 </div>
@@ -93,3 +94,22 @@
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $("#File").change(function () {
+        var files = $("#File").get(0).files;
+        if (files[0].size > 3000000) {
+            $("#submi").attr("disabled", "disabled");
+            $("#submi").val("فایل وارد شده غیر مجاز است");
+            $("#submi").addClass('btn-danger');
+            $("#submi").removeClass('btn-success');
+        } else {
+            $("#submi").removeAttr("disabled");
+            $("#submi").val("افزودن");
+            $("#submi").addClass('btn-success');
+            $("#submi").removeClass('btn-danger');
+        }
+    });
+
+</script>

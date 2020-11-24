@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202011211808549_editcategorytbl.designer.cs">
       <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011230751043_editmassagetbl1.cs" />
+    <Compile Include="Migrations\202011230751043_editmassagetbl1.designer.cs">
+      <DependentUpon>202011230751043_editmassagetbl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Discount.cs" />
@@ -193,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011211808549_editcategorytbl.resx">
       <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011230751043_editmassagetbl1.resx">
+      <DependentUpon>202011230751043_editmassagetbl1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

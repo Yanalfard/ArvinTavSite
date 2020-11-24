@@ -34,7 +34,7 @@ namespace ArvinTav.Areas.User.Controllers
 
                     ViewBag.PageId = PageId;
 
-                    ViewBag.Result = Result;
+                    ViewBag.Result = "";
 
                     ViewBag.PageCount = count / 18;
 
@@ -50,6 +50,8 @@ namespace ArvinTav.Areas.User.Controllers
                     var skip = (PageId - 1) * InPageCount;
 
                     ViewBag.PageId = PageId;
+
+                    ViewBag.Result = "";
 
                     ViewBag.PageCount = count / InPageCount;
 

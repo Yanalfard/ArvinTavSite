@@ -7,13 +7,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataLayer
 {
-   public class ShortRegisterViewModel
+    public class ShortRegisterViewModel
     {
         [Display(Name = "شماره تماس")]
         [MinLength(11, ErrorMessage = "{0} معتبر نیست")]
-        [MaxLength(15, ErrorMessage = "{0} معتبر نیست")]
+        [MaxLength(11, ErrorMessage = "{0} معتبر نیست")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.PhoneNumber)]
+        [RegularExpression("[^0-9]", ErrorMessage = "فقط شماره تماس معتبر است")]
         public string PhoneNumber { get; set; }
 
 
@@ -23,7 +24,7 @@ namespace DataLayer
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
-        
+
         [Display(Name = "کد احراز هویت")]
         [MaxLength(5, ErrorMessage = "کد نا معتبر")]
         [MinLength(5, ErrorMessage = "کد نا معتبر")]

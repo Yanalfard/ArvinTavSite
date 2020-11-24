@@ -11,6 +11,7 @@
                 <div class="row justify-content-end">
                     <div class="col-12">
                         <a id="AddList" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#modalSave"><i class="fas fa-plus-circle"></i>افزودن گزارش</a>
+                        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
                     </div>
                 </div>
             </div>
@@ -56,26 +57,80 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(0)">قبلی</a>
-                        </li>
+                        @if (ViewBag.PageId == 1)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                            </li>
+
+                        }
 
                         <li class="page-item">
                             <select id="pageNumber" class="custom-select custom-select-sm">
-                                <option class="page-item" value="1" selected="">صفحه 1 از 1</option>
+                                @for (int i = 1; i <= (ViewBag.PageCount + 1); i++)
+                                {
+                                    <option class="page-item" value="@i" @(((int)ViewBag.pageId == i) ? "selected" : "" )>صفحه @i از @((int)ViewBag.PageCount + 1)</option>
+                                }
                             </select>
                         </li>
 
 
-                        <li class="page-item d-none">
-                            <a class="page-link" onclick="Page(2)">بعدی</a>
-                        </li>
+                        @if ((int)ViewBag.PageId > (int)ViewBag.PageCount)
+                        {
+                            <li class="page-item d-none">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+                        }
+                        else
+
+                        {
+                            <li class="page-item">
+                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                            </li>
+
+                        }
                         <li>
                             <select id="InPageCount" class="custom-select custom-select-sm">
-                                <option value="0" selected="">18 در هر صفحه</option>
-                                <option value="20">20 در هر صفحه</option>
-                                <option value="30">30 در هر صفحه</option>
-                                <option value="40">40 در هر صفحه</option>
+                                @if (ViewBag.InPageCount == 0)
+                                {
+                                    <option value="0" selected>18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+
+                                @if (ViewBag.InPageCount == 20)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20" selected>20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 30)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30" selected>30 در هر صفحه</option>
+                                    <option value="40">40 در هر صفحه</option>
+
+                                }
+                                else if (ViewBag.InPageCount == 40)
+                                {
+                                    <option value="0">18 در هر صفحه</option>
+                                    <option value="20">20 در هر صفحه</option>
+                                    <option value="30">30 در هر صفحه</option>
+                                    <option value="40" selected>40 در هر صفحه</option>
+                                }
+
+
                             </select>
                         </li>
                     </ul>
@@ -98,6 +153,7 @@
 
 
 @section Scripts{
+
     <script>
         $("#AddList").click(function () {
             $.get("/Admin/Marketer/CraateReport", function (result) {
@@ -107,6 +163,27 @@
                 $(".modal-content").html(result);
             });
         });
+
+        $("#pageNumber").change(function () {
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $("#loding").removeClass('d-none');
+            $.get("/Admin/Marketer?PageId=" + PageId + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/Marketer?PageId=" + PageId + "&InPageCount=" + InPageCount;
+            });
+        });
+
+
+        $("#InPageCount").change(function () {
+            var PageId = $("#pageNumber option:selected").val();
+            var InPageCount = $("#InPageCount option:selected").val();
+            $("#loding").removeClass('d-none');
+            $.get("/Admin/Marketer?PageId=" + PageId + "&InPageCount=" + InPageCount, function (result) {
+                window.location.href = "/Admin/Marketer?PageId=" + PageId + "&InPageCount=" + InPageCount;
+            });
+        });
+
+
     </script>
 
 }

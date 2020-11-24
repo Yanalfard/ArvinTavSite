@@ -8,42 +8,19 @@
 </div>
 <form>
     <div class="modal-body">
-        <div class="form-row"> 
+        <div class="form-row">
             <div class="form-group col-12 col-md-6">
                 <input type="text" class="form-control form-control-sm" id="Title" placeholder="عنوان">
             </div>
         </div>
         <div class="form-row">
-            <textarea class="col-12" id="Description"> 
-            </textarea>
+            <textarea class="col-12" id="Description"  rows="4" cols="50" maxlength="400" style="max-height:130px" placeholder="توضیحات..."></textarea>
         </div>
     </div>
     <div class="modal-footer justify-content-end">
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
         <a id="BtnCreateMarketerReport" class="btn btn-success btn-sm text-white"><i class="fas fa-plus-circle"></i>افزودن</a>
     </div>
 </form>
 
-<script>
-    $("#BtnCreateMarketerReport").click(function () {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#Description").val() == null || $("#Description").val() == "") {
-            $("#BtnCreateMarketerReport").removeClass('btn-success');
-            $("#BtnCreateMarketerReport").addClassClass('btn-danger');
-            $("#BtnCreateMarketerReport").html("تمامی موارد اجباری میباشد");
-        } else {
-            $("#BtnCreateMarketerReport").removeClass('btn-danger');
-            $("#BtnCreateMarketerReport").addClass('btn-success');
-            $("#BtnCreateMarketerReport").html("<i class='fas fa-plus-circle'></i>افزودن");
-
-            var Title = $("#Title").val();
-            var Description = $("#Description").val();
-
-            $.post("/Admin/Marketer/CraateReportUp?Title=" + Title + "&Description=" + Description, function (result) {
-                if (result == "true") {
-                    window.location.reload();
-                } else {
-                    alert(result);
-                }
-            });
-        }
-    });
-</script>
+<script src="~/Areas/Admin/CommandJs/Marketer.js"></script>

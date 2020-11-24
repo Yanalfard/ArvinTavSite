@@ -10,24 +10,12 @@
 <div class="space"></div>
 <div class="modal-footer justify-content-end">
     <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-    <button onclick="ConfirmDelete(@Model.ID)" type="button" class="btn btn-sm btn-danger">
+    <button onclick="ConfirmDelete(@Model.ID)" type="button" class="btn btn-sm btn-success">
         بله
     </button>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">خیر</button>
+    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">خیر</button>
 
 </div>
 
-<script>
-
-    function ConfirmDelete(ID) {
-        $(".loding").removeClass("d-none");
-        $.get("/Admin/ServiceCategory/Remove?ID=" + ID, function (result) {
-            if (result == "true") {
-                window.location.reload();
-            }
-        });
-    }
-
-</script>
-
+<script src="~/Areas/Admin/CommandJs/ServiceCategory.js"></script>
 

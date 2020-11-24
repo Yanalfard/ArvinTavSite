@@ -56,6 +56,7 @@
 
     <div class="space"></div>
     <div class="modal-footer justify-content-end">
+        <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
         <a onclick="EditSpiderUp(@Model.Spider.ID)" id="BtnEditSpider" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
@@ -64,121 +65,6 @@
     $(function () {
         $('#my-textarea').ckeditor();
     });
-
-    $("#MainCategorySelect").change(function () {
-        if ($("#MainCategorySelect option:selected").val() == 0) { } else {
-            $("#Category").val($("#MainCategorySelect option:selected").val());
-        }
-    });
-    
-    function EditSpiderUp(ID) {
-        if ($("#Title").val() == null || $("#Title").val() == "" || $("#my-textarea").val() == null || $("#my-textarea").val() == "") {
-            $("#BtnEditSpider").removeClass('btn-success');
-            $("#BtnEditSpider").addClass('btn-danger');
-            $("#BtnEditSpider").html("همه موارد اجباری میباشد");
-        } else {
-            $("#BtnEditSpider").addClass('btn-success');
-            $("#BtnEditSpider").removeClass('btn-danger');
-            $("#BtnEditSpider").html("<i class='fas fa-edit'></i>ویرایش");
-
-            if ($("#Image").val() == null || $("#Image").val() == "") {
-
-                var tags = [];
-
-                //Data
-
-                for (var i = 0; i < $(".tag").length; i++) {
-                    tags.push($(".tag")[i].innerText);
-                }
-                var Category = $("#Category").val();
-                var Title = $("#Title").val();
-                var Description = $("#my-textarea").val();
-
-                $.ajax({
-                    type: "POST",
-                    url: '/Admin/Management/SpiderEdit',
-                    data: { ID: ID, Category: Category, Title: Title, Description: Description, Image: null, SeoTages: tags },
-                    success: function (result) {
-                        if (result == "true") {
-                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                            $.get("/Admin/Management/P_Spider", function (result) {
-                                $(".Panel").removeClass("bg-info");
-                                $(".Panel").removeClass("text-white");
-                                $("#SpiderPaper").addClass("bg-info");
-                                $("#SpiderPaper").addClass("text-white");
-                                $("#card-table").html(result);
-                                alert("مطلب با موفقیت ویرایش شد.");
-                                $("#modalSave").css('display', 'none');
-                                $("#modalSave").removeClass('show');
-                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                            });
-                        } else {
-                            alert(result);
-                        }
-                    },
-                    dataType: "json",
-                    traditional: true
-                });
-
-
-            } else {
-
-
-                var data = new FormData();
-                var files = $("#Image").get(0).files;
-                if (files.length > 0) {
-                    data.append("UploadSpiderImage", files[0]);
-                }
-
-                $.ajax({
-                    url: "/Admin/Upload/UploadSpiderImage",
-                    type: "POST",
-                    processData: false,
-                    contentType: false,
-                    data: data,
-                    success: function (response) {
-                        var tags = [];
-
-                        //Data
-
-                        for (var i = 0; i < $(".tag").length; i++) {
-                            tags.push($(".tag")[i].innerText);
-                        }
-                        var Category = $("#Category").val();
-                        var Title = $("#Title").val();
-                        var Description = $("#my-textarea").val();
-                        var Image = response;
-                        $.ajax({
-                            type: "POST",
-                            url: '/Admin/Management/SpiderEdit',
-                            data: { ID: ID, Category: Category, Title: Title, Description: Description, Image: Image, SeoTages: tags },
-                            success: function (result) {
-                                if (result == "true") {
-                                    $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                    $.get("/Admin/Management/P_Spider", function (result) {
-                                        $(".Panel").removeClass("bg-info");
-                                        $(".Panel").removeClass("text-white");
-                                        $("#SpiderPaper").addClass("bg-info");
-                                        $("#SpiderPaper").addClass("text-white");
-                                        $("#card-table").html(result);
-                                        alert("مطلب با موفقیت ویرایش شد.");
-                                        $("#modalSave").removeClass('show');
-                                        document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                                    });
-                                } else {
-                                    alert(result);
-                                }
-                            },
-                            dataType: "json",
-                            traditional: true
-                        });
-                    }
-                });
-            }
-
-        }
-    }
-
-
 </script>
+<script src="~/Areas/Admin/CommandJs/Spider.js"></script>
 

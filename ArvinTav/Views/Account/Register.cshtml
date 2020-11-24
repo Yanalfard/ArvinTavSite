@@ -62,8 +62,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <img src="~/img/gif/load.gif" width="80" class="loading justify-content-center" />
-                                    <button id="Register" type="submit" value="ثبت نام" class="btn btn-default uk-margin-bottom">ثبت نام</button>
+                                    <button type="submit" value="ثبت نام" class="btn btn-default uk-margin-bottom">ثبت نام</button>
                                 </div>
                             </div>
                         </div>
@@ -76,16 +75,3 @@
 
     </content>
 </div>
-
-
-@section Scripts{
-
-    <script>
-        $(".loading").hide();
-        $("#Register").click(function () {
-            $("#Register").hide();
-            $(".loading").show();
-        });
-    </script>
-
-}

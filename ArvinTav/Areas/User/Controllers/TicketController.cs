@@ -116,6 +116,7 @@ namespace ArvinTav.Areas.User.Controllers
                     return Redirect("/User/Ticket/InnerTicket?ID=" + TicketID);
 
                 }
+
             }
             else
             {
@@ -137,29 +138,21 @@ namespace ArvinTav.Areas.User.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateTicketInUser createTicketInUser, HttpPostedFileBase File)
         {
-            if (createTicketInUser.TicketCategory == 0)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("TicketCategory", "لطفا بخش مورد نظر را انتخاب کنید");
-                ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-                ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
-
-                return View();
-            }
-            else
-            {
-                if (createTicketInUser.order == 0)
+                if (createTicketInUser.TicketCategory == 0)
                 {
-                    ModelState.AddModelError("Order", "لطفا سرویس مورد نظر  را انتخاب کنید");
+                    ModelState.AddModelError("TicketCategory", "لطفا بخش مورد نظر را انتخاب کنید");
                     ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
                     ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+
                     return View();
                 }
                 else
                 {
-
-                    if (string.IsNullOrEmpty(createTicketInUser.Subject))
+                    if (createTicketInUser.order == 0)
                     {
-                        ModelState.AddModelError("Subject", "لطفا موضوع  مورد نظر  را وارد کنید");
+                        ModelState.AddModelError("Order", "لطفا سرویس مورد نظر  را انتخاب کنید");
                         ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
                         ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
                         return View();
@@ -167,9 +160,9 @@ namespace ArvinTav.Areas.User.Controllers
                     else
                     {
 
-                        if (string.IsNullOrEmpty(createTicketInUser.Text))
+                        if (string.IsNullOrEmpty(createTicketInUser.Subject))
                         {
-                            ModelState.AddModelError("Text", "لطفا متن مورد نظر  را انتخاب کنید");
+                            ModelState.AddModelError("Subject", "لطفا موضوع  مورد نظر  را وارد کنید");
                             ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
                             ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
                             return View();
@@ -177,46 +170,61 @@ namespace ArvinTav.Areas.User.Controllers
                         else
                         {
 
-                            if (File != null)
+                            if (string.IsNullOrEmpty(createTicketInUser.Text))
                             {
-                                if (File.ContentLength > 3000000)
+                                ModelState.AddModelError("Text", "لطفا متن مورد نظر  را انتخاب کنید");
+                                ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                                ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                                return View();
+                            }
+                            else
+                            {
+
+                                if (File != null)
                                 {
-                                    ModelState.AddModelError("File", "حجم فایل بیش از 3 مگابایت میباشد");
-                                    ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
-                                    ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
-                                    return View();
-                                }
-                                else
-                                {
-                                    if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+                                    if (File.ContentLength > 3000000)
                                     {
-                                        ModelState.AddModelError("File", "تنها فایل ها با فرمت pdf و png و jpeg قابل ارسال میباشد");
+                                        ModelState.AddModelError("File", "حجم فایل بیش از 3 مگابایت میباشد");
                                         ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
                                         ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
                                         return View();
                                     }
                                     else
                                     {
-                                        createTicketInUser.File = Guid.NewGuid() + Path.GetExtension(File.FileName);
-                                        File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + createTicketInUser.File));
+                                        if (File.ContentType != "application/pdf" && File.ContentType != "image/jpg" && File.ContentType != "image/png" && File.ContentType != "image/jpeg")
+                                        {
+                                            ModelState.AddModelError("File", "تنها فایل ها با فرمت pdf و png و jpeg قابل ارسال میباشد");
+                                            ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+                                            ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+                                            return View();
+                                        }
+                                        else
+                                        {
+                                            createTicketInUser.File = Guid.NewGuid() + Path.GetExtension(File.FileName);
+                                            File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + createTicketInUser.File));
 
-                                        createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
-                                        ticketRepository.CreateTicketInUser(createTicketInUser);
-                                        return Redirect("/User/Ticket");
+                                            createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                                            ticketRepository.CreateTicketInUser(createTicketInUser);
+                                            return Redirect("/User/Ticket");
+                                        }
                                     }
                                 }
-                            }
-                            else
-                            {
-                                createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
-                                createTicketInUser.File = null;
-                                ticketRepository.CreateTicketInUser(createTicketInUser);
-                                return Redirect("/User/Ticket");
+                                else
+                                {
+                                    createTicketInUser.user = userRepository.UserByPhoneNumber(User.Identity.Name);
+                                    createTicketInUser.File = null;
+                                    ticketRepository.CreateTicketInUser(createTicketInUser);
+                                    return Redirect("/User/Ticket");
+                                }
                             }
                         }
                     }
                 }
+
             }
+            ViewBag.TicketCategory = ticketRepository.ticketCategories().Where(t => t.IsActive == true);
+            ViewBag.Order = userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Select(o => o.PackageService);
+            return View(createTicketInUser);
         }
     }
 }

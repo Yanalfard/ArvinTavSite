@@ -24,23 +24,22 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
+    .category {
+        font-size: 12px;
 
-.category {
-    font-size: 12px;
+        a {
+            padding: 2px;
+            margin: 3px;
+            background: #ffed87;
+            color: #555 !important;
+            border-radius: 3px;
+        }
 
-    a {
-        padding: 2px;
-        margin: 3px;
-        background: #ffed87;
-        color: #555 !important;
-        border-radius: 3px;
+        a:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
     }
-
-    a:hover {
-        text-decoration: none;
-        opacity: 0.8;
-    }
-}
 
     .grid {
 
@@ -81,7 +80,12 @@ body {
                 margin-right: 0px !important;
                 width: 220px !important;
             }
+
+            .logoinCenterContainer {
+                margin-left: 24px !important;
+            }
         }
+
         .grid {
             @include grid-gap(280px,2em);
             padding: 20px 2vw;
@@ -97,15 +101,19 @@ body {
             background: white !important;
             border-radius: 5px;
         }
-        .Titr{
-            display:flex;
-            h4{
-                flex:2
+
+        .Titr {
+            display: flex;
+
+            h4 {
+                flex: 2
             }
-            img{
-                flex:1;
+
+            img {
+                flex: 1;
             }
         }
+
         hr {
             margin: 0 !important;
         }
@@ -162,7 +170,12 @@ body {
                 margin-right: 0px !important;
                 width: 220px !important;
             }
+
+            .logoinCenterContainer {
+                margin-left: 24px !important;
+            }
         }
+
         .postContent {
             .Content {
                 display: contents !important;
@@ -225,21 +238,22 @@ body {
             }
         }
     }
-.pagination {
-    display: inline-block;
-}
 
-.pagination a {
-    color: black;
-    padding: 8px 10px;
-    text-decoration: none;
-}
+    .pagination {
+        display: inline-block;
+    }
 
-.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-}
+    .pagination a {
+        color: black;
+        padding: 8px 10px;
+        text-decoration: none;
+    }
 
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-}
+    .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .pagination a:hover:not(.active) {
+        background-color: #ddd;
+    }

@@ -1999,6 +1999,9 @@
     <Content Include="img\Home\head slider\web-design.svg" />
     <Content Include="img\Home\svg\Location.svg" />
     <Content Include="img\products\mainCategoryCover.svg" />
+    <Content Include="img\products\arrow.svg" />
+    <Content Include="img\Home\why.svg" />
+    <Content Include="img\Home\endOfCover.svg" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

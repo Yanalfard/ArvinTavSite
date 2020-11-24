@@ -4,8 +4,8 @@
 
 .contactSection {
     .mat {
-        width: 220px;
-        padding:22px;
+        width: 303px;
+        padding:10px;
     }
 
     .contactAddress {
@@ -51,14 +51,16 @@
     input {
         background: #dcdbdb;
         border: none;
-        padding: 5px 20px;
-        margin: 8px 0;
+        padding: 10px 52px;
+        margin: 12px 0;
     }
 
     #textareaInContact {
         overflow: visible !important;
-        height: 120px !important;
+        height: 101px !important;
         resize: none;
+        width:87%!important;
+        margin-bottom:12px;
     }
 
     label {
@@ -101,7 +103,7 @@
     }
 
     img {
-        flex: 1;
+        
     }
 }
 @media only screen and (max-device-width: 700px) {
@@ -111,14 +113,18 @@
         }
     }
     .contactUsIcon{
-        width:30px;
-        height:30px;
+        width:25px;
+        height:25px;
     }
-    }
+
     .map {
-        width: 100%;
-        margin: auto !important;
-        //background: $ControlBackground;
-        height: 32vw;
+        height: 240px!important;
     }
+
+    }
+.map {
+    width: 100%;
+    margin: auto !important;
+    height: 400px;
+}
 

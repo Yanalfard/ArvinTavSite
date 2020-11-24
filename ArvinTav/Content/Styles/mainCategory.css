@@ -253,6 +253,9 @@
   cursor: pointer; }
   .categorySection .serviceTitle img {
     margin-left: 10px; }
+  .categorySection .serviceTitle .arrowDown {
+    float: left !important;
+    margin-top: 22px !important; }
 
 @media only screen and (max-width: 600px) {
   .categorySection .serviceTitle {
@@ -267,7 +270,7 @@
 .childGrid .grid {
   display: grid;
   grid-template-rows: auto;
-  grid-gap: 10em;
+  grid-gap: 2.5em;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   padding: 20px 2vw; }
   .childGrid .grid * {

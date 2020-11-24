@@ -274,7 +274,7 @@ body {
     overflow-y: hidden !important; }
     .IndexPage .headSlider img {
       /*width: 400px !important;*/
-      margin: 46px 120px 0 0 !important; }
+      margin: 85px 120px 0 0 !important; }
     .IndexPage .headSlider .coverContent {
       padding: 160px 0 0 100px !important;
       font-family: Sahel !important; }
@@ -601,7 +601,7 @@ body {
         align-self: center;
         margin: 0 auto;
         color: #5cb152;
-        font-size: 16px !important;
+        font-size: 18px !important;
         margin-bottom: 10px !important; }
       .IndexPage .Services div p {
         margin-top: 0 !important;
@@ -627,7 +627,7 @@ body {
         align-self: center;
         margin: 0 auto;
         color: #5cb152;
-        font-size: 16px !important;
+        font-size: 18px !important;
         margin-bottom: 10px !important; }
       .IndexPage .Services div p {
         margin-top: 0 !important;

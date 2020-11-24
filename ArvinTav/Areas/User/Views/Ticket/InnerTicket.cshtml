@@ -77,12 +77,12 @@
                         <form class="row col-sm-12 col-12" method="post" action="SendMassage" enctype="multipart/form-data">
                             @Html.AntiForgeryToken()
                             <input type="hidden" value="@Model.Ticket.ID" name="TicketID" />
-                            <textarea name="Text" class="form-control col-sm-8 col-12 textarea-max-height-90" required maxlength="600"></textarea>
+                            <textarea name="Text" class="form-control col-sm-12 col-12 textarea-fix-height-90" required maxlength="600"></textarea>
                             @if (Request.QueryString["Erorr"] != null)
                             {
                                 <span class="text-danger">فایل های مجاز Pdf , Image</span>
                             }
-                            <br />
+
                             <div class="js-upload uk-margin-auto-right  uk-margin-auto-bottom mb-md-4 mt-3 ml-2 mt-sm-3" uk-form-custom>
                                 <input id="File" type="file" name="File">
                                 <button class="btn btn-secondary btn-sm text-white " type="button" tabindex="-1">انتخاب فایل<i class="fas fa-upload mr-2"></i></button>

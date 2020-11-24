@@ -28,7 +28,7 @@ body {
 
         img {
             /*width: 400px !important;*/
-            margin: 46px 120px 0 0 !important;
+            margin: 85px 120px 0 0 !important;
         }
 
         .coverContent {
@@ -74,7 +74,7 @@ body {
     }
 
     .endOfCover {
-       // background-image: url('../../img/Home/footerRibbon.png') !important;
+        // background-image: url('../../img/Home/footerRibbon.png') !important;
         background-image: url('../../img/Home/endOfCover.svg') !important;
         background-size: cover;
         background-repeat: no-repeat;
@@ -540,7 +540,7 @@ body {
                 h2 {
                     @include center();
                     color: #5cb152;
-                    font-size: 16px !important;
+                    font-size: 18px !important;
                     margin-bottom: 10px !important;
                 }
 
@@ -580,7 +580,7 @@ body {
                 h2 {
                     @include center();
                     color: #5cb152;
-                    font-size: 16px !important;
+                    font-size: 18px !important;
                     margin-bottom: 10px !important;
                 }
 
@@ -852,5 +852,5 @@ body {
             -webkit-line-clamp: 20 !important; //number of lines to show
         }
     }
-    /*our team region */
-}
+        /*our team region */
+    }

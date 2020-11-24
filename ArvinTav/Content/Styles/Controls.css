@@ -493,6 +493,8 @@ footer {
     color: white !important;
     padding: 5px; }
   footer h6 {
+    font-family: Sahel;
+    overflow: hidden;
     color: #5cb152;
     font-size: 18px;
     font-weight: 400; }

@@ -13,11 +13,9 @@ namespace ArvinTav
             var receptor = PhonNumber;
             var message = Massage;
             var api = new Kavenegar.KavenegarApi("4D4B66616C686B64534544333856706F7A6A35793647497735395A79496C59485644345257546C615137303D");
-<<<<<<< HEAD
             api.VerifyLookup(receptor, Massage, Temp);
-=======
             api.VerifyLookup(receptor, "hello", "verifecation");
->>>>>>> 0d838fca26349d231ce424c91f919dc128ec0f16
+
             return true;
         }
     }

@@ -9,15 +9,14 @@ namespace ArvinTav.Controllers
 {
     public class ProductController : Controller
     {
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private IServiceCategoryRepository serviceCategoryRepository;
         private IPackageRepository packageRepository;
 
         public ProductController()
         {
-            database = new Database();
-            serviceCategoryRepository = new ServiceCategoryRepository(database._db());
-            packageRepository = new PackageRepository(database._db());
+            serviceCategoryRepository = new ServiceCategoryRepository(db);
+            packageRepository = new PackageRepository(db);
 
         }
 

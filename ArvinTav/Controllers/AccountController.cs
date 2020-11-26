@@ -14,12 +14,11 @@ namespace ArvinTav.Controllers
 
     public class AccountController : Controller
     {
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private IUserRepository userRepository;
         public AccountController()
         {
-            database = new Database();
-            userRepository = new UserRepository(database._db());
+            userRepository = new UserRepository(db);
 
         }
 

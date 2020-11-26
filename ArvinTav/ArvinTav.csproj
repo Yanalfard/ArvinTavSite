@@ -3299,7 +3299,6 @@
     <Folder Include="Document\File\TicketFile\" />
     <Folder Include="Document\img\Category\" />
     <Folder Include="Document\img\Customer\" />
-    <Folder Include="Document\img\Hosting\" />
     <Folder Include="Document\img\Package\" />
     <Folder Include="Document\img\Partner\" />
     <Folder Include="Document\img\Project\" />

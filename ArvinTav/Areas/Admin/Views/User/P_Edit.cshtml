@@ -39,7 +39,7 @@
     </div>
     <div class="modal-footer justify-content-end">
         <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
-        <a onclick="BtnEdit(@Model.user.UserID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
+        <a id="BtnEdit" onclick="BtnEdit(@Model.user.UserID)" class="btn btn-success btn-sm text-white"><i class="fas fa-edit"></i>ویرایش</a>
     </div>
 </form>
 
@@ -48,15 +48,34 @@
         var FullName = $("#FullName").val();
         var Brand = $("#Brand").val();
         var Email = $("#Email").val();
-        var UserRole = $("#UserRole option:selected").val();
-        $(".loding").removeClass("d-none");
-        $.post("/Admin/User/Edit?ID=" + ID + "&FullName=" + FullName + "&Brand=" + Brand + "&Email=" + Email + "&UserRole=" + UserRole, function (result) {
-            if (result == "true") {
-                window.location.reload();
+
+        if (FullName.includes("'") || Brand.includes("'") || Email.includes("'")) {
+            $("#BtnEdit").removeClass('btn-success');
+            $("#BtnEdit").addClass('btn-danger');
+            $("#BtnEdit").html("فیلدی نا معتبر است");
+
+        } else {
+
+            if (Email.includes("@("@")") == false) {
+                $("#BtnEdit").removeClass('btn-success');
+                $("#BtnEdit").addClass('btn-danger');
+                $("#BtnEdit").html("ایمیل معتبر وارد کنید");
             } else {
-                alert(result);
+                $("#BtnEdit").removeClass('btn-danger');
+                $("#BtnEdit").addClass('btn-success');
+                $("#BtnEdit").html("<i class='fas fa-edit'></i>ویرایش");
+
+                var UserRole = $("#UserRole option:selected").val();
+                $(".loding").removeClass("d-none");
+                $.post("/Admin/User/Edit?ID=" + ID + "&FullName=" + FullName + "&Brand=" + Brand + "&Email=" + Email + "&UserRole=" + UserRole, function (result) {
+                    if (result == "true") {
+                        window.location.reload();
+                    } else {
+                        alert(result);
+                    }
+                });
             }
-        });
+        }
     }
 </script>
 

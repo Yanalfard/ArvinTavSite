@@ -262,18 +262,8 @@ $("#BtnAddSpiderCategory").click(function () {
 
         $.get("/Admin/Management/SpiderCategoryCreate?Title=" + Title, function (result) {
             if (result == "true") {
-                alert("دسته بلاگ اضافه شد");
                 $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                $.get("/Admin/Management/P_Spider", function (result) {
-                    $(".Panel").removeClass("bg-info");
-                    $(".Panel").removeClass("text-white");
-                    $("#SpiderPaper").addClass("bg-info");
-                    $("#SpiderPaper").addClass("text-white");
-                    $("#card-table").html(result);
-                    $("#modalSave").css('display', 'none');
-                    $("#modalSave").removeClass('show');
-                    document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                });
+                window.location.reload();
             } else {
                 alert(result);
             }

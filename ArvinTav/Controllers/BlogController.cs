@@ -9,13 +9,13 @@ namespace ArvinTav.Controllers
 {
     public class BlogController : Controller
     {
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private ISpiderRepository spiderRepository;
 
         public BlogController()
         {
-            database = new Database();
-            spiderRepository = new SpiderRepository(database._db());
+            
+            spiderRepository = new SpiderRepository(db);
         }
 
         // GET: Blog
@@ -66,7 +66,7 @@ namespace ArvinTav.Controllers
             ViewBag.PageID = PageId;
             ViewBag.PageCount = Count / 10;
 
-            var list = database._db().seoTages.Where(s => s.Tage.Contains(Tage)).Select(p => p.Spider).OrderByDescending(p => p.ID).Skip(skip).Take(10);
+            var list = db.seoTages.Where(s => s.Tage.Contains(Tage)).Select(p => p.Spider).OrderByDescending(p => p.ID).Skip(skip).Take(10);
 
 
             return View(list);

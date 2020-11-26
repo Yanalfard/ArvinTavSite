@@ -145,10 +145,37 @@ namespace DataLayer
         {
             try
             {
-                db.PackageServices.RemoveRange(db.PackageServices.Where(p => p.ServiceCategory.ID == ID));
-                db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c => c.ParentID == ID));
-                db.ServiceCategories.Remove(ServiceCategoryById(ID));
-                Save();
+                if (db.PackageServices.Where(p => p.ServiceCategory.ID == ID).Count() == 0)
+                {
+                    if (db.ServiceCategories.Where(c => c.ParentID == ID).Count() == 0)
+                    {
+                        db.ServiceCategories.Remove(ServiceCategoryById(ID));
+                        Save();
+                    }
+                    else
+                    {
+                        db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c => c.ParentID == ID));
+                        db.ServiceCategories.Remove(ServiceCategoryById(ID));
+                        Save();
+                    }
+                }
+                else
+                {
+                    if (db.ServiceCategories.Where(c => c.ParentID == ID).Count() == 0)
+                    {
+                        db.PackageServices.RemoveRange(db.PackageServices.Where(p => p.ServiceCategory.ID == ID));
+                        db.ServiceCategories.Remove(ServiceCategoryById(ID));
+                        Save();
+                    }
+                    else
+                    {
+                        db.PackageServices.RemoveRange(db.PackageServices.Where(p => p.ServiceCategory.ID == ID));
+                        db.ServiceCategories.RemoveRange(db.ServiceCategories.Where(c => c.ParentID == ID));
+                        db.ServiceCategories.Remove(ServiceCategoryById(ID));
+                        Save();
+                    }
+                }
+
                 return "true";
             }
             catch (Exception ex)

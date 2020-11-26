@@ -39,6 +39,7 @@ namespace ArvinTav.Controllers
             PackageService package = packageRepository.PackageServiceById(ID);
             Order order = new Order();
             order.Price = package.Price;
+
             if (OffCode != null && OffCode != "")
             {
 
@@ -47,7 +48,7 @@ namespace ArvinTav.Controllers
 
                 if (discount != null)
                 {
-                    int OFF = (package.Price * discount.Percentage) / 100;
+                    int OFF = (order.Price * discount.Percentage) / 100;
                     order.Price = order.Price - OFF;
                 }
                 else
@@ -59,8 +60,14 @@ namespace ArvinTav.Controllers
             {
                 order.Price = package.Price;
             }
+
+            if (userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Where(o => o.PackageService.ID == package.ID).Count() > 0)
+            {
+                db.Orders.RemoveRange(userRepository.UserByPhoneNumber(User.Identity.Name).Orders.Where(o => o.PackageService.ID == package.ID));
+                orderRepository.Save();
+            }
+
             order.Description = Description;
-            order.Price = package.Price;
             order.DateTime = DateTime.Now;
             order.PackageService = packageRepository.PackageServiceById(ID);
             order.Status = 1;

@@ -14,13 +14,13 @@ namespace ArvinTav.Areas.User.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content,Customer")]
     public class DashboardController : Controller
     {
-        private IDatabase database;
+        private ArvinContext db = new ArvinContext();
         private IUserRepository userRepository;
 
         public DashboardController()
         {
-            database = new Database();
-            userRepository = new UserRepository(database._db());
+
+            userRepository = new UserRepository(db);
         }
 
         // GET: User/Dashboard
@@ -47,12 +47,22 @@ namespace ArvinTav.Areas.User.Controllers
         {
             DataLayer.User UpdateUser = new DataLayer.User();
             DataLayer.User user = userRepository.UserByPhoneNumber(User.Identity.Name);
-            if (ImageUp != null)
-            {
 
-                if (ImageUp.ContentType != "image/png" && ImageUp.ContentType != "image/jpeg" && ImageUp.ContentType != "image/jpg")
+            if (fullRegsiterViewModel.Brand.Contains("'"))
+            {
+                ModelState.AddModelError("Brand", "نام تجاری نا معتبر است");
+                FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                fullReplyRegsiterViewModel.FullName = user.FullName;
+                fullReplyRegsiterViewModel.Brand = user.Brand;
+                fullReplyRegsiterViewModel.Email = user.Email;
+                fullReplyRegsiterViewModel.Image = user.Image;
+                return View(fullRegsiterViewModel);
+            }
+            else
+            {
+                if (fullRegsiterViewModel.Email.Contains("'"))
                 {
-                    ModelState.AddModelError("Image", "تصویر با فرمت png و jpeg معتبر است");
+                    ModelState.AddModelError("Email", "ایمیل نا معتبر است");
                     FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
                     fullReplyRegsiterViewModel.FullName = user.FullName;
                     fullReplyRegsiterViewModel.Brand = user.Brand;
@@ -62,12 +72,9 @@ namespace ArvinTav.Areas.User.Controllers
                 }
                 else
                 {
-
-                    var img = Bitmap.FromStream(ImageUp.InputStream);
-
-                    if (img.Width > 600 || img.Height > 600)
+                    if (fullRegsiterViewModel.FullName.Contains("'"))
                     {
-                        ModelState.AddModelError("Image", "طول و عرض تصویر نباید بیشتر از 600 پیکسل باشد");
+                        ModelState.AddModelError("نام نا معتبر است", "تصویر با فرمت png و jpeg معتبر است");
                         FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
                         fullReplyRegsiterViewModel.FullName = user.FullName;
                         fullReplyRegsiterViewModel.Brand = user.Brand;
@@ -77,38 +84,72 @@ namespace ArvinTav.Areas.User.Controllers
                     }
                     else
                     {
-                        
-                        if (user.Image != null)
+                        if (ImageUp != null)
                         {
-                            System.IO.File.Delete(Server.MapPath("/Document/img/User/" + user.Image));
+
+                            if (ImageUp.ContentType != "image/png" && ImageUp.ContentType != "image/jpeg" && ImageUp.ContentType != "image/jpg")
+                            {
+                                ModelState.AddModelError("Image", "تصویر با فرمت png و jpeg معتبر است");
+                                FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                                fullReplyRegsiterViewModel.FullName = user.FullName;
+                                fullReplyRegsiterViewModel.Brand = user.Brand;
+                                fullReplyRegsiterViewModel.Email = user.Email;
+                                fullReplyRegsiterViewModel.Image = user.Image;
+                                return View(fullRegsiterViewModel);
+                            }
+                            else
+                            {
+
+                                var img = Bitmap.FromStream(ImageUp.InputStream);
+
+                                if (img.Width > 600 || img.Height > 600)
+                                {
+                                    ModelState.AddModelError("Image", "طول و عرض تصویر نباید بیشتر از 600 پیکسل باشد");
+                                    FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                                    fullReplyRegsiterViewModel.FullName = user.FullName;
+                                    fullReplyRegsiterViewModel.Brand = user.Brand;
+                                    fullReplyRegsiterViewModel.Email = user.Email;
+                                    fullReplyRegsiterViewModel.Image = user.Image;
+                                    return View(fullRegsiterViewModel);
+                                }
+                                else
+                                {
+
+                                    if (user.Image != null)
+                                    {
+                                        System.IO.File.Delete(Server.MapPath("/Document/img/User/" + user.Image));
+                                    }
+
+                                    UpdateUser.Image = Guid.NewGuid() + Path.GetExtension(ImageUp.FileName);
+                                    ImageUp.SaveAs(Server.MapPath("/Document/img/User/" + UpdateUser.Image));
+
+                                    UpdateUser.PhoneNumber = User.Identity.Name;
+                                    UpdateUser.FullName = fullRegsiterViewModel.FullName;
+                                    UpdateUser.Email = fullRegsiterViewModel.Email;
+                                    UpdateUser.Brand = fullRegsiterViewModel.Brand;
+                                    userRepository.FullRegister(UpdateUser);
+
+                                    return RedirectToAction("Index");
+
+                                }
+
+                            }
+
                         }
+                        else
+                        {
+                            UpdateUser.PhoneNumber = User.Identity.Name;
+                            UpdateUser.FullName = fullRegsiterViewModel.FullName;
+                            UpdateUser.Email = fullRegsiterViewModel.Email;
+                            UpdateUser.Brand = fullRegsiterViewModel.Brand;
+                            userRepository.FullRegister(UpdateUser);
 
-                        UpdateUser.Image = Guid.NewGuid() + Path.GetExtension(ImageUp.FileName);
-                        ImageUp.SaveAs(Server.MapPath("/Document/img/User/" + UpdateUser.Image));
-
-                        UpdateUser.PhoneNumber = User.Identity.Name;
-                        UpdateUser.FullName = fullRegsiterViewModel.FullName;
-                        UpdateUser.Email = fullRegsiterViewModel.Email;
-                        UpdateUser.Brand = fullRegsiterViewModel.Brand;
-                        userRepository.FullRegister(UpdateUser);
-
-                        return RedirectToAction("Index");
-
+                            return RedirectToAction("Index");
+                        }
                     }
-
                 }
-
             }
-            else
-            {
-                UpdateUser.PhoneNumber = User.Identity.Name;
-                UpdateUser.FullName = fullRegsiterViewModel.FullName;
-                UpdateUser.Email = fullRegsiterViewModel.Email;
-                UpdateUser.Brand = fullRegsiterViewModel.Brand;
-                userRepository.FullRegister(UpdateUser);
 
-                return RedirectToAction("Index");
-            }
         }
 
         public ActionResult P_UserBox()

@@ -28,7 +28,7 @@ namespace DataLayer
         public string PhoneNumber { get; set; }
 
         [Display(Name = "متن پیغام")]
-        [MaxLength(500, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
+        [MaxLength(1000, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
         public string Text { get; set; }
 
         [Display(Name = "وضعیت")]

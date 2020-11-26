@@ -57,6 +57,7 @@
                         @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             <textarea class="uk-width-1-1" id="textareaInContact" name="Text"></textarea>
+                            <br />
                             @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                         </div>
                     </div>

@@ -70,7 +70,6 @@ $("#BtnCustomerCreate").click(function () {
                                             $("#CustomersPaper").addClass("bg-info");
                                             $("#CustomersPaper").addClass("text-white");
                                             $("#card-table").html(result);
-                                            alert(" مشتری با موفقیت ثبت شد");
                                             $("#modalSave").css('display', 'none');
                                             $("#modalSave").removeClass('show');
                                             document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
@@ -131,7 +130,6 @@ function BtnCustomerEdit(ID) {
                                 $("#PartnersPaper").addClass("bg-info");
                                 $("#PartnersPaper").addClass("text-white");
                                 $("#card-table").html(result);
-                                alert(" مشتری با موفقیت ویرایش شد");
                                 $("#modalSave").css('display', 'none');
                                 $("#modalSave").removeClass('show');
                                 document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
@@ -178,7 +176,6 @@ function BtnCustomerEdit(ID) {
                                                 $("#PartnersPaper").addClass("bg-info");
                                                 $("#PartnersPaper").addClass("text-white");
                                                 $("#card-table").html(result);
-                                                alert(" همکار با موفقیت ثبت شد");
                                                 $("#modalSave").css('display', 'none');
                                                 $("#modalSave").removeClass('show');
                                                 document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);

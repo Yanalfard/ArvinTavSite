@@ -26,9 +26,6 @@ namespace DataLayer
         public string Text { get; set; }
 
         [Display(Name = "فایل")]
-        [MaxLength(100, ErrorMessage = "لطفا کارکتر های کمتری وارد کنید")]
-        [MinLength(5, ErrorMessage = "لطفا کارکتر های بیشتری وارد کنید")]
-        [Required(ErrorMessage = "لطفا موضوع را وارد کنید")]
         public string File { get; set; }
 
         [Display(Name ="سرویس")]

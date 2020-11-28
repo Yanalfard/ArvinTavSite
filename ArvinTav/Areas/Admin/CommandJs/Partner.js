@@ -21,7 +21,7 @@ $("#BtnPartnerCreate").click(function () {
             $("#BtnPartnerCreate").html("عنوان مناسب وارد کنید");
         } else {
 
-            if (PhoneNumber.length > 11 || PhoneNumber.includes("'")) {
+            if (PhoneNumber.length > 11 || PhoneNumber.includes("'") || PhoneNumber.length < 11) {
 
                 $("#BtnPartnerCreate").removeClass('btn-success');
                 $("#BtnPartnerCreate").addClass('btn-danger');
@@ -74,7 +74,6 @@ $("#BtnPartnerCreate").click(function () {
                                             $("#PartnersPaper").addClass("bg-info");
                                             $("#PartnersPaper").addClass("text-white");
                                             $("#card-table").html(result);
-                                            alert(" همکار با موفقیت ثبت شد");
                                             $("#modalSave").css('display', 'none');
                                             $("#modalSave").removeClass('show');
                                             document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
@@ -113,7 +112,7 @@ function BtnPartnerEdit(ID) {
             $("#BtnPartnerEdit").html("عنوان مناسب وارد کنید");
         } else {
 
-            if (PhoneNumber.length > 11 || PhoneNumber.includes("'")) {
+            if (PhoneNumber.length > 11 || PhoneNumber.includes("'") || PhoneNumber.length < 11) {
 
                 $("#BtnPartnerEdit").removeClass('btn-success');
                 $("#BtnPartnerEdit").addClass('btn-danger');
@@ -132,7 +131,6 @@ function BtnPartnerEdit(ID) {
                                 $("#PartnersPaper").addClass("bg-info");
                                 $("#PartnersPaper").addClass("text-white");
                                 $("#card-table").html(result);
-                                alert(" همکار با موفقیت ویرایش شد");
                                 $("#modalSave").css('display', 'none');
                                 $("#modalSave").removeClass('show');
                                 document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
@@ -186,7 +184,6 @@ function BtnPartnerEdit(ID) {
                                                 $("#PartnersPaper").addClass("bg-info");
                                                 $("#PartnersPaper").addClass("text-white");
                                                 $("#card-table").html(result);
-                                                alert(" همکار با موفقیت ثبت شد");
                                                 $("#modalSave").css('display', 'none');
                                                 $("#modalSave").removeClass('show');
                                                 document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);

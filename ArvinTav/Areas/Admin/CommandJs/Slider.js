@@ -66,13 +66,15 @@
                                 $.post("/Admin/HomeSetting/SliderCreate?Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
 
                                     if (result == "true") {
-                                        $("#Slider").click(function () {
-                                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                            $.get("/Admin/HomeSetting/P_Slider", function (result) {
-                                                $("#card-table").html(result);
-
-                                            });
+                                       
+                                        $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                                        $.get("/Admin/HomeSetting/P_Slider", function (result) {
+                                            $("#card-table").html(result);
+                                            $("#modalSave").css('display', 'none');
+                                            $("#modalSave").removeClass('show');
+                                            document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
                                         });
+                                      
                                     } else {
                                         alert(result);
                                     }
@@ -107,9 +109,6 @@ function BtnEditSlider(ID) {
             $("#BtnEditSlider").removeClass("btn-success");
             $("#BtnEditSlider").addClass("btn-danger");
         } else {
-            $("#BtnEditSlider").html("<i class='fas fa-plus-circle'></i>افزودن");
-            $("#BtnEditSlider").addClass("btn-success");
-            $("#BtnEditSlider").removeClass("btn-danger");
 
             if (Link.includes("&#39;") || Link.length > 200) {
                 $("#BtnEditSlider").html("لطفا لینک مناسب وارد کنید");
@@ -117,18 +116,23 @@ function BtnEditSlider(ID) {
                 $("#BtnEditSlider").addClass("btn-danger");
             }
             else {
-
+                $("#BtnEditSlider").html("<i class='fas fa-plus-circle'></i>ویرایش");
+                $("#BtnEditSlider").addClass("btn-success");
+                $("#BtnEditSlider").removeClass("btn-danger");
                 if ($("#Image").val() == null || $("#Image").val() == "") {
-
-                    $.post("/Admin/HomeSetting/SliderCreate?ID=" + ID + "Title=" + Title + "&Link=" + Link + "&Image=", function (result) {
+                    
+                    $.post("/Admin/HomeSetting/SliderEdit?ID=" + ID + "&Title=" + Title + "&Link=" + Link + "&Image=", function (result) {
 
                         if (result == "true") {
-                            $("#Slider").click(function () {
-                                $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                $.get("/Admin/HomeSetting/P_Slider", function (result) {
-                                    $("#card-table").html(result);
-                                });
+                            
+                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                            $.get("/Admin/HomeSetting/P_Slider", function (result) {
+                                $("#card-table").html(result);
+                                $("#modalSave").css('display', 'none');
+                                $("#modalSave").removeClass('show');
+                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
                             });
+                           
                         } else {
                             alert(result);
                         }
@@ -166,18 +170,20 @@ function BtnEditSlider(ID) {
                                 var Link = $("#Link").val();
                                 var Image = response;
                                 $(".loding").removeClass("d-none");
-                                $("#BtnEditSlider").html("<i class='fas fa-plus-circle'></i>افزودن");
-                                $("#BtnEditSlider").removeClass('btn-danger');
-                                $("#BtnEditSlider").addClass('btn-success');
-                                $.post("/Admin/HomeSetting/SliderEdit?ID=" + ID + "Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
+                                $("#BtnEditSlider").html("<i class='fas fa-plus-circle'></i>ویرایش");
+                                $("#BtnEditSlider").addClass("btn-success");
+                                $("#BtnEditSlider").removeClass("btn-danger");
+                                $.post("/Admin/HomeSetting/SliderEdit?ID=" + ID + "&Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
 
                                     if (result == "true") {
-                                        $("#Slider").click(function () {
                                             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
                                             $.get("/Admin/HomeSetting/P_Slider", function (result) {
                                                 $("#card-table").html(result);
+                                                $("#modalSave").css('display', 'none');
+                                                $("#modalSave").removeClass('show');
+                                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
                                             });
-                                        });
+                                        
                                     } else {
                                         alert(result);
                                     }

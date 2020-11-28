@@ -16,16 +16,18 @@ namespace ArvinTav.Controllers
         private IProjectRepository projectRepository;
         private ISliderRepository sliderRepository;
         private IMassageRepository massageRepository;
+        private ISpiderRepository spiderRepository;
 
         public HomeController()
         {
-            
+
             serviceCategoryRepository = new ServiceCategoryRepository(db);
             userRepository = new UserRepository(db);
             packageRepository = new PackageRepository(db);
             projectRepository = new ProjectRepository(db);
             sliderRepository = new SliderRepository(db);
             massageRepository = new MassageRepository(db);
+            spiderRepository = new SpiderRepository(db);
         }
 
         // GET: Home
@@ -70,8 +72,8 @@ namespace ArvinTav.Controllers
         {
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
-        
-        
+
+
         [HttpGet]
         public ActionResult ContactUs(string Massage)
         {
@@ -80,7 +82,7 @@ namespace ArvinTav.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ContactUs(Massage massage,FormCollection form)
+        public ActionResult ContactUs(Massage massage, FormCollection form)
         {
             if (ModelState.IsValid)
             {
@@ -88,11 +90,11 @@ namespace ArvinTav.Controllers
                 {
                     massageRepository.CreateMassage(massage);
                     massageRepository.Save();
-                   return Redirect("/Home/ContactUs?Massage=true");
+                    return Redirect("/Home/ContactUs?Massage=true");
                 }
             }
             return View();
-                   
+
         }
 
         public ActionResult P_UserBox()
@@ -100,6 +102,14 @@ namespace ArvinTav.Controllers
             return PartialView(userRepository.UserByPhoneNumber(User.Identity.Name));
         }
 
+        [Route("Search={Result}")]
+        public ActionResult Search(string Result)
+        {
+            SearchViewModel searchViewModel = new SearchViewModel();
+            searchViewModel.packageServices = packageRepository.AllPackageServices().Where(p => p.Title.Contains(Result)).Take(20).ToList();
+            searchViewModel.spiders = spiderRepository.AllSpider().Where(p => p.Title.Contains(Result)).Take(20).ToList();
+            return View(searchViewModel);
+        }
 
         protected override void Dispose(bool disposing)
         {

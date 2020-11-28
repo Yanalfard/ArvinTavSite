@@ -63,12 +63,18 @@ namespace DataLayer
             if (string.IsNullOrEmpty(Image))
             {
                 IEnumerable<SeoTage> seoTages = db.seoTages.Where(s => s.Spider.ID == spider.ID);
-                db.seoTages.RemoveRange(seoTages);
+
+                if (seoTages.Count() != 0)
+                {
+                    db.seoTages.RemoveRange(seoTages);
+                }
+                
                 spider.SpiderCategory = spiderCategoryById(Category);
                 spider.Title = Title;
                 spider.Description = Description;
+                spider.Image = spider.Image;
                 Save();
-                if (seoTages.Count() == 0) { }
+                if (SeoTages.Count() == 0) { }
                 else
                 {
                     foreach (var item in SeoTages)
@@ -88,13 +94,16 @@ namespace DataLayer
             {
 
                 IEnumerable<SeoTage> seoTages = db.seoTages.Where(s => s.Spider.ID == spider.ID);
-                db.seoTages.RemoveRange(seoTages);
+                if (seoTages.Count() != 0)
+                {
+                    db.seoTages.RemoveRange(seoTages);
+                }
                 Save();
                 spider.Title = Title;
                 spider.Description = Description;
                 spider.Image = Image;
                 Save();
-                if (seoTages.Count() == 0)
+                if (SeoTages.Count() == 0)
                 { }
                 else
                 {

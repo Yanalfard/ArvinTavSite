@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202011261026347_editmassagetbl2.designer.cs">
       <DependentUpon>202011261026347_editmassagetbl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011270031047_editslider.cs" />
+    <Compile Include="Migrations\202011270031047_editslider.designer.cs">
+      <DependentUpon>202011270031047_editslider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Discount.cs" />
@@ -121,6 +125,7 @@
     <Compile Include="Models\ViewModel\LandingViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageEditViewModel.cs" />
     <Compile Include="Models\ViewModel\PackageServiceDetails.cs" />
+    <Compile Include="Models\ViewModel\SearchViewModel.cs" />
     <Compile Include="Models\ViewModel\SpiderEditViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\OrderExplorerViewModel.cs" />
     <Compile Include="Models\ViewModel\Statistic\RevenuesViewModel.cs" />
@@ -206,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011261026347_editmassagetbl2.resx">
       <DependentUpon>202011261026347_editmassagetbl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011270031047_editslider.resx">
+      <DependentUpon>202011270031047_editslider.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

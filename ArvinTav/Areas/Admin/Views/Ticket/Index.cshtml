@@ -127,9 +127,12 @@
                                     <td>
                                         @if (item.Status == 2)
                                         {
-                                            <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تکمیل تیکت">
-                                                <a href="/Admin/Ticket/EndTicket?ID=@item.ID" class="text-success"><i class="fas fa-check"></i></a>
-                                            </span>
+                                            if (item.Supporter.PhoneNumber == User.Identity.Name)
+                                            {
+                                                <span data-placement="top" data-toggle="tooltip" title="" data-original-title="تکمیل تیکت">
+                                                    <a href="/Admin/Ticket/EndTicket?ID=@item.ID" class="text-success"><i class="fas fa-check"></i></a>
+                                                </span>
+                                            }
                                         }
                                         else if (item.Status == 3)
                                         {

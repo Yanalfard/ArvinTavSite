@@ -82,16 +82,28 @@
                         <div class="row col-sm-12 col-12">
                             @if (Model.Ticket.Status == 1 || Model.Ticket.Status == 2)
                             {
-                                <textarea id="MassageBox" class="form-control col-md-12 col-12 textarea-fix-height-90 "></textarea>
+                                if (Model.Ticket.Status == 2)
+                                {
+                                    if (Model.Ticket.Supporter.PhoneNumber == User.Identity.Name)
+                                    {
+                                        <textarea id="MassageBox" class="form-control col-md-12 col-12 textarea-fix-height-90 "></textarea>
 
-                                // <input type="file" id="MassageFile" class="float-left uk-margin-auto-right uk-margin-auto-top uk-margin-auto-bottom uk-margin-auto-right" /><i class="fas fa-paperclip fa-5x"></i>
+                                        // <input type="file" id="MassageFile" class="float-left uk-margin-auto-right uk-margin-auto-top uk-margin-auto-bottom uk-margin-auto-right" /><i class="fas fa-paperclip fa-5x"></i>
 
-                                <div class="js-upload uk-margin-auto-right  uk-margin-auto-bottom mb-md-4 mt-3" uk-form-custom>
-                                    <input type="file" name="File" id="MassageFile" multiple>
-                                    <button class="btn btn-secondary btn-sm text-white " type="button" tabindex="-1">انتخاب فایل<i class="fas fa-upload mr-2"></i></button>
-                                </div>
-                                <a id="BtnSendMassage" class="btn btn-info btn-sm text-white float-left uk-margin-auto-bottom mt-3 mr-2" onclick="SendMassage(@Model.Ticket.ID)"><i class="fas fa-reply"></i>پاسخ</a>
-                                <a class="btn btn-success btn-sm text-white float-left mr-2 uk-margin-auto-bottom mt-3" onclick="EndTicket(@Model.Ticket.ID)"><i class="fas fa-check"></i>تکمیل</a>
+                                        <div class="js-upload uk-margin-auto-right  uk-margin-auto-bottom mb-md-4 mt-3" uk-form-custom>
+                                            <input type="file" name="File" id="MassageFile" multiple>
+                                            <button class="btn btn-secondary btn-sm text-white " type="button" tabindex="-1">انتخاب فایل<i class="fas fa-upload mr-2"></i></button>
+                                        </div>
+                                        <a id="BtnSendMassage" class="btn btn-info btn-sm text-white float-left uk-margin-auto-bottom mt-3 mr-2" onclick="SendMassage(@Model.Ticket.ID)"><i class="fas fa-reply"></i>پاسخ</a>
+                                        <a class="btn btn-success btn-sm text-white float-left mr-2 uk-margin-auto-bottom mt-3" onclick="EndTicket(@Model.Ticket.ID)"><i class="fas fa-check"></i>تکمیل</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success">
+                                            این تیکت توسط پشتیبان دیگری در حال پیگیری است
+                                        </span>
+                                    }
+                                }
 
                             }
                             else if (Model.Ticket.Status == 3)

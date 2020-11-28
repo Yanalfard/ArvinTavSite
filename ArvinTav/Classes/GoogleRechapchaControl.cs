@@ -14,7 +14,7 @@ namespace ArvinTav
         public static string ControlRechapcha(FormCollection form)
         {
             string urlToPost = "https://www.google.com/recaptcha/api/siteverify";
-            string secretKey = "6LeiCdkZAAAAAD-C8UquFmyZlgCP3U6Xt0yk3jLc"; // change this
+            string secretKey = "6LetqO4ZAAAAALIwWaLE3G98nXD40RIS4zCLTIwA"; // change this
             string gRecaptchaResponse = form["g-recaptcha-response"];
 
             var postData = "secret=" + secretKey + "&response=" + gRecaptchaResponse;

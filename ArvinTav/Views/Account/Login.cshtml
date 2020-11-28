@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-<link href="~/Content/Styles/LoginRegister.min.css" rel="stylesheet" />
+
 
 <div class="GridBackground loginSection center DesktopAccount">
     <content class="grid " dir="rtl">
@@ -60,19 +60,17 @@
                             @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "check" })
 
                         </div>
+                        
 
-
-                        <div class="recap">
-                            <div class="g-recaptcha " data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
-                            <small class="uk-text-danger">@ViewBag.Message</small>
-                        </div>
+                        <div class="g-recaptcha " data-sitekey="6LetqO4ZAAAAAEy8kRSeZHVC9scChzPmQhIb4Kp_"></div>
+                        <small class="uk-text-danger">@ViewBag.Message</small>
 
 
                         <div class="my-row center uk-padding">
 
                             <button class="uk-margin-small-left" type="submit" value="ورود">ورود</button>
 
-                            <a  href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
+                            <a href="/Account/Register" class="Btn uk-margin-small-right">ثبت نام</a>
 
 
                         </div>
@@ -85,5 +83,9 @@
 
     </content>
 </div>
+
+<link href="~/Content/Styles/LoginRegister.min.css" rel="stylesheet" />
+
+
 
 

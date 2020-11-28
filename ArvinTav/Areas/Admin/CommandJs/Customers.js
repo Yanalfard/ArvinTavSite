@@ -22,7 +22,7 @@ $("#BtnCustomerCreate").click(function () {
             $("#BtnCustomerCreate").html("عنوان مناسب وارد کنید");
         } else {
 
-            if (PhoneNumber.length > 11 || PhoneNumber.includes("'")) {
+            if (PhoneNumber.length > 11 || PhoneNumber.includes("'") || PhoneNumber.length < 11) {
 
                 $("#BtnCustomerCreate").removeClass('btn-success');
                 $("#BtnCustomerCreate").addClass('btn-danger');
@@ -112,7 +112,7 @@ function BtnCustomerEdit(ID) {
             $("#BtnCustomerEdit").html("عنوان مناسب وارد کنید");
         } else {
 
-            if (PhoneNumber.length > 11 || PhoneNumber.includes("'")) {
+            if (PhoneNumber.length > 11 || PhoneNumber.includes("'") || PhoneNumber.length < 11) {
 
                 $("#BtnCustomerEdit").removeClass('btn-success');
                 $("#BtnCustomerEdit").addClass('btn-danger');
@@ -127,8 +127,8 @@ function BtnCustomerEdit(ID) {
                             $.get("/Admin/Management/P_Customers", function (result) {
                                 $(".Panel").removeClass("bg-info");
                                 $(".Panel").removeClass("text-white");
-                                $("#PartnersPaper").addClass("bg-info");
-                                $("#PartnersPaper").addClass("text-white");
+                                $("#CustomersPaper").addClass("bg-info");
+                                $("#CustomersPaper").addClass("text-white");
                                 $("#card-table").html(result);
                                 $("#modalSave").css('display', 'none');
                                 $("#modalSave").removeClass('show');
@@ -152,7 +152,7 @@ function BtnCustomerEdit(ID) {
                             data.append("UploadCustomerImageFile", files[0]);
                         }
                         $.ajax({
-                            url: "/Admin/Upload/UploadPartnerLogo",
+                            url: "/Admin/Upload/UploadCustomerLogo",
                             type: "POST",
                             processData: false,
                             contentType: false,
@@ -167,14 +167,14 @@ function BtnCustomerEdit(ID) {
                                     $("#BtnCustomerEdit").addClass('btn-success');
                                     $("#BtnCustomerEdit").removeClass('btn-danger');
                                     $("#BtnCustomerEdit").html("<i class='fas fa-edit'></i>ویرایش");
-                                    $.get("/Admin/Management/EditPartner?ID=" + ID + "&Title=" + Title + "&PhoneNumber=" + PhoneNumber + "&Logo=" + Logo, function (result) {
+                                    $.get("/Admin/Management/EditCustomer?ID=" + ID + "&Title=" + Title + "&PhoneNumber=" + PhoneNumber + "&Logo=" + Logo, function (result) {
                                         if (result == "true") {
                                             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                            $.get("/Admin/Management/P_Partners", function (result) {
+                                            $.get("/Admin/Management/P_Customers", function (result) {
                                                 $(".Panel").removeClass("bg-info");
                                                 $(".Panel").removeClass("text-white");
-                                                $("#PartnersPaper").addClass("bg-info");
-                                                $("#PartnersPaper").addClass("text-white");
+                                                $("#CustomersPaper").addClass("bg-info");
+                                                $("#CustomersPaper").addClass("text-white");
                                                 $("#card-table").html(result);
                                                 $("#modalSave").css('display', 'none');
                                                 $("#modalSave").removeClass('show');
@@ -195,3 +195,4 @@ function BtnCustomerEdit(ID) {
 
         }
     }
+}

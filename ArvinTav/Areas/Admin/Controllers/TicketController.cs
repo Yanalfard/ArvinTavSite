@@ -54,7 +54,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.OrderBy(v => v.ID).Skip(skip).Take(18).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
                         }
@@ -81,7 +81,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
 
@@ -113,7 +113,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.TicketCategory.ID == CategorySearch).OrderBy(v => v.ID).Skip(skip).Take(18).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.TicketCategory.ID == CategorySearch).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
                         }
@@ -140,7 +140,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.TicketCategory.ID == CategorySearch).OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.TicketCategory.ID == CategorySearch).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
                         }
@@ -174,7 +174,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch).OrderBy(v => v.ID).Skip(skip).Take(18).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
                         }
@@ -201,7 +201,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch).OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
 
@@ -232,7 +232,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch && t.TicketCategory.ID == CategorySearch).OrderBy(v => v.ID).Skip(skip).Take(18).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch && t.TicketCategory.ID == CategorySearch).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
                         }
@@ -259,7 +259,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             ViewBag.InPageCount = InPageCount;
 
                             TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch && t.TicketCategory.ID == CategorySearch).OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList();
+                            ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.Status == StatusSearch && t.TicketCategory.ID == CategorySearch).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList();
                             ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                             return View(ticketListViewModel);
 
@@ -292,7 +292,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                     ViewBag.InPageCount = InPageCount;
 
                     TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                    ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.ID == TicketIDSearch).OrderBy(v => v.ID).Skip(skip).Take(18).ToList();
+                    ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.ID == TicketIDSearch).OrderByDescending(v => v.ID).Skip(skip).Take(18).ToList();
                     ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                     return View(ticketListViewModel);
                 }
@@ -319,7 +319,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                     ViewBag.InPageCount = InPageCount;
 
                     TicketListViewModel ticketListViewModel = new TicketListViewModel();
-                    ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.ID == TicketIDSearch).OrderBy(v => v.ID).Skip(skip).Take(InPageCount).ToList();
+                    ticketListViewModel.tickets = ticketRepository.AllTicketInView().tickets.Where(t => t.ID == TicketIDSearch).OrderByDescending(v => v.ID).Skip(skip).Take(InPageCount).ToList();
                     ticketListViewModel.ticketCategories = ticketRepository.AllTicketInView().ticketCategories;
                     return View(ticketListViewModel);
 

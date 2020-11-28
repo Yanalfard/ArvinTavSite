@@ -11,13 +11,12 @@ namespace DataLayer
     {
         public int ID { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(900)]
         [MinLength(2)]
         public string Title { get; set; }
 
         
-        [MinLength(2)]
-        [MaxLength(300)]
+        
         public string Link { get; set; }
 
         public string Image { get; set; }

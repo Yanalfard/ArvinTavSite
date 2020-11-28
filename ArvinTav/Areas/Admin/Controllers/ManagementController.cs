@@ -177,7 +177,7 @@ namespace ArvinTav.Areas.Admin.Controllers
         [ValidateInput(false)]
         public JsonResult SpiderEdit(int ID, int Category, string Title, string Description, string Image, List<string> SeoTages)
         {
-            if (Image != null || Image != "")
+            if (Image != "")
             {
                 string fullPathImage = Request.MapPath("/Document/img/Spider/" + spiderRepository.SpiderById(ID).Image);
                 if (System.IO.File.Exists(fullPathImage))

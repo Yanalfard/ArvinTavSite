@@ -1,0 +1,90 @@
+﻿@model DataLayer.SearchViewModel
+@{
+    ViewBag.Title = "جستجو";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="IndexPage">
+
+    <div class="GreenBackground projectsSlider">
+        <h4 class="center">محصولات</h4>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light overflow-visible" tabindex="-1" uk-slider="autoplay: true ; center:true ; autoplay-interval:4000">
+            <ul class="uk-slider-items uk-grid overflow-visible uk-slider-items">
+
+                @if (Model.packageServices.Count == 0)
+                {
+                    <li>
+                        <span class="uk-text-emphasis">محصولی یافت نشد</span>
+                    </li>
+                }
+                else
+                {
+
+                    foreach (var item in Model.packageServices)
+                    {
+                        <li>
+                            <div class="uk-flex-row">
+                                <div class="uk-panel mat center my-column my-clipped uk-margin-auto uk-animation-toggle" dir="rtl">
+                                    <img src="~/Document/img/Package/@item.Image" width="100" height="90" alt="logo" />
+                                    <div class="my-row uk-margin-medium-top">
+                                        <div class="rightSideLine uk-animation-scale-up uk-transform-origin-top-center"></div>
+                                        <p>
+                                            @item.Title
+                                        </p>
+                                    </div>
+                                    <a class="center" href="/Product/@item.ID/@item.Title.Replace(" ", "-")" target="_blank">جزئیات و سفارش</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+    </div>
+
+    <div class="GreenBackground projectsSlider">
+        <h4 class="center">نوشته ها</h4>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light overflow-visible" tabindex="-1" uk-slider="autoplay: true ; center:true ; autoplay-interval:4000">
+            <ul class="uk-slider-items uk-grid overflow-visible uk-slider-items">
+
+                @if (Model.spiders.Count() == 0)
+                {
+                <li>
+                    <span class="uk-text-emphasis">نوشته ای یافت نشد</span>
+                </li>
+                }
+                else
+                {
+                    foreach (var item in Model.spiders)
+                    {
+                        <li>
+                            <div class="uk-flex-row">
+                                <div class="uk-panel mat center my-column my-clipped uk-margin-auto uk-animation-toggle" dir="rtl">
+                                    <img src="~/Document/img/Spider/@item.Image" width="100" height="90" alt="logo" />
+                                    <div class="my-row uk-margin-medium-top">
+                                        <div class="rightSideLine uk-animation-scale-up uk-transform-origin-top-center"></div>
+                                        <p>
+                                            @item.Title
+                                        </p>
+                                    </div>
+                                    <a class="center" href="/post/@item.ID/@item.Title.Replace(" ","-")" target="_blank">مشاهده</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/UIkit/uikit.min.js"></script>
+

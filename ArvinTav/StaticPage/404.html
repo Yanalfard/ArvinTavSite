@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <title>صفحه مورد نظر یافت نشد</title>
-    <link href="/Content/ErorrPage.css" rel="stylesheet" />
     <link href="/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/bootstrap/css/bootstrap-rtl.css" rel="stylesheet" />
 </head>
@@ -12,33 +11,36 @@
 
     <div class="container text-center">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="#">
                         <img src="/img/Admin/logo/ArvinTavLogo.svg" />
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="/"><h5>صفحه اصلی</h5><span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="/ContactUs"><h5>ارتباط با ما</h5></a>
-                            <a class="nav-item nav-link" href="/Blog"><h5>مرکز آموزش</h5></a>
-                            <a class="nav-item nav-link" href="#"><h5>طراحی سایت</h5></a>
-                            <a class="nav-item nav-link" href="#"><h5>آموزش آنلاین</h5></a>
-                            <a class="nav-item nav-link" href="#"><h5>طراحی اپلکیشن</h5></a>
-                        </div>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">صفحه اصلی<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Blog">مرکز آموزش</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/MainPackage/65/طراحی-سایت">طراحی سایت</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/MainPackage/69/دیجیتال-مارکتینگ">دیجیتال مارکتینگ</a>
+                            </li>
+
+                        </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-12">
                 <section class="error-container">
-                    <span style="font-size:70px;" class="text-warning">4</span>
-                    <span style="font-size:70px;" class="text-warning">0</span>
-                    <span style="font-size:70px;" class="text-warning">4</span>
-                    <br />
-                    <span style="font-size:50px;" class="text-danger">صفحه مورد نظر یافت نشد</span>
+                    <img class="img-fluid" src="/img/gif/1_zE2qnVTJehut7B8P2aMn3A.gif" />
                 </section>
             </div>
 
@@ -50,5 +52,5 @@
 
 </body>
 </html>
-
+<script src="/Scripts/jquery-3.4.1.min.js"></script>
 <script src="/Content/bootstrap/js/bootstrap.min.js"></script>

@@ -64,7 +64,7 @@
 
 
                     <div class="recap">
-                        <div class="g-recaptcha " data-sitekey="6LeiCdkZAAAAAHgPzJSvSmJw6KOh6o0nGKnnhwpM"></div>
+                        <div class="g-recaptcha " data-sitekey="6LetqO4ZAAAAAEy8kRSeZHVC9scChzPmQhIb4Kp_"></div>
                         <small class="uk-text-danger">@ViewBag.Message</small>
                     </div>
 
@@ -76,7 +76,21 @@
                 </div>
             }
         </div>
+        <script>
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            console.log(vw);
+            if (vw < 480) {
+                var timerId = setInterval(function () {
+                    const end = document.querySelector('#end');
+                    if (end.nextElementSibling != null) {
+                        end.nextElementSibling.style.position = "unset";
+                        console.log('set to unset');
+                        clearInterval(timerId);
+                    }
+                }, 100);
+            }
 
+        </script>
     </div>
     <div class="contactAddress uk-padding-small uk-margin-top my-clipped">
         <div class="socialContact my-row" dir="rtl">
@@ -86,8 +100,8 @@
                 <div class="my-row"><i class="fab fa-whatsapp fa-2x uk-text-success"></i><a dir="ltr">0914 501 66077</a></div>
                 <div class="my-row"><i class="far fa-envelope fa-2x uk-text-danger"></i><a dir="ltr">info@arvintavco.com</a></div>
             </div>
-
-            <img class="uk-margin-auto-right" src="~/img/Home/head slider/social media.svg" width="260" alt="social" />
+           
+            <img class="uk-margin-auto-right" src="~/img/Home/svg/social media.svg" width="260" alt="social" />
         </div>
         <hr />
         <div class="my-column" dir="rtl">

@@ -119,12 +119,12 @@
                     </div>
                 }
                 @Html.Action("P_MainCategoryMobile", "Home")
-                    <form class="search center ">
-                        <div class="inputContainer">
-                            <input id="inputSerach" class="Field" maxlength="30" type="search" placeholder="جستجو..." />
-                            <a id="BtnSearch"><i class="fa fa-search icon"></i></a>
-                        </div>
-                    </form>
+                <form class="search center ">
+                    <div class="inputContainer">
+                        <input id="inputSerach" class="Field" maxlength="30" type="search" placeholder="جستجو..." />
+                        <a id="BtnSearch"><i class="fa fa-search icon"></i></a>
+                    </div>
+                </form>
 
 
             </div>
@@ -209,16 +209,18 @@
     </footer>
     <!-- end region -->
 
+    <script src="~/Scripts/UIkit/uikit.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/UIScripts/Global.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
+    <script src="~/Scripts/Home.js"></script>
+    <div id="end" role="none"></div>
+    @RenderSection("Scripts", false)
+
 </body>
 </html>
 
 
-<script src="~/Scripts/UIkit/uikit.min.js"></script>
-<script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
-<script src="~/Scripts/UIScripts/Global.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
-<script src="~/Scripts/Home.js"></script>
-@RenderSection("Scripts", false)
 
 
 

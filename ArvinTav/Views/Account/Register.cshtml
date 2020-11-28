@@ -74,4 +74,21 @@
         </article>
 
     </content>
+    <script>
+
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        console.log(vw);
+        if (vw < 480) {
+            var timerId = setInterval(function () {
+                const end = document.querySelector('#end');
+                if (end.nextElementSibling != null) {
+                    end.nextElementSibling.style.position = "unset";
+                    console.log('set to unset');
+                    clearInterval(timerId);
+                }
+            }, 100);
+        }
+
+
+    </script>
 </div>

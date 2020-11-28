@@ -292,6 +292,7 @@ h4 {
   margin: 12px 0; }
 
 .contactForm #textareaInContact {
+  margin-top: 9px;
   overflow: visible !important;
   height: 101px !important;
   resize: none;

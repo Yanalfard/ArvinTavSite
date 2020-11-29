@@ -1817,3 +1817,8 @@ table.hot-download td {
     -ms-text-justify: kashida;
     text-justify: kashida;
 }
+.center {
+    text-align: center;
+    align-content: center;
+    align-self: center;
+}

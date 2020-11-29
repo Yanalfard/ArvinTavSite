@@ -106,6 +106,7 @@
     <Content Include="Areas\Admin\CommandJs\Customers.js" />
     <Content Include="Areas\Admin\CommandJs\Festival.js" />
     <Content Include="Areas\Admin\CommandJs\Marketer.js" />
+    <Content Include="Areas\Admin\CommandJs\Massage.js" />
     <Content Include="Areas\Admin\CommandJs\PackageService.js" />
     <Content Include="Areas\Admin\CommandJs\Partner.js" />
     <Content Include="Areas\Admin\CommandJs\Project.js" />

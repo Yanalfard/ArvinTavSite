@@ -349,6 +349,10 @@ namespace ArvinTav.Areas.Admin.Controllers
         {
             ticketRepository.GetTicketById(ID).Status = 3;
             ticketRepository.Save();
+
+            var Text = ticketRepository.GetTicketById(ID);
+            Sms.SendSms(Text.User.PhoneNumber, Text.ID.ToString(), "Compticket");
+
             return Redirect("/Admin/Ticket");
         }
 

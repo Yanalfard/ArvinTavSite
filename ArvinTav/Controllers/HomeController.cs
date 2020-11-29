@@ -88,9 +88,22 @@ namespace ArvinTav.Controllers
             {
                 if (GoogleRechapchaControl.ControlRechapcha(form) == "true")
                 {
-                    massageRepository.CreateMassage(massage);
-                    massageRepository.Save();
-                    return Redirect("/Home/ContactUs?Massage=true");
+                    if (string.IsNullOrEmpty(massage.FullName) || string.IsNullOrEmpty(massage.PhoneNumber) || string.IsNullOrEmpty(massage.Text))
+                    {
+                        ViewBag.Erorr = "تمامی موارد اجباری میباشد";
+                        return View();
+                    }
+                    else
+                    {
+                        massageRepository.CreateMassage(massage);
+                        massageRepository.Save();
+                        return Redirect("/Home/ContactUs?Massage=true");
+                    }
+                }
+                else
+                {
+                    ViewBag.Erorr = "گزینه من ربات نیستم را تایید کنید";
+                    return View();
                 }
             }
             return View();

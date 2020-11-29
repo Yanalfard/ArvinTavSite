@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="card-footer bg-white justify-content-end ">
-                                <img src="~/img/gif/load.gif" class="loding justify-content-center d-none" />
+                                <span class="text-danger">@ViewBag.Erorr</span>
                                 <input type="submit" value="ویرایش" class="btn btn-success btn-sm float-left " />
                                 <div class="btn btn-primary btn-sm float-left ml-3">
                                     @Html.ActionLink("بازگشت", "Index", null, new { @class = "text-white" })

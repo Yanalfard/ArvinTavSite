@@ -73,18 +73,18 @@ namespace ArvinTav.Controllers
             order.Status = 1;
             order.User = userRepository.UserByPhoneNumber(User.Identity.Name);
             System.Net.ServicePointManager.Expect100Continue = false;
-            ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
+            ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
             string Authority;
             int OrderID = orderRepository.Create(order);
-            int Status = zp.PaymentRequest("YOUR-ZARINPAL-MERCHANT-CODE", order.Price, "شرکت ایده پرداز آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Payment/Verify/" + OrderID, out Authority);
+            int Status = zp.PaymentRequest("b066bea5-78e5-4355-9b8d-dff85c8fdb40", order.Price, "شرکت ایده پرداز آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Payment/Verify/" + OrderID, out Authority);
 
 
 
             if (Status == 100)
             {
-                // return Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
+                return Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
 
-                return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
+                //return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
             }
             else
             {
@@ -103,9 +103,9 @@ namespace ArvinTav.Controllers
                     int Amount = orderRepository.OrderById(ID).Price;
                     long RefID;
                     System.Net.ServicePointManager.Expect100Continue = false;
-                    ZarinTest.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinTest.PaymentGatewayImplementationServicePortTypeClient();
+                    ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
 
-                    int Status = zp.PaymentVerification("YOUR-ZARINPAL-MERCHANT-CODE", Request.QueryString["Authority"].ToString(), Amount, out RefID);
+                    int Status = zp.PaymentVerification("b066bea5-78e5-4355-9b8d-dff85c8fdb40", Request.QueryString["Authority"].ToString(), Amount, out RefID);
 
                     if (Status == 100)
                     {
@@ -115,7 +115,7 @@ namespace ArvinTav.Controllers
 
                         //Send Code In Sms
                         var Text = Order.ID.ToString();
-                        Sms.SendSms(Order.User.PhoneNumber, Text,"OrderCode");
+                        Sms.SendSms(Order.User.PhoneNumber, Text, "OrderCode");
 
                         ViewBag.OrderID = ID;
                         ViewBag.RefID = RefID;

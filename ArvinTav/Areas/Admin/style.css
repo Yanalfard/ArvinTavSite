@@ -715,7 +715,7 @@ ul {
 @media only screen and (max-width: 992px) {
     .header .header-container .nav-left .user-profile .user-info,
     .header .header-container .nav-right .user-profile .user-info {
-        display: none;
+        display: inline-block;
     }
 }
 

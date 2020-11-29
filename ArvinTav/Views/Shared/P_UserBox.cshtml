@@ -1,5 +1,6 @@
 ﻿@model DataLayer.User
-@if (Model.FullName != null)
+
+@if (Model.FullName != null && Model.FullName!="")
 {
     @Model.FullName
 }

@@ -55,49 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202011160753428_initialdb.cs" />
-    <Compile Include="Migrations\202011160753428_initialdb.designer.cs">
-      <DependentUpon>202011160753428_initialdb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011161029095_editmassagetbl.cs" />
-    <Compile Include="Migrations\202011161029095_editmassagetbl.designer.cs">
-      <DependentUpon>202011161029095_editmassagetbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011171201537_editordertbl.cs" />
-    <Compile Include="Migrations\202011171201537_editordertbl.designer.cs">
-      <DependentUpon>202011171201537_editordertbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011171443514_marketerreporttbl2.cs" />
-    <Compile Include="Migrations\202011171443514_marketerreporttbl2.designer.cs">
-      <DependentUpon>202011171443514_marketerreporttbl2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011171936195_editmarketerreport.cs" />
-    <Compile Include="Migrations\202011171936195_editmarketerreport.designer.cs">
-      <DependentUpon>202011171936195_editmarketerreport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011182112006_debugmodel.cs" />
-    <Compile Include="Migrations\202011182112006_debugmodel.designer.cs">
-      <DependentUpon>202011182112006_debugmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011211530439_editdescription.cs" />
-    <Compile Include="Migrations\202011211530439_editdescription.designer.cs">
-      <DependentUpon>202011211530439_editdescription.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011211808549_editcategorytbl.cs" />
-    <Compile Include="Migrations\202011211808549_editcategorytbl.designer.cs">
-      <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011230751043_editmassagetbl1.cs" />
-    <Compile Include="Migrations\202011230751043_editmassagetbl1.designer.cs">
-      <DependentUpon>202011230751043_editmassagetbl1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011261026347_editmassagetbl2.cs" />
-    <Compile Include="Migrations\202011261026347_editmassagetbl2.designer.cs">
-      <DependentUpon>202011261026347_editmassagetbl2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011270031047_editslider.cs" />
-    <Compile Include="Migrations\202011270031047_editslider.designer.cs">
-      <DependentUpon>202011270031047_editslider.cs</DependentUpon>
+    <Compile Include="Migrations\202011282253034_initialdb.cs" />
+    <Compile Include="Migrations\202011282253034_initialdb.designer.cs">
+      <DependentUpon>202011282253034_initialdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -180,40 +140,9 @@
   <ItemGroup>
     <Content Include="bin\Debug\DataLayer.dll" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011160753428_initialdb.resx">
-      <DependentUpon>202011160753428_initialdb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011161029095_editmassagetbl.resx">
-      <DependentUpon>202011161029095_editmassagetbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011171201537_editordertbl.resx">
-      <DependentUpon>202011171201537_editordertbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011171443514_marketerreporttbl2.resx">
-      <DependentUpon>202011171443514_marketerreporttbl2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011171936195_editmarketerreport.resx">
-      <DependentUpon>202011171936195_editmarketerreport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011182112006_debugmodel.resx">
-      <DependentUpon>202011182112006_debugmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011211530439_editdescription.resx">
-      <DependentUpon>202011211530439_editdescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011211808549_editcategorytbl.resx">
-      <DependentUpon>202011211808549_editcategorytbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011230751043_editmassagetbl1.resx">
-      <DependentUpon>202011230751043_editmassagetbl1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011261026347_editmassagetbl2.resx">
-      <DependentUpon>202011261026347_editmassagetbl2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011270031047_editslider.resx">
-      <DependentUpon>202011270031047_editslider.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011282253034_initialdb.resx">
+      <DependentUpon>202011282253034_initialdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

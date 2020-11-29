@@ -110,7 +110,7 @@ function BtnEditSlider(ID) {
             $("#BtnEditSlider").addClass("btn-danger");
         } else {
 
-            if (Link.includes("&#39;") || Link.length > 200) {
+            if (Link.includes("&#39;") || Link.length > 500) {
                 $("#BtnEditSlider").html("لطفا لینک مناسب وارد کنید");
                 $("#BtnEditSlider").removeClass("btn-success");
                 $("#BtnEditSlider").addClass("btn-danger");

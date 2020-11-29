@@ -55,8 +55,22 @@
             $("#BtnEdit").html("فیلدی نا معتبر است");
 
         } else {
+            if (Email == "" || Email == null) {
+                $("#BtnEdit").removeClass('btn-danger');
+                $("#BtnEdit").addClass('btn-success');
+                $("#BtnEdit").html("<i class='fas fa-edit'></i>ویرایش");
 
-            if (Email.includes("@("@")") == false) {
+                var UserRole = $("#UserRole option:selected").val();
+                $(".loding").removeClass("d-none");
+                $.post("/Admin/User/Edit?ID=" + ID + "&FullName=" + FullName + "&Brand=" + Brand + "&Email=" + Email + "&UserRole=" + UserRole, function (result) {
+                    if (result == "true") {
+                        window.location.reload();
+                    } else {
+                        alert(result);
+                    }
+                });
+            } else {
+                if (Email.includes("@("@")") == false) {
                 $("#BtnEdit").removeClass('btn-success');
                 $("#BtnEdit").addClass('btn-danger');
                 $("#BtnEdit").html("ایمیل معتبر وارد کنید");
@@ -74,6 +88,7 @@
                         alert(result);
                     }
                 });
+            }
             }
         }
     }

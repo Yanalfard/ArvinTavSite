@@ -6,6 +6,11 @@
     <meta name="keywords" content="@ViewBag.Keywords">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="apple-touch-icon" href="~/img/Mobile/icon_96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#FFFFFF" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
+    <meta name="theme-color" content="#48a839" />
 
     <title>@ViewBag.Title | آروین تاو</title>
     <!--UIkit-->
@@ -87,7 +92,7 @@
                 {
                     <div class="loginMobile my-row" dir="rtl">
                         <img class="LogoPicMobile" src="~/img/Admin/logo/ArvinTavLogo.svg" />
-                        <button class="uk-text-bold my-column" onclick="window.location.href='/account/login'">
+                        <button class="uk-text-bold my-column" onclick="window.location.href='/User/Dashboard'">
                             <div class="my-row margin-auto-top margin-auto-bottom margin-auto-left margin-auto-right">
                                 <i class="fas fa-user-circle margin-auto-bottom margin-auto-top uk-margin-small-left"></i>
                                 <span class="margin-auto-bottom margin-auto-top">@Html.Action("P_UserBox", "Home")</span>
@@ -209,10 +214,12 @@
     </footer>
     <!-- end region -->
 
+    <script src="~/app.js"></script>
     <script src="~/Scripts/UIkit/uikit.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="~/Scripts/UIScripts/Global.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
+    <script src="~/Scripts/UIScripts/ImageLoadFailed.js"></script>
     <script src="~/Scripts/Home.js"></script>
     <div id="end" role="none"></div>
     @RenderSection("Scripts", false)

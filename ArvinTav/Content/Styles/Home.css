@@ -316,11 +316,11 @@ body {
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 158px !important;
-        height: 182px !important; }
+        width: 180px !important;
+        height: 180px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 140px !important;
@@ -331,12 +331,13 @@ body {
         font-size: 12px !important;
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
-        padding: 4px 40px !important;
+        padding: 4px 32px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
+      background-image: url("../../img/Home/endOfCover 1.svg") !important;
       margin-top: -350px !important;
       height: 150px; } }
   @media only screen and (max-width: 412px) {
@@ -345,11 +346,11 @@ body {
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 158px !important;
-        height: 182px !important; }
+        width: 180px !important;
+        height: 180px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 140px !important;
@@ -360,12 +361,13 @@ body {
         font-size: 12px !important;
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
-        padding: 4px 40px !important;
+        padding: 4px 32px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
+      background-image: url("../../img/Home/endOfCover 1.svg") !important;
       margin-top: -350px !important;
       height: 150px; } }
   @media only screen and (min-device-width: 412px) and (max-device-width: 500px) {
@@ -374,11 +376,11 @@ body {
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 258px !important;
-        height: 182px !important; }
+        width: 230px !important;
+        height: 230px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 140px !important;
@@ -390,12 +392,13 @@ body {
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
         width: 60px !important;
-        padding: 1px;
+        padding: 4px 56px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
+      background-image: url("../../img/Home/endOfCover 1.svg") !important;
       margin-top: -350px !important;
       height: 150px; } }
   @media only screen and (min-width: 412px) and (max-width: 500px) {
@@ -404,11 +407,11 @@ body {
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 258px !important;
-        height: 182px !important; }
+        width: 230px !important;
+        height: 230px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 140px !important;
@@ -420,12 +423,13 @@ body {
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
         width: 60px !important;
-        padding: 1px;
+        padding: 4px 56px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
+      background-image: url("../../img/Home/endOfCover 1.svg") !important;
       margin-top: -350px !important;
       height: 150px; } }
   @media only screen and (min-device-width: 500px) and (max-device-width: 780px) {
@@ -435,10 +439,10 @@ body {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
         width: 320px !important;
-        height: 182px !important; }
+        height: 320px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 250px !important;
@@ -450,13 +454,13 @@ body {
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
         width: 140px !important;
-        padding: 1px;
+        padding: 4px 56px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
-      margin-top: -350px !important;
+      margin-top: -310px !important;
       height: 150px; } }
   @media only screen and (min-width: 500px) and (max-width: 780px) {
     .IndexPage .headSlider {
@@ -464,11 +468,11 @@ body {
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 320px !important;
-        height: 182px !important; }
+        width: 283px !important;
+        height: 283px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 26px !important;
+        margin-top: 58px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 250px !important;
@@ -480,22 +484,22 @@ body {
         margin: 0; }
       .IndexPage .headSlider .ServiceButton {
         width: 140px !important;
-        padding: 1px;
+        padding: 4px 56px !important;
         font-size: 12px;
         margin-top: -40px !important; }
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
-      margin-top: -350px !important;
+      margin-top: -310px !important;
       height: 150px; } }
   @media only screen and (min-device-width: 780px) and (max-device-width: 1004px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
-        margin: 50px 50px 0 0 !important;
-        width: 390px !important;
-        height: 182px !important; }
+        margin: 15px 22px 0 0 !important;
+        width: 283px !important;
+        height: 283px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 70px !important;
@@ -517,16 +521,16 @@ body {
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
-      margin-top: -350px !important;
+      margin-top: -250px !important;
       height: 150px; } }
   @media only screen and (min-width: 780px) and (max-width: 1004px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
-        margin: 50px 50px 0 0 !important;
-        width: 390px !important;
-        height: 182px !important; }
+        margin: 15px 22px 0 0 !important;
+        width: 360px !important;
+        height: 360px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 70px !important;
@@ -548,7 +552,7 @@ body {
       .IndexPage .headSlider .uk-slidenav-container {
         margin-top: -80px; }
     .IndexPage .endOfCover {
-      margin-top: -350px !important;
+      margin-top: -250px !important;
       height: 150px; } }
   .IndexPage .sponsor {
     color: white; }

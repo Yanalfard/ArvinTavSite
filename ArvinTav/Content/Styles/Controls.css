@@ -357,6 +357,13 @@
     height: 60px !important;
     margin-left: auto !important;
     margin-right: 22px; }
+  .mobileLogo {
+    width: 50px;
+    height: 50px;
+    display: flex !important;
+    margin-top: 8px;
+    margin-left: 15px;
+    margin-bottom: 15px; }
   .hamburger-button {
     display: flex !important; }
   #menu {
@@ -411,6 +418,13 @@
     background: #80c378;
     border: none;
     color: white; }
+  .mobileLogo {
+    width: 50px;
+    height: 50px;
+    display: flex !important;
+    margin-top: 8px;
+    margin-left: 15px;
+    margin-bottom: 15px; }
   .hamburger-button {
     display: flex !important; }
   #menu {
@@ -443,14 +457,20 @@
     opacity: 0.8;
     overflow: hidden !important; } }
 
+.mobileLogo {
+  display: none; }
+
 .hamburger-button {
   display: none;
   position: fixed;
-  padding: 10px !important;
+  padding: 5px !important;
   right: 18px;
   top: 18px;
   color: #2a2929;
-  margin: auto; }
+  margin: auto;
+  background: #b1b0b0 !important;
+  opacity: 0.7;
+  border-radius: 5px; }
 
 /*#endregion */
 /*#endregion */
@@ -465,7 +485,8 @@ footer {
     display: flex; }
     footer .footerContent .LogoFooter {
       flex: 1;
-      background: white; }
+      background: white;
+      border-radius: 20px; }
     footer .footerContent .SupportFooter {
       flex: 1; }
     footer .footerContent .LogoFooter {
@@ -474,6 +495,10 @@ footer {
         padding: 30px 30px 0 30px; }
       footer .footerContent .LogoFooter label {
         padding: 0; }
+  footer .copyRight {
+    margin-top: 10px;
+    font-size: 14px !important;
+    color: #cfcbcb !important; }
   footer .footerEnd {
     display: flex; }
     footer .footerEnd .Address {
@@ -489,7 +514,10 @@ footer {
       flex: 1; }
     footer .footerEnd .contactIcon {
       color: #a9a9a9;
-      opacity: 0.5; }
+      opacity: 0.5;
+      margin-top: 10px;
+      padding-right: 12px;
+      padding-left: 12px; }
   footer div div label {
     color: white !important;
     padding: 5px; }
@@ -510,6 +538,17 @@ footer {
     border: 1px solid #a9a9a9;
     opacity: 0.1;
     border-radius: 5px; }
+  footer .install {
+    background: transparent !important;
+    border: 1px solid #5cb152;
+    width: 210px;
+    height: 36px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer; }
+  footer .install:hover {
+    background: #5CB152 !important;
+    border: none; }
 
 /*#end footer region */
 /*mobile footer style*/

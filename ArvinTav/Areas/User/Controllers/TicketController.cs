@@ -107,6 +107,11 @@ namespace ArvinTav.Areas.User.Controllers
                 }
                 else
                 {
+                    if(File.ContentLength> 3000000)
+                    {
+                        return Redirect("InnerTicket?ID=" + TicketID + "&Erorr=2");
+                    }
+
                     string MassageFile = null;
                     MassageFile = Guid.NewGuid() + Path.GetExtension(File.FileName);
                     File.SaveAs(Server.MapPath("/Document/File/TicketFile/" + MassageFile));

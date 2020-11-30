@@ -114,9 +114,9 @@ namespace ArvinTav.Areas.User.Controllers
 
                                     var img = Bitmap.FromStream(ImageUp.InputStream);
 
-                                    if (img.Width > 600 || img.Height > 600)
+                                    if (img.Width > 5000 || img.Height > 5000)
                                     {
-                                        ModelState.AddModelError("Image", "طول و عرض تصویر نباید بیشتر از 600 پیکسل باشد");
+                                        ModelState.AddModelError("Image", "طول و عرض تصویر نباید بیشتر از 4000 پیکسل باشد");
                                         FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
                                         fullReplyRegsiterViewModel.FullName = user.FullName;
                                         fullReplyRegsiterViewModel.Brand = user.Brand;
@@ -126,15 +126,26 @@ namespace ArvinTav.Areas.User.Controllers
                                     }
                                     else
                                     {
+                                        
+                                        if(ImageUp.ContentLength> 3000000)
+                                        {
+                                            ModelState.AddModelError("Image", "حجم تصویر نباید بیشتر از 3 مگابایت باشد");
+                                            FullRegsiterViewModel fullReplyRegsiterViewModel = new FullRegsiterViewModel();
+                                            fullReplyRegsiterViewModel.FullName = user.FullName;
+                                            fullReplyRegsiterViewModel.Brand = user.Brand;
+                                            fullReplyRegsiterViewModel.Email = user.Email;
+                                            fullReplyRegsiterViewModel.Image = user.Image;
+                                            return View(fullRegsiterViewModel);
+                                        }
 
-                                        if (user.Image != null)
+                                        if (string.IsNullOrEmpty(user.Image)==false)
                                         {
                                             System.IO.File.Delete(Server.MapPath("/Document/img/User/" + user.Image));
                                         }
 
                                         UpdateUser.Image = Guid.NewGuid() + Path.GetExtension(ImageUp.FileName);
                                         ImageUp.SaveAs(Server.MapPath("/Document/img/User/" + UpdateUser.Image));
-
+                                        
                                         UpdateUser.PhoneNumber = User.Identity.Name;
                                         UpdateUser.FullName = fullRegsiterViewModel.FullName;
                                         UpdateUser.Email = fullRegsiterViewModel.Email;

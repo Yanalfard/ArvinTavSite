@@ -140,7 +140,7 @@
                         else
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                                <a class="page-link" href="/Admin/Order?PageId=@((int)ViewBag.PageId-1)&ID=@ViewBag.ID&PhoneNumber=@ViewBag.phoneNumber&Status=@ViewBag.Status&InPageCount=@ViewBag.InPageCount">قبلی</a>
                             </li>
 
                         }
@@ -165,7 +165,7 @@
 
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                                <a class="page-link" href="/Admin/Order?PageId=@((int)ViewBag.PageId+1)&ID=@ViewBag.ID&PhoneNumber=@ViewBag.phoneNumber&Status=@ViewBag.Status&InPageCount=@ViewBag.InPageCount">بعدی</a>
                             </li>
 
                         }

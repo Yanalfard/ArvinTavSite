@@ -76,7 +76,7 @@ namespace ArvinTav.Controllers
             ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
             string Authority;
             int OrderID = orderRepository.Create(order);
-            int Status = zp.PaymentRequest("b066bea5-78e5-4355-9b8d-dff85c8fdb40", order.Price, "شرکت ایده پرداز آروین تاو", "info@arvintav.com", "09145016607", "http://localhost:54170/Payment/Verify/" + OrderID, out Authority);
+            int Status = zp.PaymentRequest("b066bea5-78e5-4355-9b8d-dff85c8fdb40", order.Price, "شرکت ایده پرداز آروین تاو", "info@arvintav.com", "09145016607", "https://arvintavco.com/Payment/Verify/" + OrderID, out Authority);
 
 
 

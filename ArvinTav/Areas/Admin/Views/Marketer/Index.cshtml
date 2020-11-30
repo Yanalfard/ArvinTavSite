@@ -66,7 +66,7 @@
                         else
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                                <a class="page-link" href="/Admin/Marketer?PageId=@((int)ViewBag.PageId - 1)&InPageCount=@ViewBag.InPageCount">قبلی</a>
                             </li>
 
                         }
@@ -91,7 +91,7 @@
 
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                                <a class="page-link" href="/Admin/Marketer?PageId=@((int)ViewBag.PageId + 1)&InPageCount=@ViewBag.InPageCount">بعدی</a>
                             </li>
 
                         }

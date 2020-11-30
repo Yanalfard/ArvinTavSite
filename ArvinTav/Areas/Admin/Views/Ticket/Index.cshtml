@@ -166,7 +166,7 @@
                         else
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId-1))">قبلی</a>
+                                <a class="page-link" href="/Admin/Ticket?PageId=@((int)ViewBag.PageId-1)&TicketIDSearch=@ViewBag.TicketIDSearch&StatusSearch=@ViewBag.StatusSearch&CategorySearch=@ViewBag.CategorySearch&InPageCount=@ViewBag.InPageCount">قبلی</a>
                             </li>
 
                         }
@@ -191,7 +191,7 @@
 
                         {
                             <li class="page-item">
-                                <a class="page-link" onclick="Page(@((int)ViewBag.PageId + 1))">بعدی</a>
+                                <a class="page-link" href="/Admin/Ticket?PageId=@((int)ViewBag.PageId+1)&TicketIDSearch=@ViewBag.TicketIDSearch&StatusSearch=@ViewBag.StatusSearch&CategorySearch=@ViewBag.CategorySearch&InPageCount=@ViewBag.InPageCount">بعدی</a>
                             </li>
 
                         }

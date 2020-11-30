@@ -78,9 +78,13 @@
                             @Html.AntiForgeryToken()
                             <input type="hidden" value="@Model.Ticket.ID" name="TicketID" />
                             <textarea name="Text" class="form-control col-sm-12 col-12 textarea-fix-height-90" required maxlength="600"></textarea>
-                            @if (Request.QueryString["Erorr"] != null)
+                            @if (Request.QueryString["Erorr"] == "1")
                             {
                                 <span class="text-danger">فایل های مجاز Pdf , Image</span>
+                            }
+                            @if (Request.QueryString["Erorr"] == "2")
+                            {
+                                <span class="text-danger">فایل نباید بیشتر از 3 مگابایت باشد</span>
                             }
 
                             <div class="js-upload uk-margin-auto-right  uk-margin-auto-bottom mb-md-4 mt-3 ml-2 mt-sm-3" uk-form-custom>

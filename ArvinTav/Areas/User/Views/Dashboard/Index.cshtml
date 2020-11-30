@@ -10,43 +10,51 @@
             <div id="card-table" class="card-body flex-div">
                 <div class="table-responsive flex row">
                     <div class="col-12">
-                        @if (Model.Image == null)
+                        @if (string.IsNullOrEmpty(Model.Image))
                         {
-                            <img src="~/img/Admin/userPro.png" height="50" width="50" />
+                            <a href="/User/Dashboard/MyProfile"><img src="~/img/Admin/userPro.png" height="50" width="50" /></a>
                         }
                         else
                         {
                             <img src="~/Document/img/User/@Model.Image" height="50" width="50" />
                         }
-                        @if (Model.FullName != null)
+                        @if (string.IsNullOrEmpty(Model.FullName))
                         {
-                            <h3>@Model.FullName</h3>
+
+                            <h3>@Model.PhoneNumber</h3>
+
                         }
                         else
                         {
-                            <h3>@Model.PhoneNumber</h3>
+                            <h3>@Model.FullName</h3>
                         }
+                        @Html.ActionLink("ویرایش اطلاعات", "MyProfile", null, new { @class = "text-white btn btn-success btn-sm d-inline" })
                     </div>
 
                     <div class="card-body form-group">
                         <div class="text-center">
                             <div class="form-group  justify-content-center">
                                 <label>نام تجاری:</label>
-                                <span>@Model.Brand</span>
+                                <span>
+                                    @if (string.IsNullOrEmpty(Model.Brand))
+                                    {
+                                    @Html.ActionLink("وارد کنید", "MyProfile", null, new { @class = "text-success btn-sm d-inline" })
+                                    }
+                                    @Model.Brand
+                                </span>
                             </div>
                             <div class="form-group justify-content-center">
-                                <label>ایمیل</label>
-                                <span>@Model.Email</span>
+                                <label>ایمیل:</label>
+                                <span>
+                                    @if (string.IsNullOrEmpty(Model.Email))
+                                    {
+                                        @Html.ActionLink("وارد کنید", "MyProfile", null, new { @class = "text-success btn-sm d-inline" })
+                                    }
+                                    @Model.Email
+                                </span>
                             </div>
 
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer bg-white">
-                <div class="custom-file">
-                    <div class="btn btn-success btn-sm">
-                        @Html.ActionLink("ویرایش اطلاعات", "MyProfile", null, new { @class = "text-white" })
                     </div>
                 </div>
             </div>

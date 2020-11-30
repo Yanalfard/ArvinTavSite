@@ -37,25 +37,26 @@ namespace ArvinTav.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (GoogleRechapchaControl.ControlRechapcha(login) == "true")
+                //if (GoogleRechapchaControl.ControlRechapcha(login) == "true")
+                // {
+                if (userRepository.CheckUser(loginView.PhoneNumber, Security.Cryptography(loginView.PassWord)) == true)
                 {
-                    if (userRepository.CheckUser(loginView.PhoneNumber, Security.Cryptography(loginView.PassWord)) == true)
-                    {
-                        FormsAuthentication.SetAuthCookie(loginView.PhoneNumber, loginView.RememberMe);
-                        userRepository.UserByPhoneNumber(loginView.PhoneNumber).FinalLoginTime = DateTime.Now;
-                        userRepository.Save();
-                        return Redirect(ReturnUrl);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("PhoneNumber", "این حساب وجود ندارد.");
-                    }
+                    FormsAuthentication.SetAuthCookie(loginView.PhoneNumber, loginView.RememberMe);
+                    DataLayer.User user = userRepository.UserByPhoneNumber(loginView.PhoneNumber);
+                    user.FinalLoginTime = DateTime.Now;
+                    userRepository.Save();
+                    return Redirect(ReturnUrl);
                 }
                 else
                 {
-                    ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
-                    return View();
+                    ModelState.AddModelError("PhoneNumber", "این حساب وجود ندارد.");
                 }
+                //}
+                //else
+                //{
+                //    ViewBag.Message = "لطفا گزینه من ربات نیستم را تایید کنید";
+                //    return View();
+                //}
             }
             return View(loginView);
         }

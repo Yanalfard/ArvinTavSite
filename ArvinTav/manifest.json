@@ -4,7 +4,7 @@
   "name": "Arvin Tav",
   "short_name": "ArvinTav",
   "display": "standalone",
-  "start_url": "/Home/Index",
+  "start_url": "/",
   "background_color": "#FFFFFF",
   "theme_color": "#48a839",
   "orientation": "portrait-primary",

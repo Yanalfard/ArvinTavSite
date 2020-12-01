@@ -42,7 +42,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -117,7 +117,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -193,7 +193,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -267,7 +267,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -341,7 +341,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -413,7 +413,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);
@@ -486,7 +486,7 @@ namespace ArvinTav.Areas.Admin.Controllers
                             {
                                 var img = Bitmap.FromStream(pic.InputStream);
 
-                                if (img.Width > 600 || img.Height > 600)
+                                if (img.Width > 1500 || img.Height > 1500)
                                 {
                                     var Erorr = "0";
                                     return Json(Erorr);

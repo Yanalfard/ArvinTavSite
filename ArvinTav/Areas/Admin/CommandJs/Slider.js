@@ -104,7 +104,7 @@ function BtnEditSlider(ID) {
         var Title = $("#Title").val();
         var Link = $("#Link").val();
 
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 300) {
             $("#BtnEditSlider").html("عنوان معتبر وارد کنید");
             $("#BtnEditSlider").removeClass("btn-success");
             $("#BtnEditSlider").addClass("btn-danger");

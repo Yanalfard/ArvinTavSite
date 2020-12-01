@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44390</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -3141,6 +3141,7 @@
     <Content Include="Scripts\ckeditor\_samples\adobeair\run.bat" />
     <Content Include="Scripts\ckeditor\_samples\adobeair\run.sh" />
     <Content Include="Scripts\ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="Scripts\Global.js" />
     <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

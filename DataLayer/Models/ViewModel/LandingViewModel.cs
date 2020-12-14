@@ -10,6 +10,8 @@ namespace DataLayer
     {
         public IEnumerable<Project> projects { get; set; }
 
+        public IEnumerable<Partner> partners { get; set; }
+
         public IEnumerable<PackageService> packageServices { get; set; }
 
         public IEnumerable<Slider> AllSlider { get; set; }

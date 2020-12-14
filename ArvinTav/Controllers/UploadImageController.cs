@@ -50,11 +50,6 @@ namespace ArvinTav.Controllers
             }
         }
 
-        //[HttpPost]
-        //public JsonResult AjaxPostCall(Product_Galleries employeeData)
-        //{
-        //    System.IO.File.Delete(Server.MapPath("/Resources/UploadEditor/" + employeeData.ImageName));
-        //    return Json("True");
-        //}
+        
     }
 }

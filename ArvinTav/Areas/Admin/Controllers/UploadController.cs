@@ -11,7 +11,6 @@ namespace ArvinTav.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,PartAdmin,Marketer,Content")]
     public class UploadController : Controller
     {
-
         // GET: Admin/Upload
         [AcceptVerbs(HttpVerbs.Post)]
         public JsonResult UploadCategoryImage()

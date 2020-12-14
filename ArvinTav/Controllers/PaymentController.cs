@@ -84,7 +84,6 @@ namespace ArvinTav.Controllers
             {
                 return Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
 
-                //return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
             }
             else
             {

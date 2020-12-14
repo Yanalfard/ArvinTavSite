@@ -17,6 +17,7 @@ namespace ArvinTav.Controllers
         private ISliderRepository sliderRepository;
         private IMassageRepository massageRepository;
         private ISpiderRepository spiderRepository;
+        private IPartnerRepository partnerRepository;
 
         public HomeController()
         {
@@ -28,6 +29,7 @@ namespace ArvinTav.Controllers
             sliderRepository = new SliderRepository(db);
             massageRepository = new MassageRepository(db);
             spiderRepository = new SpiderRepository(db);
+            partnerRepository = new PartnerRepository(db);
         }
 
         // GET: Home
@@ -37,6 +39,7 @@ namespace ArvinTav.Controllers
             LandingViewModel landingView = new LandingViewModel();
             landingView.packageServices = packageRepository.AllPackageServices().OrderBy(p => p.OrderCount).Take(3);
             landingView.projects = projectRepository.Allprojects().Take(15);
+            landingView.partners = partnerRepository.Allpartners().Take(15);
             landingView.AllSlider = sliderRepository.AllSliders();
             return View(landingView);
         }

@@ -274,9 +274,9 @@ body {
     overflow-y: hidden !important; }
     .IndexPage .headSlider img {
       /*width: 400px !important;*/
-      margin: 85px 120px 0 0 !important; }
+      margin: 140px 120px 0 0; }
     .IndexPage .headSlider .coverContent {
-      padding: 160px 0 0 100px !important;
+      padding: 200px 0 0 60px;
       font-family: Sahel !important; }
     .IndexPage .headSlider p {
       width: 400px;
@@ -284,7 +284,8 @@ body {
       -ms-text-justify: kashida;
       text-justify: kashida;
       color: #555;
-      overflow: hidden; }
+      overflow: hidden;
+      margin-bottom: 20px; }
     .IndexPage .headSlider h3 {
       color: #555;
       overflow: hidden;
@@ -338,7 +339,7 @@ body {
         margin-top: -80px; }
     .IndexPage .endOfCover {
       background-image: url("../../img/Home/endOfCover 1.svg") !important;
-      margin-top: -350px !important;
+      margin-top: -420px !important;
       height: 150px; } }
   @media only screen and (max-width: 412px) {
     .IndexPage .headSlider {
@@ -368,7 +369,7 @@ body {
         margin-top: -80px; }
     .IndexPage .endOfCover {
       background-image: url("../../img/Home/endOfCover 1.svg") !important;
-      margin-top: -350px !important;
+      margin-top: -420px !important;
       height: 150px; } }
   @media only screen and (min-device-width: 412px) and (max-device-width: 500px) {
     .IndexPage .headSlider {
@@ -381,7 +382,8 @@ body {
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 58px !important;
-        overflow: hidden; }
+        overflow: hidden;
+        margin-left: 18px !important; }
       .IndexPage .headSlider p {
         width: 140px !important;
         font-size: 10px !important;
@@ -399,7 +401,7 @@ body {
         margin-top: -80px; }
     .IndexPage .endOfCover {
       background-image: url("../../img/Home/endOfCover 1.svg") !important;
-      margin-top: -350px !important;
+      margin-top: -400px !important;
       height: 150px; } }
   @media only screen and (min-width: 412px) and (max-width: 500px) {
     .IndexPage .headSlider {
@@ -412,7 +414,8 @@ body {
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
         margin-top: 58px !important;
-        overflow: hidden; }
+        overflow: hidden;
+        margin-left: 18px !important; }
       .IndexPage .headSlider p {
         width: 140px !important;
         font-size: 10px !important;
@@ -430,9 +433,9 @@ body {
         margin-top: -80px; }
     .IndexPage .endOfCover {
       background-image: url("../../img/Home/endOfCover 1.svg") !important;
-      margin-top: -350px !important;
+      margin-top: -400px !important;
       height: 150px; } }
-  @media only screen and (min-device-width: 500px) and (max-device-width: 780px) {
+  @media only screen and (min-device-width: 500px) and (max-device-width: 760px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
@@ -442,7 +445,7 @@ body {
         height: 320px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 58px !important;
+        margin-top: 85px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 250px !important;
@@ -462,17 +465,17 @@ body {
     .IndexPage .endOfCover {
       margin-top: -310px !important;
       height: 150px; } }
-  @media only screen and (min-width: 500px) and (max-width: 780px) {
+  @media only screen and (min-width: 500px) and (max-width: 760px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
         margin: auto !important;
-        width: 283px !important;
-        height: 283px !important; }
+        width: 320px !important;
+        height: 320px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 58px !important;
+        margin-top: 85px !important;
         overflow: hidden; }
       .IndexPage .headSlider p {
         width: 250px !important;
@@ -492,17 +495,17 @@ body {
     .IndexPage .endOfCover {
       margin-top: -310px !important;
       height: 150px; } }
-  @media only screen and (min-device-width: 780px) and (max-device-width: 1004px) {
+  @media only screen and (min-device-width: 760px) and (max-device-width: 1004px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
-        margin: 15px 22px 0 0 !important;
+        margin: 12px 22px 0 0 !important;
         width: 283px !important;
         height: 283px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 70px !important;
+        margin-top: 136px !important;
         margin-left: 30px;
         overflow: hidden; }
       .IndexPage .headSlider p {
@@ -523,17 +526,17 @@ body {
     .IndexPage .endOfCover {
       margin-top: -250px !important;
       height: 150px; } }
-  @media only screen and (min-width: 780px) and (max-width: 1004px) {
+  @media only screen and (min-width: 760px) and (max-width: 1004px) {
     .IndexPage .headSlider {
       height: 540px !important; }
       .IndexPage .headSlider img {
         padding: 20px 20px 0 0 !important;
-        margin: 15px 22px 0 0 !important;
-        width: 360px !important;
-        height: 360px !important; }
+        margin: 12px 22px 0 0 !important;
+        width: 283px !important;
+        height: 283px !important; }
       .IndexPage .headSlider .coverContent {
         padding: 0 !important;
-        margin-top: 70px !important;
+        margin-top: 136px !important;
         margin-left: 30px;
         overflow: hidden; }
       .IndexPage .headSlider p {
@@ -554,10 +557,40 @@ body {
     .IndexPage .endOfCover {
       margin-top: -250px !important;
       height: 150px; } }
+  @media only screen and (min-device-width: 1005px) and (max-device-width: 1270px) {
+    .IndexPage .headSlider img {
+      width: 400px !important;
+      height: 400px !important;
+      margin: 65px 80px 0 0 !important; }
+    .IndexPage .headSlider .coverContent {
+      padding: 160px 0 0 60px !important; } }
+  @media only screen and (min-width: 1005px) and (max-width: 1270px) {
+    .IndexPage .headSlider img {
+      width: 400px !important;
+      height: 400px !important;
+      margin: 65px 80px 0 0 !important; }
+    .IndexPage .headSlider .coverContent {
+      padding: 160px 0 0 60px !important; } }
+  .IndexPage .TitrOfHoldingProjects {
+    padding: 8px;
+    border: 1px solid #7f966f;
+    background: white;
+    border-radius: 8px;
+    margin-top: -17px;
+    width: 180px;
+    font-family: 'Sahel';
+    font-size: 14px;
+    position: absolute;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center; }
   .IndexPage .sponsor {
     color: white; }
     .IndexPage .sponsor .uk-slider-items {
-      padding: 40px 10px !important; }
+      padding: 35px 15px 5px 15px !important; }
       .IndexPage .sponsor .uk-slider-items img {
         filter: saturate(0%);
         -moz-transition: all ease 0.5s;
@@ -568,6 +601,19 @@ body {
         height: 60px; }
       .IndexPage .sponsor .uk-slider-items a:hover img {
         filter: saturate(100%); }
+    .IndexPage .sponsor .uk-s-slider-container {
+      color: black !important;
+      margin-top: 26px !important; }
+  @media only screen and (max-device-width: 600px) {
+    .IndexPage .TitrOfHoldingProjects {
+      font-size: 12px !important;
+      padding: 5px !important;
+      width: 140px; } }
+  @media only screen and (max-width: 600px) {
+    .IndexPage .TitrOfHoldingProjects {
+      font-size: 12px !important;
+      padding: 5px !important;
+      width: 140px; } }
   .IndexPage .Services {
     /*padding:20px;*/
     display: flex; }
@@ -648,43 +694,82 @@ body {
         padding: 5px !important;
         font-size: 8px !important;
         margin-bottom: 12px; } }
-  .IndexPage .projectsSlider h4 {
-    padding-bottom: 60px; }
-    .IndexPage .projectsSlider h4 .projectIcon {
-      margin-left: 8px;
-      width: 40px;
-      height: 50px;
-      color: #5cb152; }
+  .IndexPage .TitrOfProjects {
+    padding: 8px;
+    border: 1px solid #7f966f;
+    background: white;
+    border-radius: 8px;
+    margin-top: -17px;
+    width: 100px;
+    font-family: 'Sahel';
+    font-size: 14px;
+    position: absolute;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: 58vw;
+    left: 0;
+    right: 0;
+    text-align: center; }
   .IndexPage .projectsSlider .GreenBackground {
-    padding-top: 120px !important;
-    padding-bottom: 180px !important; }
-  .IndexPage .projectsSlider .mat {
-    width: 320px;
-    padding: 30px;
-    border-radius: 5px;
-    padding-bottom: 70px !important; }
-    .IndexPage .projectsSlider .mat .rightSideLine {
-      background: #BBD1AC;
-      width: 7px;
-      margin-left: 20px;
-      border-radius: 30px; }
-    .IndexPage .projectsSlider .mat img {
-      width: 100px;
-      height: 90px;
-      margin-right: auto;
-      margin-left: auto; }
-    .IndexPage .projectsSlider .mat h4 {
-      color: #5cb152; }
-    .IndexPage .projectsSlider .mat p {
-      color: black;
-      overflow: hidden;
-      text-align: justify;
-      -ms-text-justify: kashida;
-      text-justify: kashida; }
-    .IndexPage .projectsSlider .mat a {
-      color: #4a9a41;
-      text-decoration: none !important;
-      margin-top: 40px !important; }
+    height: 200px !important;
+    padding: 22px 8px !important; }
+  .IndexPage .projectsSlider .vLine {
+    border-left: 1px solid #aaa7a7;
+    height: 200px;
+    margin-left: 12px; }
+  .IndexPage .projectsSlider .projects {
+    color: white; }
+    .IndexPage .projectsSlider .projects .uk-slider-items {
+      padding: 0 !important;
+      margin-top: 28px; }
+      .IndexPage .projectsSlider .projects .uk-slider-items img {
+        /*  filter: saturate(0%);
+                    @include trans(.5s);*/
+        width: 68px;
+        height: 68px;
+        cursor: pointer; }
+      .IndexPage .projectsSlider .projects .uk-slider-items a:hover img {
+        /*filter: saturate(100%);*/ }
+  .IndexPage .projectsSlider .uk-p-slidenav-container {
+    margin-top: 18px;
+    width: 50px !important;
+    color: black !important; }
+  @media only screen and (max-device-width: 600px) {
+    .IndexPage .projectsSlider .GreenBackground {
+      height: 100px !important;
+      padding: 20px 8px !important; }
+    .IndexPage .projectsSlider .vLine {
+      border-left: 1px solid #aaa7a7;
+      height: 100px; }
+    .IndexPage .projectsSlider .uk-slider-items {
+      margin-top: 0 !important; }
+    .IndexPage .projectsSlider .uk-p-slidenav-container {
+      margin-top: 2px !important;
+      width: 20px !important; }
+    .IndexPage .GreenBackgroundPro {
+      padding: 0 !important; }
+    .IndexPage .TitrOfProjects {
+      padding: 5px;
+      margin-top: -17px;
+      width: 70px;
+      margin-right: 50vw; } }
+  @media only screen and (max-width: 600px) {
+    .IndexPage .projectsSlider .GreenBackground {
+      height: 100px !important;
+      padding: 20px 8px !important; }
+    .IndexPage .projectsSlider .vLine {
+      border-left: 1px solid #aaa7a7;
+      height: 100px; }
+    .IndexPage .projectsSlider .uk-p-slidenav-container {
+      margin-top: 2px !important;
+      width: 20px !important; }
+    .IndexPage .GreenBackgroundPro {
+      padding: 0 !important; }
+    .IndexPage .TitrOfProjects {
+      padding: 5px;
+      margin-top: -17px;
+      width: 70px;
+      margin-right: 50vw; } }
   .IndexPage .whyArvin {
     font-family: Sahel; }
     .IndexPage .whyArvin .MobileSize {

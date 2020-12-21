@@ -64,9 +64,10 @@
     }
 
     .loginDesktop {
-        *{
-            overflow:hidden;
+        * {
+            overflow: hidden;
         }
+
         img {
             width: 74px !important;
         }
@@ -84,12 +85,18 @@
             border: 1px solid #5cb152;
             border-radius: 20px !important;
             height: 34px;
-            cursor:pointer;
+            cursor: pointer;
         }
 
 
         button:hover {
-            background: #80c378;
+            background: #80c378 !important;
+            border: none;
+            color: white;
+        }
+
+        button:active {
+            background: #80c378 !important;
             border: none;
             color: white;
         }
@@ -151,6 +158,10 @@
     }
 
     .loginMobile {
+        * {
+            overflow: hidden !important;
+        }
+
         button {
             //   padding: 0px;
             width: 140px;
@@ -165,7 +176,13 @@
 
 
         button:hover {
-            background: #80c378;
+            background: #80c378 !important;
+            border: none;
+            color: white;
+        }
+
+        button:active {
+            background: #80c378 !important;
             border: none;
             color: white;
         }
@@ -261,6 +278,10 @@
     }
 
     .loginMobile {
+        * {
+            overflow: hidden !important;
+        }
+
         button {
             //   padding: 0px;
             width: 140px;
@@ -276,6 +297,12 @@
 
         button:hover {
             background: #80c378;
+            border: none;
+            color: white;
+        }
+
+        button:active {
+            background: #80c378 !important;
             border: none;
             color: white;
         }
@@ -611,4 +638,15 @@ footer {
         width: 20px;
         text-align: left;
     }
+}
+
+.mainDevider {
+    //border-top: 2px dotted #bbd7b0 !important;
+    border-top: 2px solid #e5e5e5 !important;
+}
+.subCategory{
+    color:#5cb152!important;
+    font-size:14px;
+    overflow:hidden;
+    text-align:center!important;
 }

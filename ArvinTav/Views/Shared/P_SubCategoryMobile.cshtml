@@ -1,5 +1,7 @@
-﻿ @model IEnumerable<DataLayer.ServiceCategory>
+﻿@model IEnumerable<DataLayer.ServiceCategory>
 @foreach (var item in Model)
 {
-    <li><a href="/Products/@item.ID/@item.Title.Replace(" ","-")">@item.Title</a></li>
+    <li class="uk-nav-header"><label class="subCategory">@item.Title</label></li>
+    <li><a href="#">وردپرس 1</a></li>
+    <li><a href="#">وردپرس 1</a></li>
 }

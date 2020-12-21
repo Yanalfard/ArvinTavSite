@@ -76,6 +76,15 @@ namespace ArvinTav.Controllers
             return PartialView(serviceCategoryRepository.AllChildCategory(ID, true).ChildCategories);
         }
 
+        public ActionResult P_ResultCategory(int ID)
+        {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
+        }
+
+        public ActionResult P_ResultCategoryMobile(int ID)
+        {
+            return PartialView(serviceCategoryRepository.AllChildCategory(ID, true));
+        }
 
         [HttpGet]
         public ActionResult ContactUs(string Massage)

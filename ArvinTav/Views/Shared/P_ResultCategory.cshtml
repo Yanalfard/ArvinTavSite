@@ -1,0 +1,8 @@
+﻿@model DataLayer.ChildCategoryViewModel
+
+@foreach (var item in Model.ChildCategories)
+{
+    <li><a href="/Products/@item.ID/@item.Title.Replace(" ","-")">@item.Title</a></li>
+}
+
+

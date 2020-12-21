@@ -2,6 +2,5 @@
 @foreach (var item in Model)
 {
     <li class="uk-nav-header"><label class="subCategory">@item.Title</label></li>
-    <li><a href="#">وردپرس 1</a></li>
-    <li><a href="#">وردپرس 1</a></li>
+    @Html.Action("P_ResultCategory", "Home", new { ID = item.ID })
 }

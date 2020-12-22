@@ -219,22 +219,6 @@ namespace ArvinTav.Areas.Admin.Controllers
             return Json(packageRepository.Edit(ID, Category, Title, Price, Image, Description));
         }
 
-        public ActionResult P_Remove(int ID)
-        {
-            return PartialView(packageRepository.PackageServiceById(ID));
-        }
-
-        [HttpPost]
-        public string Remove(int ID)
-        {
-            string fullPathImage = Request.MapPath("/Document/img/Package/" + packageRepository.PackageServiceById(ID).Image);
-            if (System.IO.File.Exists(fullPathImage))
-            {
-                System.IO.File.Delete(fullPathImage);
-            }
-            return packageRepository.Remove(ID);
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

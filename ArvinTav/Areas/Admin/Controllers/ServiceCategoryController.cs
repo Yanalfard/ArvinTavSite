@@ -97,27 +97,10 @@ namespace ArvinTav.Areas.Admin.Controllers
             return Json(serviceCategoryRepository.EditServiceCategory(ID.Value, Title, IsActive, Description, Image));
         }
 
-        public ActionResult P_Remove(int ID)
-        {
-            return PartialView(serviceCategoryRepository.ServiceCategoryById(ID));
-        }
-
         public ActionResult IsActive(int ID)
         {
             serviceCategoryRepository.IsActive(ID);
             return RedirectToAction("Index");
-        }
-
-        public string Remove(int ID)
-        {
-            string fullPathImage = Request.MapPath("/Document/img/Category/" + serviceCategoryRepository.ServiceCategoryById(ID).Image);
-
-            if (System.IO.File.Exists(fullPathImage))
-            {
-                System.IO.File.Delete(fullPathImage);
-            }
-
-            return serviceCategoryRepository.RemoveServiceCategory(ID);
         }
 
         protected override void Dispose(bool disposing)

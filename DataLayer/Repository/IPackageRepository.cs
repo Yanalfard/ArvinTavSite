@@ -20,8 +20,6 @@ namespace DataLayer
 
         string Edit(int ID, int Category, string Title, string Price, string Image, string Description);
 
-        string Remove(int ID);
-
         void Save();
     }
 }

@@ -136,7 +136,6 @@
     <Content Include="Areas\Admin\Views\Package\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\Package\P_Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Package\P_List.cshtml" />
-    <Content Include="Areas\Admin\Views\Package\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\Project\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Project\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\Project\P_Edit.cshtml" />
@@ -146,7 +145,6 @@
     <Content Include="Areas\Admin\Views\ServiceCategory\P_ChildCategoryInCreate.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Create.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceCategory\P_Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ServiceCategory\P_Remove.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Ticket\InnerTicket.cshtml" />

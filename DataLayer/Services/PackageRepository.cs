@@ -98,28 +98,6 @@ namespace DataLayer
             return db.PackageServices.Find(ID);
         }
 
-        public string Remove(int ID)
-        {
-            try
-            {
-                foreach (var item in PackageServiceById(ID).Tickets)
-                {
-                    db.InnerTickets.RemoveRange(item.InnerTickets);
-                }
-                db.packageServiceDetails.RemoveRange(PackageServiceById(ID).PackageServiceDetails);
-                db.tickets.RemoveRange(PackageServiceById(ID).Tickets);
-                db.Orders.RemoveRange(PackageServiceById(ID).Orders);
-                db.PackageServices.Remove(PackageServiceById(ID));
-                Save();
-                return "true";
-
-            }
-            catch (Exception ex)
-            {
-                return "Erorr :" + ex.Message;
-            }
-        }
-
         public void Save()
         {
             db.SaveChanges();

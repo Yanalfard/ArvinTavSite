@@ -18,8 +18,6 @@ namespace DataLayer
 
         string EditServiceCategory(int ID, string Title, int IsActive, string Description, string Image);
 
-        string RemoveServiceCategory(int ID);
-
         string IsActive(int ID);
 
         void Save();

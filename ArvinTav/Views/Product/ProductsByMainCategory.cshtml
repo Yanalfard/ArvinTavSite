@@ -32,7 +32,7 @@
                                     <h5 class="center">@Product.Title</h5>
                                     <ul class="my-column uk-padding-remove" dir="rtl">
 
-                                        @foreach (var Detail in Product.PackageServiceDetails)
+                                        @foreach (var Detail in Product.PackageServiceDetails.Take(4))
                                         {
                                             <li><i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
                                         }

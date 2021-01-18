@@ -63,7 +63,7 @@
                         <ul class="my-column uk-padding-remove" dir="rtl">
                             @foreach (var Detail in item.PackageServiceDetails.Take(4))
                             {
-                                <li> <i class="fas fa-check uk-text-success"></i>@Detail.Response</li>
+                                <li> <i class="fas fa-check uk-text-success"></i>@Detail.Title</li>
                             }
                         </ul>
                         <button class="ServiceButton" onclick="window.location.href='/Product/@item.ID/@item.Title.Replace(" ","-")'">جزئیات و سفارش</button>

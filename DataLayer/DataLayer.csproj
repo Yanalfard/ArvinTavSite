@@ -55,9 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ArvinContext.cs" />
-    <Compile Include="Migrations\202011282253034_initialdb.cs" />
-    <Compile Include="Migrations\202011282253034_initialdb.designer.cs">
-      <DependentUpon>202011282253034_initialdb.cs</DependentUpon>
+    <Compile Include="Migrations\202101181823579_intialdb.cs" />
+    <Compile Include="Migrations\202101181823579_intialdb.designer.cs">
+      <DependentUpon>202101181823579_intialdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -141,8 +141,8 @@
     <Content Include="bin\Debug\DataLayer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011282253034_initialdb.resx">
-      <DependentUpon>202011282253034_initialdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101181823579_intialdb.resx">
+      <DependentUpon>202101181823579_intialdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

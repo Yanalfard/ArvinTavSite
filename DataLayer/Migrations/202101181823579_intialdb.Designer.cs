@@ -7,13 +7,13 @@ namespace DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class initialdb : IMigrationMetadata
+    public sealed partial class intialdb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialdb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(intialdb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011282253034_initialdb"; }
+            get { return "202101181823579_intialdb"; }
         }
         
         string IMigrationMetadata.Source

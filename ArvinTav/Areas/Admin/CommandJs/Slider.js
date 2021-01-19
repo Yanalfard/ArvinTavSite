@@ -9,7 +9,7 @@
         var Title = $("#Title").val();
         var Link = $("#Link").val();
 
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 3000) {
             $("#BtnAddSlider").html("عنوان معتبر وارد کنید");
             $("#BtnAddSlider").removeClass("btn-success");
             $("#BtnAddSlider").addClass("btn-danger");

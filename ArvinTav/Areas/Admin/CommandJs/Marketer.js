@@ -6,7 +6,7 @@
     } else {
         var Title = $("#Title").val();
         var Description = $("#Description").val();
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 100) {
             $("#BtnCreateMarketerReport").html("عنوان معتبر وارد کنید");
             $("#BtnCreateMarketerReport").removeClass("btn-success");
             $("#BtnCreateMarketerReport").addClass("btn-danger");
@@ -15,7 +15,7 @@
             $("#BtnCreateMarketerReport").addClass("btn-success");
             $("#BtnCreateMarketerReport").removeClass("btn-danger");
 
-            if (Description.includes("'") || Description.length > 600) {
+            if (Description.includes("'") || Description.length > 999) {
                 $("#BtnCreateMarketerReport").html("توضیحات معتبری وارد کنید - حداکثر تعداد کارکتر 1500 میباشد");
                 $("#BtnCreateMarketerReport").removeClass("btn-success");
                 $("#BtnCreateMarketerReport").addClass("btn-danger");

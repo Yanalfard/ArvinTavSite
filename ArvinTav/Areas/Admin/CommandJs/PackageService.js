@@ -8,7 +8,7 @@
         var Title = $("#Title").val();
         var Description = $("#my-textarea").val();
         var Price = $("#Price").val();
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 100) {
             $("#AddPackageService").html("عنوان معتبر وارد کنید");
             $("#AddPackageService").removeClass("btn-success");
             $("#AddPackageService").addClass("btn-danger");
@@ -163,7 +163,7 @@ function EditPackageService(ID) {
         var Title = $("#Title").val();
         var Description = $("#my-textarea").val();
         var Price = $("#Price").val();
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 100) {
             $("#EditPackageService").html("عنوان معتبر وارد کنید");
             $("#EditPackageService").removeClass("btn-success");
             $("#EditPackageService").addClass("btn-danger");

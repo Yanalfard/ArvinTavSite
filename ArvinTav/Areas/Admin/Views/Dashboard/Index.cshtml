@@ -39,36 +39,7 @@
 
                             </div>
                         </a>
-                        <div class="col-md-6 d-none d-md-block">
-                            <canvas id="myChart" width="400" height="110"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 mb-2">
-            <div class="card shadow-full border-0">
-                <div class="card-body user-card-bg">
-
-                </div>
-                <div class="card-body user-content">
-                    <div class="row">
-                        <a href="/Admin/Package" class="col-md-6">
-
-                            <div class="user-box alert alert-info px-3 p-3 rounded shadow">
-                                <div class="user-icon mb-2">
-                                    <i class="fas fa-box"></i>
-                                </div>
-                                <div class="user-title  mb-3">
-                                    <span class="icon-pic-primary">بسته های نرم افزاری</span>
-                                </div>
-                                <div class="user-count">
-                                    <span class="icon-pic-primary font-weight-bold">@Model.AllPackageCount</span>
-                                </div>
-
-                            </div>
-                        </a>
-                        <a href="/Admin/Order" class="col-md-6">
+                        <a href="/Admin/Order" class="col-md-3">
 
                             <div class="user-box alert alert-info px-3 p-3 rounded shadow">
                                 <div class="user-icon mb-2">
@@ -79,6 +50,21 @@
                                 </div>
                                 <div class="user-count">
                                     <span class="icon-pic-primary font-weight-bold">@Model.AllOrderCount</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        <a href="/Admin/Package" class="col-md-3">
+
+                            <div class="user-box alert alert-info px-3 p-3 rounded shadow">
+                                <div class="user-icon mb-2">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="user-title  mb-3">
+                                    <span class="icon-pic-primary">بسته های نرم افزاری</span>
+                                </div>
+                                <div class="user-count">
+                                    <span class="icon-pic-primary font-weight-bold">@Model.AllPackageCount</span>
                                 </div>
 
                             </div>
@@ -142,39 +128,22 @@
     </div>
 </div>
 
-<script>
+@*<script>
     let myList = [];
     let myListCount = [];
-</script>
+</script>*@
 
 @*<li>@item.DateTime.Year/@item.DateTime.Month</li>*@
 
-
-@foreach (var items in Model.OrderMonth.OrderBy(o => o.DateTime).GroupBy(o => o.DateTime.Month).Take(12))
+@*@foreach (var item in Model.OrderMonth.GroupBy(o=>o.DateTime.Month))
 {
-    foreach (var item in items.Take(1))
-    {
-        <script>
-                myList.push('@item.DateTime.ToShamsi()');
-        </script>
-    }
-}
 
-@foreach (var items in Model.OrderMonth.OrderBy(o => o.DateTime).GroupBy(o => o.DateTime.Month).Take(12))
-{
-    foreach (var item in items.Take(1))
-    {
-        <script>
-                myListCount.push(@items.Count());
-        </script>
-    }
-}
-
+}*@
 
 @section Scripts{
 
 
-    <script>
+    @*<script>
         
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -213,6 +182,6 @@
                 }
             }
         });
-    </script>
+    </script>*@
 
 }

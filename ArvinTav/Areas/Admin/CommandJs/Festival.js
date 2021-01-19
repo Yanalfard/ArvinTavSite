@@ -11,7 +11,7 @@
             $("#AddDiscount").removeClass("btn-success");
             $("#AddDiscount").addClass("btn-danger");
         } else {
-            
+
             if ($("#Code").val().length > 20) {
                 $("#AddDiscount").html("کد تخفیف مناسب وارد کنید");
                 $("#AddDiscount").removeClass("btn-success");
@@ -59,7 +59,7 @@ function EditDiscount(ID) {
         $("#BtnEditDiscount").removeClass("btn-success");
         $("#BtnEditDiscount").addClass("btn-danger");
     } else {
-        
+
         if ($("#Code").val().includes("'")) {
             $("#BtnEditDiscount").html("عنوان مناسب وارد کنید");
             $("#BtnEditDiscount").removeClass("btn-success");
@@ -68,7 +68,7 @@ function EditDiscount(ID) {
         } else {
 
 
-            if ($("#Code").val().length > 20) {
+            if ($("#Code").val().length > 100) {
                 $("#BtnEditDiscount").html("کد تخفیف مناسب وارد کنید");
                 $("#BtnEditDiscount").removeClass("btn-success");
                 $("#BtnEditDiscount").addClass("btn-danger");

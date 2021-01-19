@@ -66,7 +66,7 @@
                                 $.post("/Admin/HomeSetting/SliderCreate?Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
 
                                     if (result == "true") {
-                                       
+
                                         $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
                                         $.get("/Admin/HomeSetting/P_Slider", function (result) {
                                             $("#card-table").html(result);
@@ -74,7 +74,7 @@
                                             $("#modalSave").removeClass('show');
                                             document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
                                         });
-                                      
+
                                     } else {
                                         alert(result);
                                     }
@@ -104,13 +104,13 @@ function BtnEditSlider(ID) {
         var Title = $("#Title").val();
         var Link = $("#Link").val();
 
-        if (Title.includes("'") || Title.length > 300) {
+        if (Title.includes("'") || Title.length > 3000) {
             $("#BtnEditSlider").html("عنوان معتبر وارد کنید");
             $("#BtnEditSlider").removeClass("btn-success");
             $("#BtnEditSlider").addClass("btn-danger");
         } else {
 
-            if (Link.includes("&#39;") || Link.length > 500) {
+            if (Link.includes("&#39;") || Link.length > 5000) {
                 $("#BtnEditSlider").html("لطفا لینک مناسب وارد کنید");
                 $("#BtnEditSlider").removeClass("btn-success");
                 $("#BtnEditSlider").addClass("btn-danger");
@@ -120,11 +120,11 @@ function BtnEditSlider(ID) {
                 $("#BtnEditSlider").addClass("btn-success");
                 $("#BtnEditSlider").removeClass("btn-danger");
                 if ($("#Image").val() == null || $("#Image").val() == "") {
-                    
+
                     $.post("/Admin/HomeSetting/SliderEdit?ID=" + ID + "&Title=" + Title + "&Link=" + Link + "&Image=", function (result) {
 
                         if (result == "true") {
-                            
+
                             $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
                             $.get("/Admin/HomeSetting/P_Slider", function (result) {
                                 $("#card-table").html(result);
@@ -132,7 +132,7 @@ function BtnEditSlider(ID) {
                                 $("#modalSave").removeClass('show');
                                 document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
                             });
-                           
+
                         } else {
                             alert(result);
                         }
@@ -176,14 +176,14 @@ function BtnEditSlider(ID) {
                                 $.post("/Admin/HomeSetting/SliderEdit?ID=" + ID + "&Title=" + Title + "&Link=" + Link + "&Image=" + Image, function (result) {
 
                                     if (result == "true") {
-                                            $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
-                                            $.get("/Admin/HomeSetting/P_Slider", function (result) {
-                                                $("#card-table").html(result);
-                                                $("#modalSave").css('display', 'none');
-                                                $("#modalSave").removeClass('show');
-                                                document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
-                                            });
-                                        
+                                        $("#card-table").html("<img src='/img/gif/load.gif' class='loding justify-content-center' />");
+                                        $.get("/Admin/HomeSetting/P_Slider", function (result) {
+                                            $("#card-table").html(result);
+                                            $("#modalSave").css('display', 'none');
+                                            $("#modalSave").removeClass('show');
+                                            document.querySelectorAll('.modal-backdrop')[0].parentElement.removeChild(document.querySelectorAll('.modal-backdrop')[0]);
+                                        });
+
                                     } else {
                                         alert(result);
                                     }

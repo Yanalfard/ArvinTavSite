@@ -8,7 +8,7 @@
         var Title = $("#Title").val();
         var Description = $("#my-textarea").val();
 
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 100) {
             $("#AddCategory").html("عنوان معتبر وارد کنید");
             $("#AddCategory").removeClass("btn-success");
             $("#AddCategory").addClass("btn-danger");
@@ -125,7 +125,7 @@ $("#EditCategory").click(function () {
             var Title = $("#Title").val();
             var Description = $("#my-textarea").val();
 
-            if (Title.includes("'") || Title.length > 30) {
+            if (Title.includes("'") || Title.length > 100) {
                 $("#EditCategory").html("عنوان معتبر وارد کنید");
                 $("#EditCategory").removeClass("btn-success");
                 $("#EditCategory").addClass("btn-danger");

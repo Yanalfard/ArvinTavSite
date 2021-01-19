@@ -35,8 +35,8 @@ namespace DataLayer
             statisticViewModel.AllTicket = ticketRepository.AllTickets().Count();
             statisticViewModel.TicketNotSeen = ticketRepository.AllTickets().Where(t => t.Status == 1).Count();
             statisticViewModel.TicketEnded = ticketRepository.AllTickets().Where(t => t.Status == 3).Count();
-            statisticViewModel.OrderMonth = orderRepository.AllOrders().Where(o => o.Status == 3).OrderBy(o => o.DateTime);
-            statisticViewModel.OrderCount = orderRepository.AllOrders().Where(o => o.Status == 3).OrderBy(o => o.DateTime);
+            //statisticViewModel.OrderMonth = orderRepository.AllOrders().Where(o => o.Status == 3);
+            //statisticViewModel.OrderCount = orderRepository.AllOrders().Where(o => o.Status == 3).OrderBy(o => o.DateTime);
             return statisticViewModel;
         }
 

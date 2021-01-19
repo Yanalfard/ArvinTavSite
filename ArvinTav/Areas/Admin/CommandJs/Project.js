@@ -22,13 +22,13 @@ $("#BtnProjectCreate").click(function () {
             $("#BtnProjectCreate").removeClass('btn-success');
         } else {
 
-            if (Title.length > 20) {
+            if (Title.length > 100) {
                 $("#BtnProjectCreate").html("عنوان معتبر وارد کنید");
                 $("#BtnProjectCreate").addClass('btn-danger');
                 $("#BtnProjectCreate").removeClass('btn-success');
             } else {
 
-                if (Link.length > 100) {
+                if (Link.length > 10000) {
                     $("#BtnProjectCreate").html("لینک معتبر وارد کنید");
                     $("#BtnProjectCreate").addClass('btn-danger');
                     $("#BtnProjectCreate").removeClass('btn-success');
@@ -114,13 +114,13 @@ function EditProject(ID) {
                 $("#BtnEditProject").removeClass('btn-success');
             } else {
                 
-                if (Title.length > 20) {
+                if (Title.length > 100) {
                     $("#BtnEditProject").html("عنوان معتبر وارد کنید");
                     $("#BtnEditProject").addClass('btn-danger');
                     $("#BtnEditProject").removeClass('btn-success');
                 } else {
 
-                    if (Link.length > 100) {
+                    if (Link.length > 10000) {
                         $("#BtnEditProject").html("لینک معتبر وارد کنید");
                         $("#BtnEditProject").addClass('btn-danger');
                         $("#BtnEditProject").removeClass('btn-success');

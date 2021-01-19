@@ -15,7 +15,7 @@ $("#BtnPartnerCreate").click(function () {
         var Title = $("#Title").val();
         var PhoneNumber = $("#PhoneNumber").val();
 
-        if (Title.length > 20 || Title.includes("'")) {
+        if (Title.length > 100 || Title.includes("'")) {
             $("#BtnPartnerCreate").removeClass('btn-success');
             $("#BtnPartnerCreate").addClass('btn-danger');
             $("#BtnPartnerCreate").html("عنوان مناسب وارد کنید");
@@ -106,7 +106,7 @@ function BtnPartnerEdit(ID) {
         var Title = $("#Title").val();
         var PhoneNumber = $("#PhoneNumber").val();
 
-        if (Title.length > 20 || Title.includes("'")) {
+        if (Title.length > 100 || Title.includes("'")) {
             $("#BtnPartnerEdit").removeClass('btn-success');
             $("#BtnPartnerEdit").addClass('btn-danger');
             $("#BtnPartnerEdit").html("عنوان مناسب وارد کنید");

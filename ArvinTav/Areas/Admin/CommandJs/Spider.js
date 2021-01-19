@@ -22,7 +22,7 @@ $("#BtnAddSpider").click(function () {
         var Title = $("#Title").val();
         var Description = $("#my-textarea").val();
 
-        if (Title.includes("'") || Title.length > 30) {
+        if (Title.includes("'") || Title.length > 300) {
             $("#BtnAddSpider").html("عنوان معتبر وارد کنید");
             $("#BtnAddSpider").removeClass("btn-success");
             $("#BtnAddSpider").addClass("btn-danger");

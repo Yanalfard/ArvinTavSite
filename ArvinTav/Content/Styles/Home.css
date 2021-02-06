@@ -597,8 +597,8 @@ body {
         -o-transition: all ease 0.5s;
         -webkit-transition: all ease 0.5s;
         transition: all ease 0.5s;
-        width: 60px;
-        height: 60px; }
+        width: 80px;
+        height: 80px; }
       .IndexPage .sponsor .uk-slider-items a:hover img {
         filter: saturate(100%); }
     .IndexPage .sponsor .uk-s-slider-container {
